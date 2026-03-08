@@ -3,7 +3,11 @@
 export.cfg
 **/*.translation
 .import/
-.builds/
+.builds/linux/*
+.builds/windows/*
+.builds/macos/*
+
+!.gitkeep
 
 # Mono-specific
 .mono/
