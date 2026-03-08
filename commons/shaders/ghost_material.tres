@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://3khy7rmfm1x6"]
+
+[ext_resource type="Shader" uid="uid://devmf4fua2vbo" path="res://commons/shaders/ghost.tres" id="1_bwkvt"]
+[ext_resource type="Texture2D" uid="uid://c8pajwhhkmxew" path="res://commons/shaders/ghost_noise.tres" id="2_yufpb"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_bwkvt")
+shader_parameter/Texture2DParameter = ExtResource("2_yufpb")

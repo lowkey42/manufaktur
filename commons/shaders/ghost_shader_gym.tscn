@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dijdwmaeeir58"]
+
+[ext_resource type="Material" uid="uid://3khy7rmfm1x6" path="res://commons/shaders/ghost_material.tres" id="1_36o1f"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_pjxm5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_36o1f"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_pjxm5"]
+
+[node name="Node3D" type="Node3D" unique_id=636877432]
+
+[node name="Ghost" type="CSGMesh3D" parent="." unique_id=1342775035]
+material_override = ExtResource("1_36o1f")
+mesh = SubResource("CapsuleMesh_pjxm5")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=352304398]
+transform = Transform3D(1, 0, 0, 0, 0.28749424, 0.9577824, 0, -0.9577824, 0.28749424, 0, 2.3328109, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1133993550]
+transform = Transform3D(0.40343356, -0.54482, 0.73512757, 0, 0.80341023, 0.5954259, -0.91500896, -0.2402148, 0.32412264, 2.0904498, 1.9721441, 1.1078066)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="." unique_id=790842500]
+transform = Transform3D(-6.687237, 0, 0, 0, 0.0995971, 0, 0, 0, -9.186586, 0, -0.84843755, 0)
+mesh = SubResource("BoxMesh_36o1f")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="." unique_id=632198862]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6345811, -0.33322716, -1.2294819)
+mesh = SubResource("BoxMesh_pjxm5")
+material = ExtResource("1_36o1f")
