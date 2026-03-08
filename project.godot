@@ -16,6 +16,14 @@ run/main_scene="uid://biuk2n8t021vi"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+PromptManager="*uid://qdj52llei2ml"
+
+[debug_draw_3d]
+
+settings/addon_root_folder="res://addons/debug_draw_3d"
+
 [display]
 
 window/size/viewport_width=1920
@@ -26,6 +34,14 @@ window/vsync/vsync_mode=3
 [dotnet]
 
 project/assembly_name="Manufaktur"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/diagnosticlist/plugin.cfg", "res://addons/godot_3d_auto_collision_generator/plugin.cfg", "res://addons/godot_resource_groups/plugin.cfg", "res://addons/input_prompts/plugin.cfg", "res://addons/proton_scatter/plugin.cfg", "res://addons/richtext2/plugin.cfg")
+
+[godot_resource_groups]
+
+auto_rebuild=true
 
 [physics]
 
@@ -44,3 +60,7 @@ camera/depth_of_field/depth_of_field_bokeh_quality=2
 camera/depth_of_field/depth_of_field_use_jitter=true
 environment/subsurface_scattering/subsurface_scattering_quality=2
 occlusion_culling/use_occlusion_culling=true
+
+[richer_text_label]
+
+fonts={}
