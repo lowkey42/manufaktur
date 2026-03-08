@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://7jekhbp45ds0"]
+
+[ext_resource type="PackedScene" uid="uid://cm7kt7b1e2d03" path="res://gameplay/player/player.tscn" id="1_jx7jd"]
+[ext_resource type="Script" uid="uid://cpcahd3ahcmin" path="res://gameplay/GameCore.cs" id="1_uoxhe"]
+[ext_resource type="Script" uid="uid://ckxb8gutbgkk" path="res://gameplay/GhostTracker.cs" id="2_ggeim"]
+
+[node name="GameCore" type="Node" unique_id=910148981]
+script = ExtResource("1_uoxhe")
+
+[node name="GhostTracker" type="Node" parent="." unique_id=288071560]
+script = ExtResource("2_ggeim")
+
+[node name="Player" parent="." unique_id=854154611 instance=ExtResource("1_jx7jd")]

@@ -1,6 +1,38 @@
 [gd_scene format=3 uid="uid://cm7kt7b1e2d03"]
 
-[node name="Player" type="Node3D" unique_id=854154611]
+[ext_resource type="Script" uid="uid://b7gj6riclvku0" path="res://gameplay/player/Player.cs" id="1_01s76"]
+[ext_resource type="Material" uid="uid://c21s2t813typy" path="res://commons/textures/placeholder_material.tres" id="2_xq3ts"]
+
+[sub_resource type="Curve" id="Curve_01s76"]
+_limits = [0.0, 10.0, 0.0, 80.0]
+_data = [Vector2(0, 10), 0.0, 0.0, 0, 0, Vector2(41.759617, 3.0109196), -0.10048267, -0.10048267, 0, 0, Vector2(67.92308, 3.1127396), 0.09098856, 0.09098856, 0, 0, Vector2(80, 5.98347), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_omfh6"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_omfh6"]
+
+[node name="Player" type="CharacterBody3D" unique_id=813857107 node_paths=PackedStringArray("_camera")]
+axis_lock_angular_z = true
+platform_on_leave = 1
+script = ExtResource("1_01s76")
+_acceleration = SubResource("Curve_01s76")
+_camera = NodePath("Camera3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1666303049]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_omfh6")
+debug_color = Color(0, 0.6457332, 0.26038483, 0.41960785)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=908539865]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, -0.25)
+current = true
+fov = 85.0
+near = 0.1
+far = 1000.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=419960495]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = ExtResource("2_xq3ts")
+gi_mode = 2
+mesh = SubResource("CapsuleMesh_omfh6")

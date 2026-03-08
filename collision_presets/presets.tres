@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="CollisionPresetsDatabase" format=3 uid="uid://b3q5awirkjnc"]
+
+[ext_resource type="Script" uid="uid://dle6wr75jpdaa" path="res://addons/collision_presets/collision_preset.gd" id="1_5yekf"]
+[ext_resource type="Script" uid="uid://bka8g5my3r20w" path="res://addons/collision_presets/collision_presets_database.gd" id="2_2mjqt"]
+
+[resource]
+script = ExtResource("2_2mjqt")
