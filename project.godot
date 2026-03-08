@@ -13,12 +13,13 @@ config_version=5
 config/name="Manufaktur"
 config/version="0.0.1"
 run/main_scene="uid://biuk2n8t021vi"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 PromptManager="*uid://qdj52llei2ml"
+CollisionPresetRuntime="*uid://u810pt6u5apa"
 
 [debug_draw_3d]
 
@@ -37,7 +38,7 @@ project/assembly_name="Manufaktur"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/diagnosticlist/plugin.cfg", "res://addons/godot_3d_auto_collision_generator/plugin.cfg", "res://addons/godot_resource_groups/plugin.cfg", "res://addons/input_prompts/plugin.cfg", "res://addons/proton_scatter/plugin.cfg", "res://addons/richtext2/plugin.cfg")
+enabled=PackedStringArray("res://addons/collision_presets/plugin.cfg", "res://addons/diagnosticlist/plugin.cfg", "res://addons/godot_3d_auto_collision_generator/plugin.cfg", "res://addons/godot_resource_groups/plugin.cfg", "res://addons/input_prompts/plugin.cfg", "res://addons/proton_scatter/plugin.cfg", "res://addons/richtext2/plugin.cfg")
 
 [godot_resource_groups]
 
