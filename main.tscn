@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://biuk2n8t021vi"]
 
+[ext_resource type="Script" uid="uid://dyycsipru43sm" path="res://Main.cs" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://c0u0t8bci7xwj" path="res://menus/main_menu.tscn" id="2_0xm2m"]
+
 [node name="Main" type="Control" unique_id=1765315649]
 layout_mode = 3
 anchors_preset = 15
@@ -7,3 +10,5 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ig7tw")
+TargetScene = ExtResource("2_0xm2m")

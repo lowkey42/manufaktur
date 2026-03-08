@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cm7kt7b1e2d03"]
+
+[node name="Player" type="Node3D" unique_id=854154611]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=908539865]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)

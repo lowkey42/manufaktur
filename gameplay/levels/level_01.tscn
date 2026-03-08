@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://cxp44kfd6jft0"]
 
-[node name="Level01" type="Control" unique_id=296215061]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[ext_resource type="PackedScene" uid="uid://00ip0t0c74ti" path="res://gameplay/base_level.tscn" id="1_5pioa"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5pioa"]
+
+[node name="Level01" unique_id=433332774 instance=ExtResource("1_5pioa")]
+
+[node name="LevelGeometry" type="Node3D" parent="." index="2" unique_id=667780060]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LevelGeometry" index="0" unique_id=193610477]
+mesh = SubResource("PlaneMesh_5pioa")
