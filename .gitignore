@@ -1,0 +1,45 @@
+# Godot
+.godot/*
+export.cfg
+**/*.translation
+.import/
+.builds/
+
+# Mono-specific
+.mono/
+/data_*/
+mono_crash.*.json
+*.DotSettings.user
+Directory.Build.targets
+
+# Visual Studio
+.vs/*
+bin/*
+obj/*
+Properties/*
+*.csproj.user
+
+# Visual Studio Code
+.vscode/*
+
+# Rider
+.idea/*
+
+# ENet
+ENet-CSharp.dll
+libenet.so
+enet.so
+libenet.dylib
+enet.dylib
+
+# Mac OS Files
+.DS_Store
+
+# FMOD files
+FMODStudioCache.asset
+fmod_editor.log
+/fmod/.cache/
+/fmod/.unsaved/
+/fmod/.user/
+/fmod/Build/
+

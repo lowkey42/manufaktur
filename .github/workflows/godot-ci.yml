@@ -1,0 +1,63 @@
+name: Godot CI/CD
+
+on: [push, pull_request]
+
+env:
+  EXPORT_NAME: Template
+  GODOT_VERSION: mono-4.6.1
+
+jobs:
+  import-assets:
+    runs-on: ubuntu-latest
+    container: barichello/godot-ci:mono-4.6.1
+    steps:
+      - uses: actions/checkout@v4
+      - name: Import Assets
+        run: godot --headless --verbose --editor --quit
+      - name: Upload .godot Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: godot-import-assets
+          path: .
+          include-hidden-files: true
+
+  export:
+    needs: import-assets
+    runs-on: ubuntu-latest
+    container: barichello/godot-ci:mono-4.6.1
+    strategy:
+      matrix:
+        platform: [linux, windows, mac]
+        include:
+          - platform: linux
+            preset: "Linux"
+            extension: ".x86_64"
+          - platform: windows
+            preset: "Windows"
+            extension: ".exe"
+          - platform: mac
+            preset: "macOS"
+            extension: ".zip"
+    steps:
+      - name: Download .godot Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: godot-import-assets
+          path: .
+      - name: Fix Setup
+        run: |
+          mkdir -v -p ~/.local/share/godot/export_templates/
+          mkdir -v -p ~/.config/
+          mv /root/.config/godot ~/.config/godot
+          mv /root/.local/share/godot/export_templates/* ~/.local/share/godot/export_templates/
+      - name: Build Export
+        run: |
+          mkdir -v -p "$EXPORT_NAME"
+          EXPORT_DIR="$(readlink -f $EXPORT_NAME)"
+          godot --headless --verbose --export-release "${{ matrix.preset }}" "$EXPORT_DIR/$EXPORT_NAME${{ matrix.extension }}"
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.EXPORT_NAME }}-${{ matrix.platform }}
+          path: ${{ env.EXPORT_NAME }}
+
