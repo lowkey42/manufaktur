@@ -12,6 +12,7 @@ config_version=5
 
 config/name="Manufaktur"
 config/version="0.0.1"
+run/main_scene="uid://biuk2n8t021vi"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
