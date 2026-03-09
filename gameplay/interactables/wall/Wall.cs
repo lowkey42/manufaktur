@@ -3,15 +3,9 @@ using Godot;
 namespace Manufaktur.gameplay.interactables.wall;
 
 public partial class Wall : Triggerable {
-
-	[ExportGroup("Nodes")]
-	[Export] public NodePath MeshPath = "Body/Mesh";
-	[Export] public NodePath ColliderPath = "Body/Collider";
-
-	[ExportGroup("Options")]
 	[Export] public bool StartDisabled = false;
 
-	private Node3D _visual3D;
+	private Node3D _mesh;
 	private CollisionObject3D _collider;
 
 	private bool _isDisabled;
@@ -19,8 +13,8 @@ public partial class Wall : Triggerable {
 	public override void _Ready() {
 		base._Ready();
 
-		_visual3D = GetNodeOrNull<Node3D>(MeshPath);
-		_collider = GetNodeOrNull<CollisionObject3D>(ColliderPath);
+		_mesh = GetNodeOrNull<Node3D>("Body/Mesh");
+		_collider = GetNodeOrNull<CollisionObject3D>("Body/Collider");
 
 		_isDisabled = StartDisabled;
 		ApplyState();
@@ -33,8 +27,8 @@ public partial class Wall : Triggerable {
 
 	private void ApplyState() {
 		// Visual
-		if (_visual3D != null)
-			_visual3D.Visible = !_isDisabled;
+		if (_mesh != null)
+			_mesh.Visible = !_isDisabled;
 
 		// Collision
 		if (_collider != null)
