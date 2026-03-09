@@ -57,6 +57,7 @@ public partial class Player : CharacterBody3D {
 
 	public Inventory Inventory { get; init; } = new Inventory();
 
+	private bool _firstFrame = true;
 	private float _gravity;
 	private float _jumpVelocity;
 	private int _jumpsLeft;
@@ -73,6 +74,7 @@ public partial class Player : CharacterBody3D {
 	public override void _Ready() {
 		_gravity      = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle() * _gravityFactor;
 		_jumpVelocity = Mathf.Sqrt(2 * _gravity * _jumpHeight);
+		_camera.Fov   = _targetFov.Sample(0);
 	}
 
 	public override void _Input(InputEvent e) {
@@ -169,7 +171,15 @@ public partial class Player : CharacterBody3D {
 	}
 
 	public override void _Process(double delta) {
-		var displacement = _camera.Fov - _targetFov.Sample(ToHorizontal(Velocity).Length() / _maxSpeed);
+		var targetFov = _targetFov.Sample(ToHorizontal(Velocity).Length());
+		
+		if (_firstFrame) {
+			_camera.Fov = targetFov;
+			_firstFrame = false;
+			return;
+		}
+		
+		var displacement = _camera.Fov - targetFov;
 		var springForce  = -_fovSpringStiffness * displacement;
 		var dampingForce = -_fovSpringDamping * _fovVelocity;
 
