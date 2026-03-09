@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dp6hn6o8cv47k"]
+
+[ext_resource type="PackedScene" uid="uid://c12ew1nputee6" path="res://gameplay/interactables/button/button.tscn" id="2_5wpfh"]
+[ext_resource type="Script" uid="uid://btf7athug6dhg" path="res://gameplay/interactables/button/debugscene/DebugResetRigidBody.cs" id="2_x6m0e"]
+[ext_resource type="PackedScene" uid="uid://c6oo31slh8dwc" path="res://gameplay/triggerables/door_left/door_left.tscn" id="3_5wpfh"]
+[ext_resource type="PackedScene" uid="uid://cm7kt7b1e2d03" path="res://gameplay/player/player.tscn" id="4_5wica"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_x6m0e"]
+size = Vector2(18, 18)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5wpfh"]
+size = Vector3(18, 1, 18)
+
+[node name="Test" type="Node3D" unique_id=897939974]
+script = ExtResource("2_x6m0e")
+
+[node name="button" parent="." unique_id=1077334481 instance=ExtResource("2_5wpfh")]
+OnlyTriggerOnce = false
+TriggerOnExit = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=810357167]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8655154, -2.6513467)
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=115337836]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=838294989]
+mesh = SubResource("PlaneMesh_x6m0e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1912285177]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_5wpfh")
+
+[node name="DoorLeft" parent="." unique_id=416618077 instance=ExtResource("3_5wpfh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.0152206)
+DoorOpen = true
+
+[node name="Player" parent="." unique_id=813857107 instance=ExtResource("4_5wica")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1888215675]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8350363, 1.9925838, 2.0978703)

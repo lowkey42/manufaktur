@@ -3,11 +3,16 @@
 [ext_resource type="PackedScene" uid="uid://cm7kt7b1e2d03" path="res://gameplay/player/player.tscn" id="1_jx7jd"]
 [ext_resource type="Script" uid="uid://cpcahd3ahcmin" path="res://gameplay/GameCore.cs" id="1_uoxhe"]
 [ext_resource type="Script" uid="uid://ckxb8gutbgkk" path="res://gameplay/GhostTracker.cs" id="2_ggeim"]
+[ext_resource type="PackedScene" uid="uid://uesictnom2dy" path="res://gameplay/hud/hud.tscn" id="4_s0qlc"]
 
-[node name="GameCore" type="Node" unique_id=910148981]
+[node name="GameCore" type="Node" unique_id=910148981 node_paths=PackedStringArray("_hud", "_player")]
 script = ExtResource("1_uoxhe")
+_hud = NodePath("Hud")
+_player = NodePath("Player")
 
 [node name="GhostTracker" type="Node" parent="." unique_id=288071560]
 script = ExtResource("2_ggeim")
 
 [node name="Player" parent="." unique_id=854154611 instance=ExtResource("1_jx7jd")]
+
+[node name="Hud" parent="." unique_id=127962132 instance=ExtResource("4_s0qlc")]

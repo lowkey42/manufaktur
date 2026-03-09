@@ -41,6 +41,11 @@ project/assembly_name="Manufaktur"
 
 enabled=PackedStringArray("res://addons/collision_presets/plugin.cfg", "res://addons/diagnosticlist/plugin.cfg", "res://addons/godot_3d_auto_collision_generator/plugin.cfg", "res://addons/godot_resource_groups/plugin.cfg", "res://addons/input_prompts/plugin.cfg", "res://addons/proton_scatter/plugin.cfg", "res://addons/richtext2/plugin.cfg")
 
+[global_group]
+
+finish=""
+spawn_point=""
+
 [godot_resource_groups]
 
 auto_rebuild=true
@@ -111,6 +116,12 @@ look_down={
 "events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":3,"axis_value":1.0,"script":null)
 ]
 }
+
+[layer_names]
+
+3d_physics/layer_1="env"
+3d_physics/layer_2="player"
+3d_physics/layer_3="interactables"
 
 [physics]
 

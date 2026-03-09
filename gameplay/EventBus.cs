@@ -31,5 +31,5 @@ public partial class EventBus : Node {
 	public void EmitPlayerDied() {
 		EmitSignalPlayerDied();
 	}
-	
+
 }
