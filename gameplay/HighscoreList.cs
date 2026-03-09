@@ -9,7 +9,7 @@ namespace Manufaktur.gameplay;
 public class HighscoreList {
 	public class Entry {
 		private readonly string _levelName;
-		
+
 		public string Name { get; set; }
 		public float Time { get; private set; }
 		public string GhostId { get; private set; }
@@ -23,19 +23,20 @@ public class HighscoreList {
 
 		internal Dictionary ToDictionary() => new() {{"name", Name}, {"time", Time}, {"ghost", GhostId}};
 
-		internal static Entry FromDictionary(string levelName, Dictionary dict) => new(levelName, dict["name"].AsString(), (float) dict["time"].AsDouble(), dict["ghost"].AsString());
+		internal static Entry FromDictionary(string levelName, Dictionary dict) =>
+			new(levelName, dict["name"].AsString(), (float) dict["time"].AsDouble(), dict["ghost"].AsString());
 
-		public string GetUserGhostPath() => GhostId!=null ? $"user://{_levelName}_ghost_{GhostId}.json" : null;
-		
-		public string GetSystemGhostPath() => GhostId!=null ? $"res://gameplay/levels/{_levelName}_ghost_{GhostId}.json" : null;
-		
+		public string GetUserGhostPath() => GhostId != null ? $"user://{_levelName}_ghost_{GhostId}.json" : null;
+
+		public string GetSystemGhostPath() => GhostId != null ? $"res://gameplay/levels/{_levelName}_ghost_{GhostId}.json" : null;
+
 		public PlayerPath LoadGhost() {
 			if (GhostId == null)
 				return null;
 
-			if(FileAccess.FileExists(GetUserGhostPath()))
+			if (FileAccess.FileExists(GetUserGhostPath()))
 				return new PlayerPath(GetUserGhostPath());
-			if(FileAccess.FileExists(GetSystemGhostPath()))
+			if (FileAccess.FileExists(GetSystemGhostPath()))
 				return new PlayerPath(GetSystemGhostPath());
 
 			return null;
@@ -45,14 +46,14 @@ public class HighscoreList {
 	private const int _maxEntries = 10;
 
 	private readonly string _levelName;
-	
+
 	private readonly List<Entry> _entries = [];
 
 	public Entry[] Entries => _entries.ToArray();
-	
+
 	public HighscoreList(string levelName) {
 		_levelName = levelName.ToLower();
-		
+
 		var path = $"user://{_levelName}_highscore.json";
 		if (!FileAccess.FileExists(path)) {
 			path = $"res://gameplay/levels/{_levelName}_highscore.json";
@@ -77,6 +78,11 @@ public class HighscoreList {
 		foreach (var entry in jsonData["entries"].AsGodotArray<Dictionary>()) {
 			_entries.Add(Entry.FromDictionary(_levelName, entry));
 		}
+	}
+
+	public static Entry LoadTopEntry(string levelName) {
+		var list = new HighscoreList(levelName);
+		return list.Entries.Length > 0 ? list.Entries[0] : new Entry(levelName, "Schmanu", 4.2f, null);
 	}
 
 	public Entry AddHighscoreEntry(string name, float time) {
