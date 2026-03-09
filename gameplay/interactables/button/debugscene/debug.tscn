@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dp6hn6o8cv47k"]
 
-[ext_resource type="Script" uid="uid://bl1pceyox456v" path="res://gameplay/interactables/button/ButtonScript.cs" id="1_x6m0e"]
 [ext_resource type="PackedScene" uid="uid://c12ew1nputee6" path="res://gameplay/interactables/button/button.tscn" id="2_5wpfh"]
+[ext_resource type="Script" uid="uid://btf7athug6dhg" path="res://gameplay/interactables/button/debugscene/DebugResetRigidBody.cs" id="2_x6m0e"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_s6i1b"]
 
@@ -14,18 +14,18 @@ size = Vector2(6, 6)
 size = Vector3(6, 1, 6)
 
 [node name="Test" type="Node3D" unique_id=897939974]
-script = ExtResource("1_x6m0e")
+script = ExtResource("2_x6m0e")
 
 [node name="button" parent="." unique_id=1077334481 instance=ExtResource("2_5wpfh")]
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1540528254]
+[node name="player" type="RigidBody3D" parent="." unique_id=1540528254]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 collision_layer = 2
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=826503436]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="player" unique_id=826503436]
 mesh = SubResource("CapsuleMesh_s6i1b")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=728548091]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player" unique_id=728548091]
 shape = SubResource("CapsuleShape3D_s6i1b")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1041116356]
