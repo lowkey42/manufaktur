@@ -1,5 +1,6 @@
 using Godot;
-using Manufaktur.gameplay.triggerables;
+
+namespace Manufaktur.gameplay.interactables.wall;
 
 public partial class Wall : Triggerable {
 

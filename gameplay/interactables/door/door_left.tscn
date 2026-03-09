@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c6oo31slh8dwc"]
 
-[ext_resource type="Script" uid="uid://df3f8wsptjk6n" path="res://gameplay/triggerables/door/Door.cs" id="1_57cea"]
+[ext_resource type="Script" uid="uid://df3f8wsptjk6n" path="res://gameplay/interactables/door/Door.cs" id="1_57cea"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_u6r3j"]
 size = Vector3(1.6, 2.2, 0.1)

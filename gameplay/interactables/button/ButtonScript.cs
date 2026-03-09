@@ -1,6 +1,8 @@
 using Godot;
 using Manufaktur.gameplay;
 
+namespace Manufaktur.gameplay.interactables.button;
+
 public partial class ButtonScript : Trigger {
 	[Export] public bool TriggerOnEnter { get; set; } = true;
 	[Export] public bool TriggerOnExit { get; set; } = false;
@@ -9,7 +11,7 @@ public partial class ButtonScript : Trigger {
 	private AnimationPlayer _player;
 
 	public override void _Ready() {
-		_area = GetNode<Area3D>("Area3D");
+		_area = GetNode<Area3D>("TriggerArea");
 		_area.BodyEntered += OnAreaBodyEntered;
 		_area.BodyExited += OnAreaBodyExited;
 

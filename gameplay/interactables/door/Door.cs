@@ -1,6 +1,7 @@
 using Godot;
-using Manufaktur.gameplay.triggerables;
 using System;
+
+namespace Manufaktur.gameplay.interactables.door;
 
 public partial class Door : Triggerable
 {

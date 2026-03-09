@@ -1,5 +1,7 @@
 using Godot;
-using Manufaktur.gameplay.triggerables;
+
+namespace Manufaktur.gameplay.interactables.moving_platform;
+
 public partial class MovingPlatform : Triggerable {
 
 	[ExportGroup("Stops (local space)")]

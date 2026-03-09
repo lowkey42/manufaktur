@@ -1,6 +1,6 @@
 using Godot;
 
-namespace Manufaktur.gameplay.triggerables;
+namespace Manufaktur.gameplay;
 
 public abstract partial class Triggerable : Node3D {
 	[Export] public TriggerChannel Channel { get; set; }

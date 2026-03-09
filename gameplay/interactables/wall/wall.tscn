@@ -1,24 +1,23 @@
 [gd_scene format=3 uid="uid://dq4j7x2hfunv2"]
 
-[ext_resource type="Script" uid="uid://cpssiydcnmnut" path="res://gameplay/triggerables/wall/Wall.cs" id="1_5c1x0"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_5c1x0"]
-size = Vector3(4, 2, 0.2)
+[ext_resource type="Script" uid="uid://cpssiydcnmnut" path="res://gameplay/interactables/wall/Wall.cs" id="1_5c1x0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_k8o0q"]
 size = Vector3(4, 2, 0.2)
 
+[sub_resource type="BoxMesh" id="BoxMesh_5c1x0"]
+size = Vector3(4, 2, 0.2)
+
 [node name="Wall" type="Node3D" unique_id=1359160769]
 script = ExtResource("1_5c1x0")
-VisualPath = NodePath("Body/Mesh")
 ColliderPath = NodePath("Body")
 
 [node name="Body" type="StaticBody3D" parent="." unique_id=288695522]
 
-[node name="Mesh" type="MeshInstance3D" parent="Body" unique_id=2000230025]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0)
-mesh = SubResource("BoxMesh_5c1x0")
-
 [node name="Collision" type="CollisionShape3D" parent="Body" unique_id=1258397955]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0)
 shape = SubResource("BoxShape3D_k8o0q")
+
+[node name="Mesh" type="MeshInstance3D" parent="Body" unique_id=2000230025]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0)
+mesh = SubResource("BoxMesh_5c1x0")

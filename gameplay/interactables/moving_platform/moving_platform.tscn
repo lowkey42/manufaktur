@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://drlqtbtd481rq"]
 
-[ext_resource type="Script" uid="uid://bginvke8h6m0w" path="res://gameplay/triggerables/moving_platform/MovingPlatform.cs" id="1_b5ekv"]
+[ext_resource type="Script" uid="uid://bginvke8h6m0w" path="res://gameplay/interactables/moving_platform/MovingPlatform.cs" id="1_b5ekv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g5nlb"]
 size = Vector3(2, 0.2, 2)
