@@ -21,6 +21,7 @@ config/icon="res://icon.svg"
 PromptManager="*uid://qdj52llei2ml"
 CollisionPresetRuntime="*uid://u810pt6u5apa"
 EventBus="*uid://c6eo2p7cfvmf6"
+SettingsManager="*uid://bcitpw3xhbhpy"
 
 [debug_draw_3d]
 
@@ -40,6 +41,10 @@ project/assembly_name="Manufaktur"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/collision_presets/plugin.cfg", "res://addons/diagnosticlist/plugin.cfg", "res://addons/godot_3d_auto_collision_generator/plugin.cfg", "res://addons/godot_resource_groups/plugin.cfg", "res://addons/input_prompts/plugin.cfg", "res://addons/proton_scatter/plugin.cfg", "res://addons/richtext2/plugin.cfg")
+
+[filesystem]
+
+import/blender/enabled=false
 
 [global_group]
 
