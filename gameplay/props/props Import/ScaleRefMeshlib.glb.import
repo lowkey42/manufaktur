@@ -1,0 +1,99 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://dk2ee1vhc4jd6"
+path="res://.godot/imported/ScaleRefMeshlib.glb-ce71172c8d50dd6dc83b5f293850b86f.scn"
+
+[deps]
+
+source_file="res://gameplay/props/props Import/ScaleRefMeshlib.glb"
+dest_files=["res://.godot/imported/ScaleRefMeshlib.glb-ce71172c8d50dd6dc83b5f293850b86f.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"nodes": {
+"PATH:3mWallScaleRef": {
+"generate/physics": true
+},
+"PATH:3x1Plane": {
+"generate/physics": true
+},
+"PATH:3x2Plane": {
+"generate/physics": true
+},
+"PATH:3x4Plane": {
+"generate/physics": true
+},
+"PATH:3x5Plane": {
+"generate/physics": true
+},
+"PATH:3x6Plane": {
+"generate/physics": true
+},
+"PATH:3x8Plane": {
+"generate/physics": true
+},
+"PATH:BasicLivingRoomScaleRef": {
+"generate/physics": true
+},
+"PATH:BasicLivingRoomScaleRef_001": {
+"generate/physics": true
+},
+"PATH:DoorScaleRef": {
+"generate/physics": true
+},
+"PATH:PlankScaleRef": {
+"generate/physics": true
+},
+"PATH:Ramp10dRef": {
+"generate/physics": true
+},
+"PATH:Ramp20dRef": {
+"generate/physics": true
+},
+"PATH:Ramp30dRef": {
+"generate/physics": true
+},
+"PATH:Scaffolding2m-h-ScaleRef": {
+"generate/physics": true
+},
+"PATH:Scaffolding3_5m-h-ScaleRef": {
+"generate/physics": true
+},
+"PATH:StaircaseScaleRef": {
+"generate/physics": true
+},
+"PATH:StaircaseScaleRef_001": {
+"generate/physics": true
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1
