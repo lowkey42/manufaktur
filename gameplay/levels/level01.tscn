@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://00ip0t0c74ti" path="res://gameplay/base_level.tscn" id="1_5pioa"]
 [ext_resource type="Material" uid="uid://c21s2t813typy" path="res://commons/textures/placeholder_material.tres" id="2_f0u35"]
+[ext_resource type="PackedScene" uid="uid://di7d1utnoba6s" path="res://gameplay/interactables/spike_trap.tscn" id="3_qped4"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_5pioa"]
 size = Vector2(100, 100)
@@ -36,3 +37,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.18455, 0, 4.6905375)
 
 [node name="Finish" parent="." index="5" unique_id=1714722049]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.958788, 0, -18.359535)
+
+[node name="SpikeTrap" parent="." index="6" unique_id=189809183 instance=ExtResource("3_qped4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.062111, 0, -11.76894)
