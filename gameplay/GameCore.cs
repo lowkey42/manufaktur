@@ -72,6 +72,13 @@ public partial class GameCore : Node {
 		
 		_hud.SetCurrentTime(_time);
 		_ghostTracker.SetCurrentTime(_time);
+
+		if (Input.IsActionJustReleased("reset")) {
+			var error = GetTree().ReloadCurrentScene();
+			if(error != Error.Ok) {
+				GD.PrintErr(error);
+			}
+		}
 	}
 
 	private void OnFinished() {
