@@ -58,6 +58,14 @@ public class HighscoreList {
 			path = $"res://gameplay/levels/{_levelName}_highscore.json";
 		}
 
+		if (!FileAccess.FileExists(path)) {
+			// static fallback if no highscore list exists
+			_entries.Add(new Entry(_levelName, "Schmanu", 4.2f, null));
+			_entries.Add(new Entry(_levelName, "Kanu", 23f, null));
+			_entries.Add(new Entry(_levelName, "Manu", 42.42f, null));
+			return;
+		}
+
 		var json        = new Json();
 		var parseResult = json.Parse(FileAccess.Open(path, FileAccess.ModeFlags.Read).GetAsText());
 		if (parseResult != Error.Ok) {

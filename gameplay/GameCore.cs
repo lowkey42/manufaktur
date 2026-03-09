@@ -45,8 +45,6 @@ public partial class GameCore : Node {
 			_hud.SetBestTime(highscoreEntries[0].Time);
 		
 		foreach (var entry in highscoreEntries) {
-			
-			
 			var ghostPath = entry.LoadGhost();
 			if (ghostPath == null)
 				continue;
