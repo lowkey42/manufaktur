@@ -1,0 +1,200 @@
+[gd_scene format=3 uid="uid://cqfe3j0grnp61"]
+
+[ext_resource type="Texture2D" uid="uid://gskkmdby62te" path="res://commons/textures/placeholder.png" id="1_dvbnx"]
+[ext_resource type="Theme" uid="uid://cdh01f3cdy86t" path="res://commons/main_theme.tres" id="1_ma3l3"]
+[ext_resource type="Texture2D" uid="uid://ff04yh0rdln3" path="res://icon.svg" id="2_60kdo"]
+[ext_resource type="Script" uid="uid://ck28o4xy2wkjo" path="res://menus/LevelSelection.cs" id="2_p6kpr"]
+[ext_resource type="PackedScene" uid="uid://cxp44kfd6jft0" path="res://gameplay/levels/level_01.tscn" id="3_r3nxf"]
+[ext_resource type="Script" uid="uid://csyrf4gbhsvin" path="res://menus/AnimatedButton.cs" id="6_50gvo"]
+
+[node name="LevelSelection" type="Control" unique_id=1153605463]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ma3l3")
+script = ExtResource("2_p6kpr")
+Level1 = ExtResource("3_r3nxf")
+Level2 = ExtResource("3_r3nxf")
+Level3 = ExtResource("3_r3nxf")
+
+[node name="Panel" type="PanelContainer" parent="." unique_id=1166963592]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -408.0
+offset_top = -297.0
+offset_right = 408.0
+offset_bottom = 297.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ma3l3")
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1667388753]
+layout_mode = 2
+theme = ExtResource("1_ma3l3")
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=411570991]
+layout_mode = 2
+theme = ExtResource("1_ma3l3")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=404903441]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=929212692]
+custom_minimum_size = Vector2(700, 50)
+layout_mode = 2
+theme = ExtResource("1_ma3l3")
+text = "Level Selection"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Close_Button" type="Button" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=694799862]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "X"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=416470793]
+custom_minimum_size = Vector2(200, 500)
+layout_mode = 2
+theme = ExtResource("1_ma3l3")
+
+[node name="Level_1" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=924493002]
+layout_mode = 2
+theme = ExtResource("1_ma3l3")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_1" unique_id=1142362326]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme = ExtResource("1_ma3l3")
+text = "Level 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_1" unique_id=17505647]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme = ExtResource("1_ma3l3")
+texture = ExtResource("1_dvbnx")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_1" unique_id=507714919]
+layout_mode = 2
+theme = ExtResource("1_ma3l3")
+
+[node name="TextureRect2" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_1/HBoxContainer" unique_id=12703766]
+layout_mode = 2
+theme = ExtResource("1_ma3l3")
+texture = ExtResource("2_60kdo")
+stretch_mode = 3
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_1/HBoxContainer" unique_id=81377771]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+theme = ExtResource("1_ma3l3")
+text = "3m 35s 14ms"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Load_Level_1_Button" type="Button" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_1" unique_id=985597200]
+layout_mode = 2
+theme = ExtResource("1_ma3l3")
+text = "Start"
+script = ExtResource("6_50gvo")
+
+[node name="Level_2" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2086419129]
+layout_mode = 2
+theme = ExtResource("1_ma3l3")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_2" unique_id=753259212]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme = ExtResource("1_ma3l3")
+text = "Level 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_2" unique_id=1679371121]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme = ExtResource("1_ma3l3")
+texture = ExtResource("1_dvbnx")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_2" unique_id=703674760]
+layout_mode = 2
+theme = ExtResource("1_ma3l3")
+
+[node name="TextureRect2" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_2/HBoxContainer" unique_id=1090592563]
+layout_mode = 2
+theme = ExtResource("1_ma3l3")
+texture = ExtResource("2_60kdo")
+stretch_mode = 3
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_2/HBoxContainer" unique_id=390167279]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+theme = ExtResource("1_ma3l3")
+text = "3m 35s 14ms"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Load_Level_2_Button" type="Button" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_2" unique_id=2011905652]
+layout_mode = 2
+theme = ExtResource("1_ma3l3")
+text = "Start"
+script = ExtResource("6_50gvo")
+
+[node name="Level_3" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=396810303]
+layout_mode = 2
+theme = ExtResource("1_ma3l3")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_3" unique_id=1661257057]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme = ExtResource("1_ma3l3")
+text = "Level 3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_3" unique_id=613896217]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme = ExtResource("1_ma3l3")
+texture = ExtResource("1_dvbnx")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_3" unique_id=838841524]
+layout_mode = 2
+theme = ExtResource("1_ma3l3")
+
+[node name="TextureRect2" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_3/HBoxContainer" unique_id=338402109]
+layout_mode = 2
+theme = ExtResource("1_ma3l3")
+texture = ExtResource("2_60kdo")
+stretch_mode = 3
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_3/HBoxContainer" unique_id=638490185]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+theme = ExtResource("1_ma3l3")
+text = "3m 35s 14ms"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Load_Level_3_Button" type="Button" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_3" unique_id=1789377011]
+layout_mode = 2
+theme = ExtResource("1_ma3l3")
+text = "Start"
+script = ExtResource("6_50gvo")
+
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/HBoxContainer2/Close_Button" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_1/Load_Level_1_Button" to="." method="_on_load_level_1_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_2/Load_Level_2_Button" to="." method="_on_load_level_2_button_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_3/Load_Level_3_Button" to="." method="_on_load_level_3_button_pressed"]
