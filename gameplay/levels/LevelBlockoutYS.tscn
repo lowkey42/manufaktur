@@ -1,17 +1,14 @@
-[gd_scene format=3 uid="uid://dlc4bv08i5ock"]
+[gd_scene format=3 uid="uid://duukdie5muehk"]
 
-[ext_resource type="PackedScene" uid="uid://00ip0t0c74ti" path="res://gameplay/base_level.tscn" id="1_6axvi"]
-[ext_resource type="MeshLibrary" uid="uid://bvn32tj8p3bms" path="res://gameplay/props/ScaleRefMeshLib.tres" id="2_l55w2"]
+[ext_resource type="MeshLibrary" uid="uid://bvn32tj8p3bms" path="res://gameplay/props/ScaleRefMeshLib.tres" id="1_m0afi"]
 
 [node name="LevelBlockoutYs" type="Node3D" unique_id=700678401]
-
-[node name="BaseLevel" parent="." unique_id=433332774 instance=ExtResource("1_6axvi")]
 
 [node name="Node3D" type="Node3D" parent="." unique_id=1394827575]
 
 [node name="GridMap" type="GridMap" parent="." unique_id=1421327343]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
-mesh_library = ExtResource("2_l55w2")
+mesh_library = ExtResource("1_m0afi")
 cell_size = Vector3(1, 1, 1)
 bake_navigation = true
 data = {
