@@ -11,6 +11,9 @@ albedo_texture = ExtResource("2_s50sa")
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_n6j0t"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_s50sa"]
+radius = 1.5
+
 [node name="Ghost" type="AnimatableBody3D" unique_id=25899066]
 script = ExtResource("1_iemc3")
 
@@ -24,3 +27,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 material_override = SubResource("StandardMaterial3D_8r5eh")
 gi_mode = 2
 mesh = SubResource("CapsuleMesh_n6j0t")
+
+[node name="KnockbackArea" type="Area3D" parent="." unique_id=810085083]
+collision_layer = 4
+collision_mask = 2
+metadata/collision_preset_name = "__custom__"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KnockbackArea" unique_id=2028066096]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("SphereShape3D_s50sa")
+
+[node name="WarnArea" type="Area3D" parent="." unique_id=1601171089]
+collision_layer = 4
+collision_mask = 2
+metadata/collision_preset_name = "__custom__"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WarnArea" unique_id=1737787211]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("SphereShape3D_s50sa")
+
+[connection signal="body_entered" from="KnockbackArea" to="." method="KnockbackPlayer"]
+[connection signal="body_entered" from="WarnArea" to="." method="WarnPlayer"]

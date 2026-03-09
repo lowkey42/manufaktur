@@ -3,6 +3,10 @@ using Godot;
 using Manufaktur.gameplay;
 
 public partial class GameCore : Node {
+
+	[Export] private int _startDelay = 3;
+
+	[Export] private int _ghostHeadStart = 2;
 	
 	[Export] private PackedScene _ghostScene;
 
@@ -53,11 +57,28 @@ public partial class GameCore : Node {
 			break;
 		}
 
-		// TODO: show a count down (3 to GO) before starting
-		// TODO: disable player collider until start, so they aren't pushed out of the start zone
+		StartCountdown();
+	}
+
+	private async void StartCountdown() {
+		var bus = EventBus.Instance;
+		
+		_player.ProcessMode = ProcessModeEnum.Disabled;
+		
+		for (var i = 0; i < _startDelay; i++) {
+			var timeLeft = _startDelay - i;
+			if(timeLeft <= _ghostHeadStart)
+				_ghost?.Start();
+			
+			_hud.SetCountdown(timeLeft);
+			await ToSignal(GetTree().CreateTimer(1.0), "timeout");
+		}
+		
+		_player.ProcessMode = ProcessModeEnum.Inherit;
+		_hud.SetCountdown(0);
+		
 		bus.EmitLevelStarted();
 		_started   = true;
-		_ghost?.Start();
 	}
 
 	public override void _ExitTree() {
