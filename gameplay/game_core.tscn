@@ -3,15 +3,19 @@
 [ext_resource type="PackedScene" uid="uid://cm7kt7b1e2d03" path="res://gameplay/player/player.tscn" id="1_jx7jd"]
 [ext_resource type="Script" uid="uid://cpcahd3ahcmin" path="res://gameplay/GameCore.cs" id="1_uoxhe"]
 [ext_resource type="Script" uid="uid://ckxb8gutbgkk" path="res://gameplay/GhostTracker.cs" id="2_ggeim"]
+[ext_resource type="PackedScene" uid="uid://dwa5sbx8g6fh1" path="res://gameplay/player/ghost.tscn" id="2_u5ufx"]
 [ext_resource type="PackedScene" uid="uid://uesictnom2dy" path="res://gameplay/hud/hud.tscn" id="4_s0qlc"]
 
-[node name="GameCore" type="Node" unique_id=910148981 node_paths=PackedStringArray("_hud", "_player")]
+[node name="GameCore" type="Node" unique_id=910148981 node_paths=PackedStringArray("_hud", "_player", "_ghostTracker")]
 script = ExtResource("1_uoxhe")
+_ghostScene = ExtResource("2_u5ufx")
 _hud = NodePath("Hud")
 _player = NodePath("Player")
+_ghostTracker = NodePath("GhostTracker")
 
-[node name="GhostTracker" type="Node" parent="." unique_id=288071560]
+[node name="GhostTracker" type="Node" parent="." unique_id=288071560 node_paths=PackedStringArray("_player")]
 script = ExtResource("2_ggeim")
+_player = NodePath("../Player")
 
 [node name="Player" parent="." unique_id=854154611 instance=ExtResource("1_jx7jd")]
 
