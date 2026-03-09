@@ -5,7 +5,6 @@ public partial class Player : CharacterBody3D {
 	[Signal]
 	public delegate void PlayerTeleportedEventHandler(Vector3 origin, Vector3 destination);
 
-
 	/// <summary>max jump height in meter (shorter for shorter press duration</summary>
 	[Export]
 	private float _jumpHeight = 5;
@@ -56,13 +55,13 @@ public partial class Player : CharacterBody3D {
 
 	[Export] private Camera3D _camera;
 
+	public Inventory Inventory { get; init; } = new Inventory();
 
 	private float _gravity;
 	private float _jumpVelocity;
 	private int _jumpsLeft;
 	private bool _mouseCaptured = false;
 	private float _fovVelocity = 0.0f;
-
 
 	public void TeleportTo(Vector3 position) {
 		var origin = position;
