@@ -1,0 +1,235 @@
+[gd_scene format=3 uid="uid://caa65om7jgbni"]
+
+[ext_resource type="Theme" uid="uid://cdh01f3cdy86t" path="res://commons/main_theme.tres" id="1_83qjl"]
+[ext_resource type="Script" uid="uid://b57x7amkff8wm" path="res://menus/SettingsMenu.cs" id="2_v0bl3"]
+
+[node name="Settings" type="Control" unique_id=61109220 node_paths=PackedStringArray("_masterSlider", "_sfxSlider", "_fullscreenBox", "_resDropdown", "_ssaoButton", "_ssilButton", "_ssrButton")]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_83qjl")
+script = ExtResource("2_v0bl3")
+_masterSlider = NodePath("PanelContainer/MarginContainer/Settings_Container/GeneralContainer/Master_Container/Master_Slider")
+_sfxSlider = NodePath("PanelContainer/MarginContainer/Settings_Container/SFX_Container/SFX_Slider")
+_fullscreenBox = NodePath("PanelContainer/MarginContainer/Settings_Container/Graphic_Container/FullScreen_Container/Fullscreen_CheckBox")
+_resDropdown = NodePath("PanelContainer/MarginContainer/Settings_Container/Graphic_Container/Resolution_Container/Resolution_Dropdown")
+_ssaoButton = NodePath("PanelContainer/MarginContainer/Settings_Container/Graphic_Container/SSAO_Container/SSAO_CheckBox")
+_ssilButton = NodePath("PanelContainer/MarginContainer/Settings_Container/Graphic_Container/SSIL_Container/SSIL_CheckBox")
+_ssrButton = NodePath("PanelContainer/MarginContainer/Settings_Container/Graphic_Container/SSR_Container/SSR_CheckBox")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=2087876900]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.0
+offset_top = -156.0
+offset_right = 172.0
+offset_bottom = 156.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_83qjl")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=458076352]
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Settings_Container" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1905724831]
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/Settings_Container" unique_id=1322999961]
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+
+[node name="Settings_Label" type="RichTextLabel" parent="PanelContainer/MarginContainer/Settings_Container/HBoxContainer" unique_id=2141161387]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Close_Button" type="Button" parent="PanelContainer/MarginContainer/Settings_Container/HBoxContainer" unique_id=1217887284]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+text = "X"
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/Settings_Container" unique_id=724774366]
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+
+[node name="GeneralContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/Settings_Container" unique_id=554574966]
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+alignment = 1
+
+[node name="General_Label" type="RichTextLabel" parent="PanelContainer/MarginContainer/Settings_Container/GeneralContainer" unique_id=450712778]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+theme_override_colors/default_color = Color(0.6542321, 0.6542321, 0.654232, 1)
+theme_override_font_sizes/normal_font_size = 12
+text = "General"
+
+[node name="Master_Container" type="HBoxContainer" parent="PanelContainer/MarginContainer/Settings_Container/GeneralContainer" unique_id=297738473]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_83qjl")
+alignment = 1
+
+[node name="Master_Label" type="RichTextLabel" parent="PanelContainer/MarginContainer/Settings_Container/GeneralContainer/Master_Container" unique_id=558996567]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+text = "Music"
+
+[node name="Master_Slider" type="HSlider" parent="PanelContainer/MarginContainer/Settings_Container/GeneralContainer/Master_Container" unique_id=482351484]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+value = 50.0
+rounded = true
+
+[node name="SFX_Container" type="HBoxContainer" parent="PanelContainer/MarginContainer/Settings_Container" unique_id=1747450748]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("1_83qjl")
+alignment = 1
+
+[node name="SFX_Label" type="RichTextLabel" parent="PanelContainer/MarginContainer/Settings_Container/SFX_Container" unique_id=494451595]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+text = "SFX"
+
+[node name="SFX_Slider" type="HSlider" parent="PanelContainer/MarginContainer/Settings_Container/SFX_Container" unique_id=1010863191]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+value = 50.0
+rounded = true
+
+[node name="HSeparator2" type="HSeparator" parent="PanelContainer/MarginContainer/Settings_Container" unique_id=8288837]
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+
+[node name="Graphic_Container" type="VBoxContainer" parent="PanelContainer/MarginContainer/Settings_Container" unique_id=2022999501]
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+
+[node name="Graphic_Label" type="RichTextLabel" parent="PanelContainer/MarginContainer/Settings_Container/Graphic_Container" unique_id=1999469599]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+theme_override_colors/default_color = Color(0.6542321, 0.6542321, 0.654232, 1)
+theme_override_font_sizes/normal_font_size = 12
+text = "Display"
+
+[node name="Resolution_Container" type="HBoxContainer" parent="PanelContainer/MarginContainer/Settings_Container/Graphic_Container" unique_id=1580617074]
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+
+[node name="Resolution_Label" type="RichTextLabel" parent="PanelContainer/MarginContainer/Settings_Container/Graphic_Container/Resolution_Container" unique_id=699072851]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+text = "Resolution"
+
+[node name="Resolution_Dropdown" type="OptionButton" parent="PanelContainer/MarginContainer/Settings_Container/Graphic_Container/Resolution_Container" unique_id=353767585]
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+selected = 0
+item_count = 3
+popup/item_0/text = "1920 x 1080"
+popup/item_0/id = 0
+popup/item_1/text = "2560 x 1440"
+popup/item_1/id = 1
+popup/item_2/text = "1280 x 720"
+popup/item_2/id = 2
+
+[node name="SSAO_Container" type="HBoxContainer" parent="PanelContainer/MarginContainer/Settings_Container/Graphic_Container" unique_id=1516219058]
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+
+[node name="SSAO_CheckBox" type="CheckBox" parent="PanelContainer/MarginContainer/Settings_Container/Graphic_Container/SSAO_Container" unique_id=1806804596]
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+
+[node name="SSAO_Label" type="RichTextLabel" parent="PanelContainer/MarginContainer/Settings_Container/Graphic_Container/SSAO_Container" unique_id=1256372412]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+text = "SSAO"
+
+[node name="SSR_Container" type="HBoxContainer" parent="PanelContainer/MarginContainer/Settings_Container/Graphic_Container" unique_id=167975321]
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+
+[node name="SSR_CheckBox" type="CheckBox" parent="PanelContainer/MarginContainer/Settings_Container/Graphic_Container/SSR_Container" unique_id=1252839583]
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+
+[node name="SSR_Label" type="RichTextLabel" parent="PanelContainer/MarginContainer/Settings_Container/Graphic_Container/SSR_Container" unique_id=1532986911]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+text = "SSR"
+
+[node name="SSIL_Container" type="HBoxContainer" parent="PanelContainer/MarginContainer/Settings_Container/Graphic_Container" unique_id=733797014]
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+
+[node name="SSIL_CheckBox" type="CheckBox" parent="PanelContainer/MarginContainer/Settings_Container/Graphic_Container/SSIL_Container" unique_id=1110172231]
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+
+[node name="SSIL_Label" type="RichTextLabel" parent="PanelContainer/MarginContainer/Settings_Container/Graphic_Container/SSIL_Container" unique_id=1355280587]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+text = "SSIL"
+
+[node name="FullScreen_Container" type="HBoxContainer" parent="PanelContainer/MarginContainer/Settings_Container/Graphic_Container" unique_id=807589352]
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+
+[node name="Fullscreen_CheckBox" type="CheckBox" parent="PanelContainer/MarginContainer/Settings_Container/Graphic_Container/FullScreen_Container" unique_id=315781722]
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+
+[node name="Fullscreen_Label" type="RichTextLabel" parent="PanelContainer/MarginContainer/Settings_Container/Graphic_Container/FullScreen_Container" unique_id=430166394]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+text = "Fullscreen"
+
+[node name="HSeparator3" type="HSeparator" parent="PanelContainer/MarginContainer/Settings_Container" unique_id=1524388991]
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+
+[node name="Save_Button" type="Button" parent="PanelContainer/MarginContainer/Settings_Container" unique_id=1653729770]
+layout_mode = 2
+text = "Save"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/Settings_Container/HBoxContainer/Close_Button" to="." method="_on_close_button_pressed"]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/Settings_Container/GeneralContainer/Master_Container/Master_Slider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/Settings_Container/SFX_Container/SFX_Slider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="item_selected" from="PanelContainer/MarginContainer/Settings_Container/Graphic_Container/Resolution_Container/Resolution_Dropdown" to="." method="_on_resolution_dropdown_item_selected"]
+[connection signal="toggled" from="PanelContainer/MarginContainer/Settings_Container/Graphic_Container/SSAO_Container/SSAO_CheckBox" to="." method="_on_ssao_check_box_toggled"]
+[connection signal="toggled" from="PanelContainer/MarginContainer/Settings_Container/Graphic_Container/SSR_Container/SSR_CheckBox" to="." method="_on_ssr_check_box_toggled"]
+[connection signal="toggled" from="PanelContainer/MarginContainer/Settings_Container/Graphic_Container/SSIL_Container/SSIL_CheckBox" to="." method="_on_ssil_check_box_toggled"]
+[connection signal="toggled" from="PanelContainer/MarginContainer/Settings_Container/Graphic_Container/FullScreen_Container/Fullscreen_CheckBox" to="." method="_on_ssil_check_box_toggled"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/Settings_Container/Save_Button" to="." method="_on_save_button_pressed"]

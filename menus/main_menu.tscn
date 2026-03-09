@@ -1,9 +1,97 @@
 [gd_scene format=3 uid="uid://c0u0t8bci7xwj"]
 
+[ext_resource type="Theme" uid="uid://cdh01f3cdy86t" path="res://commons/main_theme.tres" id="1_8gy84"]
+[ext_resource type="Script" uid="uid://c48keul2rryiw" path="res://menus/MainMenu.cs" id="1_rqbgu"]
+[ext_resource type="PackedScene" uid="uid://caa65om7jgbni" path="res://menus/settings_menu.tscn" id="2_oblsv"]
+[ext_resource type="PackedScene" uid="uid://cqfe3j0grnp61" path="res://menus/LevelSelection.tscn" id="4_a63lr"]
+[ext_resource type="PackedScene" uid="uid://cvv5omm6grlor" path="res://menus/credits_menu.tscn" id="6_a63lr"]
+
 [node name="MainMenu" type="Control" unique_id=837580588]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_rqbgu")
+
+[node name="MainMenuPanel" type="PanelContainer" parent="." unique_id=177719705]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.0
+offset_top = -203.0
+offset_right = 270.0
+offset_bottom = 203.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenuPanel" unique_id=84130834]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenuPanel/MarginContainer" unique_id=1169447533]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainMenuPanel/MarginContainer/VBoxContainer" unique_id=1179634588]
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+theme = ExtResource("1_8gy84")
+text = "Manufaktur"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="MainMenuPanel/MarginContainer/VBoxContainer" unique_id=708805228]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+theme = ExtResource("1_8gy84")
+text = "Start"
+
+[node name="SettingsButton" type="Button" parent="MainMenuPanel/MarginContainer/VBoxContainer" unique_id=692225797]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+theme = ExtResource("1_8gy84")
+text = "Settings"
+
+[node name="CreditsButton" type="Button" parent="MainMenuPanel/MarginContainer/VBoxContainer" unique_id=975630410]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+theme = ExtResource("1_8gy84")
+text = "Credits"
+
+[node name="CloseButton" type="Button" parent="MainMenuPanel/MarginContainer/VBoxContainer" unique_id=1050458361]
+custom_minimum_size = Vector2(100, 75)
+layout_mode = 2
+theme = ExtResource("1_8gy84")
+text = "Exit"
+
+[node name="LevelSelection" parent="." unique_id=1153605463 instance=ExtResource("4_a63lr")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="SettingsPanel" parent="." unique_id=61109220 instance=ExtResource("2_oblsv")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="CreditsMenuPanel" parent="." unique_id=75977289 instance=ExtResource("6_a63lr")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="MainMenuPanel/MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MainMenuPanel/MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MainMenuPanel/MarginContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="MainMenuPanel/MarginContainer/VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
