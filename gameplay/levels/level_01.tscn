@@ -31,5 +31,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.108201504, 0.7548561, -6.8
 material_override = ExtResource("2_f0u35")
 mesh = SubResource("BoxMesh_5pioa")
 
+[node name="SpawnPoint" parent="." index="4" unique_id=407262584]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.18455, 0, 4.6905375)
+
 [node name="Finish" parent="." index="5" unique_id=1714722049]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.958788, 0, -18.359535)
