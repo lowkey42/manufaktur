@@ -175,7 +175,7 @@ public partial class Player : CharacterBody3D {
 		var dampingForce = -_fovSpringDamping * _fovVelocity;
 
 		_fovVelocity += (springForce + dampingForce) * (float) delta;
-		_camera.Fov  += _fovVelocity * (float) delta;
+		_camera.Fov  = Math.Clamp(_camera.Fov + _fovVelocity * (float) delta, 10.0f, 179.0f);
 	}
 
 	private static Vector3 ToHorizontal(Vector3 v) {
