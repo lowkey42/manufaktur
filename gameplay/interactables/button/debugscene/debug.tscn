@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://dp6hn6o8cv47k"]
 
 [ext_resource type="PackedScene" uid="uid://c12ew1nputee6" path="res://gameplay/interactables/button/button.tscn" id="2_5wpfh"]
+[ext_resource type="PackedScene" uid="uid://d3egwx8qhelf7" path="res://gameplay/triggerables/door/door_right.tscn" id="2_as4gk"]
 [ext_resource type="Script" uid="uid://btf7athug6dhg" path="res://gameplay/interactables/button/debugscene/DebugResetRigidBody.cs" id="2_x6m0e"]
-[ext_resource type="PackedScene" uid="uid://c6oo31slh8dwc" path="res://gameplay/triggerables/door_left/door_left.tscn" id="3_5wpfh"]
+[ext_resource type="PackedScene" uid="uid://c6oo31slh8dwc" path="res://gameplay/triggerables/door/door_left.tscn" id="3_5wpfh"]
 [ext_resource type="PackedScene" uid="uid://cm7kt7b1e2d03" path="res://gameplay/player/player.tscn" id="4_5wica"]
+[ext_resource type="PackedScene" uid="uid://drlqtbtd481rq" path="res://gameplay/triggerables/moving_platform/moving_platform.tscn" id="7_26ths"]
+[ext_resource type="PackedScene" uid="uid://dq4j7x2hfunv2" path="res://gameplay/triggerables/wall/wall.tscn" id="7_j6pf1"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_x6m0e"]
 size = Vector2(18, 18)
@@ -14,12 +17,34 @@ size = Vector3(18, 1, 18)
 [node name="Test" type="Node3D" unique_id=897939974]
 script = ExtResource("2_x6m0e")
 
-[node name="button" parent="." unique_id=1077334481 instance=ExtResource("2_5wpfh")]
-OnlyTriggerOnce = false
-TriggerOnExit = true
+[node name="DoorRight" parent="." unique_id=416618077 instance=ExtResource("2_as4gk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24735117, 0, -6.018709)
+Channel = 1
 
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=810357167]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8655154, -2.6513467)
+[node name="DoorLeft" parent="." unique_id=142381562 instance=ExtResource("3_5wpfh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.0152206)
+Channel = 1
+
+[node name="button3" parent="." unique_id=2059284094 instance=ExtResource("2_5wpfh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.208395, 0, -4.315926)
+TriggerOnExit = true
+Channel = 2
+OnlyTriggerOnce = false
+
+[node name="button2" parent="." unique_id=104556593 instance=ExtResource("2_5wpfh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.758509, 0, -3.0789676)
+Channel = 1
+OnlyTriggerOnce = false
+
+[node name="button2" parent="button2" unique_id=729731061 instance=ExtResource("2_5wpfh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8687155, 0, 0.057435513)
+TriggerOnExit = true
+Channel = 1
+OnlyTriggerOnce = false
+
+[node name="button" parent="." unique_id=1077334481 instance=ExtResource("2_5wpfh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1608236, 0, -3.0510519)
+OnlyTriggerOnce = false
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=115337836]
 
@@ -30,11 +55,35 @@ mesh = SubResource("PlaneMesh_x6m0e")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_5wpfh")
 
-[node name="DoorLeft" parent="." unique_id=416618077 instance=ExtResource("3_5wpfh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.0152206)
-DoorOpen = true
-
 [node name="Player" parent="." unique_id=813857107 instance=ExtResource("4_5wica")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, -5.6484327, 0.45869064, 4.4891715)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1888215675]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8350363, 1.9925838, 2.0978703)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=810357167]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.202303, -2.6513467)
+omni_range = 35.147
+
+[node name="Wall" parent="." unique_id=1359160769 instance=ExtResource("7_j6pf1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1657286, 0, -6.05075)
+Channel = 2
+
+[node name="MovingPlatform" parent="." unique_id=728601558 instance=ExtResource("7_26ths")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0770645, 0.006809473, -5.7917805)
+Stop2 = Vector3(0, 3, 0)
+
+[node name="MovingPlatform2" parent="." unique_id=1860802399 instance=ExtResource("7_26ths")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -8)
+Stop2 = Vector3(0, 0, 8)
+Triggerable = false
+Looping = true
+StartEnabled = true
+
+[node name="MovingPlatform3" parent="." unique_id=559501245 instance=ExtResource("7_26ths")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 8)
+Stop2 = Vector3(0, 3.5, -12)
+TravelTimeSeconds = 7.0
+Triggerable = false
+Looping = true
+StartEnabled = true

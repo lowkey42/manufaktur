@@ -2,7 +2,7 @@ using Godot;
 using Manufaktur.gameplay.triggerables;
 using System;
 
-public partial class DoorLeft : Triggerable
+public partial class Door : Triggerable
 {
 	AnimationPlayer _animationPlayer;
 

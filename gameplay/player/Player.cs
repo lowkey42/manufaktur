@@ -95,7 +95,7 @@ public partial class Player : CharacterBody3D {
 		targetVelocity.Y = velocity.Y;
 		
 		var acceleration = _acceleration.Sample(Mathf.Clamp(new Vector2(velocity.X, velocity.Z).Length() * 3.6f / _maxSpeed, 0, 1));
-		
+
 		// TODO: improve acceleration/deceleration logic
 		if (direction != Vector3.Zero) {
 			velocity.X = Mathf.MoveToward(velocity.X, targetVelocity.X, acceleration * (float) delta);
