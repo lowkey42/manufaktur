@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dijdwmaeeir58"]
 
 [ext_resource type="Material" uid="uid://3khy7rmfm1x6" path="res://commons/shaders/ghost_material.tres" id="1_36o1f"]
+[ext_resource type="Script" uid="uid://c4iiohx04lcl8" path="res://commons/shaders/GhostEffect.cs" id="2_pjxm5"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_pjxm5"]
 
@@ -11,8 +12,13 @@
 [node name="Node3D" type="Node3D" unique_id=636877432]
 
 [node name="Ghost" type="CSGMesh3D" parent="." unique_id=1342775035]
-material_override = ExtResource("1_36o1f")
 mesh = SubResource("CapsuleMesh_pjxm5")
+material = ExtResource("1_36o1f")
+
+[node name="Ghost Effect" type="Node" parent="Ghost" unique_id=810732662 node_paths=PackedStringArray("mesh")]
+script = ExtResource("2_pjxm5")
+mesh = NodePath("..")
+ghostMaterial = ExtResource("1_36o1f")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=352304398]
 transform = Transform3D(1, 0, 0, 0, 0.28749424, 0.9577824, 0, -0.9577824, 0.28749424, 0, 2.3328109, 0)
