@@ -4,8 +4,13 @@
 [ext_resource type="Material" uid="uid://c21s2t813typy" path="res://commons/textures/placeholder_material.tres" id="2_xq3ts"]
 
 [sub_resource type="Curve" id="Curve_01s76"]
-_limits = [0.0, 10.0, 0.0, 80.0]
-_data = [Vector2(0, 10), 0.0, 0.0, 0, 0, Vector2(41.759617, 3.0109196), -0.10048267, -0.10048267, 0, 0, Vector2(67.92308, 3.1127396), 0.09098856, 0.09098856, 0, 0, Vector2(80, 5.98347), 0.0, 0.0, 0, 0]
+_limits = [0.0, 50.0, 0.0, 120.0]
+_data = [Vector2(0, 10.03663), 0.0, -0.029677868, 0, 0, Vector2(5.841153, 34.080242), 0.0, 0.0, 0, 0, Vector2(30.991535, 11.982029), -0.026995972, -0.026995972, 0, 0, Vector2(61.006615, 17.198948), 0.79266036, 0.79266036, 0, 0, Vector2(90.44361, 50), 0.020244764, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Curve" id="Curve_xq3ts"]
+_limits = [40.0, 170.0, 0.0, 120.0]
+_data = [Vector2(0, 66.29691), 0.0, 0.0, 0, 0, Vector2(20.696632, 66.62274), 0.0, 0.0, 0, 0, Vector2(60.476288, 99.687225), 0.25940794, 0.25940794, 0, 0, Vector2(120, 170), 0.0, 0.0, 0, 0]
 point_count = 4
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_omfh6"]
@@ -21,6 +26,8 @@ platform_floor_layers = 1
 platform_wall_layers = 1
 script = ExtResource("1_01s76")
 _acceleration = SubResource("Curve_01s76")
+_targetFov = SubResource("Curve_xq3ts")
+_mouseSensitivity = 0.003
 _camera = NodePath("Camera3D")
 metadata/collision_preset_name = "__custom__"
 
