@@ -21,7 +21,7 @@ config/icon="res://icon.svg"
 PromptManager="*uid://qdj52llei2ml"
 CollisionPresetRuntime="*uid://u810pt6u5apa"
 EventBus="*uid://c6eo2p7cfvmf6"
-SettingsManager="*uid://bcitpw3xhbhpy"
+SettingsManager="*uid://c23hvmlg1vavs"
 
 [debug_draw_3d]
 

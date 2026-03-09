@@ -1,10 +1,26 @@
 [gd_scene format=3 uid="uid://dwa5sbx8g6fh1"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_bayrm"]
+[ext_resource type="Script" uid="uid://cat4mw4mt0vxi" path="res://gameplay/player/Ghost.cs" id="1_iemc3"]
+[ext_resource type="Texture2D" uid="uid://gskkmdby62te" path="res://commons/textures/placeholder.png" id="2_s50sa"]
 
-[node name="Ghost" type="Node3D" unique_id=1400944731]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dtrlt"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1811097184]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8r5eh"]
+albedo_color = Color(1, 0.45, 0.45, 1)
+albedo_texture = ExtResource("2_s50sa")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_n6j0t"]
+
+[node name="Ghost" type="AnimatableBody3D" unique_id=25899066]
+script = ExtResource("1_iemc3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1550393334]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_dtrlt")
+debug_color = Color(0, 0.6457332, 0.26038483, 0.41960785)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=931907165]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = SubResource("StandardMaterial3D_8r5eh")
 gi_mode = 2
-mesh = SubResource("CapsuleMesh_bayrm")
+mesh = SubResource("CapsuleMesh_n6j0t")

@@ -1,6 +1,11 @@
 using Godot;
 
 public partial class Player : CharacterBody3D {
+
+	[Signal]
+	public delegate void PlayerTeleportedEventHandler(Vector3 origin, Vector3 destination);
+	
+	
 	/// <summary>max jump height in meter (shorter for shorter press duration</summary>
 	[Export]
 	private float _jumpHeight = 5;
@@ -35,11 +40,20 @@ public partial class Player : CharacterBody3D {
 	[Export]
 	private Camera3D _camera;
 	
+	
 	private float _gravity;
 	private float _jumpVelocity;
 	private int _jumpsLeft;
 	private bool _mouseCaptured = false;
 
+	
+	public void TeleportTo(Vector3 position) {
+		var origin = position;
+		GlobalPosition = position;
+		ResetPhysicsInterpolation();
+		EmitSignalPlayerTeleported(origin, position);
+	}
+	
 	public override void _Ready() {
 		// TODO: tweak jump
 		_gravity      = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle() * 2;
