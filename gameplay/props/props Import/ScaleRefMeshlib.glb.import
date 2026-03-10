@@ -60,7 +60,16 @@ _subresources={
 "PATH:3x8Plane": {
 "generate/physics": true
 },
-"PATH:BasicLivingRoomScaleRef": {
+"PATH:5x10Plane": {
+"generate/physics": true
+},
+"PATH:5x5Corner": {
+"generate/physics": true
+},
+"PATH:5x5Plane": {
+"generate/physics": true
+},
+"PATH:5x6Plane": {
 "generate/physics": true
 },
 "PATH:BasicLivingRoomScaleRef_001": {
@@ -86,6 +95,10 @@ _subresources={
 },
 "PATH:Scaffolding3_5m-h-ScaleRef": {
 "generate/physics": true
+},
+"PATH:Solid 237_002": {
+"generate/physics": true,
+"physics/shape_type": 0
 },
 "PATH:StaircaseScaleRef": {
 "generate/physics": true
