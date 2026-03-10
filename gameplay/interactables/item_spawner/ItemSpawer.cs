@@ -4,11 +4,17 @@ using System;
 
 public partial class ItemSpawer : Triggerable {
 	[Export] public ItemResource item { get; set; }
-	[Export] public bool SpawnOnTrigger { get; set; } = true;
+
+	[ExportGroup("Animation Settings")]
 	[Export] public bool AnimateMesh { get; set; } = true;
 	[Export] public float FloatHeight { get; set; } = 0.3f;
 	[Export] public float FloatDuration { get; set; } = 2.0f;
 	[Export] public float RotationDuration { get; set; } = 4.0f;
+
+	[ExportGroup("Respawn Settings")]
+	[Export] public bool EnableAutoRespawn { get; set; } = false;
+	[Export] public float RespawnTime { get; set; } = 5.0f;
+	[Export] public bool SpawnOnTrigger { get; set; } = true;
 
 	private Node3D itemNode;
 	private MeshInstance3D meshInstance;
@@ -32,9 +38,18 @@ public partial class ItemSpawer : Triggerable {
 		if (!spawned) {
 			spawned = true;
 
-			if (item != null) {
+			if (item != null && item.Texture != null) {
+				var quadMesh = new QuadMesh();
+				quadMesh.Size = new Vector2(0.15f, 0.3f);
+
+				var material = new StandardMaterial3D();
+				material.AlbedoTexture = item.Texture;
+				material.CullMode = BaseMaterial3D.CullModeEnum.Disabled;
+				material.ShadingMode = BaseMaterial3D.ShadingModeEnum.Unshaded;
+
 				meshInstance = new MeshInstance3D();
-				meshInstance.Mesh = item.Mesh;
+				meshInstance.Mesh = quadMesh;
+				meshInstance.MaterialOverride = material;
 
 				itemNode.AddChild(meshInstance);
 
@@ -51,6 +66,11 @@ public partial class ItemSpawer : Triggerable {
 			if (meshInstance != null) {
 				meshInstance.QueueFree();
 				meshInstance = null;
+			}
+
+			if (EnableAutoRespawn) {
+				var timer = GetTree().CreateTimer(RespawnTime);
+				timer.Timeout += () => SpawnItem();
 			}
 		}
 	}
@@ -69,9 +89,11 @@ public partial class ItemSpawer : Triggerable {
 	}
 
 	private void OnCollectionAreaBodyEntered(Node3D body) {
-		if (body is Player player) {
-			player.Inventory.CollectItem(item);
-			DespawnItem();
+		if (spawned) {
+			if(body is Player player) {
+				player.Inventory.CollectItem(item);
+				DespawnItem();
+			}
 		}
 	}
 

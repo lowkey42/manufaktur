@@ -1,0 +1,265 @@
+[gd_scene format=3 uid="uid://cjkqp2iw5cift"]
+
+[ext_resource type="PackedScene" uid="uid://00ip0t0c74ti" path="res://gameplay/base_level.tscn" id="1_mk68e"]
+[ext_resource type="Shader" uid="uid://ppxu1fie33lf" path="res://addons/proton_scatter/demos/assets/materials/grass.gdshader" id="2_xfbjl"]
+[ext_resource type="Texture2D" uid="uid://d23p13yi7asw0" path="res://addons/proton_scatter/demos/assets/textures/t_grass_2.png" id="3_ki26l"]
+[ext_resource type="Shader" uid="uid://cvjcsvn0qwyhy" path="res://gameplay/levels/terrain/grass2.gdshader" id="4_20ii1"]
+[ext_resource type="Texture2D" uid="uid://csbqi7v2jna65" path="res://addons/proton_scatter/demos/assets/textures/grass1.png" id="5_okmpl"]
+[ext_resource type="Shader" uid="uid://c3hs3dqbov4tw" path="res://gameplay/levels/terrain/algen.gdshader" id="6_nvk0l"]
+[ext_resource type="Texture2D" uid="uid://cuex8dacxd8wm" path="res://addons/proton_scatter/demos/assets/textures/algen.png" id="7_viicr"]
+[ext_resource type="Texture2D" uid="uid://dduxa288i8hd6" path="res://addons/proton_scatter/demos/assets/materials/Sand_Saturated_BaseColor.png" id="8_xmvng"]
+[ext_resource type="Texture2D" uid="uid://c6cvpyqc15l15" path="res://addons/proton_scatter/demos/assets/materials/Sand_Normal.png" id="9_mjd6v"]
+[ext_resource type="Texture2D" uid="uid://duphwix2p48bp" path="res://addons/proton_scatter/demos/assets/materials/Mountain_DefaultMaterial_BaseMap.png" id="10_7yxld"]
+[ext_resource type="Texture2D" uid="uid://wwx2wlq2gbol" path="res://addons/proton_scatter/demos/assets/materials/Mountain_DefaultMaterial_Normal.png" id="11_st8va"]
+[ext_resource type="Texture2D" uid="uid://btulmd7d1mgwm" path="res://gameplay/levels/IMG_20260308_211026.jpg" id="12_fqmxt"]
+[ext_resource type="Material" uid="uid://c7mw5tryqfggw" path="res://addons/proton_scatter/demos/assets/materials/m_water.tres" id="13_qvhjy"]
+[ext_resource type="MeshLibrary" uid="uid://bvn32tj8p3bms" path="res://gameplay/props/ScaleRefMeshLib.tres" id="14_oxca8"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mk68e"]
+
+[sub_resource type="Sky" id="Sky_xfbjl"]
+sky_material = SubResource("ProceduralSkyMaterial_mk68e")
+
+[sub_resource type="Environment" id="Environment_ki26l"]
+background_mode = 2
+sky = SubResource("Sky_xfbjl")
+ambient_light_source = 3
+ambient_light_color = Color(0.921569, 0.921569, 0, 1)
+ssr_enabled = true
+ssao_enabled = true
+ssao_radius = 0.01
+volumetric_fog_density = 0.01
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_20ii1"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 400.0
+
+[sub_resource type="Compositor" id="Compositor_okmpl"]
+
+[sub_resource type="Gradient" id="Gradient_rvqpy"]
+offsets = PackedFloat32Array(0.2, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_j8wfv"]
+noise_type = 2
+frequency = 0.03
+cellular_jitter = 3.0
+cellular_return_type = 0
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 50.0
+domain_warp_fractal_type = 2
+domain_warp_fractal_lacunarity = 1.5
+domain_warp_fractal_gain = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qcxr2"]
+noise = SubResource("FastNoiseLite_j8wfv")
+color_ramp = SubResource("Gradient_rvqpy")
+seamless = true
+
+[sub_resource type="Terrain3DMaterial" id="Terrain3DMaterial_whado"]
+_shader_parameters = {
+&"auto_base_texture": 0,
+&"auto_height_reduction": 0.1,
+&"auto_overlay_texture": 1,
+&"auto_slope": 0.832,
+&"bias_distance": 512.0,
+&"blend_sharpness": 0.5,
+&"depth_blur": 0.0,
+&"enable_macro_variation": true,
+&"enable_projection": true,
+&"flat_terrain_normals": false,
+&"macro_variation1": Color(1, 1, 1, 1),
+&"macro_variation2": Color(1, 1, 1, 1),
+&"macro_variation_slope": 0.333,
+&"mipmap_bias": 1.0,
+&"noise1_angle": 0.0,
+&"noise1_offset": Vector2(0.5, 0.5),
+&"noise1_scale": 0.04,
+&"noise2_scale": 0.076,
+&"noise_texture": SubResource("NoiseTexture2D_qcxr2"),
+&"projection_threshold": 0.8
+}
+world_background = 0
+auto_shader = true
+
+[sub_resource type="Gradient" id="Gradient_122hb"]
+offsets = PackedFloat32Array(0.00568182, 0.609848, 0.797348)
+colors = PackedColorArray(0.365732, 0.196902, 0.012861, 1, 0.251693, 0.390625, 0.0117187, 1, 1, 0.964706, 0.129412, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5w5wm"]
+gradient = SubResource("Gradient_122hb")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_eeqpx"]
+seed = 1
+frequency = 0.002
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8titr"]
+noise = SubResource("FastNoiseLite_eeqpx")
+seamless = true
+in_3d_space = true
+seamless_blend_skirt = 0.65
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gxtrj"]
+render_priority = 0
+shader = ExtResource("2_xfbjl")
+shader_parameter/texture_albedo = ExtResource("3_ki26l")
+shader_parameter/texture_gradient = SubResource("GradientTexture1D_5w5wm")
+shader_parameter/texture_noise = SubResource("NoiseTexture2D_8titr")
+shader_parameter/alpha_scissor_threshold = 0.3
+shader_parameter/transmission = Color(0.737255, 0.72549, 0, 1)
+shader_parameter/secondary_color = Color(0, 0, 0, 1)
+shader_parameter/secondary_attenuation = 0.2
+shader_parameter/grass_height = 0.6
+shader_parameter/wind_direction = Vector2(1, -0.5)
+shader_parameter/wind_speed = 0.5
+shader_parameter/wind_strength = 0.15
+shader_parameter/noise_scale = 6.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_s4ao5"]
+generated_type = 1
+height_offset = 0.5
+material_override = SubResource("ShaderMaterial_gxtrj")
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s4ao5"]
+render_priority = 0
+shader = ExtResource("4_20ii1")
+shader_parameter/texture_albedo = ExtResource("5_okmpl")
+shader_parameter/texture_gradient = SubResource("GradientTexture1D_5w5wm")
+shader_parameter/texture_noise = SubResource("NoiseTexture2D_8titr")
+shader_parameter/alpha_scissor_threshold = 0.11
+shader_parameter/transmission = Color(0.737255, 0.72549, 0, 1)
+shader_parameter/secondary_color = Color(0, 0, 0, 1)
+shader_parameter/secondary_attenuation = 0.2
+shader_parameter/grass_height = 1.0
+shader_parameter/wind_direction = Vector2(-0.065, -0.5)
+shader_parameter/wind_speed = 1.0
+shader_parameter/wind_strength = 2.0
+shader_parameter/noise_scale = 20.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_gxtrj"]
+id = 1
+generated_type = 1
+height_offset = 0.5
+material_override = SubResource("ShaderMaterial_s4ao5")
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
+[sub_resource type="Gradient" id="Gradient_tlwki"]
+offsets = PackedFloat32Array(0, 0.998106)
+colors = PackedColorArray(0.186024, 0.416002, 0, 1, 0.202613, 0.940874, 0.329685, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_why16"]
+gradient = SubResource("Gradient_tlwki")
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bxkxm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6xadx"]
+render_priority = 0
+shader = ExtResource("6_nvk0l")
+shader_parameter/texture_albedo = ExtResource("7_viicr")
+shader_parameter/texture_gradient = SubResource("GradientTexture2D_why16")
+shader_parameter/texture_noise = SubResource("NoiseTexture2D_bxkxm")
+shader_parameter/alpha_scissor_threshold = 0.08
+shader_parameter/transmission = Color(0.242936, 0.409124, 0.469955, 1)
+shader_parameter/secondary_color = Color(0, 0, 0, 1)
+shader_parameter/secondary_attenuation = 0.29
+shader_parameter/grass_height = 1.0
+shader_parameter/wind_direction = Vector2(0.1, -0.185)
+shader_parameter/wind_speed = 1.0
+shader_parameter/wind_strength = 4.0
+shader_parameter/noise_scale = 20.0
+
+[sub_resource type="Terrain3DMeshAsset" id="Terrain3DMeshAsset_anact"]
+id = 2
+generated_type = 1
+height_offset = 0.5
+material_override = SubResource("ShaderMaterial_6xadx")
+last_lod = 0
+last_shadow_lod = 0
+lod0_range = 128.0
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_gxtrj"]
+name = "Unbenanntes Material_BaseColor"
+albedo_texture = ExtResource("8_xmvng")
+normal_texture = ExtResource("9_mjd6v")
+uv_scale = 0.198
+detiling_rotation = 0.79
+detiling_shift = 0.445
+
+[sub_resource type="Terrain3DTextureAsset" id="Terrain3DTextureAsset_mih0y"]
+name = "Mountain_DefaultMaterial_BaseMap"
+id = 1
+albedo_texture = ExtResource("10_7yxld")
+normal_texture = ExtResource("11_st8va")
+
+[sub_resource type="Terrain3DAssets" id="Terrain3DAssets_d4u8d"]
+mesh_list = Array[Terrain3DMeshAsset]([SubResource("Terrain3DMeshAsset_s4ao5"), SubResource("Terrain3DMeshAsset_gxtrj"), SubResource("Terrain3DMeshAsset_anact")])
+texture_list = Array[Terrain3DTextureAsset]([SubResource("Terrain3DTextureAsset_gxtrj"), SubResource("Terrain3DTextureAsset_mih0y")])
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ae7xu"]
+albedo_texture = ExtResource("12_fqmxt")
+
+[sub_resource type="QuadMesh" id="QuadMesh_ytofh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j5d4m"]
+render_priority = 1
+albedo_texture = ExtResource("12_fqmxt")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 1000.0
+emission_operator = 1
+emission_on_uv2 = true
+emission_texture = ExtResource("12_fqmxt")
+
+[sub_resource type="QuadMesh" id="QuadMesh_84dxo"]
+subdivide_width = 2
+subdivide_depth = 2
+
+[node name="BaseLevel" unique_id=433332774 instance=ExtResource("1_mk68e")]
+
+[node name="DirectionalLight3D" parent="." index="1" unique_id=1057689463]
+visible = false
+
+[node name="WorldEnvironment" parent="." index="2" unique_id=1608441752]
+environment = SubResource("Environment_ki26l")
+camera_attributes = SubResource("CameraAttributesPractical_20ii1")
+compositor = SubResource("Compositor_okmpl")
+
+[node name="SpawnPoint" parent="." index="3" unique_id=407262584]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.7469468, -25.119017)
+
+[node name="Terrain3D" type="Terrain3D" parent="." index="4" unique_id=574733127]
+data_directory = "res://gameplay/levels/terrain"
+material = SubResource("Terrain3DMaterial_whado")
+assets = SubResource("Terrain3DAssets_d4u8d")
+top_level = true
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="5" unique_id=557387831]
+transform = Transform3D(-92.4049, 0.477171, -38.2244, 0.711044, 99.9964, -0.470609, 38.2208, -0.706656, -92.4049, 88.8877, 40.3078, 311.534)
+material_override = SubResource("StandardMaterial3D_ae7xu")
+mesh = SubResource("QuadMesh_ytofh")
+skeleton = NodePath("../DirectionalLight3D")
+surface_material_override/0 = SubResource("StandardMaterial3D_j5d4m")
+
+[node name="Water" type="MeshInstance3D" parent="." index="6" unique_id=856618140]
+transform = Transform3D(2100, 0.585169, 0.0665122, -1.26106, -7.02885, 110.587, 0.589393, -2099.99, -0.370127, -0.02629781, 0.11871868, 0.12326699)
+material_override = ExtResource("13_qvhjy")
+cast_shadow = 0
+mesh = SubResource("QuadMesh_84dxo")
+
+[node name="GridMap" type="GridMap" parent="." index="7" unique_id=308870743]
+mesh_library = ExtResource("14_oxca8")
+data = {
+"cells": PackedInt32Array(65515, 65511, 1441806, 65511, 65511, 1441806, 65507, 65511, 1441806, 65515, 65512, 1441806, 65515, 65513, 1441806, 65515, 65514, 1441806, 65516, 65514, 1441806, 65516, 65515, 1441806, 65516, 65516, 1441806, 65516, 65517, 1441806, 65515, 65517, 1441806, 65514, 65517, 1441806, 65513, 65517, 1441806, 65513, 65518, 1441806, 65513, 65519, 1441806, 65513, 65520, 1441806, 65513, 65521, 1441806, 65514, 65521, 1441806, 65514, 65522, 1441806, 65514, 65520, 1441806, 65515, 65520, 1441806, 65516, 65520, 1441806, 65517, 65520, 1441806, 65518, 65520, 1441806, 65519, 65520, 1441806)
+}
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." index="8" unique_id=1786065275]
+transform = Transform3D(0.690706, 0, 0.723136, 0, 1, 0, -0.723136, 0, 0.690706, 0, 10.8729, 0)
+light_color = Color(0.919048, 0.672662, 0.107584, 1)
+light_energy = 1.833

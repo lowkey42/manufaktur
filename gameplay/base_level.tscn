@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://00ip0t0c74ti"]
 
 [ext_resource type="PackedScene" uid="uid://7jekhbp45ds0" path="res://gameplay/game_core.tscn" id="1_1x18m"]
+[ext_resource type="Script" uid="uid://7s0xxujvrde7" path="res://gameplay/Level.cs" id="1_vom85"]
 [ext_resource type="PackedScene" uid="uid://c1btrphh4u5a0" path="res://gameplay/interactables/spawn_point.tscn" id="2_nopgp"]
 [ext_resource type="PackedScene" uid="uid://bvg3jpsto66fu" path="res://gameplay/interactables/finish.tscn" id="3_vom85"]
 
 [sub_resource type="Environment" id="Environment_8fes8"]
 
 [node name="BaseLevel" type="Node3D" unique_id=433332774]
+script = ExtResource("1_vom85")
 
 [node name="GameCore" parent="." unique_id=910148981 instance=ExtResource("1_1x18m")]
 

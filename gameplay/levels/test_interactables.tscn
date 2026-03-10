@@ -1,0 +1,273 @@
+[gd_scene format=3 uid="uid://cutbhey4jp1dk"]
+
+[ext_resource type="PackedScene" uid="uid://00ip0t0c74ti" path="res://gameplay/base_level.tscn" id="1_ik6r3"]
+[ext_resource type="PackedScene" uid="uid://d3egwx8qhelf7" path="res://gameplay/interactables/door/door_right.tscn" id="2_ilbrc"]
+[ext_resource type="PackedScene" uid="uid://c6oo31slh8dwc" path="res://gameplay/interactables/door/door_left.tscn" id="3_3w8ib"]
+[ext_resource type="PackedScene" uid="uid://dq4j7x2hfunv2" path="res://gameplay/interactables/wall/wall.tscn" id="4_bknvr"]
+[ext_resource type="PackedScene" uid="uid://c12ew1nputee6" path="res://gameplay/interactables/button/button.tscn" id="5_mrx4j"]
+[ext_resource type="PackedScene" uid="uid://drlqtbtd481rq" path="res://gameplay/interactables/moving_platform/moving_platform.tscn" id="6_hm5in"]
+[ext_resource type="PackedScene" uid="uid://di3rrw1px67qn" path="res://gameplay/interactables/item_spawner/ItemSpawer.tscn" id="7_m3i5n"]
+[ext_resource type="Resource" uid="uid://bns1rj1bxxvj5" path="res://gameplay/items/boost/Boost1.tres" id="8_0m6g6"]
+[ext_resource type="Resource" uid="uid://cuvg1hq2yhlom" path="res://gameplay/items/dash/Dash1.tres" id="9_rutv5"]
+[ext_resource type="PackedScene" uid="uid://cpw0fkglnysia" path="res://gameplay/interactables/jump_pad/jump_pad.tscn" id="10_ceaov"]
+[ext_resource type="Resource" uid="uid://cpolmb16j5f4h" path="res://gameplay/items/superjump/Superjump1.tres" id="11_3w8ib"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_q6kq1"]
+size = Vector2(18, 18)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yeoal"]
+size = Vector3(18, 1, 18)
+
+[node name="BaseLevel" unique_id=433332774 instance=ExtResource("1_ik6r3")]
+
+[node name="GameCore" parent="." index="0" unique_id=910148981]
+_startDelay = 0
+_ghostHeadStart = null
+
+[node name="SpawnPoint" parent="." index="3" unique_id=407262584]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4859102, 0, 2.635954)
+
+[node name="Finish" parent="." index="4" unique_id=1714722049]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.131093, 0, 0)
+
+[node name="DoorRight" parent="." index="5" unique_id=416618077 instance=ExtResource("2_ilbrc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24735117, 0, -6.018709)
+DoorOpen = null
+Channel = 1
+
+[node name="DoorLeft" parent="." index="6" unique_id=316856242 instance=ExtResource("3_3w8ib")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.0152206)
+DoorOpen = null
+Channel = 1
+
+[node name="Wall" parent="." index="7" unique_id=1359160769 instance=ExtResource("4_bknvr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1657286, 0, -6.05075)
+StartDisabled = null
+Channel = 2
+
+[node name="button5" parent="." index="8" unique_id=897939974 instance=ExtResource("5_mrx4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5106459, 0, 4.9072537)
+TriggerOnEnter = null
+TriggerOnExit = true
+Channel = 3
+OnlyTriggerOnce = false
+
+[node name="button3" parent="." index="9" unique_id=1205029011 instance=ExtResource("5_mrx4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.208395, 0, -4.315926)
+TriggerOnEnter = null
+TriggerOnExit = true
+Channel = 2
+OnlyTriggerOnce = false
+
+[node name="button4" parent="." index="10" unique_id=931679548 instance=ExtResource("5_mrx4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1102066, 0, -3.021532)
+TriggerOnEnter = null
+TriggerOnExit = true
+Channel = 1
+OnlyTriggerOnce = false
+
+[node name="button2" parent="." index="11" unique_id=780248523 instance=ExtResource("5_mrx4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.758509, 0, -3.0789676)
+TriggerOnEnter = null
+TriggerOnExit = null
+Channel = 1
+OnlyTriggerOnce = false
+
+[node name="button" parent="." index="12" unique_id=672892045 instance=ExtResource("5_mrx4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1608236, 0, -3.0510519)
+TriggerOnEnter = null
+TriggerOnExit = null
+Channel = null
+OnlyTriggerOnce = false
+
+[node name="MovingPlatform" parent="." index="13" unique_id=1860802399 instance=ExtResource("6_hm5in")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0770645, 0.006809473, -5.7917805)
+Stop1 = null
+Stop2 = Vector3(0, 3, 0)
+TravelTimeSeconds = null
+Transition = null
+Ease = null
+Triggerable = null
+Looping = null
+StartEnabled = null
+OneWayOnly = null
+StartAtEnd = null
+Channel = null
+
+[node name="MovingPlatform2" parent="." index="14" unique_id=83219577 instance=ExtResource("6_hm5in")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -8)
+Stop1 = null
+Stop2 = Vector3(0, 0, 8)
+TravelTimeSeconds = null
+Transition = null
+Ease = null
+Triggerable = false
+Looping = true
+StartEnabled = true
+OneWayOnly = null
+StartAtEnd = null
+Channel = null
+
+[node name="MovingPlatform3" parent="." index="15" unique_id=1402077356 instance=ExtResource("6_hm5in")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 8)
+Stop1 = null
+Stop2 = Vector3(0, 3.5, -12)
+TravelTimeSeconds = 7.0
+Transition = null
+Ease = null
+Triggerable = false
+Looping = true
+StartEnabled = true
+OneWayOnly = null
+StartAtEnd = null
+Channel = null
+
+[node name="ItemSpawer2" parent="." index="16" unique_id=1895522051 instance=ExtResource("7_m3i5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0912309, 0, 6.7414927)
+item = ExtResource("8_0m6g6")
+AnimateMesh = null
+FloatHeight = null
+FloatDuration = null
+RotationDuration = null
+EnableAutoRespawn = null
+RespawnTime = null
+SpawnOnTrigger = false
+Channel = 3
+
+[node name="ItemSpawer" parent="." index="17" unique_id=110308397 instance=ExtResource("7_m3i5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0869951, 0, 4.942091)
+item = ExtResource("9_rutv5")
+AnimateMesh = null
+FloatHeight = null
+FloatDuration = null
+RotationDuration = null
+EnableAutoRespawn = null
+RespawnTime = null
+SpawnOnTrigger = null
+Channel = 3
+
+[node name="JumpPad" parent="." index="18" unique_id=1812779473 instance=ExtResource("10_ceaov")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.285989, 0, 0)
+JumpForce = null
+
+[node name="ItemSpawer4" parent="." index="19" unique_id=108897726 instance=ExtResource("7_m3i5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3089733, 0, 7.999984)
+item = ExtResource("9_rutv5")
+AnimateMesh = null
+FloatHeight = null
+FloatDuration = null
+RotationDuration = null
+EnableAutoRespawn = true
+RespawnTime = null
+SpawnOnTrigger = false
+Channel = null
+
+[node name="ItemSpawer5" parent="." index="20" unique_id=2006657899 instance=ExtResource("7_m3i5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5370197, 0, 7.999984)
+item = ExtResource("11_3w8ib")
+AnimateMesh = null
+FloatHeight = null
+FloatDuration = null
+RotationDuration = null
+EnableAutoRespawn = true
+RespawnTime = 2.0
+SpawnOnTrigger = false
+Channel = null
+
+[node name="ItemSpawer3" parent="." index="21" unique_id=1366285013 instance=ExtResource("7_m3i5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.96352863, 0, 7.942168)
+item = ExtResource("8_0m6g6")
+AnimateMesh = null
+FloatHeight = null
+FloatDuration = null
+RotationDuration = null
+EnableAutoRespawn = true
+RespawnTime = null
+SpawnOnTrigger = false
+Channel = null
+
+[node name="Floor" type="Node" parent="." index="22" unique_id=1073680705]
+
+[node name="Floor4" type="StaticBody3D" parent="Floor" index="0" unique_id=103876161]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, 18)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor/Floor4" index="0" unique_id=105147798]
+mesh = SubResource("PlaneMesh_q6kq1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/Floor4" index="1" unique_id=1155541437]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_yeoal")
+
+[node name="Floor5" type="StaticBody3D" parent="Floor" index="1" unique_id=168602631]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, 18)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor/Floor5" index="0" unique_id=975289685]
+mesh = SubResource("PlaneMesh_q6kq1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/Floor5" index="1" unique_id=1925250371]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_yeoal")
+
+[node name="Floor6" type="StaticBody3D" parent="Floor" index="2" unique_id=919125620]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor/Floor6" index="0" unique_id=487999424]
+mesh = SubResource("PlaneMesh_q6kq1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/Floor6" index="1" unique_id=1236413556]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_yeoal")
+
+[node name="Floor3" type="StaticBody3D" parent="Floor" index="3" unique_id=1174876853]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor/Floor3" index="0" unique_id=5965601]
+mesh = SubResource("PlaneMesh_q6kq1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/Floor3" index="1" unique_id=1074868162]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_yeoal")
+
+[node name="Floor2" type="StaticBody3D" parent="Floor" index="4" unique_id=127431798]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor/Floor2" index="0" unique_id=843389536]
+mesh = SubResource("PlaneMesh_q6kq1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/Floor2" index="1" unique_id=1942497327]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_yeoal")
+
+[node name="Floor" type="StaticBody3D" parent="Floor" index="5" unique_id=704426171]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor/Floor" index="0" unique_id=1135117337]
+mesh = SubResource("PlaneMesh_q6kq1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/Floor" index="1" unique_id=1023900688]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_yeoal")
+
+[node name="Lights" type="Node" parent="." index="23" unique_id=1432435672]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights" index="0" unique_id=1106621468]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.655924, 7.4862094, 13.495009)
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Lights" index="1" unique_id=829072194]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.041103, 3.1821308, 24.073751)
+omni_range = 35.147
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="Lights" index="2" unique_id=774550640]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.20036, 6.469881, -0.6612568)
+omni_range = 35.147
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Lights" index="3" unique_id=160384435]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0095453, 2.8932905, 22.380602)
+omni_range = 35.147
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights" index="4" unique_id=1242796354]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8502903, 6.181041, -2.3544064)
+omni_range = 35.147
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights" index="5" unique_id=1490539855]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7559366, 3.202303, 8.660814)
+omni_range = 35.147

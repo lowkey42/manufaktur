@@ -27,7 +27,7 @@ public partial class GameCore : Node {
 	public float TimeSeconds => _time;
 
 	public override void _Ready() {
-		_highscoreList = new HighscoreList(GetParentOrNull<Node>()?.GetName() ?? "unknown");
+		_highscoreList = new HighscoreList(GetParentOrNull<Node>());
 
 		var bus = EventBus.Instance;
 		bus.FinishReached += OnFinished;
@@ -107,7 +107,7 @@ public partial class GameCore : Node {
 		}
 
 		GetTree().Paused = true;
-		_hud.ShowHighscore(_highscoreList, entry);
+		_hud.ShowHighscore(_highscoreList, entry, (GetParentOrNull<Node>() as Level)?.NextLevelScene);
 		Input.SetMouseMode(Input.MouseModeEnum.Visible);
 	}
 

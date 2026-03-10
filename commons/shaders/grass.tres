@@ -1,0 +1,26 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bn34u7sjwjmda"]
+
+[ext_resource type="Shader" uid="uid://ppxu1fie33lf" path="res://addons/proton_scatter/demos/assets/materials/grass.gdshader" id="1_cnm0s"]
+[ext_resource type="Texture2D" uid="uid://cuex8dacxd8wm" path="res://addons/proton_scatter/demos/assets/textures/algen.png" id="2_cnm0s"]
+
+[sub_resource type="Gradient" id="Gradient_122hb"]
+offsets = PackedFloat32Array(0.00568182, 0.609848, 0.797348)
+colors = PackedColorArray(0.365732, 0.196902, 0.012861, 1, 0.251693, 0.390625, 0.0117187, 1, 1, 0.964706, 0.129412, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_i0bw2"]
+gradient = SubResource("Gradient_122hb")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_cnm0s")
+shader_parameter/texture_albedo = ExtResource("2_cnm0s")
+shader_parameter/texture_gradient = SubResource("GradientTexture1D_i0bw2")
+shader_parameter/alpha_scissor_threshold = 0.035
+shader_parameter/transmission = Color(0, 0, 0, 1)
+shader_parameter/secondary_color = Color(0, 0, 0, 1)
+shader_parameter/secondary_attenuation = 0.2
+shader_parameter/grass_height = 1.0
+shader_parameter/wind_direction = Vector2(0.74, -0.5)
+shader_parameter/wind_speed = 1.0
+shader_parameter/wind_strength = 2.0
+shader_parameter/noise_scale = 20.0

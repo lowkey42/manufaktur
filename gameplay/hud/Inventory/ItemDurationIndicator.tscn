@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://sp2pjgjybiih"]
+
+[ext_resource type="Script" uid="uid://b3au0cg4rw85p" path="res://gameplay/hud/Inventory/ItemDurationIndicator.cs" id="1_tyguw"]
+
+[node name="ItemDurationIndicator" type="Control" unique_id=1764089055]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tyguw")
+_progressBarPath = NodePath("PanelContainer/TextureProgressBar")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1465073716]
+custom_minimum_size = Vector2(64, 96)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="PanelContainer" unique_id=2104827421]
+layout_mode = 2
+value = 100.0
