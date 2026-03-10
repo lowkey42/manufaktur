@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://drlqtbtd481rq" path="res://gameplay/interactables/moving_platform/moving_platform.tscn" id="7_26ths"]
 [ext_resource type="PackedScene" uid="uid://dq4j7x2hfunv2" path="res://gameplay/interactables/wall/wall.tscn" id="7_j6pf1"]
 [ext_resource type="PackedScene" uid="uid://di3rrw1px67qn" path="res://gameplay/interactables/item_spawner/ItemSpawer.tscn" id="7_je24u"]
-[ext_resource type="Resource" uid="uid://b1g0r8ccv02fi" path="res://gameplay/items/test.tres" id="8_ten3g"]
+[ext_resource type="Resource" uid="uid://bns1rj1bxxvj5" path="res://gameplay/items/boost/Boost1.tres" id="8_ten3g"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_x6m0e"]
 size = Vector2(18, 18)
