@@ -20,7 +20,7 @@ public partial class InventoryUI : Control
 		if (items != null) {
 			foreach (ItemResource iterItem in items) {
 				var itemTexture = new TextureRect();
-				itemTexture.Texture = iterItem.Icon;
+				itemTexture.Texture = iterItem.Texture;
 				_itemsContainer.AddChild(itemTexture);
 			}
 		}

@@ -32,9 +32,18 @@ public partial class ItemSpawer : Triggerable {
 		if (!spawned) {
 			spawned = true;
 
-			if (item != null) {
+			if (item != null && item.Texture != null) {
+				var quadMesh = new QuadMesh();
+				quadMesh.Size = new Vector2(0.15f, 0.3f);
+
+				var material = new StandardMaterial3D();
+				material.AlbedoTexture = item.Texture;
+				material.CullMode = BaseMaterial3D.CullModeEnum.Disabled;
+				material.ShadingMode = BaseMaterial3D.ShadingModeEnum.Unshaded;
+
 				meshInstance = new MeshInstance3D();
-				meshInstance.Mesh = item.Mesh;
+				meshInstance.Mesh = quadMesh;
+				meshInstance.MaterialOverride = material;
 
 				itemNode.AddChild(meshInstance);
 
@@ -69,9 +78,11 @@ public partial class ItemSpawer : Triggerable {
 	}
 
 	private void OnCollectionAreaBodyEntered(Node3D body) {
-		if (body is Player player) {
-			player.Inventory.CollectItem(item);
-			DespawnItem();
+		if ((spawned)) {
+			if(body is Player player) {
+				player.Inventory.CollectItem(item);
+				DespawnItem();
+			}
 		}
 	}
 
