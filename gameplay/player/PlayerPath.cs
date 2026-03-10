@@ -34,6 +34,10 @@ public class PlayerPath {
 
 	public PlayerPath() { }
 
+	public PlayerPath(Json ghostFile) {
+		Parse(ghostFile);
+	}
+
 	public PlayerPath(string path) {
 		var json        = new Json();
 		var parseResult = json.Parse(FileAccess.Open(path, FileAccess.ModeFlags.Read).GetAsText());
@@ -42,6 +46,10 @@ public class PlayerPath {
 			return;
 		}
 
+		Parse(json);
+	}
+
+	private void Parse(Json json) {
 		var jsonData = json.Data.AsGodotDictionary();
 
 		PlayerName = jsonData["player_name"].AsString();

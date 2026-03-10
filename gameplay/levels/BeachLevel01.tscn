@@ -15,20 +15,26 @@
 [ext_resource type="Material" uid="uid://c7mw5tryqfggw" path="res://addons/proton_scatter/demos/assets/materials/m_water.tres" id="13_qvhjy"]
 [ext_resource type="MeshLibrary" uid="uid://bvn32tj8p3bms" path="res://gameplay/props/ScaleRefMeshLib.tres" id="14_oxca8"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xguuw"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mk68e"]
 
-[sub_resource type="Sky" id="Sky_ngbun"]
-sky_material = SubResource("ProceduralSkyMaterial_xguuw")
+[sub_resource type="Sky" id="Sky_xfbjl"]
+sky_material = SubResource("ProceduralSkyMaterial_mk68e")
 
-[sub_resource type="Environment" id="Environment_ouo46"]
+[sub_resource type="Environment" id="Environment_ki26l"]
 background_mode = 2
-sky = SubResource("Sky_ngbun")
+sky = SubResource("Sky_xfbjl")
 ambient_light_source = 3
 ambient_light_color = Color(0.921569, 0.921569, 0, 1)
 ssr_enabled = true
 ssao_enabled = true
 ssao_radius = 0.01
 volumetric_fog_density = 0.01
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_20ii1"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 400.0
+
+[sub_resource type="Compositor" id="Compositor_okmpl"]
 
 [sub_resource type="Gradient" id="Gradient_rvqpy"]
 offsets = PackedFloat32Array(0.2, 1)
@@ -220,38 +226,40 @@ subdivide_depth = 2
 visible = false
 
 [node name="WorldEnvironment" parent="." index="2" unique_id=1608441752]
-environment = SubResource("Environment_ouo46")
+environment = SubResource("Environment_ki26l")
+camera_attributes = SubResource("CameraAttributesPractical_20ii1")
+compositor = SubResource("Compositor_okmpl")
 
 [node name="SpawnPoint" parent="." index="3" unique_id=407262584]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.7469468, -25.119017)
 
-[node name="Terrain3D" type="Terrain3D" parent="." index="5" unique_id=574733127]
+[node name="Terrain3D" type="Terrain3D" parent="." index="4" unique_id=574733127]
 data_directory = "res://gameplay/levels/terrain"
 material = SubResource("Terrain3DMaterial_whado")
 assets = SubResource("Terrain3DAssets_d4u8d")
 top_level = true
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="6" unique_id=557387831]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="5" unique_id=557387831]
 transform = Transform3D(-92.4049, 0.477171, -38.2244, 0.711044, 99.9964, -0.470609, 38.2208, -0.706656, -92.4049, 88.8877, 40.3078, 311.534)
 material_override = SubResource("StandardMaterial3D_ae7xu")
 mesh = SubResource("QuadMesh_ytofh")
 skeleton = NodePath("../DirectionalLight3D")
 surface_material_override/0 = SubResource("StandardMaterial3D_j5d4m")
 
-[node name="Water" type="MeshInstance3D" parent="." index="7" unique_id=856618140]
+[node name="Water" type="MeshInstance3D" parent="." index="6" unique_id=856618140]
 transform = Transform3D(2100, 0.585169, 0.0665122, -1.26106, -7.02885, 110.587, 0.589393, -2099.99, -0.370127, -0.02629781, 0.11871868, 0.12326699)
 material_override = ExtResource("13_qvhjy")
 cast_shadow = 0
 mesh = SubResource("QuadMesh_84dxo")
 
-[node name="GridMap" type="GridMap" parent="." index="8" unique_id=308870743]
+[node name="GridMap" type="GridMap" parent="." index="7" unique_id=308870743]
 mesh_library = ExtResource("14_oxca8")
 data = {
 "cells": PackedInt32Array(65515, 65511, 1441806, 65511, 65511, 1441806, 65507, 65511, 1441806, 65515, 65512, 1441806, 65515, 65513, 1441806, 65515, 65514, 1441806, 65516, 65514, 1441806, 65516, 65515, 1441806, 65516, 65516, 1441806, 65516, 65517, 1441806, 65515, 65517, 1441806, 65514, 65517, 1441806, 65513, 65517, 1441806, 65513, 65518, 1441806, 65513, 65519, 1441806, 65513, 65520, 1441806, 65513, 65521, 1441806, 65514, 65521, 1441806, 65514, 65522, 1441806, 65514, 65520, 1441806, 65515, 65520, 1441806, 65516, 65520, 1441806, 65517, 65520, 1441806, 65518, 65520, 1441806, 65519, 65520, 1441806)
 }
 
-[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." index="9" unique_id=1786065275]
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." index="8" unique_id=1786065275]
 transform = Transform3D(0.690706, 0, 0.723136, 0, 1, 0, -0.723136, 0, 0.690706, 0, 10.8729, 0)
 light_color = Color(0.919048, 0.672662, 0.107584, 1)
 light_energy = 1.833
