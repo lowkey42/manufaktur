@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://ck28o4xy2wkjo" path="res://menus/LevelSelection.cs" id="2_p6kpr"]
 [ext_resource type="Script" uid="uid://csyrf4gbhsvin" path="res://menus/AnimatedButton.cs" id="6_50gvo"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r3nxf"]
+
 [node name="LevelSelection" type="Control" unique_id=1153605463]
 layout_mode = 3
 anchors_preset = 15
@@ -24,7 +26,7 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -408.0
-offset_top = -297.0
+offset_top = -542.0
 offset_right = 408.0
 offset_bottom = 297.0
 grow_horizontal = 2
@@ -42,6 +44,11 @@ theme_override_constants/margin_bottom = 20
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=411570991]
 layout_mode = 2
 theme = ExtResource("1_ma3l3")
+
+[node name="Container" type="PanelContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=1533195358]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_r3nxf")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=404903441]
 layout_mode = 2

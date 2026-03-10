@@ -156,4 +156,6 @@ occlusion_culling/use_occlusion_culling=true
 
 [richer_text_label]
 
-fonts={}
+fonts={
+&"Gak Tahu": "res://commons/fonts/Gak Tahu.ttf"
+}

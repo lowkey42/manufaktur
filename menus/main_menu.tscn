@@ -149,7 +149,10 @@ texture = SubResource("GradientTexture1D_nc6jr")
 script = ExtResource("11_nc6jr")
 Duration = 20.0
 
+[connection signal="pressed" from="MainMenuPanel/VBoxContainer/StartButton" to="." method="OpenLevelSelection"]
 [connection signal="pressed" from="MainMenuPanel/VBoxContainer/StartButton" to="." method="ShowMenu" binds= ["LevelSelection"]]
+[connection signal="pressed" from="MainMenuPanel/VBoxContainer/SettingsButton" to="." method="OpenSettings"]
 [connection signal="pressed" from="MainMenuPanel/VBoxContainer/SettingsButton" to="." method="ShowMenu" binds= ["Settings"]]
+[connection signal="pressed" from="MainMenuPanel/VBoxContainer/CreditsButton" to="." method="OpenCredits"]
 [connection signal="pressed" from="MainMenuPanel/VBoxContainer/CreditsButton" to="." method="ShowMenu" binds= ["Credits"]]
 [connection signal="pressed" from="MainMenuPanel/VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

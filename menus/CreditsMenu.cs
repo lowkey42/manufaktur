@@ -7,7 +7,6 @@ public partial class CreditsMenu : Control
 	public delegate void ClosedEventHandler();
 	
 	private void _on_close_button_pressed() {
-		this.Visible = false;
 		EmitSignal(SignalName.Closed);
 	}
 }
