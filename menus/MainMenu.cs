@@ -23,72 +23,35 @@ public partial class MainMenu : Control {
 		_highScoreMenu.Closed         += OnHighScoreClosed;
 		_levelSelectionMenu.ScoreOpen += OnScoreOpened;
 
-		_settingsMenu.Visible       = false;
-		_levelSelectionMenu.Visible = false;
-		_mainMenu.Visible           = true;
-		_creditsMenu.Visible        = false;
+		ShowMenu("Main");
+	}
+	
+	private void ShowMenu(string menuName)
+	{
+		_settingsMenu.Visible       = menuName == "Settings";
+		_levelSelectionMenu.Visible = menuName == "LevelSelection";
+		_mainMenu.Visible           = menuName == "Main";
+		_creditsMenu.Visible        = menuName == "Credits";
+		_highScoreMenu.Visible      = menuName == "HighScore";
 	}
 	
 	private void OnMenuClosed()
 	{
-		_settingsMenu.Visible       = false;
-		_levelSelectionMenu.Visible = false;
-		_mainMenu.Visible           = true;
-		_creditsMenu.Visible        = false;
-		_highScoreMenu.Visible      = false;
+		ShowMenu("Main");
 	}
 
 	private void OnScoreOpened(string path) {
-		_highScoreMenu.Visible      = true;
-		_levelSelectionMenu.Visible = false;
-		GD.Print(path);
-		
+		ShowMenu("HighScore");
 		_highScoreMenu._load_score(path);
 	}
 	
 	private void OnHighScoreClosed()
 	{
-		_settingsMenu.Visible       = false;
-		_levelSelectionMenu.Visible = true;
-		_mainMenu.Visible           = false;
-		_creditsMenu.Visible        = false;
-		_highScoreMenu.Visible      = false;
-	}
-
-	public void _on_start_button_pressed() {
-		_settingsMenu.Visible       = false;
-		_levelSelectionMenu.Visible = true;
-		_mainMenu.Visible           = false;
-		_creditsMenu.Visible        = false;
-		_highScoreMenu.Visible      = false;
-	}
-	public void _on_settings_button_pressed() {
-		_settingsMenu.Visible       = true;
-		_levelSelectionMenu.Visible = false;
-		_mainMenu.Visible           = false;
-		_creditsMenu.Visible        = false;
-		_highScoreMenu.Visible      = false;
+		ShowMenu("LevelSelection");
 	}
 	
-	public void _on_exit_button_button_pressed() {
+	private void _on_exit_button_button_pressed() {
 		GetTree().Quit();
-
-	}
-	
-	public void _on_high_score_button_pressed() {
-		_settingsMenu.Visible       = false;
-		_levelSelectionMenu.Visible = false;
-		_mainMenu.Visible           = false;
-		_creditsMenu.Visible        = false;
-		_highScoreMenu.Visible      = true;
-	}
-
-	public void _on_credits_button_pressed() {
-		_settingsMenu.Visible       = false;
-		_levelSelectionMenu.Visible = false;
-		_mainMenu.Visible           = false;
-		_creditsMenu.Visible        = true;
-		_highScoreMenu.Visible      = false;
 	}
 	
 }

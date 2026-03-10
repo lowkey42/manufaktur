@@ -102,7 +102,7 @@ anchor_bottom = 0.0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[connection signal="pressed" from="MainMenuPanel/MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="MainMenuPanel/MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="MainMenuPanel/MarginContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="MainMenuPanel/MarginContainer/VBoxContainer/StartButton" to="." method="ShowMenu" binds= ["LevelSelection"]]
+[connection signal="pressed" from="MainMenuPanel/MarginContainer/VBoxContainer/SettingsButton" to="." method="ShowMenu" binds= ["Settings"]]
+[connection signal="pressed" from="MainMenuPanel/MarginContainer/VBoxContainer/CreditsButton" to="." method="ShowMenu" binds= ["Credits"]]
 [connection signal="pressed" from="MainMenuPanel/MarginContainer/VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
