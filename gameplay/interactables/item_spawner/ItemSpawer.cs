@@ -56,14 +56,14 @@ public partial class ItemSpawer : Triggerable {
 	}
 
 	private void AnimateSpawnedItem(Node3D mesh) {
-		var floatTween = CreateTween();
+		var floatTween = mesh.CreateTween();
 		floatTween.SetLoops();
 		floatTween.SetTrans(Tween.TransitionType.Sine);
 		floatTween.SetEase(Tween.EaseType.InOut);
 		floatTween.TweenProperty(mesh, "position:y", FloatHeight, FloatDuration / 2);
 		floatTween.TweenProperty(mesh, "position:y", 0, FloatDuration / 2);
 
-		var rotationTween = CreateTween();
+		var rotationTween = mesh.CreateTween();
 		rotationTween.SetLoops();
 		rotationTween.TweenProperty(mesh, "rotation:y", Mathf.Tau, RotationDuration).From(0);
 	}

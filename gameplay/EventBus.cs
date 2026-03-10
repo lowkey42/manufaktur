@@ -15,6 +15,12 @@ public partial class EventBus : Node {
 	[Signal]
 	public delegate void PlayerDiedEventHandler();
 
+	[Signal]
+	public delegate void InventoryItemCollectedEventHandler(ItemResource item, ItemResource[] items);
+
+	[Signal]
+	public delegate void InventoryItemUsedEventHandler(ItemResource item, ItemResource[] items);
+
 	public override void _Ready() {
 		Instance = this;
 	}
@@ -30,6 +36,12 @@ public partial class EventBus : Node {
 	}
 	public void EmitPlayerDied() {
 		EmitSignalPlayerDied();
+	}
+	public void EmitInventoryItemCollected(ItemResource item, ItemResource[] items) {
+		EmitSignalInventoryItemCollected(item, items);
+	}
+	public void EmitInventoryItemUsed(ItemResource item, ItemResource[] items) {
+		EmitSignalInventoryItemUsed(item, items);
 	}
 
 }
