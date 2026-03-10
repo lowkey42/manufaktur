@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cxp44kfd6jft0"]
+[gd_scene load_steps=6 format=3 uid="uid://bweggeymx20lf"]
 
 [ext_resource type="PackedScene" uid="uid://00ip0t0c74ti" path="res://gameplay/base_level.tscn" id="1_5pioa"]
 [ext_resource type="Material" uid="uid://c21s2t813typy" path="res://commons/textures/placeholder_material.tres" id="2_f0u35"]
@@ -11,25 +11,25 @@ size = Vector2(100, 100)
 [sub_resource type="BoxMesh" id="BoxMesh_5pioa"]
 size = Vector3(2, 2, 2)
 
-[node name="Level01" unique_id=433332774 instance=ExtResource("1_5pioa")]
+[node name="Level01" instance=ExtResource("1_5pioa")]
 
-[node name="LevelGeometry" type="Node3D" parent="." index="2" unique_id=667780060]
+[node name="LevelGeometry" type="Node3D" parent="." index="2"]
 
-[node name="Base" type="Node3D" parent="LevelGeometry" index="0" unique_id=1743665551]
+[node name="Base" type="Node3D" parent="LevelGeometry" index="0"]
 
-[node name="BaseMesh" type="MeshInstance3D" parent="LevelGeometry/Base" index="0" unique_id=193610477]
+[node name="BaseMesh" type="MeshInstance3D" parent="LevelGeometry/Base" index="0"]
 material_override = ExtResource("2_f0u35")
 mesh = SubResource("PlaneMesh_5pioa")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="LevelGeometry/Base" index="1" unique_id=1941133312]
+[node name="StaticBody3D" type="StaticBody3D" parent="LevelGeometry/Base" index="1"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelGeometry/Base/StaticBody3D" index="0" unique_id=21495857]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelGeometry/Base/StaticBody3D" index="0"]
 shape = SubResource("WorldBoundaryShape3D_5pioa")
 
-[node name="PlaceholderBox" type="MeshInstance3D" parent="LevelGeometry" index="1" unique_id=659595819]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.108201504, 0.7548561, -6.818254)
+[node name="PlaceholderBox" type="MeshInstance3D" parent="LevelGeometry" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.108202, 0.754856, -6.81825)
 material_override = ExtResource("2_f0u35")
 mesh = SubResource("BoxMesh_5pioa")
 
-[node name="Finish" parent="." index="5" unique_id=1714722049]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.958788, 0, -18.359535)
+[node name="Finish" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9588, 0, -18.3595)
