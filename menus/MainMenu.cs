@@ -24,7 +24,27 @@ public partial class MainMenu : Control {
 		_levelSelectionMenu.ScoreOpen += OnScoreOpened;
 
 		ShowMenu("Main");
+
 	}
+	
+	private void AnimMenu()
+	{
+		Vector2 startPos = _mainMenu.Position;
+
+		_mainMenu.Modulate = new Color(1,1,1,0);
+		_mainMenu.Position = startPos + new Vector2(0, -200);
+
+		var tween = GetTree()
+		           .CreateTween()
+		           .SetParallel()
+		           .SetEase(Tween.EaseType.Out)
+		           .SetTrans(Tween.TransitionType.Cubic);
+
+		tween.TweenProperty(_mainMenu, "position:y", startPos.Y, 1.0f);
+		tween.TweenProperty(_mainMenu, "modulate:a", 1.0f, 1.0f);
+		AnimateButtons();
+	}
+	
 	
 	private void ShowMenu(string menuName)
 	{
@@ -33,6 +53,7 @@ public partial class MainMenu : Control {
 		_mainMenu.Visible           = menuName == "Main";
 		_creditsMenu.Visible        = menuName == "Credits";
 		_highScoreMenu.Visible      = menuName == "HighScore";
+		AnimMenu();
 	}
 	
 	private void OnMenuClosed()
@@ -50,8 +71,31 @@ public partial class MainMenu : Control {
 		ShowMenu("LevelSelection");
 	}
 	
-	private void _on_exit_button_button_pressed() {
+	private void _on_close_button_button_pressed() {
 		GetTree().Quit();
+	}
+	
+	private void AnimateButtons()
+	{
+		var container = GetNode<VBoxContainer>("%MainMenuPanel/VBoxContainer");
+		var tween     = GetTree().CreateTween();
+
+
+		foreach (Node child in container.GetChildren())
+		{
+			if (child is Control button)
+			{
+				button.Scale    = new Vector2(0.5f, 0.5f);
+				button.Modulate = new Color(1,1,1,0);
+
+				tween.TweenInterval(0.08f);
+
+				tween.SetParallel();
+				tween.TweenProperty(button, "scale", Vector2.One, 0.25f);
+				tween.TweenProperty(button, "modulate:a", 1.0f, 0.25f);
+				tween.SetParallel(false);
+			}
+		}
 	}
 	
 }

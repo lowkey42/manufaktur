@@ -3,17 +3,49 @@
 [ext_resource type="Theme" uid="uid://cdh01f3cdy86t" path="res://commons/main_theme.tres" id="1_8gy84"]
 [ext_resource type="Script" uid="uid://c48keul2rryiw" path="res://menus/MainMenu.cs" id="1_rqbgu"]
 [ext_resource type="PackedScene" uid="uid://caa65om7jgbni" path="res://menus/settings_menu.tscn" id="2_oblsv"]
+[ext_resource type="Script" uid="uid://csyrf4gbhsvin" path="res://menus/AnimatedButton.cs" id="3_pwbes"]
 [ext_resource type="PackedScene" uid="uid://dwnl2hawj37ux" path="res://menus/LevelSelection.tscn" id="4_a63lr"]
 [ext_resource type="PackedScene" uid="uid://cvv5omm6grlor" path="res://menus/credits_menu.tscn" id="6_a63lr"]
 [ext_resource type="PackedScene" uid="uid://k2040505eddu" path="res://menus/high_score_menu.tscn" id="6_pwbes"]
+[ext_resource type="Shader" uid="uid://dga4p7um7rkde" path="res://menus/main_menu.gdshader" id="8_hswy5"]
+[ext_resource type="Script" uid="uid://efxehlbofws" path="res://menus/HexAnim.cs" id="11_nc6jr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pwbes"]
+bg_color = Color(0.99215686, 0.06666667, 0.06666667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hswy5"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Gradient" id="Gradient_vmd75"]
+colors = PackedColorArray(0.99215686, 0.06666667, 0.06666667, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_caclp"]
+gradient = SubResource("Gradient_vmd75")
+fill_from = Vector2(0.32828283, 0.7323232)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vmd75"]
+shader = ExtResource("8_hswy5")
+shader_parameter/to_tex = SubResource("GradientTexture2D_caclp")
+shader_parameter/progress = 0.0
+shader_parameter/dir = 0
+shader_parameter/hex_size = 0.5
+shader_parameter/randomness = 0.05
+shader_parameter/edge_softness = 0.01
+
+[sub_resource type="Gradient" id="Gradient_caclp"]
+interpolation_mode = 2
+interpolation_color_space = 1
+offsets = PackedFloat32Array(0.22891566, 1)
+colors = PackedColorArray(0.99215686, 0.06666667, 0.06666667, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nc6jr"]
+gradient = SubResource("Gradient_caclp")
 
 [node name="MainMenu" type="Control" unique_id=837580588]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rqbgu")
@@ -21,61 +53,56 @@ script = ExtResource("1_rqbgu")
 [node name="MainMenuPanel" type="PanelContainer" parent="." unique_id=177719705]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -270.0
-offset_top = -203.0
-offset_right = 270.0
-offset_bottom = 203.0
-grow_horizontal = 2
+anchors_preset = -1
+anchor_right = 0.28100002
+anchor_bottom = 1.0
+offset_left = 186.0
+offset_right = -0.52001953
+offset_bottom = -2.0
 grow_vertical = 2
+theme = ExtResource("1_8gy84")
+theme_override_styles/panel = SubResource("StyleBoxFlat_pwbes")
 
-[node name="MarginContainer" type="MarginContainer" parent="MainMenuPanel" unique_id=84130834]
+[node name="PanelContainer" type="PanelContainer" parent="MainMenuPanel" unique_id=991780332]
 layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainMenuPanel/MarginContainer" unique_id=1169447533]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenuPanel" unique_id=1169447533]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MainMenuPanel/MarginContainer/VBoxContainer" unique_id=1179634588]
-custom_minimum_size = Vector2(500, 50)
-layout_mode = 2
-theme = ExtResource("1_8gy84")
-text = "Manufaktur"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="StartButton" type="Button" parent="MainMenuPanel/MarginContainer/VBoxContainer" unique_id=708805228]
+[node name="StartButton" type="Button" parent="MainMenuPanel/VBoxContainer" unique_id=708805228]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 theme = ExtResource("1_8gy84")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_hover_color = Color(0.99215686, 0.06666667, 0.06666667, 1)
+theme_override_styles/hover = SubResource("StyleBoxFlat_hswy5")
 text = "Start"
+script = ExtResource("3_pwbes")
 
-[node name="SettingsButton" type="Button" parent="MainMenuPanel/MarginContainer/VBoxContainer" unique_id=692225797]
+[node name="SettingsButton" type="Button" parent="MainMenuPanel/VBoxContainer" unique_id=692225797]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 theme = ExtResource("1_8gy84")
+theme_type_variation = &"FlatButton"
 text = "Settings"
+script = ExtResource("3_pwbes")
 
-[node name="CreditsButton" type="Button" parent="MainMenuPanel/MarginContainer/VBoxContainer" unique_id=975630410]
+[node name="CreditsButton" type="Button" parent="MainMenuPanel/VBoxContainer" unique_id=975630410]
 custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 theme = ExtResource("1_8gy84")
+theme_type_variation = &"FlatButton"
 text = "Credits"
+script = ExtResource("3_pwbes")
 
-[node name="CloseButton" type="Button" parent="MainMenuPanel/MarginContainer/VBoxContainer" unique_id=1050458361]
+[node name="CloseButton" type="Button" parent="MainMenuPanel/VBoxContainer" unique_id=1050458361]
 custom_minimum_size = Vector2(100, 75)
 layout_mode = 2
 theme = ExtResource("1_8gy84")
+theme_type_variation = &"FlatButton"
 text = "Exit"
+script = ExtResource("3_pwbes")
 
 [node name="LevelSelection" parent="." unique_id=1153605463 instance=ExtResource("4_a63lr")]
 unique_name_in_owner = true
@@ -95,14 +122,34 @@ layout_mode = 1
 [node name="HighScorePanel" parent="." unique_id=1871435610 instance=ExtResource("6_pwbes")]
 unique_name_in_owner = true
 visible = false
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[connection signal="pressed" from="MainMenuPanel/MarginContainer/VBoxContainer/StartButton" to="." method="ShowMenu" binds= ["LevelSelection"]]
-[connection signal="pressed" from="MainMenuPanel/MarginContainer/VBoxContainer/SettingsButton" to="." method="ShowMenu" binds= ["Settings"]]
-[connection signal="pressed" from="MainMenuPanel/MarginContainer/VBoxContainer/CreditsButton" to="." method="ShowMenu" binds= ["Credits"]]
-[connection signal="pressed" from="MainMenuPanel/MarginContainer/VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1689940712]
+z_index = -5
+material = SubResource("ShaderMaterial_vmd75")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture1D_nc6jr")
+script = ExtResource("11_nc6jr")
+Duration = 20.0
+
+[connection signal="pressed" from="MainMenuPanel/VBoxContainer/StartButton" to="." method="ShowMenu" binds= ["LevelSelection"]]
+[connection signal="pressed" from="MainMenuPanel/VBoxContainer/SettingsButton" to="." method="ShowMenu" binds= ["Settings"]]
+[connection signal="pressed" from="MainMenuPanel/VBoxContainer/CreditsButton" to="." method="ShowMenu" binds= ["Credits"]]
+[connection signal="pressed" from="MainMenuPanel/VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
