@@ -4,7 +4,7 @@ public partial class GameCore : Node {
 
 	private float _startTime;
 	private float _finishTime;
-	
+	 
 	// TODO: display in HUD (together with time to beat (if known)
 	public float TimeSeconds => (_finishTime==0 ? (Time.GetTicksMsec() - _startTime) : (_finishTime - _startTime)) / 1000.0f;
 	
