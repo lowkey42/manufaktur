@@ -4,11 +4,17 @@ using System;
 
 public partial class ItemSpawer : Triggerable {
 	[Export] public ItemResource item { get; set; }
-	[Export] public bool SpawnOnTrigger { get; set; } = true;
+
+	[ExportGroup("Animation Settings")]
 	[Export] public bool AnimateMesh { get; set; } = true;
 	[Export] public float FloatHeight { get; set; } = 0.3f;
 	[Export] public float FloatDuration { get; set; } = 2.0f;
 	[Export] public float RotationDuration { get; set; } = 4.0f;
+
+	[ExportGroup("Respawn Settings")]
+	[Export] public bool EnableAutoRespawn { get; set; } = false;
+	[Export] public float RespawnTime { get; set; } = 5.0f;
+	[Export] public bool SpawnOnTrigger { get; set; } = true;
 
 	private Node3D itemNode;
 	private MeshInstance3D meshInstance;
@@ -60,6 +66,11 @@ public partial class ItemSpawer : Triggerable {
 			if (meshInstance != null) {
 				meshInstance.QueueFree();
 				meshInstance = null;
+			}
+
+			if (EnableAutoRespawn) {
+				var timer = GetTree().CreateTimer(RespawnTime);
+				timer.Timeout += () => SpawnItem();
 			}
 		}
 	}

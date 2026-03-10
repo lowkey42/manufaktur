@@ -5,7 +5,7 @@ using System;
 public partial class DashItem : ItemResource
 {
 	[Export]
-	public float DashStrength { get; set; } = 500f;
+	public float DashStrength { get; set; } = 150f;
 
 	public override void Use(Player player) {
 		Vector3 direction = player.GetFacingDirection();

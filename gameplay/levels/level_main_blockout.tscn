@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://d3nljct5mbiba"]
+[gd_scene format=3 uid="uid://d3nljct5mbiba"]
 
 [ext_resource type="Shader" uid="uid://ppxu1fie33lf" path="res://addons/proton_scatter/demos/assets/materials/grass.gdshader" id="1_ldqx6"]
 [ext_resource type="Shader" uid="uid://cvjcsvn0qwyhy" path="res://gameplay/levels/grass2.gdshader" id="2_qcxr2"]
