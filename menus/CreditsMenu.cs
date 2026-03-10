@@ -1,0 +1,13 @@
+using Godot;
+using System;
+
+public partial class CreditsMenu : Control
+{
+	[Signal]
+	public delegate void ClosedEventHandler();
+	
+	private void _on_close_button_pressed() {
+		this.Visible = false;
+		EmitSignal(SignalName.Closed);
+	}
+}

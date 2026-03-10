@@ -1,18 +1,17 @@
-using System;
-using System.Diagnostics;
-using System.Xml.Linq;
 using Godot;
+using Manufaktur.gameplay;
 
-public partial class ButtonScript : Node3D {
+namespace Manufaktur.gameplay.interactables.button;
 
-	[Signal]
-	public delegate void ButtonPressedEventHandler();
+public partial class ButtonScript : Trigger {
+	[Export] public bool TriggerOnEnter { get; set; } = true;
+	[Export] public bool TriggerOnExit { get; set; } = false;
 
 	private Area3D _area;
 	private AnimationPlayer _player;
 
 	public override void _Ready() {
-		_area = GetNode<Area3D>("Area3D");
+		_area = GetNode<Area3D>("TriggerArea");
 		_area.BodyEntered += OnAreaBodyEntered;
 		_area.BodyExited += OnAreaBodyExited;
 
@@ -20,13 +19,20 @@ public partial class ButtonScript : Node3D {
 	}
 
 	public void OnAreaBodyEntered(Node3D body) {
-		EmitSignal(SignalName.ButtonPressed);
 		_player.Play("Press");
-		GD.Print($"Body entered!");
+		GD.Print("Button pressed");
+
+		if (TriggerOnEnter) {
+			FireTrigger();
+		}
 	}
 
 	public void OnAreaBodyExited(Node3D body) {
 		_player.PlayBackwards("Press");
-		GD.Print($"Body exited!");
+		GD.Print("Button released");
+
+		if (TriggerOnExit) {
+			FireTrigger();
+		}
 	}
 }

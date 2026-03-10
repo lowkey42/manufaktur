@@ -1,9 +1,146 @@
 [gd_scene format=3 uid="uid://uesictnom2dy"]
 
-[node name="Hud" type="Control" unique_id=1036087955]
-layout_mode = 3
-anchors_preset = 15
+[ext_resource type="Script" uid="uid://cv7ejwged0lxv" path="res://gameplay/hud/Hud.cs" id="1_ceo1m"]
+[ext_resource type="Script" uid="uid://b7kcw1isuywu2" path="res://gameplay/hud/HighscorePanel.cs" id="2_ceo1m"]
+[ext_resource type="PackedScene" path="res://gameplay/hud/highscore_row.tscn" id="3_2048h"]
+[ext_resource type="PackedScene" uid="uid://8tq1tak0cl4n" path="res://gameplay/hud/InventoryUI.tscn" id="4_tbdus"]
+
+[node name="Hud" type="CanvasLayer" unique_id=127962132 node_paths=PackedStringArray("_labelCurrentTime", "_labelBestTime", "_highscorePanel", "_labelCountdown")]
+process_mode = 3
+script = ExtResource("1_ceo1m")
+_highScoreRow = ExtResource("3_2048h")
+_labelCurrentTime = NodePath("CurrentTime")
+_labelBestTime = NodePath("BestTime")
+_highscorePanel = NodePath("HighscorePanel")
+_labelCountdown = NodePath("Countdown")
+
+[node name="CurrentTime" type="RichTextLabel" parent="." unique_id=493737036]
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
+offset_bottom = 50.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 50
+text = "3232.3232"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BestTime" type="RichTextLabel" parent="." unique_id=2025407240]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 60.0
+offset_bottom = 102.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 30
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Countdown" type="Label" parent="." unique_id=964037143]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.5
+offset_top = -68.5
+offset_right = 28.5
+offset_bottom = 68.5
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 100
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighscorePanel" type="PanelContainer" parent="." unique_id=1608355547]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -129.0
+offset_right = 200.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_ceo1m")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HighscorePanel" unique_id=367631542]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HighscorePanel/VBoxContainer" unique_id=1121832799]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "Highscore"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighscoreHeader" type="HBoxContainer" parent="HighscorePanel/VBoxContainer" unique_id=1492345618]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Number" type="Label" parent="HighscorePanel/VBoxContainer/HighscoreHeader" unique_id=881501087]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "#"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Time" type="Label" parent="HighscorePanel/VBoxContainer/HighscoreHeader" unique_id=192490643]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Time"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="HighscorePanel/VBoxContainer/HighscoreHeader" unique_id=1637172013]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 26
+text = "Player"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HighscorePanel/VBoxContainer" unique_id=1973791245]
+layout_mode = 2
+
+[node name="ExitButton" type="Button" parent="HighscorePanel/VBoxContainer/HBoxContainer" unique_id=1090773494]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Exit"
+
+[node name="RetryButton" type="Button" parent="HighscorePanel/VBoxContainer/HBoxContainer" unique_id=2096042221]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Retry"
+
+[node name="NextButton" type="Button" parent="HighscorePanel/VBoxContainer/HBoxContainer" unique_id=19795080]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Next"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2077377760]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 120
+theme_override_constants/margin_right = 30
+
+[node name="Inventory" parent="MarginContainer" unique_id=601817208 instance=ExtResource("4_tbdus")]
+layout_mode = 2
+
+[connection signal="pressed" from="HighscorePanel/VBoxContainer/HBoxContainer/ExitButton" to="." method="OnExit"]
+[connection signal="pressed" from="HighscorePanel/VBoxContainer/HBoxContainer/RetryButton" to="." method="OnRetry"]
+[connection signal="pressed" from="HighscorePanel/VBoxContainer/HBoxContainer/NextButton" to="." method="OnNext"]

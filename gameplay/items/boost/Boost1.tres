@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="BoostItem" format=3 uid="uid://bns1rj1bxxvj5"]
+
+[ext_resource type="Script" uid="uid://dptffthi1rvth" path="res://gameplay/items/boost/BoostItem.cs" id="1_m64fp"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_m64fp"]
+size = Vector2(50, 50)
+
+[sub_resource type="TextMesh" id="TextMesh_jvieo"]
+text = "Boost1"
+
+[resource]
+script = ExtResource("1_m64fp")
+Icon = SubResource("PlaceholderTexture2D_m64fp")
+Mesh = SubResource("TextMesh_jvieo")
+metadata/_custom_type_script = "uid://dptffthi1rvth"
