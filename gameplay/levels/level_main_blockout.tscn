@@ -1,13 +1,13 @@
 [gd_scene load_steps=43 format=3 uid="uid://d3nljct5mbiba"]
 
 [ext_resource type="Shader" uid="uid://ppxu1fie33lf" path="res://addons/proton_scatter/demos/assets/materials/grass.gdshader" id="1_ldqx6"]
-[ext_resource type="Shader" uid="uid://cvjcsvn0qwyhy" path="res://gameplay/levels/grass2.gdshader" id="2_qcxr2"]
+[ext_resource type="Shader" uid="uid://cvjcsvn0qwyhy" path="res://gameplay/levels/terrain/grass2.gdshader" id="2_qcxr2"]
 [ext_resource type="Texture2D" uid="uid://d23p13yi7asw0" path="res://addons/proton_scatter/demos/assets/textures/t_grass_2.png" id="2_s4ao5"]
 [ext_resource type="Texture2D" uid="uid://dduxa288i8hd6" path="res://addons/proton_scatter/demos/assets/materials/Sand_Saturated_BaseColor.png" id="2_x4441"]
 [ext_resource type="Texture2D" uid="uid://c6cvpyqc15l15" path="res://addons/proton_scatter/demos/assets/materials/Sand_Normal.png" id="3_gd36p"]
 [ext_resource type="Texture2D" uid="uid://csbqi7v2jna65" path="res://addons/proton_scatter/demos/assets/textures/grass1.png" id="3_ldqx6"]
 [ext_resource type="Texture2D" uid="uid://duphwix2p48bp" path="res://addons/proton_scatter/demos/assets/materials/Mountain_DefaultMaterial_BaseMap.png" id="4_gd36p"]
-[ext_resource type="Shader" uid="uid://c3hs3dqbov4tw" path="res://gameplay/levels/algen.gdshader" id="5_gxtrj"]
+[ext_resource type="Shader" uid="uid://c3hs3dqbov4tw" path="res://gameplay/levels/terrain/algen.gdshader" id="5_gxtrj"]
 [ext_resource type="Texture2D" uid="uid://wwx2wlq2gbol" path="res://addons/proton_scatter/demos/assets/materials/Mountain_DefaultMaterial_Normal.png" id="5_mih0y"]
 [ext_resource type="Material" uid="uid://c7mw5tryqfggw" path="res://addons/proton_scatter/demos/assets/materials/m_water.tres" id="6_mih0y"]
 [ext_resource type="Texture2D" uid="uid://btulmd7d1mgwm" path="res://gameplay/levels/IMG_20260308_211026.jpg" id="6_rvqpy"]
@@ -222,7 +222,7 @@ subdivide_depth = 2
 [node name="LevelMainBlockout" type="Node3D"]
 
 [node name="Terrain3D" type="Terrain3D" parent="."]
-data_directory = "res://gameplay/levels"
+data_directory = "res://gameplay/levels/terrain"
 material = SubResource("Terrain3DMaterial_ldqx6")
 assets = SubResource("Terrain3DAssets_u33iu")
 top_level = true
@@ -253,3 +253,4 @@ mesh = SubResource("QuadMesh_0d5st")
 
 [node name="Player" parent="." instance=ExtResource("7_mih0y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.4137, 16.6677, -0.00735664)
+_targetFov = null
