@@ -6,6 +6,7 @@ public partial class MainMenu : Control {
 	private LevelSelection _levelSelectionMenu;
 	private Control _mainMenu;
 	private CreditsMenu _creditsMenu;
+	private HighScoreMenu _highScoreMenu;
 	
 
 	public override void _Ready()
@@ -14,48 +15,43 @@ public partial class MainMenu : Control {
 		_levelSelectionMenu = GetNode<LevelSelection>("%LevelSelection");
 		_mainMenu = GetNode<Control>("%MainMenuPanel");
 		_creditsMenu = GetNode<CreditsMenu>("%CreditsMenuPanel");
+		_highScoreMenu = GetNode<HighScoreMenu>("%HighScorePanel");
 		
-		_levelSelectionMenu.Closed += OnMenuClosed;
-		_creditsMenu.Closed        += OnMenuClosed;
-		_settingsMenu.Closed       += OnMenuClosed;
+		_levelSelectionMenu.Closed    += OnMenuClosed;
+		_creditsMenu.Closed           += OnMenuClosed;
+		_settingsMenu.Closed          += OnMenuClosed;
+		_highScoreMenu.Closed         += OnHighScoreClosed;
+		_levelSelectionMenu.ScoreOpen += OnScoreOpened;
 
-		_settingsMenu.Visible       = false;
-		_levelSelectionMenu.Visible = false;
-		_mainMenu.Visible           = true;
-		_creditsMenu.Visible        = false;
+		ShowMenu("Main");
+	}
+	
+	private void ShowMenu(string menuName)
+	{
+		_settingsMenu.Visible       = menuName == "Settings";
+		_levelSelectionMenu.Visible = menuName == "LevelSelection";
+		_mainMenu.Visible           = menuName == "Main";
+		_creditsMenu.Visible        = menuName == "Credits";
+		_highScoreMenu.Visible      = menuName == "HighScore";
 	}
 	
 	private void OnMenuClosed()
 	{
-		_settingsMenu.Visible       = false;
-		_levelSelectionMenu.Visible = false;
-		_mainMenu.Visible           = true;
-		_creditsMenu.Visible        = false;
+		ShowMenu("Main");
 	}
 
-	public void _on_start_button_pressed() {
-		_settingsMenu.Visible       = false;
-		_levelSelectionMenu.Visible = true;
-		_mainMenu.Visible           = false;
-		_creditsMenu.Visible        = false;
-	}
-	public void _on_settings_button_pressed() {
-		_settingsMenu.Visible       = true;
-		_levelSelectionMenu.Visible = false;
-		_mainMenu.Visible           = false;
-		_creditsMenu.Visible        = false;
+	private void OnScoreOpened(string path) {
+		ShowMenu("HighScore");
+		_highScoreMenu._load_score(path);
 	}
 	
-	public void _on_exit_button_button_pressed() {
-		GetTree().Quit();
-
+	private void OnHighScoreClosed()
+	{
+		ShowMenu("LevelSelection");
 	}
-
-	public void _on_credits_button_pressed() {
-		_settingsMenu.Visible       = false;
-		_levelSelectionMenu.Visible = false;
-		_mainMenu.Visible           = false;
-		_creditsMenu.Visible        = true;
+	
+	private void _on_exit_button_button_pressed() {
+		GetTree().Quit();
 	}
 	
 }

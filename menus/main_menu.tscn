@@ -3,8 +3,9 @@
 [ext_resource type="Theme" uid="uid://cdh01f3cdy86t" path="res://commons/main_theme.tres" id="1_8gy84"]
 [ext_resource type="Script" uid="uid://c48keul2rryiw" path="res://menus/MainMenu.cs" id="1_rqbgu"]
 [ext_resource type="PackedScene" uid="uid://caa65om7jgbni" path="res://menus/settings_menu.tscn" id="2_oblsv"]
-[ext_resource type="PackedScene" uid="uid://cqfe3j0grnp61" path="res://menus/LevelSelection.tscn" id="4_a63lr"]
+[ext_resource type="PackedScene" uid="uid://dwnl2hawj37ux" path="res://menus/LevelSelection.tscn" id="4_a63lr"]
 [ext_resource type="PackedScene" uid="uid://cvv5omm6grlor" path="res://menus/credits_menu.tscn" id="6_a63lr"]
+[ext_resource type="PackedScene" uid="uid://k2040505eddu" path="res://menus/high_score_menu.tscn" id="6_pwbes"]
 
 [node name="MainMenu" type="Control" unique_id=837580588]
 layout_mode = 3
@@ -91,7 +92,17 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 1
 
-[connection signal="pressed" from="MainMenuPanel/MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="MainMenuPanel/MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="MainMenuPanel/MarginContainer/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[node name="HighScorePanel" parent="." unique_id=1871435610 instance=ExtResource("6_pwbes")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="pressed" from="MainMenuPanel/MarginContainer/VBoxContainer/StartButton" to="." method="ShowMenu" binds= ["LevelSelection"]]
+[connection signal="pressed" from="MainMenuPanel/MarginContainer/VBoxContainer/SettingsButton" to="." method="ShowMenu" binds= ["Settings"]]
+[connection signal="pressed" from="MainMenuPanel/MarginContainer/VBoxContainer/CreditsButton" to="." method="ShowMenu" binds= ["Credits"]]
 [connection signal="pressed" from="MainMenuPanel/MarginContainer/VBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
