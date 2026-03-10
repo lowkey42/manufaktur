@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b7gj6riclvku0" path="res://gameplay/player/Player.cs" id="1_01s76"]
 [ext_resource type="Material" uid="uid://c21s2t813typy" path="res://commons/textures/placeholder_material.tres" id="2_xq3ts"]
+[ext_resource type="PackedScene" uid="uid://diw8s3mb2f8pa" path="res://gameplay/player/Inventory.tscn" id="3_wvk08"]
 
 [sub_resource type="Curve" id="Curve_01s76"]
 _limits = [0.0, 50.0, 0.0, 120.0]
@@ -17,7 +18,7 @@ point_count = 4
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_omfh6"]
 
-[node name="Player" type="CharacterBody3D" unique_id=813857107 node_paths=PackedStringArray("_camera")]
+[node name="Player" type="CharacterBody3D" unique_id=813857107 node_paths=PackedStringArray("_camera", "Inventory")]
 collision_layer = 2
 collision_mask = 7
 axis_lock_angular_z = true
@@ -29,6 +30,7 @@ _acceleration = SubResource("Curve_01s76")
 _targetFov = SubResource("Curve_xq3ts")
 _mouseSensitivity = 0.003
 _camera = NodePath("Camera3D")
+Inventory = NodePath("Inventory")
 metadata/collision_preset_name = "__custom__"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1666303049]
@@ -48,3 +50,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 material_override = ExtResource("2_xq3ts")
 gi_mode = 2
 mesh = SubResource("CapsuleMesh_omfh6")
+
+[node name="Inventory" parent="." unique_id=79173081 instance=ExtResource("3_wvk08")]

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://diw8s3mb2f8pa"]
+
+[ext_resource type="Script" uid="uid://duotif3mr3d0v" path="res://gameplay/player/Inventory.cs" id="1_0rkiq"]
+
+[node name="Inventory" type="Node" unique_id=79173081]
+script = ExtResource("1_0rkiq")

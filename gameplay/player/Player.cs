@@ -54,8 +54,8 @@ public partial class Player : CharacterBody3D {
 	[Export] private float _stickSensitivity = 3.0f;
 
 	[Export] private Camera3D _camera;
-
-	public Inventory Inventory { get; init; } = new Inventory();
+	
+	[Export] public Inventory Inventory { get; private set; }
 
 	private bool _firstFrame = true;
 	private float _gravity;
@@ -87,6 +87,10 @@ public partial class Player : CharacterBody3D {
 			RotateY(-mm.Relative.X * _mouseSensitivity); // Horizontal look
 			_camera.Rotation = new Vector3(Mathf.Clamp(_camera.Rotation.X - mm.Relative.Y * _mouseSensitivity, Mathf.DegToRad(-80), Mathf.DegToRad(80)),
 			                               _camera.Rotation.Y, _camera.Rotation.Z);
+		}
+
+		if (e.IsActionPressed("use_item")) {
+			Inventory.UseItem(this);
 		}
 	}
 
