@@ -25,16 +25,16 @@ public partial class LevelSelection : Control
 
 	public async void _on_load_level_1_button_pressed() {
 		await ToSignal(GetTree().CreateTimer(0.3f), SceneTreeTimer.SignalName.Timeout);
-		LoadLevel("res://gameplay/levels/level_01.tscn");
+		LoadLevel("res://gameplay/levels/level01.tscn");
 		
 	}
 	public async void _on_load_level_2_button_pressed() {
 		await ToSignal(GetTree().CreateTimer(0.3f), SceneTreeTimer.SignalName.Timeout);
-		LoadLevel("res://gameplay/levels/level_01.tscn");
+		LoadLevel("res://gameplay/levels/level01.tscn");
 		
 	}	public async void _on_load_level_3_button_pressed() {
 		await ToSignal(GetTree().CreateTimer(0.3f), SceneTreeTimer.SignalName.Timeout);
-		LoadLevel("res://gameplay/levels/level_01.tscn");
+		LoadLevel("res://gameplay/levels/level01.tscn");
 		
 	}
 	
