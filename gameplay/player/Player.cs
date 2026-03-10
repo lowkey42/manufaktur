@@ -204,4 +204,8 @@ public partial class Player : CharacterBody3D {
 				            _camera.Rotation.Y, _camera.Rotation.Z);
 		}
 	}
+
+	public Vector3 GetFacingDirection() {
+		return -Transform.Basis.Z;
+	}
 }
