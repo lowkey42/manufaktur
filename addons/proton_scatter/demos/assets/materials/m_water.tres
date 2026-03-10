@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://c7mw5tryqfggw"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://c7mw5tryqfggw"]
 
 [ext_resource type="Shader" uid="uid://m2veiok2yl6i" path="res://addons/proton_scatter/demos/assets/materials/m_water.gdshader" id="1_j8rl3"]
 
@@ -7,16 +7,16 @@ noise_type = 2
 fractal_type = 3
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wxuht"]
-seamless = true
 noise = SubResource("FastNoiseLite_7bjdc")
+seamless = true
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_dx86n"]
 noise_type = 2
 domain_warp_enabled = true
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1j0ob"]
-seamless = true
 noise = SubResource("FastNoiseLite_dx86n")
+seamless = true
 
 [resource]
 render_priority = 0
