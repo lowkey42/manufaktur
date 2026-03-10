@@ -1,8 +1,9 @@
 using Godot;
-using Manufaktur.gameplay.triggerables;
 using System;
 
-public partial class DoorLeft : Triggerable
+namespace Manufaktur.gameplay.interactables.door;
+
+public partial class Door : Triggerable
 {
 	AnimationPlayer _animationPlayer;
 

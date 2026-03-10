@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://di7d1utnoba6s"]
+
+[ext_resource type="Script" uid="uid://dt7hh2mn5iiy5" path="res://gameplay/interactables/SpikeTrap.cs" id="1_owgsq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ikdj"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8ikdj"]
+size = Vector3(4, 0.5, 4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8ikdj"]
+size = Vector3(4, 0.5, 4)
+
+[node name="SpikeTrap" type="Node3D" unique_id=189809183]
+script = ExtResource("1_owgsq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1910217899]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+layers = 4
+material_override = SubResource("StandardMaterial3D_8ikdj")
+mesh = SubResource("BoxMesh_8ikdj")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=383152636]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+collision_layer = 4
+collision_mask = 2
+metadata/collision_preset_name = "__custom__"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=167147070]
+shape = SubResource("BoxShape3D_8ikdj")
+
+[connection signal="body_entered" from="Area3D" to="." method="OnCollision"]

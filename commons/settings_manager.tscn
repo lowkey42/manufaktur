@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c23hvmlg1vavs"]
+
+[ext_resource type="Script" path="res://commons/SettingsManager.cs" id="1_i3s4t"]
+
+[node name="SettingsManager" type="Node" unique_id=1124258476]
+script = ExtResource("1_i3s4t")
