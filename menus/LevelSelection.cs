@@ -25,7 +25,6 @@ public partial class LevelSelection : Control
 
 	public async void _on_load_level_1_button_pressed() {
 		await ToSignal(GetTree().CreateTimer(0.3f), SceneTreeTimer.SignalName.Timeout);
-		//Todo: Level nach pfad laden und nicht per packed scene (da greedy)
 		LoadLevel("res://gameplay/levels/level_01.tscn");
 		
 	}
