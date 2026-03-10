@@ -1,4 +1,8 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://dcsfdxfjbsijg"]
 
+[ext_resource type="Texture2D" uid="uid://dsnqm4ltu30r6" path="res://commons/textures/GridScale_tex.png" id="1_2qvvk"]
+
 [resource]
-albedo_color = Color(0.78714985, 0.471169, 0.2534991, 1)
+albedo_texture = ExtResource("1_2qvvk")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
