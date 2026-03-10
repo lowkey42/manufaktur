@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SuperjumpItem" format=3 uid="uid://cpolmb16j5f4h"]
+
+[ext_resource type="Texture2D" uid="uid://c83thdcfsg8su" path="res://gameplay/items/superjump/superjump.png" id="1_3ay55"]
+[ext_resource type="Script" uid="uid://7y1fs0oos65t" path="res://gameplay/items/superjump/SuperjumpItem.cs" id="1_ixmlu"]
+
+[resource]
+script = ExtResource("1_ixmlu")
+Texture = ExtResource("1_3ay55")
+metadata/_custom_type_script = "uid://7y1fs0oos65t"

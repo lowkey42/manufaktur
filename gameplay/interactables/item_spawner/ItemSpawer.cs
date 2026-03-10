@@ -89,7 +89,7 @@ public partial class ItemSpawer : Triggerable {
 	}
 
 	private void OnCollectionAreaBodyEntered(Node3D body) {
-		if ((spawned)) {
+		if (spawned) {
 			if(body is Player player) {
 				player.Inventory.CollectItem(item);
 				DespawnItem();

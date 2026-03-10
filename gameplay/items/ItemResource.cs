@@ -7,3 +7,9 @@ public abstract partial class ItemResource : Resource {
 
 	public abstract void Use(Player player);
 }
+
+[GlobalClass]
+public abstract partial class DurationItemResource : ItemResource {
+	[Export]
+	public float Duration { get; set; } = 5f;
+}
