@@ -1,14 +1,108 @@
 [gd_resource type="Theme" format=3 uid="uid://cdh01f3cdy86t"]
 
-[ext_resource type="FontFile" uid="uid://6beqmocq4ya3" path="res://commons/fonts/Gak Tahu.ttf" id="1_e4p6u"]
+[ext_resource type="FontFile" uid="uid://cb1m4ocmfckw3" path="res://commons/fonts/Ethnocentric-Regular.otf" id="1_e4p6u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e4p6u"]
+bg_color = Color(0.53333336, 0.4745098, 0.3882353, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1rdpy"]
 bg_color = Color(1, 1, 1, 1)
 
+[sub_resource type="DPITexture" id="DPITexture_e4p6u"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><path fill=\"#fff\" fill-opacity=\".75\" d=\"m1 3 2-2 5 5 5-5 2 2-5 5 5 5-2 2-5-5-5 5-2-2 5-5z\"/></svg>
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7aeru"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2vi7m"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w3or0"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.3)
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
 [resource]
+Button/fonts/font = ExtResource("1_e4p6u")
+Button/styles/disabled = SubResource("StyleBoxFlat_e4p6u")
+CheckBox/icons/checked = null
 FlatButton/base_type = &"Button"
 FlatButton/colors/font_color = Color(1, 1, 1, 1)
 FlatButton/colors/font_hover_color = Color(0, 0, 0, 1)
 FlatButton/font_sizes/font_size = 50
 FlatButton/fonts/font = ExtResource("1_e4p6u")
 FlatButton/styles/hover = SubResource("StyleBoxFlat_1rdpy")
+Label/fonts/font = ExtResource("1_e4p6u")
+LineEdit/colors/caret_color = Color(0.95, 0.95, 0.95, 1)
+LineEdit/colors/clear_button_color = Color(0.875, 0.875, 0.875, 1)
+LineEdit/colors/clear_button_color_pressed = Color(1, 1, 1, 1)
+LineEdit/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+LineEdit/colors/font_outline_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_placeholder_color = Color(0.875, 0.875, 0.875, 0.6)
+LineEdit/colors/font_selected_color = Color(1, 1, 1, 1)
+LineEdit/colors/font_uneditable_color = Color(0.875, 0.875, 0.875, 0.5)
+LineEdit/colors/selection_color = Color(0.5, 0.5, 0.5, 1)
+LineEdit/constants/caret_width = 1
+LineEdit/constants/minimum_character_width = 4
+LineEdit/constants/outline_size = 0
+LineEdit/font_sizes/font_size = 16
+LineEdit/fonts/font = ExtResource("1_e4p6u")
+LineEdit/icons/clear = SubResource("DPITexture_e4p6u")
+LineEdit/styles/focus = SubResource("StyleBoxFlat_7aeru")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_2vi7m")
+LineEdit/styles/read_only = SubResource("StyleBoxFlat_w3or0")
+OptionButton/fonts/font = ExtResource("1_e4p6u")
+PopupMenu/font_sizes/font_separator_size = 25
+PopupMenu/font_sizes/font_size = 25
+PopupMenu/font_sizes/title_font_size = 25
+PopupMenu/fonts/font = ExtResource("1_e4p6u")
+PopupMenu/fonts/font_separator = ExtResource("1_e4p6u")
+PopupMenu/fonts/title_font = ExtResource("1_e4p6u")
+RichTextLabel/fonts/bold_font = ExtResource("1_e4p6u")
+RichTextLabel/fonts/bold_italics_font = ExtResource("1_e4p6u")
+RichTextLabel/fonts/italics_font = ExtResource("1_e4p6u")
+RichTextLabel/fonts/mono_font = ExtResource("1_e4p6u")
+RichTextLabel/fonts/normal_font = ExtResource("1_e4p6u")
+TabBar/fonts/font = ExtResource("1_e4p6u")
+TextEdit/fonts/font = ExtResource("1_e4p6u")
+Tree/fonts/font = ExtResource("1_e4p6u")
+Tree/fonts/title_button_font = ExtResource("1_e4p6u")

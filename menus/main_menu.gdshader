@@ -1,88 +1,50 @@
 shader_type canvas_item;
 
-// ========================
-// Eingabetexturen
-// ========================
+uniform vec4 bg_color : source_color = vec4(0.95, 0.95, 0.95, 1.0);
+uniform vec4 accent_color : source_color = vec4(0.0, 0.4, 0.8, 1.0); 
+uniform float speed : hint_range(0.0, 0.5) = 0.02;
+uniform float angle : hint_range(0.0, 3.14) = 0.5;
+uniform float line_width : hint_range(0.01, 1.0) = 0.1;
 
-uniform sampler2D to_tex;
-uniform float progress : hint_range(0.0, 1.0) = 0.0;
-uniform int dir = 0;
-// ========================
-// Hexagon-Parameter
-// ========================
-uniform float hex_size : hint_range(0.01, 0.5) = 0.08;
-uniform float randomness = 0.05;                       
-uniform float edge_softness = 0.01;                    
-
-// ========================
-// Hilfsfunktionen
-// ========================
-float hash(vec2 p) {
-    return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123);
-}
-
-vec2 hextile(inout vec2 p) {
-    const vec2 s = vec2(1.0, 1.7320508);
-    const vec2 hs = s * 0.5;
-
-    vec2 a = mod(p, s) - hs;
-    vec2 b = mod(p - hs, s) - hs;
-
-    vec2 c = dot(a, a) < dot(b, b) ? a : b;
-    vec2 id = (c - p + hs) / s;
-
-    p = c;
-    return floor(id);
-}
-
-float hex(vec2 p, float r) {
-    p = abs(p);
-    return max(p.x * 0.866025 + p.y * 0.5, p.y) - r;
-}
-
-// ========================
-// Fragment-Shader
-// ========================
 void fragment() {
     vec2 uv = UV;
+    // Wir nutzen SCREEN_PIXEL_SIZE für eine perfekte Kantenglättung (Antialiasing)
+    vec2 pixel_size = fwidth(uv); 
+    float time = TIME * speed;
     
+    vec2 dir1 = vec2(cos(angle), sin(angle));
+    vec2 dir2 = vec2(cos(angle + 1.5), sin(angle + 1.5));
     
-    vec2 p = uv - 0.5;
-    float aspect = (1.0 / SCREEN_PIXEL_SIZE).x / (1.0 / SCREEN_PIXEL_SIZE).y;
-    p.x *= aspect * 0.9;
+    // Wir nutzen große Offsets, damit die Flächen weit auseinander liegen
+    float val1 = dot(uv, dir1) + time;
+    float val2 = dot(uv, dir2) - time * 0.8;
 
-    vec2 hp = p / hex_size;
-    vec2 id = hextile(hp);
-
-	float wipe = 0.0;
-    if (dir == 0) {
-        wipe = (uv.x + uv.y) * 0.5;                 
-    } else if (dir == 1) {
-        wipe = (1.0 - uv.x + uv.y) * 0.5;           
-    } else if (dir == 2) {
-        wipe = (uv.x + 1.0 - uv.y) * 0.5;        
-    } else {
-        wipe = (1.0 - uv.x + 1.0 - uv.y) * 0.5;     
-    }
-    float spread = 0.2; 
+    // --- Der Anti-Flicker-Trick ---
+    // Statt step(0.5, val) nutzen wir smoothstep basierend auf der Pixelgröße.
+    // Das ergibt eine perfekte 1-Pixel-Kante.
+    float aa = length(pixel_size) * 1.5; 
+    float mask1 = smoothstep(0.5, 0.5 + aa, fract(val1 * 0.3));
+    float mask2 = smoothstep(0.4, 0.4 + aa, fract(val2 * 0.2));
     
-
-    float sweep = progress * (1.0 + spread * 2.0) - spread;
+    // --- Ebenen-Logik ---
+    vec3 color = bg_color.rgb;
     
+    // Ebene 1: Eine dezente graue Schattenfläche (für Tiefe)
+    // Wir dunkeln das Weiß nur leicht ab, damit man sieht, dass sich Flächen überlagern
+    float shadow = smoothstep(0.3, 0.3 + aa, fract(val1 * 0.3 + 0.05));
+    color = mix(color, bg_color.rgb * 0.92, shadow * 0.5);
+    
+    // Ebene 2: Die Akzentfarbe
+    // Wir nutzen "max", damit sie über dem Schatten liegt
+    color = mix(color, accent_color.rgb, mask1);
+    
+    // Ebene 3: Eine zweite Akzent-Nuance oder weißes Highlight
+    // Hier mischen wir die zweite Maske ein, um geometrische Kreuzungen zu erzeugen
+    color = mix(color, accent_color.rgb * 1.1, mask2 * mask1); 
+    
+    // Damit Weiß nicht auf Weiß liegt: Ein dezenter dunkler Rand an den Kanten
+    float line_edge = smoothstep(0.5 + aa, 0.5, fract(val1 * 0.3)) * smoothstep(0.49, 0.49 + aa, fract(val1 * 0.3));
+    color -= line_edge * 0.05;
 
-    float hex_progress = 1.0 - smoothstep(sweep - spread, sweep + spread, wipe);
-    hex_progress = clamp(hex_progress, 0.0, 1.0);
-    // -------------------------------------
-
-    float r = hash(id);
-    float t = clamp(hex_progress - r * randomness, 0.0, 1.0);
-    float h = hex(hp, t * 0.9);
-    float mask = smoothstep(edge_softness, -edge_softness, h);
-
-
-    vec4 from_col = texture(TEXTURE, uv);
-    vec4 to_col   = texture(to_tex, uv);
-    vec4 final_col = mix(from_col, to_col, mask);
-
-    COLOR = final_col;
+    COLOR = vec4(color, 1.0);
 }

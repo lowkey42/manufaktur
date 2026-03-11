@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" format=3 uid="uid://bxf085mokjs76"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bx5jn7vxjtxi1"]
 
 [ext_resource type="Shader" uid="uid://c5fhn50e07q4l" path="res://commons/shaders/speed_lines.gdshader" id="1_ho0gy"]
 [ext_resource type="Texture2D" uid="uid://yv1ui5psnipc" path="res://commons/textures/noise.png" id="2_10whw"]
@@ -17,3 +17,5 @@ shader_parameter/distortion_power = 0.0630000029925
 shader_parameter/line_falloff = 1.0
 shader_parameter/blur_strength = 0.00999999977648
 shader_parameter/effect_power = 0.0
+shader_parameter/blur_direction = Vector3(0, 0, 0)
+shader_parameter/motion_blur_samples = 32
