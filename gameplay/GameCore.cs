@@ -17,6 +17,10 @@ public partial class GameCore : Node {
 
 	[Export] private ShaderMaterial _speedLineMaterial;
 
+	[Export] private ShaderMaterial _deathMaterial;
+
+	[Export] private CanvasItem _deathEffect;
+
 	private HighscoreList _highscoreList;
 
 	private bool _started = false;
@@ -101,7 +105,7 @@ public partial class GameCore : Node {
 		_ghostTracker.SetCurrentTime(_time);
 
 		if (Input.IsActionJustReleased("reset")) {
-			EventBus.Instance.EmitPlayerDied();
+			ResetLevel();
 		}
 
 		var camVelocity = _player.RelativeVelocityPercent;
@@ -122,13 +126,31 @@ public partial class GameCore : Node {
 		Input.SetMouseMode(Input.MouseModeEnum.Visible);
 	}
 
-	private async void OnPlayerDied() {
-		// TODO: play animation/particle-effect and wait for 1-2 seconds
-		await ToSignal(GetTree().CreateTimer(0.2), "timeout");
+	private async void ResetLevel() {
+		await ToSignal(GetTree().CreateTimer(2.0), "timeout");
 
 		var error = GetTree().ReloadCurrentScene();
 		if (error != Error.Ok) {
 			GD.PrintErr(error);
 		}
+	}
+	
+	private async void OnPlayerDied() {
+		// TODO: play particle-effect(?)
+		// TODO: play sound-effect
+		
+		_deathEffect.Visible = true;
+		_deathMaterial.SetShaderParameter("shatter_progress", 0.0);
+		_deathMaterial.SetShaderParameter("seed", Random.Shared.NextDouble()*10.0);
+		
+		_player.ProcessMode = ProcessModeEnum.Disabled;
+		var tween = CreateTween();
+		tween.TweenProperty(_deathMaterial, "shader_parameter/shatter_progress", 1.0, 0.4);
+		
+		await ToSignal(GetTree().CreateTimer(0.3), "timeout");
+
+		GetTree().Paused = true;
+		_hud.ShowHighscore(_highscoreList, null, (GetParentOrNull<Node>() as Level)?.NextLevelScene);
+		Input.SetMouseMode(Input.MouseModeEnum.Visible);
 	}
 }

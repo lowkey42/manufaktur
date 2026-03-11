@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cjvbclgvol1q"]
+
+[ext_resource type="Shader" uid="uid://baxh3fi8j6gol" path="res://commons/shaders/death_effect.gdshader" id="1_gum0e"]
+[ext_resource type="Texture2D" uid="uid://yv1ui5psnipc" path="res://commons/textures/noise.png" id="2_gum0e"]
+
+[resource]
+shader = ExtResource("1_gum0e")
+shader_parameter/noise = ExtResource("2_gum0e")
+shader_parameter/shatter_progress = 0.0
+shader_parameter/refraction_strength = 0.3
+shader_parameter/fall_strength = 0.1
+shader_parameter/fresnel_normal_strength = 1.0
+shader_parameter/glass_color = Color(2, 2, 2, 1)
+shader_parameter/vignette_color_inner = Color(0.2, 0, 0, 1)
+shader_parameter/vignette_color_outer = Color(0, 0, 0, 1)
+shader_parameter/vignette_size = 0.1

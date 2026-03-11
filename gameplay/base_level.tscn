@@ -4,8 +4,11 @@
 [ext_resource type="Script" uid="uid://7s0xxujvrde7" path="res://gameplay/Level.cs" id="1_vom85"]
 [ext_resource type="PackedScene" uid="uid://c1btrphh4u5a0" path="res://gameplay/interactables/spawn_point.tscn" id="2_nopgp"]
 [ext_resource type="PackedScene" uid="uid://bvg3jpsto66fu" path="res://gameplay/interactables/finish.tscn" id="3_vom85"]
+[ext_resource type="Script" uid="uid://dt7hh2mn5iiy5" path="res://gameplay/interactables/SpikeTrap.cs" id="5_knlha"]
 
 [sub_resource type="Environment" id="Environment_8fes8"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_knlha"]
 
 [node name="BaseLevel" type="Node3D" unique_id=433332774]
 script = ExtResource("1_vom85")
@@ -21,3 +24,17 @@ environment = SubResource("Environment_8fes8")
 [node name="SpawnPoint" parent="." unique_id=407262584 instance=ExtResource("2_nopgp")]
 
 [node name="Finish" parent="." unique_id=1714722049 instance=ExtResource("3_vom85")]
+
+[node name="DeathZone" type="Node3D" parent="." unique_id=189809183]
+script = ExtResource("5_knlha")
+
+[node name="Area3D" type="Area3D" parent="DeathZone" unique_id=383152636]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+collision_layer = 4
+collision_mask = 2
+metadata/collision_preset_name = "__custom__"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathZone/Area3D" unique_id=167147070]
+shape = SubResource("WorldBoundaryShape3D_knlha")
+
+[connection signal="body_entered" from="DeathZone/Area3D" to="DeathZone" method="OnCollision"]
