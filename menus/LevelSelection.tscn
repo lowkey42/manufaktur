@@ -83,21 +83,21 @@ script = ExtResource("6_50gvo")
 custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
 theme_type_variation = &"FlatButton"
-text = "Level 1"
+text = "Level 2"
 script = ExtResource("6_50gvo")
 
 [node name="Level3Button" type="Button" parent="Panel/MarginContainer/VBoxContainer/VBoxContainer" unique_id=779207957]
 custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
 theme_type_variation = &"FlatButton"
-text = "Level 1"
+text = "Level 3"
 script = ExtResource("6_50gvo")
 
 [node name="Level4Button" type="Button" parent="Panel/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1504669250]
 custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
 theme_type_variation = &"FlatButton"
-text = "Level 1"
+text = "Level 4"
 script = ExtResource("6_50gvo")
 
 [node name="CurrentSelectedLevelContainer" type="PanelContainer" parent="." unique_id=574678227]
@@ -160,5 +160,3 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/HBoxContainer2/Close_Button" to="." method="_on_close_button_pressed"]
-[connection signal="pressed" from="CurrentSelectedLevelContainer/MarginContainer/VBoxContainer/HBoxContainer2/Load_current_Level_Button" to="." method="LoadLevel" binds= ["res://gameplay/levels/level01.tscn"]]
-[connection signal="pressed" from="CurrentSelectedLevelContainer/MarginContainer/VBoxContainer/HBoxContainer2/Load_HighScoreButton_Current_level" to="." method="LoadScore" binds= ["Level1"]]
