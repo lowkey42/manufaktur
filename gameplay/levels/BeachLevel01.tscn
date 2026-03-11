@@ -222,9 +222,6 @@ subdivide_depth = 2
 
 [node name="BaseLevel" unique_id=433332774 instance=ExtResource("1_mk68e")]
 
-[node name="GameCore" parent="." index="0" unique_id=910148981]
-_startDelay = 0
-
 [node name="DirectionalLight3D" parent="." index="1" unique_id=1057689463]
 visible = false
 
@@ -234,7 +231,7 @@ camera_attributes = SubResource("CameraAttributesPractical_20ii1")
 compositor = SubResource("Compositor_okmpl")
 
 [node name="SpawnPoint" parent="." index="3" unique_id=407262584]
-transform = Transform3D(-0.7172877, 0, -0.6967771, 0, 1, 0, 0.6967771, 0, -0.7172877, 19.115381, 12.143826, -8.739276)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.115381, 6.6598277, -8.739276)
 
 [node name="Terrain3D" type="Terrain3D" parent="." index="4" unique_id=574733127]
 data_directory = "res://gameplay/levels/terrain"
@@ -264,7 +261,7 @@ light_color = Color(0.919048, 0.672662, 0.107584, 1)
 light_energy = 1.833
 
 [node name="Finish" parent="." index="8" unique_id=1714722049]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -213.40923, 16.328098, 470.382)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -304.8727, 17.23399, 709.82477)
 
 [node name="GridMap" type="GridMap" parent="." index="9" unique_id=902197474]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
