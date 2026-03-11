@@ -40,7 +40,7 @@ public class HighscoreList {
 		public PlayerPath LoadGhost() {
 			if (GhostId == null)
 				return null;
-			if (GhostId == "DEFAULT")
+			if (GhostId == "DEFAULT" && _list._defaultGhost != null)
 				return new PlayerPath(_list._defaultGhost);
 			if (FileAccess.FileExists(GetUserGhostPath()))
 				return new PlayerPath(GetUserGhostPath());
