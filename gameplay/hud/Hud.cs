@@ -140,4 +140,6 @@ public partial class Hud : CanvasLayer {
 	private static string FormatTime(float currentTime) {
 		return TimeSpan.FromSeconds(currentTime).ToString(@"m\:ss\.fff");
 	}
+	
+	
 }

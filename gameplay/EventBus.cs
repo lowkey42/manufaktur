@@ -43,5 +43,4 @@ public partial class EventBus : Node {
 	public void EmitInventoryItemUsed(ItemResource item, ItemResource[] items) {
 		EmitSignalInventoryItemUsed(item, items);
 	}
-
 }
