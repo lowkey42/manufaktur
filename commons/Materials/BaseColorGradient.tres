@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://fn32jpi2g7ej"]
+
+[ext_resource type="Texture2D" uid="uid://c8mdomcw5ap33" path="res://gameplay/props/props Import/BridgeReimport_TextureSet_Wood_FK_v01.png" id="1_pjjrt"]
+
+[resource]
+albedo_texture = ExtResource("1_pjjrt")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
