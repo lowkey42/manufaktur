@@ -5,22 +5,26 @@
 [ext_resource type="Script" uid="uid://ckxb8gutbgkk" path="res://gameplay/GhostTracker.cs" id="2_ggeim"]
 [ext_resource type="PackedScene" uid="uid://dwa5sbx8g6fh1" path="res://gameplay/player/ghost.tscn" id="2_u5ufx"]
 [ext_resource type="PackedScene" uid="uid://uesictnom2dy" path="res://gameplay/hud/hud.tscn" id="4_s0qlc"]
-[ext_resource type="Material" path="res://commons/shaders/speed_lines.tres" id="6_rlwjj"]
+[ext_resource type="Material" uid="uid://bxf085mokjs76" path="res://commons/shaders/speed_lines.tres" id="6_rlwjj"]
+[ext_resource type="Material" uid="uid://cjvbclgvol1q" path="res://commons/shaders/death_effect.tres" id="7_fhy4x"]
 [ext_resource type="PackedScene" uid="uid://lhjhuxo3eceu" path="res://menus/pause_menu.tscn" id="7_ysyhx"]
 
-[node name="GameCore" type="Node" unique_id=910148981 node_paths=PackedStringArray("_hud", "_player", "_ghostTracker")]
+[node name="GameCore" type="Node" unique_id=910148981 node_paths=PackedStringArray("_hud", "_player", "_ghostTracker", "_deathEffect")]
 script = ExtResource("1_uoxhe")
 _ghostScene = ExtResource("2_u5ufx")
 _hud = NodePath("Hud")
 _player = NodePath("Player")
 _ghostTracker = NodePath("GhostTracker")
 _speedLineMaterial = ExtResource("6_rlwjj")
+_deathMaterial = ExtResource("7_fhy4x")
+_deathEffect = NodePath("CanvasLayer/Death")
 
 [node name="GhostTracker" type="Node" parent="." unique_id=288071560 node_paths=PackedStringArray("_player")]
 script = ExtResource("2_ggeim")
 _player = NodePath("../Player")
 
 [node name="Player" parent="." unique_id=854154611 instance=ExtResource("1_jx7jd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
 
 [node name="Hud" parent="." unique_id=127962132 instance=ExtResource("4_s0qlc")]
 layer = 2
@@ -32,6 +36,15 @@ copy_mode = 2
 
 [node name="SpeedLines" type="ColorRect" parent="CanvasLayer" unique_id=70890909]
 material = ExtResource("6_rlwjj")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Death" type="ColorRect" parent="CanvasLayer" unique_id=695536882]
+visible = false
+material = ExtResource("7_fhy4x")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
