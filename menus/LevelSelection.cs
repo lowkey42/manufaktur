@@ -16,8 +16,6 @@ public partial class LevelSelection : Control
 	private RichTextLabel _level3Label;
 
 	public void _on_close_button_pressed() {
-
-		
 		EmitSignal(SignalName.Closed);
 	}
 	

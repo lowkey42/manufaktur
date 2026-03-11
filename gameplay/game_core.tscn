@@ -5,7 +5,8 @@
 [ext_resource type="Script" uid="uid://ckxb8gutbgkk" path="res://gameplay/GhostTracker.cs" id="2_ggeim"]
 [ext_resource type="PackedScene" uid="uid://dwa5sbx8g6fh1" path="res://gameplay/player/ghost.tscn" id="2_u5ufx"]
 [ext_resource type="PackedScene" uid="uid://uesictnom2dy" path="res://gameplay/hud/hud.tscn" id="4_s0qlc"]
-[ext_resource type="Material" uid="uid://bxf085mokjs76" path="res://commons/shaders/speed_lines.tres" id="6_rlwjj"]
+[ext_resource type="Material" path="res://commons/shaders/speed_lines.tres" id="6_rlwjj"]
+[ext_resource type="PackedScene" uid="uid://lhjhuxo3eceu" path="res://menus/pause_menu.tscn" id="7_ysyhx"]
 
 [node name="GameCore" type="Node" unique_id=910148981 node_paths=PackedStringArray("_hud", "_player", "_ghostTracker")]
 script = ExtResource("1_uoxhe")
@@ -36,3 +37,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="PauseMenu" parent="." unique_id=1089073059 instance=ExtResource("7_ysyhx")]
+visible = false

@@ -6,8 +6,8 @@
 
 [sub_resource type="Curve" id="Curve_01s76"]
 _limits = [0.0, 50.0, 0.0, 120.0]
-_data = [Vector2(0, 10.03663), 0.0, -0.029677868, 0, 0, Vector2(5.841153, 34.080242), 0.0, 0.0, 0, 0, Vector2(30.991535, 11.982029), -0.026995972, -0.026995972, 0, 0, Vector2(61.006615, 17.198948), 0.79266036, 0.79266036, 0, 0, Vector2(90.44361, 50), 0.020244764, 0.0, 0, 0]
-point_count = 5
+_data = [Vector2(0, 50), 0.0, -0.029677868, 0, 0, Vector2(10.06427, 20.309639), 0.023959516, 0.023959516, 0, 0, Vector2(80.34097, 50), 0.020164398, 0.020164398, 0, 0, Vector2(120, 24.622253), -0.17297313, 0.0, 0, 0]
+point_count = 4
 
 [sub_resource type="Curve" id="Curve_xq3ts"]
 _limits = [40.0, 170.0, 0.0, 120.0]
@@ -27,6 +27,7 @@ platform_floor_layers = 1
 platform_wall_layers = 1
 script = ExtResource("1_01s76")
 _acceleration = SubResource("Curve_01s76")
+_accelerationSmoothingTime = 0.5
 _targetFov = SubResource("Curve_xq3ts")
 _mouseSensitivity = 0.003
 _camera = NodePath("Camera3D")
