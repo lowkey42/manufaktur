@@ -12,9 +12,11 @@
 [ext_resource type="PackedScene" uid="uid://cpw0fkglnysia" path="res://gameplay/interactables/jump_pad/jump_pad.tscn" id="10_ceaov"]
 [ext_resource type="Resource" uid="uid://cpolmb16j5f4h" path="res://gameplay/items/superjump/Superjump1.tres" id="11_3w8ib"]
 [ext_resource type="Resource" uid="uid://ca2jjf4ix8v2n" path="res://gameplay/items/sandwitch/Sandwitch.tres" id="12_bknvr"]
+[ext_resource type="Resource" uid="uid://deq3k6gx5td7k" path="res://gameplay/items/glitch/Glitch1.tres" id="13_0m6g6"]
 [ext_resource type="PackedScene" uid="uid://cq1yy7ikiwch" path="res://gameplay/interactables/popup/popup.tscn" id="13_mrx4j"]
 [ext_resource type="PackedScene" uid="uid://b8524aomrv8qu" path="res://gameplay/interactables/turret/turret.tscn" id="14_m3i5n"]
 [ext_resource type="PackedScene" uid="uid://u1m12x5kgkkn" path="res://gameplay/interactables/turret/Bullet.tscn" id="15_0m6g6"]
+[ext_resource type="PackedScene" uid="uid://d1se4gcs1hq0t" path="res://gameplay/interactables/glitched_wall/glitched_wall.tscn" id="17_rutv5"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_q6kq1"]
 size = Vector2(18, 18)
@@ -125,16 +127,25 @@ EnableAutoRespawn = true
 RespawnTime = 2.0
 SpawnOnTrigger = false
 
-[node name="ItemSpawer3" parent="." index="22" unique_id=1366285013 instance=ExtResource("7_m3i5n")]
+[node name="ItemSpawer7" parent="." index="22" unique_id=1327817371 instance=ExtResource("7_m3i5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.609947, 0, 18.970325)
+item = ExtResource("13_0m6g6")
+EnableAutoRespawn = true
+RespawnTime = 2.0
+SpawnOnTrigger = false
+
+[node name="ItemSpawer3" parent="." index="23" unique_id=1366285013 instance=ExtResource("7_m3i5n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.348522, 0, 18.91251)
 item = ExtResource("8_0m6g6")
 EnableAutoRespawn = true
 SpawnOnTrigger = false
 
-[node name="Floor" type="Node" parent="." index="23" unique_id=1073680705]
+[node name="Floor" type="Node" parent="." index="24" unique_id=1073680705]
 
 [node name="Floor4" type="StaticBody3D" parent="Floor" index="0" unique_id=103876161]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, 18)
+collision_mask = 17
+metadata/collision_preset_name = "__custom__"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor/Floor4" index="0" unique_id=105147798]
 mesh = SubResource("PlaneMesh_q6kq1")
@@ -145,6 +156,7 @@ shape = SubResource("BoxShape3D_yeoal")
 
 [node name="Floor5" type="StaticBody3D" parent="Floor" index="1" unique_id=168602631]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, 18)
+collision_mask = 17
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor/Floor5" index="0" unique_id=975289685]
 mesh = SubResource("PlaneMesh_q6kq1")
@@ -155,6 +167,7 @@ shape = SubResource("BoxShape3D_yeoal")
 
 [node name="Floor6" type="StaticBody3D" parent="Floor" index="2" unique_id=919125620]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 18)
+collision_mask = 17
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor/Floor6" index="0" unique_id=487999424]
 mesh = SubResource("PlaneMesh_q6kq1")
@@ -165,6 +178,7 @@ shape = SubResource("BoxShape3D_yeoal")
 
 [node name="Floor3" type="StaticBody3D" parent="Floor" index="3" unique_id=1174876853]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, 0)
+collision_mask = 17
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor/Floor3" index="0" unique_id=5965601]
 mesh = SubResource("PlaneMesh_q6kq1")
@@ -175,6 +189,7 @@ shape = SubResource("BoxShape3D_yeoal")
 
 [node name="Floor2" type="StaticBody3D" parent="Floor" index="4" unique_id=127431798]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, 0)
+collision_mask = 17
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor/Floor2" index="0" unique_id=843389536]
 mesh = SubResource("PlaneMesh_q6kq1")
@@ -184,6 +199,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_yeoal")
 
 [node name="Floor" type="StaticBody3D" parent="Floor" index="5" unique_id=704426171]
+collision_mask = 17
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor/Floor" index="0" unique_id=1135117337]
 mesh = SubResource("PlaneMesh_q6kq1")
@@ -192,7 +208,7 @@ mesh = SubResource("PlaneMesh_q6kq1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_yeoal")
 
-[node name="Lights" type="Node" parent="." index="24" unique_id=1432435672]
+[node name="Lights" type="Node" parent="." index="25" unique_id=1432435672]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights" index="0" unique_id=1106621468]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.655924, 7.4862094, 13.495009)
@@ -217,9 +233,12 @@ omni_range = 35.147
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7559366, 3.202303, 8.660814)
 omni_range = 35.147
 
-[node name="Popup" parent="." index="25" unique_id=1517823302 instance=ExtResource("13_mrx4j")]
+[node name="Popup" parent="." index="26" unique_id=1517823302 instance=ExtResource("13_mrx4j")]
 transform = Transform3D(-0.68970793, 0, 0.72408766, 0, 1, 0, -0.72408766, 0, -0.68970793, -6.4705205, 0.01, 20.720097)
 
-[node name="Turret" parent="." index="26" unique_id=1180370954 instance=ExtResource("14_m3i5n")]
+[node name="Turret" parent="." index="27" unique_id=1180370954 instance=ExtResource("14_m3i5n")]
 transform = Transform3D(-0.573176, 0, -0.8194322, 0.27423304, 0.9423383, -0.19182038, 0.7721823, -0.3346623, -0.5401257, -18.150988, 0, 23.808887)
 BulletTemplate = ExtResource("15_0m6g6")
+
+[node name="GlitchedWall" parent="." index="28" unique_id=621091586 instance=ExtResource("17_rutv5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.15635, 0, 21.221054)

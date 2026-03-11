@@ -20,7 +20,7 @@ point_count = 4
 
 [node name="Player" type="CharacterBody3D" unique_id=813857107 node_paths=PackedStringArray("_camera", "Inventory")]
 collision_layer = 2
-collision_mask = 7
+collision_mask = 29
 axis_lock_angular_z = true
 platform_on_leave = 1
 platform_floor_layers = 1
