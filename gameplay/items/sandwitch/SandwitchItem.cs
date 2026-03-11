@@ -22,8 +22,6 @@ public partial class SandwitchItem : DurationItemResource {
 		parent.AddChild(throwable);
 		throwable.GlobalPosition = spawnPosition;
 
-		GD.Print($"Duration: {Duration}");
-
 		throwable.Duration            = Duration;
 		throwable.ThrowSpeed          = ThrowSpeed;
 		throwable.ThrowArcUpwardSpeed = ThrowArcUpwardSpeed;
