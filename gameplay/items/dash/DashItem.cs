@@ -1,8 +1,7 @@
 using Godot;
 using System;
 
-public partial class DashItem : ItemResource
-{
+public partial class DashItem : ItemResource {
 	[Export]
 	public float DashStrength { get; set; } = 150f;
 

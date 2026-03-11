@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cv7ejwged0lxv" path="res://gameplay/hud/Hud.cs" id="1_ceo1m"]
 [ext_resource type="Script" uid="uid://b7kcw1isuywu2" path="res://gameplay/hud/HighscorePanel.cs" id="2_ceo1m"]
 [ext_resource type="PackedScene" uid="uid://dqilcdf823eoa" path="res://gameplay/hud/highscore_row.tscn" id="3_2048h"]
-[ext_resource type="PackedScene" uid="uid://8tq1tak0cl4n" path="res://gameplay/hud/Inventory/InventoryUi.tscn" id="4_tbdus"]
+[ext_resource type="PackedScene" path="res://gameplay/hud/Inventory/InventoryUi.tscn" id="4_tbdus"]
 [ext_resource type="PackedScene" uid="uid://b521fsdfux417" path="res://gameplay/hud/Inventory/ItemDurationContainer.tscn" id="5_phc85"]
 
 [node name="Hud" type="CanvasLayer" unique_id=127962132 node_paths=PackedStringArray("_labelCurrentTime", "_labelBestTime", "_highscorePanel", "_nextButton", "_labelCountdown")]

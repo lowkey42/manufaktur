@@ -1,0 +1,8 @@
+[gd_resource type="Resource" format=3 uid="uid://ca2jjf4ix8v2n"]
+
+[ext_resource type="Texture2D" uid="uid://dap4i8aglhbi5" path="res://gameplay/items/sandwitch/sandwitch.png" id="1_6o0s5"]
+[ext_resource type="Script" uid="uid://c0y6lh7icu3ie" path="res://gameplay/items/sandwitch/SandwitchItem.cs" id="2_ds1hy"]
+
+[resource]
+script = ExtResource("2_ds1hy")
+Texture = ExtResource("1_6o0s5")
