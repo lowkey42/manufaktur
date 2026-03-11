@@ -53,13 +53,15 @@ public partial class Hud : CanvasLayer {
 	}
 
 	public override void _Process(double delta) {
-		if (_highscorePanel.Visible)
+		if (_highscorePanel.Visible) {
 			Input.SetMouseMode(Input.MouseModeEnum.Visible);
+		}
 	}
 
 	private void OnRowChange() {
-		if (_newEntry != null && _newEntryNameEdit != null)
+		if (_newEntry != null && _newEntryNameEdit != null) {
 			_newEntry.Name = _newEntryNameEdit.Text;
+		}
 	}
 
 	public void OnReset() {
@@ -107,8 +109,9 @@ public partial class Hud : CanvasLayer {
 	}
 
 	public void SetCountdown(int countdown) {
-		if (_lastCountdownValue == countdown)
+		if (_lastCountdownValue == countdown) {
 			return;
+		}
 
 		_lastCountdownValue = countdown;
 

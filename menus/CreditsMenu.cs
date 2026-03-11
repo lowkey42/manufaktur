@@ -23,8 +23,10 @@ public partial class CreditsMenu : Control
 	private void StartAutoScroll()
 	{
 
-		if (_activeTween != null) _activeTween.Kill();
-        
+		if (_activeTween != null) {
+			_activeTween.Kill();
+		}
+
 		_activeTween = CreateTween();
         
 

@@ -31,8 +31,9 @@ public partial class Ghost : Node3D {
 	}
 
 	public override void _Process(double delta) {
-		if (!_started)
+		if (!_started) {
 			return;
+		}
 
 		var previousTime = _time;
 		_time += (float) delta;

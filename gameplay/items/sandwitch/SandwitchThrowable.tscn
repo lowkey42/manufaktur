@@ -10,6 +10,7 @@ size = Vector3(0.2, 0.2, 0.1)
 size = Vector2(0.2, 0.2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_udatv"]
+transparency = 1
 cull_mode = 2
 shading_mode = 0
 albedo_texture = ExtResource("1_udatv")

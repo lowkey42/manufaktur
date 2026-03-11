@@ -40,13 +40,15 @@ public partial class MovingPlatform : Triggerable {
 		_lastPosition = _platform.GlobalPosition;
 		_state = StartAtEnd ? State.AtStop2 : State.AtStop1;
 
-		if (Looping && StartEnabled)
+		if (Looping && StartEnabled) {
 			StartLooping();
+		}
 	}
 
 	public override void Trigger() {
-		if (!Triggerable)
+		if (!Triggerable) {
 			return;
+		}
 
 		if (Looping) {
 			ToggleLooping();
@@ -57,13 +59,19 @@ public partial class MovingPlatform : Triggerable {
 	}
 
 	private void ActivateOnce() {
-		if (_platform == null) return;
-		if (_state == State.Moving) return;
+		if (_platform == null) {
+			return;
+		}
+		if (_state == State.Moving) {
+			return;
+		}
 
 		Vector3 target;
 
 		if (OneWayOnly) {
-			if (_state == State.AtStop2) return;
+			if (_state == State.AtStop2) {
+				return;
+			}
 			target = Stop2;
 		} else {
 			target = (_state == State.AtStop2) ? Stop1 : Stop2;
@@ -84,15 +92,20 @@ public partial class MovingPlatform : Triggerable {
 		_tween.TweenProperty(_platform, "position", targetLocalPos, TravelTimeSeconds);
 
 		_tween.Finished += () => {
-			if (targetLocalPos.IsEqualApprox(Stop1)) _state = State.AtStop1;
-			else if (targetLocalPos.IsEqualApprox(Stop2)) _state = State.AtStop2;
-			
+			if (targetLocalPos.IsEqualApprox(Stop1)) {
+				_state = State.AtStop1;
+			} else if (targetLocalPos.IsEqualApprox(Stop2)) {
+				_state = State.AtStop2;
+			}
+
 			_platform.ConstantLinearVelocity = Vector3.Zero;
 		};
 	}
 
 	private void StartLooping() {
-		if (_platform == null) return;
+		if (_platform == null) {
+			return;
+		}
 
 		_tween?.Kill();
 
@@ -113,18 +126,24 @@ public partial class MovingPlatform : Triggerable {
 		_tween?.Kill();
 		_tween = null;
 
-		if (_platform != null)
+		if (_platform != null) {
 			_platform.ConstantLinearVelocity = Vector3.Zero;
+		}
 
-		if (_platform.Position.IsEqualApprox(Stop1)) _state = State.AtStop1;
-		else if (_platform.Position.IsEqualApprox(Stop2)) _state = State.AtStop2;
-		else _state = State.Moving;
+		if (_platform.Position.IsEqualApprox(Stop1)) {
+			_state = State.AtStop1;
+		} else if (_platform.Position.IsEqualApprox(Stop2)) {
+			_state = State.AtStop2;
+		} else {
+			_state = State.Moving;
+		}
 	}
 
 	private void ToggleLooping() {
-		if (_tween != null && _tween.IsRunning())
+		if (_tween != null && _tween.IsRunning()) {
 			StopLooping();
-		else
+		} else {
 			StartLooping();
+		}
 	}
 }
