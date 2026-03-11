@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://cvv5omm6grlor"]
 
 [ext_resource type="Script" uid="uid://dbf6wbgb6kocu" path="res://menus/CreditsMenu.cs" id="1_vbcsv"]
+[ext_resource type="Texture2D" uid="uid://gskkmdby62te" path="res://commons/textures/placeholder.png" id="2_kacps"]
+[ext_resource type="Shortcut" uid="uid://7cs6fghgm3fk" path="res://menus/escape_shortcut.tres" id="2_xpenk"]
+[ext_resource type="Texture2D" uid="uid://dld260x0tqfcf" path="res://commons/textures/placeholder_schmanu.png" id="3_0oii8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0oii8"]
 
 [node name="CreditsMenuPanel" type="Control" unique_id=75977289]
 layout_mode = 3
@@ -17,19 +22,163 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vbcsv")
 
-[node name="CloseButton" type="Button" parent="." unique_id=906133331]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -9.0
-offset_top = -15.5
-offset_right = 9.0
-offset_bottom = 15.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=828436626]
+layout_mode = 0
+offset_top = -519.0
+offset_right = 504.0
+offset_bottom = 554.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=608143055]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=399819419]
+custom_minimum_size = Vector2(500, 50)
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1743225236]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_0oii8")
+
+[node name="CloseButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=906133331]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+shortcut = ExtResource("2_xpenk")
 text = "X"
 
-[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer" unique_id=927394761]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer" unique_id=14094861]
+layout_mode = 2
+
+[node name="Person1" type="HBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1763264361]
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person1" unique_id=1828768244]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+texture = ExtResource("2_kacps")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person1" unique_id=1146679535]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Manuel Buß (Special Guest)"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Person2" type="HBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=71320825]
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person2" unique_id=895530497]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+texture = ExtResource("2_kacps")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person2" unique_id=1774813051]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Manuel Buß (Special Guest)"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Person3" type="HBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1600862092]
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person3" unique_id=183980478]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+texture = ExtResource("2_kacps")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person3" unique_id=900436959]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Manuel Buß (Special Guest)"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Person4" type="HBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1355641800]
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person4" unique_id=1444244560]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+texture = ExtResource("2_kacps")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person4" unique_id=684938670]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Manuel Buß (Special Guest)"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Person5" type="HBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1091343971]
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person5" unique_id=691959655]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+texture = ExtResource("2_kacps")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person5" unique_id=1302556317]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Manuel Buß (Special Guest)"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Person6" type="HBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1137968172]
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person6" unique_id=1604012351]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+texture = ExtResource("2_kacps")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person6" unique_id=1791264172]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Manuel Buß (Special Guest)"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Person7" type="HBoxContainer" parent="PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1881377228]
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person7" unique_id=1006879775]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+texture = ExtResource("3_0oii8")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person7" unique_id=1245661408]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Schmanu!"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

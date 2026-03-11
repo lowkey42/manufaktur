@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://8tq1tak0cl4n"]
+
+[ext_resource type="Script" uid="uid://ddqs2h2nvf0nm" path="res://gameplay/hud/Inventory/InventoryUI.cs" id="1_3abqa"]
+
+[node name="Inventory" type="Control" unique_id=601817208]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_3abqa")

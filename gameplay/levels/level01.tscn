@@ -1,8 +1,10 @@
-[gd_scene format=3 uid="uid://cxp44kfd6jft0"]
+[gd_scene format=3 uid="uid://b8x0oc6hupu7q"]
 
 [ext_resource type="PackedScene" uid="uid://00ip0t0c74ti" path="res://gameplay/base_level.tscn" id="1_5pioa"]
+[ext_resource type="JSON" path="res://gameplay/levels/level01_ghost.json" id="2_6uu1f"]
 [ext_resource type="Material" uid="uid://c21s2t813typy" path="res://commons/textures/placeholder_material.tres" id="2_f0u35"]
-[ext_resource type="PackedScene" uid="uid://di7d1utnoba6s" path="res://gameplay/interactables/spike_trap.tscn" id="3_qped4"]
+[ext_resource type="PackedScene" path="res://gameplay/interactables/spike_trap.tscn" id="3_qped4"]
+[ext_resource type="Script" uid="uid://cwuugq4s37e0j" path="res://gameplay/levels/WorldEnvironment.cs" id="4_418pq"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_5pioa"]
 size = Vector2(100, 100)
@@ -13,6 +15,12 @@ size = Vector2(100, 100)
 size = Vector3(2, 2, 2)
 
 [node name="Level01" unique_id=433332774 instance=ExtResource("1_5pioa")]
+TimeMinimum = 10.0
+TimeBronze = 8.0
+TimeSilver = 4.0
+TimeGold = 3.0
+TimePlatinum = 1.0
+MinimumTimeGhost = ExtResource("2_6uu1f")
 
 [node name="LevelGeometry" type="Node3D" parent="." index="2" unique_id=667780060]
 
@@ -31,6 +39,9 @@ shape = SubResource("WorldBoundaryShape3D_5pioa")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.108201504, 0.7548561, -6.818254)
 material_override = ExtResource("2_f0u35")
 mesh = SubResource("BoxMesh_5pioa")
+
+[node name="WorldEnvironment" parent="." index="3" unique_id=1608441752]
+script = ExtResource("4_418pq")
 
 [node name="SpawnPoint" parent="." index="4" unique_id=407262584]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.18455, 0, 4.6905375)

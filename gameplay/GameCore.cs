@@ -15,6 +15,8 @@ public partial class GameCore : Node {
 
 	[Export] private GhostTracker _ghostTracker;
 
+	[Export] private ShaderMaterial _speedLineMaterial;
+
 	private HighscoreList _highscoreList;
 
 	private bool _started = false;
@@ -22,12 +24,14 @@ public partial class GameCore : Node {
 	private float _finishTime;
 	private float _time;
 
+	private Vector3 _previousCameraPosition;
+
 	private Ghost _ghost = null;
 
 	public float TimeSeconds => _time;
 
 	public override void _Ready() {
-		_highscoreList = new HighscoreList(GetParentOrNull<Node>()?.GetName() ?? "unknown");
+		_highscoreList = new HighscoreList(GetParentOrNull<Node>());
 
 		var bus = EventBus.Instance;
 		bus.FinishReached += OnFinished;
@@ -96,6 +100,10 @@ public partial class GameCore : Node {
 		if (Input.IsActionJustReleased("reset")) {
 			EventBus.Instance.EmitPlayerDied();
 		}
+
+		var camVelocity = _player.RelativeVelocityPercent;
+		_speedLineMaterial.SetShaderParameter("blur_direction", camVelocity);
+		_speedLineMaterial.SetShaderParameter("effect_power", _player.VelocityPercent);
 	}
 
 	private void OnFinished() {
@@ -107,7 +115,7 @@ public partial class GameCore : Node {
 		}
 
 		GetTree().Paused = true;
-		_hud.ShowHighscore(_highscoreList, entry);
+		_hud.ShowHighscore(_highscoreList, entry, (GetParentOrNull<Node>() as Level)?.NextLevelScene);
 		Input.SetMouseMode(Input.MouseModeEnum.Visible);
 	}
 

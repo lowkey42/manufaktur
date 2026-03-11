@@ -2,16 +2,21 @@
 
 [ext_resource type="Script" uid="uid://cv7ejwged0lxv" path="res://gameplay/hud/Hud.cs" id="1_ceo1m"]
 [ext_resource type="Script" uid="uid://b7kcw1isuywu2" path="res://gameplay/hud/HighscorePanel.cs" id="2_ceo1m"]
-[ext_resource type="PackedScene" path="res://gameplay/hud/highscore_row.tscn" id="3_2048h"]
+[ext_resource type="PackedScene" uid="uid://dqilcdf823eoa" path="res://gameplay/hud/highscore_row.tscn" id="3_2048h"]
 [ext_resource type="PackedScene" uid="uid://8tq1tak0cl4n" path="res://gameplay/hud/InventoryUI.tscn" id="4_tbdus"]
+[ext_resource type="PackedScene" path="res://gameplay/hud/highscore_row.tscn" id="3_2048h"]
+[ext_resource type="PackedScene" uid="uid://8tq1tak0cl4n" path="res://gameplay/hud/Inventory/InventoryUI.tscn" id="4_tbdus"]
+[ext_resource type="PackedScene" uid="uid://b521fsdfux417" path="res://gameplay/hud/Inventory/ItemDurationContainer.tscn" id="5_phc85"]
 
-[node name="Hud" type="CanvasLayer" unique_id=127962132 node_paths=PackedStringArray("_labelCurrentTime", "_labelBestTime", "_highscorePanel", "_labelCountdown")]
+[node name="Hud" type="CanvasLayer" unique_id=127962132 node_paths=PackedStringArray("_labelCurrentTime", "_labelBestTime", "_highscorePanel", "_nextButton", "_labelCountdown")]
 process_mode = 3
 script = ExtResource("1_ceo1m")
+_mainMenuScene = "uid://c0u0t8bci7xwj"
 _highScoreRow = ExtResource("3_2048h")
 _labelCurrentTime = NodePath("CurrentTime")
 _labelBestTime = NodePath("BestTime")
 _highscorePanel = NodePath("HighscorePanel")
+_nextButton = NodePath("HighscorePanel/VBoxContainer/HBoxContainer/NextButton")
 _labelCountdown = NodePath("Countdown")
 
 [node name="CurrentTime" type="RichTextLabel" parent="." unique_id=493737036]
@@ -112,6 +117,11 @@ vertical_alignment = 1
 [node name="HBoxContainer" type="HBoxContainer" parent="HighscorePanel/VBoxContainer" unique_id=1973791245]
 layout_mode = 2
 
+[node name="ResetButton" type="Button" parent="HighscorePanel/VBoxContainer/HBoxContainer" unique_id=1885897927]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "[DEBUG Reset]"
+
 [node name="ExitButton" type="Button" parent="HighscorePanel/VBoxContainer/HBoxContainer" unique_id=1090773494]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -127,20 +137,25 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Next"
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2077377760]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 40.0
-grow_horizontal = 0
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_top = 120
-theme_override_constants/margin_right = 30
+[node name="ItemDurationContainer" parent="." unique_id=1530550477 instance=ExtResource("5_phc85")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Inventory" parent="MarginContainer" unique_id=601817208 instance=ExtResource("4_tbdus")]
-layout_mode = 2
+[node name="Inventory" parent="." unique_id=601817208 instance=ExtResource("4_tbdus")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
 
+[connection signal="pressed" from="HighscorePanel/VBoxContainer/HBoxContainer/ResetButton" to="." method="OnReset"]
 [connection signal="pressed" from="HighscorePanel/VBoxContainer/HBoxContainer/ExitButton" to="." method="OnExit"]
 [connection signal="pressed" from="HighscorePanel/VBoxContainer/HBoxContainer/RetryButton" to="." method="OnRetry"]
 [connection signal="pressed" from="HighscorePanel/VBoxContainer/HBoxContainer/NextButton" to="." method="OnNext"]

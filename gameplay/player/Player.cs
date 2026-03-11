@@ -54,9 +54,12 @@ public partial class Player : CharacterBody3D {
 	[Export] private float _stickSensitivity = 3.0f;
 
 	[Export] private Camera3D _camera;
-	
+
 	[Export] public Inventory Inventory { get; private set; }
 
+	public float VelocityPercent => Mathf.Min(1.0f, (Velocity * new Vector3(1, 0, 1)).Length() / _maxSpeed);
+	public Vector3 RelativeVelocityPercent => Vector3.One.Min((_camera.GlobalTransform.Basis.Inverse() * Velocity) / new Vector3(_maxSpeed, _maxFallFSpeed, _maxSpeed));
+	
 	private bool _firstFrame = true;
 	private float _gravity;
 	private float _jumpVelocity;
@@ -72,9 +75,9 @@ public partial class Player : CharacterBody3D {
 	}
 
 	public override void _Ready() {
-		_gravity      = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle() * _gravityFactor;
+		_gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle() * _gravityFactor;
 		_jumpVelocity = Mathf.Sqrt(2 * _gravity * _jumpHeight);
-		_camera.Fov   = _targetFov.Sample(0);
+		_camera.Fov = _targetFov.Sample(0);
 	}
 
 	public override void _Input(InputEvent e) {
@@ -86,7 +89,7 @@ public partial class Player : CharacterBody3D {
 		if ((e is InputEventMouseMotion mm) && _mouseCaptured) {
 			RotateY(-mm.Relative.X * _mouseSensitivity); // Horizontal look
 			_camera.Rotation = new Vector3(Mathf.Clamp(_camera.Rotation.X - mm.Relative.Y * _mouseSensitivity, Mathf.DegToRad(-80), Mathf.DegToRad(80)),
-			                               _camera.Rotation.Y, _camera.Rotation.Z);
+										   _camera.Rotation.Y, _camera.Rotation.Z);
 		}
 
 		if (e.IsActionPressed("use_item")) {
@@ -124,7 +127,7 @@ public partial class Player : CharacterBody3D {
 		if (Input.IsActionJustReleased("jump") && velocity.Y > 0)
 			velocity.Y *= _jumpReleaseFactor;
 
-		var inputDir  = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
+		var inputDir = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
 		var direction = (Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
 
 		var oldVelocity = ToHorizontal(velocity);
@@ -145,14 +148,14 @@ public partial class Player : CharacterBody3D {
 				}
 			}
 		} else {
-			var targetSpeed  = _maxSpeed / 3.6f;
+			var targetSpeed = _maxSpeed / 3.6f;
 			var acceleration = _acceleration.Sample(Mathf.Clamp(oldVelocity.Length() * 3.6f / _maxSpeed, 0, 1));
 
 			if (!IsOnFloor())
 				acceleration *= _airAccelerationFactor;
 
 			// modulate by analog input
-			targetSpeed  *= Math.Min(1.0f, inputDir.Length());
+			targetSpeed *= Math.Min(1.0f, inputDir.Length());
 			acceleration *= Math.Min(1.0f, inputDir.Length());
 
 			// apply friction
@@ -164,8 +167,8 @@ public partial class Player : CharacterBody3D {
 			var horizontalVelocity = ToHorizontal(velocity);
 			if (horizontalVelocity.Length() > maxSpeed) {
 				horizontalVelocity = horizontalVelocity.Normalized() * maxSpeed;
-				velocity.X         = horizontalVelocity.X;
-				velocity.Z         = horizontalVelocity.Z;
+				velocity.X = horizontalVelocity.X;
+				velocity.Z = horizontalVelocity.Z;
 			}
 		}
 
@@ -176,19 +179,19 @@ public partial class Player : CharacterBody3D {
 
 	public override void _Process(double delta) {
 		var targetFov = _targetFov.Sample(ToHorizontal(Velocity).Length());
-		
+
 		if (_firstFrame) {
 			_camera.Fov = targetFov;
 			_firstFrame = false;
 			return;
 		}
-		
+
 		var displacement = _camera.Fov - targetFov;
-		var springForce  = -_fovSpringStiffness * displacement;
+		var springForce = -_fovSpringStiffness * displacement;
 		var dampingForce = -_fovSpringDamping * _fovVelocity;
 
 		_fovVelocity += (springForce + dampingForce) * (float) delta;
-		_camera.Fov  = Math.Clamp(_camera.Fov + _fovVelocity * (float) delta, 10.0f, 179.0f);
+		_camera.Fov = Math.Clamp(_camera.Fov + _fovVelocity * (float) delta, 10.0f, 130.0f);
 	}
 
 	private static Vector3 ToHorizontal(Vector3 v) {
@@ -201,7 +204,20 @@ public partial class Player : CharacterBody3D {
 			RotateY(-lookDir.X * _stickSensitivity * (float) delta);
 			_camera.Rotation =
 				new Vector3(Mathf.Clamp(_camera.Rotation.X - lookDir.Y * _stickSensitivity * (float) delta, Mathf.DegToRad(-80), Mathf.DegToRad(80)),
-				            _camera.Rotation.Y, _camera.Rotation.Z);
+							_camera.Rotation.Y, _camera.Rotation.Z);
 		}
+	}
+
+	public Vector3 GetFacingDirection() {
+		return -Transform.Basis.Z;
+	}
+
+	public void SetJumpHeight(float height) {
+		_jumpHeight = height;
+		_jumpVelocity = Mathf.Sqrt(2 * _gravity * _jumpHeight);
+	}
+
+	public float GetJumpHeight() {
+		return _jumpHeight;
 	}
 }

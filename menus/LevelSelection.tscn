@@ -4,7 +4,10 @@
 [ext_resource type="Theme" uid="uid://cdh01f3cdy86t" path="res://commons/main_theme.tres" id="1_ma3l3"]
 [ext_resource type="Texture2D" uid="uid://ff04yh0rdln3" path="res://icon.svg" id="2_60kdo"]
 [ext_resource type="Script" uid="uid://ck28o4xy2wkjo" path="res://menus/LevelSelection.cs" id="2_p6kpr"]
+[ext_resource type="Shortcut" uid="uid://7cs6fghgm3fk" path="res://menus/escape_shortcut.tres" id="3_50gvo"]
 [ext_resource type="Script" uid="uid://csyrf4gbhsvin" path="res://menus/AnimatedButton.cs" id="6_50gvo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r3nxf"]
 
 [node name="LevelSelection" type="Control" unique_id=1153605463]
 layout_mode = 3
@@ -24,7 +27,7 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -408.0
-offset_top = -297.0
+offset_top = -542.0
 offset_right = 408.0
 offset_bottom = 297.0
 grow_horizontal = 2
@@ -43,6 +46,11 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 theme = ExtResource("1_ma3l3")
 
+[node name="Container" type="PanelContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=1533195358]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_r3nxf")
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=404903441]
 layout_mode = 2
 
@@ -57,6 +65,7 @@ vertical_alignment = 1
 [node name="Close_Button" type="Button" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=694799862]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+shortcut = ExtResource("3_50gvo")
 text = "X"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=416470793]

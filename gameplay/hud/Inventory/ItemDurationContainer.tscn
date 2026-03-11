@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://b521fsdfux417"]
+
+[ext_resource type="Script" uid="uid://dyo0q5spx1xnh" path="res://gameplay/hud/Inventory/ItemDurationContainer.cs" id="1_51esw"]
+
+[node name="ItemDurationContainer" type="Control" unique_id=1530550477]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=715631551]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -105.0
+offset_top = -182.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset_ratio = Vector2(1, 1)
+alignment = 2
+script = ExtResource("1_51esw")
+progressBarTemplate = null
