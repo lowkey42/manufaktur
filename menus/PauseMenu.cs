@@ -30,12 +30,13 @@ public partial class PauseMenu : CanvasLayer
 	}
 
 	private void OnResetButtonPressed() {
-		Input.MouseMode  = Input.MouseModeEnum.Captured;
+
 		GetTree().Paused = false;
 		var error = GetTree().ReloadCurrentScene();
 		if (error != Error.Ok) {
 			GD.PrintErr(error);
 		}
+		Input.MouseMode  = Input.MouseModeEnum.Captured;
 	}
 
 	private void OnExitButtonPressed() {

@@ -7,7 +7,19 @@
 [ext_resource type="Shortcut" uid="uid://7cs6fghgm3fk" path="res://menus/escape_shortcut.tres" id="3_50gvo"]
 [ext_resource type="Script" uid="uid://csyrf4gbhsvin" path="res://menus/AnimatedButton.cs" id="6_50gvo"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r3nxf"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_50gvo"]
+bg_color = Color(0.3647059, 0.5529412, 0.7411765, 1)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nmlws"]
+bg_color = Color(0.21960784, 0.21960784, 0.41568628, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q0l7x"]
+bg_color = Color(0.3647059, 0.5529412, 0.7411765, 1)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g51lr"]
+bg_color = Color(0.19215687, 0.21568628, 0.3019608, 1)
 
 [node name="LevelSelection" type="Control" unique_id=1153605463]
 layout_mode = 3
@@ -26,13 +38,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -408.0
+offset_left = -795.0
 offset_top = -542.0
-offset_right = 408.0
+offset_right = -351.0
 offset_bottom = 297.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_ma3l3")
+theme_override_styles/panel = SubResource("StyleBoxFlat_50gvo")
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1667388753]
 layout_mode = 2
@@ -46,196 +59,104 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 theme = ExtResource("1_ma3l3")
 
-[node name="Container" type="PanelContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=1533195358]
-custom_minimum_size = Vector2(0, 200)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_r3nxf")
-
 [node name="HBoxContainer2" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=404903441]
 layout_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=929212692]
-custom_minimum_size = Vector2(700, 50)
-layout_mode = 2
-theme = ExtResource("1_ma3l3")
-text = "Level Selection"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Close_Button" type="Button" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=694799862]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_nmlws")
 shortcut = ExtResource("3_50gvo")
 text = "X"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=416470793]
-custom_minimum_size = Vector2(200, 500)
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=1779390447]
 layout_mode = 2
-theme = ExtResource("1_ma3l3")
 
-[node name="Level_1" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=924493002]
+[node name="Level1Button" type="Button" parent="Panel/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1809541685]
+custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
-theme = ExtResource("1_ma3l3")
+theme_type_variation = &"FlatButton"
+text = "Level 1"
+script = ExtResource("6_50gvo")
 
-[node name="Level1NameLabel" type="RichTextLabel" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_1" unique_id=1142362326]
-custom_minimum_size = Vector2(0, 50)
+[node name="Level2Button" type="Button" parent="Panel/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1768276710]
+custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
-theme = ExtResource("1_ma3l3")
+theme_type_variation = &"FlatButton"
+text = "Level 2"
+script = ExtResource("6_50gvo")
+
+[node name="Level3Button" type="Button" parent="Panel/MarginContainer/VBoxContainer/VBoxContainer" unique_id=779207957]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+theme_type_variation = &"FlatButton"
+text = "Level 3"
+script = ExtResource("6_50gvo")
+
+[node name="Level4Button" type="Button" parent="Panel/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1504669250]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+theme_type_variation = &"FlatButton"
+text = "Level 4"
+script = ExtResource("6_50gvo")
+
+[node name="CurrentSelectedLevelContainer" type="PanelContainer" parent="." unique_id=574678227]
+layout_mode = 0
+offset_left = 692.0
+offset_top = 31.0
+offset_right = 1355.0
+offset_bottom = 717.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_q0l7x")
+
+[node name="MarginContainer" type="MarginContainer" parent="CurrentSelectedLevelContainer" unique_id=1684684247]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CurrentSelectedLevelContainer/MarginContainer" unique_id=1085677427]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CurrentSelectedLevelContainer/MarginContainer/VBoxContainer" unique_id=240436897]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 50
 text = "Level 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_1" unique_id=17505647]
-custom_minimum_size = Vector2(200, 200)
+[node name="CurrentLevelImage" type="TextureRect" parent="CurrentSelectedLevelContainer/MarginContainer/VBoxContainer" unique_id=1971853797]
+custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
-theme = ExtResource("1_ma3l3")
 texture = ExtResource("1_dvbnx")
+stretch_mode = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_1" unique_id=507714919]
-layout_mode = 2
-theme = ExtResource("1_ma3l3")
-
-[node name="TextureRect2" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_1/HBoxContainer" unique_id=12703766]
-layout_mode = 2
-theme = ExtResource("1_ma3l3")
-texture = ExtResource("2_60kdo")
-stretch_mode = 3
-
-[node name="Level1ScoreLabel" type="RichTextLabel" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_1/HBoxContainer" unique_id=81377771]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 50)
-layout_mode = 2
-theme = ExtResource("1_ma3l3")
-text = "3m 35s 14ms"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_1" unique_id=507403591]
+[node name="HBoxContainer2" type="HBoxContainer" parent="CurrentSelectedLevelContainer/MarginContainer/VBoxContainer" unique_id=1995830627]
 layout_mode = 2
 
-[node name="Load_Level_1_Button" type="Button" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_1/HBoxContainer2" unique_id=985597200]
+[node name="Load_current_Level_Button" type="Button" parent="CurrentSelectedLevelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1875731601]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 theme = ExtResource("1_ma3l3")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_g51lr")
 text = "Start"
-script = ExtResource("6_50gvo")
 
-[node name="HighScoreButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_1/HBoxContainer2" unique_id=1976096491]
-custom_minimum_size = Vector2(40, 40)
+[node name="Load_HighScoreButton_Current_level" type="Button" parent="CurrentSelectedLevelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=568087779]
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
 icon = ExtResource("2_60kdo")
 expand_icon = true
 
-[node name="Level_2" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2086419129]
-layout_mode = 2
-theme = ExtResource("1_ma3l3")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_2" unique_id=753259212]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-theme = ExtResource("1_ma3l3")
-text = "Level 2"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_2" unique_id=1679371121]
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 2
-theme = ExtResource("1_ma3l3")
-texture = ExtResource("1_dvbnx")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_2" unique_id=703674760]
-layout_mode = 2
-theme = ExtResource("1_ma3l3")
-
-[node name="TextureRect2" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_2/HBoxContainer" unique_id=1090592563]
-layout_mode = 2
-theme = ExtResource("1_ma3l3")
-texture = ExtResource("2_60kdo")
-stretch_mode = 3
-
-[node name="Level2ScoreLabel" type="RichTextLabel" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_2/HBoxContainer" unique_id=390167279]
-unique_name_in_owner = true
+[node name="CurrentScoreLabel" type="RichTextLabel" parent="CurrentSelectedLevelContainer/MarginContainer/VBoxContainer" unique_id=1616766330]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 theme = ExtResource("1_ma3l3")
+theme_override_font_sizes/normal_font_size = 30
 text = "3m 35s 14ms"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_2" unique_id=1978324807]
-layout_mode = 2
-
-[node name="Load_Level_2_Button" type="Button" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_2/HBoxContainer2" unique_id=2011905652]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-theme = ExtResource("1_ma3l3")
-text = "Start"
-script = ExtResource("6_50gvo")
-
-[node name="HighScoreButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_2/HBoxContainer2" unique_id=1415524333]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-icon = ExtResource("2_60kdo")
-expand_icon = true
-
-[node name="Level_3" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=396810303]
-layout_mode = 2
-theme = ExtResource("1_ma3l3")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_3" unique_id=1661257057]
-custom_minimum_size = Vector2(0, 50)
-layout_mode = 2
-theme = ExtResource("1_ma3l3")
-text = "Level 3"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_3" unique_id=613896217]
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 2
-theme = ExtResource("1_ma3l3")
-texture = ExtResource("1_dvbnx")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_3" unique_id=838841524]
-layout_mode = 2
-theme = ExtResource("1_ma3l3")
-
-[node name="TextureRect2" type="TextureRect" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_3/HBoxContainer" unique_id=338402109]
-layout_mode = 2
-theme = ExtResource("1_ma3l3")
-texture = ExtResource("2_60kdo")
-stretch_mode = 3
-
-[node name="Level3ScoreLabel" type="RichTextLabel" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_3/HBoxContainer" unique_id=638490185]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 50)
-layout_mode = 2
-theme = ExtResource("1_ma3l3")
-text = "3m 35s 14ms"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_3" unique_id=1505972761]
-layout_mode = 2
-
-[node name="Load_Level_3_Button" type="Button" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_3/HBoxContainer2" unique_id=1789377011]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-theme = ExtResource("1_ma3l3")
-text = "Start"
-script = ExtResource("6_50gvo")
-
-[node name="HighScoreButton" type="Button" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_3/HBoxContainer2" unique_id=841447491]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-icon = ExtResource("2_60kdo")
-expand_icon = true
 
 [connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/HBoxContainer2/Close_Button" to="." method="_on_close_button_pressed"]
-[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_1/HBoxContainer2/Load_Level_1_Button" to="." method="LoadLevel" binds= ["res://gameplay/levels/level01.tscn"]]
-[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_1/HBoxContainer2/HighScoreButton" to="." method="LoadScore" binds= ["Level1"]]
-[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_2/HBoxContainer2/Load_Level_2_Button" to="." method="LoadLevel" binds= ["res://gameplay/levels/level01.tscn"]]
-[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_2/HBoxContainer2/HighScoreButton" to="." method="LoadScore" binds= ["Level2"]]
-[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_3/HBoxContainer2/Load_Level_3_Button" to="." method="LoadLevel" binds= ["res://gameplay/levels/level01.tscns"]]
-[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/Level_3/HBoxContainer2/HighScoreButton" to="." method="LoadScore" binds= ["Level3"]]

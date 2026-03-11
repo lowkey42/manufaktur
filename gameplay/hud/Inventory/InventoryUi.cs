@@ -1,8 +1,8 @@
 using Godot;
 
 public partial class InventoryUi : Control {
-	[Export] public float CardWidth { get; set; } = 100f;
-	[Export] public float CardHeight { get; set; } = 150f;
+	[Export] public float CardWidth { get; set; } = 150f;
+	[Export] public float CardHeight { get; set; } = 225f;
 	[Export] public float CardOverlap { get; set; } = 50f;
 	[Export] public float CardRotationStep { get; set; } = 5f;
 	[Export] public float CardVerticalOffset { get; set; } = 10f;

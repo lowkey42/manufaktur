@@ -17,7 +17,7 @@ public partial class SandwitchThrowable : Node3D {
 	[Export] public Color TimerDisplayColor { get; set; } = new Color(1.0f, 0.0f, 0.0f, 1.0f);
 
 	[ExportGroup("Debug")]
-	[Export] public bool ShowDebugShockwave { get; set; } = true;
+	[Export] public bool ShowDebugShockwave { get; set; } = false;
 	[Export(PropertyHint.Range, "0.0,1.0,0.01")] public float DebugAlpha { get; set; } = 0.2f;
 	[Export] public Color DebugColor { get; set; } = new Color(0.2f, 0.8f, 1.0f, 1.0f);
 
@@ -88,13 +88,11 @@ public partial class SandwitchThrowable : Node3D {
 	}
 
 	private void Explode() {
-		GD.Print("BANG");
 		ApplyShockwave();
 		QueueFree();
 	}
 
 	private void ApplyShockwave() {
-		GD.Print("SHOCKWAVE");
 		var sphere = new SphereShape3D {Radius = ShockwaveRadius};
 		var query = new PhysicsShapeQueryParameters3D {
 			Shape             = sphere,
@@ -111,7 +109,6 @@ public partial class SandwitchThrowable : Node3D {
 			var collider = hit["collider"].AsGodotObject();
 			if (collider is not Player player) { continue; }
 
-			GD.Print("Player hit");
 			player.Velocity += (player.GlobalPosition - _body.GlobalPosition).Normalized() * ShockwaveStrength;
 		}
 	}

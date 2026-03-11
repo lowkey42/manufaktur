@@ -4,6 +4,19 @@
 [ext_resource type="Script" uid="uid://b57x7amkff8wm" path="res://menus/SettingsMenu.cs" id="2_v0bl3"]
 [ext_resource type="Shortcut" uid="uid://7cs6fghgm3fk" path="res://menus/escape_shortcut.tres" id="3_n4a8d"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n4a8d"]
+bg_color = Color(0.3647059, 0.5529412, 0.7411765, 1)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qiwpd"]
+bg_color = Color(0.21960784, 0.21960784, 0.41568628, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f368g"]
+bg_color = Color(0.19215687, 0.21568628, 0.3019608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7h2wy"]
+bg_color = Color(0.21960784, 0.21960784, 0.41568628, 1)
+
 [node name="Settings" type="Control" unique_id=61109220 node_paths=PackedStringArray("_masterSlider", "_sfxSlider", "_fullscreenBox", "_resDropdown", "_ssaoButton", "_ssilButton", "_ssrButton")]
 layout_mode = 3
 anchors_preset = 8
@@ -16,7 +29,7 @@ grow_vertical = 2
 theme = ExtResource("1_83qjl")
 script = ExtResource("2_v0bl3")
 _masterSlider = NodePath("PanelContainer/MarginContainer/Settings_Container/GeneralContainer/Master_Container/Master_Slider")
-_sfxSlider = NodePath("PanelContainer/MarginContainer/Settings_Container/SFX_Container/SFX_Slider")
+_sfxSlider = NodePath("PanelContainer/MarginContainer/Settings_Container/GeneralContainer/SFX_Container/SFX_Slider")
 _fullscreenBox = NodePath("PanelContainer/MarginContainer/Settings_Container/Graphic_Container/FullScreen_Container/Fullscreen_CheckBox")
 _resDropdown = NodePath("PanelContainer/MarginContainer/Settings_Container/Graphic_Container/Resolution_Container/Resolution_Dropdown")
 _ssaoButton = NodePath("PanelContainer/MarginContainer/Settings_Container/Graphic_Container/SSAO_Container/SSAO_CheckBox")
@@ -30,13 +43,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -139.0
-offset_top = -236.0
-offset_right = 311.5
-offset_bottom = 547.0
+offset_left = -147.75
+offset_top = -285.0
+offset_right = 320.25
+offset_bottom = 536.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_83qjl")
+theme_override_styles/panel = SubResource("StyleBoxFlat_n4a8d")
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=458076352]
 layout_mode = 2
@@ -51,6 +65,7 @@ layout_mode = 2
 theme = ExtResource("1_83qjl")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/Settings_Container" unique_id=1322999961]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme = ExtResource("1_83qjl")
 alignment = 1
@@ -60,6 +75,7 @@ custom_minimum_size = Vector2(250, 50)
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("1_83qjl")
+theme_override_colors/default_color = Color(0.19215687, 0.21568628, 0.3019608, 1)
 theme_override_font_sizes/normal_font_size = 35
 text = "Settings"
 fit_content = true
@@ -70,6 +86,7 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme = ExtResource("1_83qjl")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qiwpd")
 shortcut = ExtResource("3_n4a8d")
 text = "X"
 
@@ -78,6 +95,7 @@ layout_mode = 2
 theme = ExtResource("1_83qjl")
 
 [node name="GeneralContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/Settings_Container" unique_id=554574966]
+custom_minimum_size = Vector2(0, 250)
 layout_mode = 2
 theme = ExtResource("1_83qjl")
 alignment = 1
@@ -86,7 +104,7 @@ alignment = 1
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 theme = ExtResource("1_83qjl")
-theme_override_colors/default_color = Color(0.6542321, 0.6542321, 0.654232, 1)
+theme_override_colors/default_color = Color(0.21960784, 0.21960784, 0.41568628, 1)
 theme_override_font_sizes/normal_font_size = 25
 text = "General"
 
@@ -100,32 +118,34 @@ alignment = 1
 custom_minimum_size = Vector2(100, 25)
 layout_mode = 2
 theme = ExtResource("1_83qjl")
+theme_override_font_sizes/normal_font_size = 20
 text = "Music"
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Master_Slider" type="HSlider" parent="PanelContainer/MarginContainer/Settings_Container/GeneralContainer/Master_Container" unique_id=482351484]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(250, 75)
 layout_mode = 2
 size_flags_vertical = 1
 theme = ExtResource("1_83qjl")
 value = 50.0
 rounded = true
 
-[node name="SFX_Container" type="HBoxContainer" parent="PanelContainer/MarginContainer/Settings_Container" unique_id=1747450748]
+[node name="SFX_Container" type="HBoxContainer" parent="PanelContainer/MarginContainer/Settings_Container/GeneralContainer" unique_id=1747450748]
+custom_minimum_size = Vector2(250, 50)
 layout_mode = 2
 theme = ExtResource("1_83qjl")
 alignment = 1
 
-[node name="SFX_Label" type="RichTextLabel" parent="PanelContainer/MarginContainer/Settings_Container/SFX_Container" unique_id=494451595]
+[node name="SFX_Label" type="RichTextLabel" parent="PanelContainer/MarginContainer/Settings_Container/GeneralContainer/SFX_Container" unique_id=494451595]
 custom_minimum_size = Vector2(100, 25)
 layout_mode = 2
 theme = ExtResource("1_83qjl")
+theme_override_font_sizes/normal_font_size = 20
 text = "SFX"
-horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="SFX_Slider" type="HSlider" parent="PanelContainer/MarginContainer/Settings_Container/SFX_Container" unique_id=1010863191]
-custom_minimum_size = Vector2(200, 0)
+[node name="SFX_Slider" type="HSlider" parent="PanelContainer/MarginContainer/Settings_Container/GeneralContainer/SFX_Container" unique_id=1010863191]
+custom_minimum_size = Vector2(250, 75)
 layout_mode = 2
 size_flags_vertical = 1
 theme = ExtResource("1_83qjl")
@@ -137,6 +157,7 @@ layout_mode = 2
 theme = ExtResource("1_83qjl")
 
 [node name="Graphic_Container" type="VBoxContainer" parent="PanelContainer/MarginContainer/Settings_Container" unique_id=2022999501]
+custom_minimum_size = Vector2(0, 250)
 layout_mode = 2
 theme = ExtResource("1_83qjl")
 
@@ -144,7 +165,7 @@ theme = ExtResource("1_83qjl")
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme = ExtResource("1_83qjl")
-theme_override_colors/default_color = Color(0.6542321, 0.6542321, 0.654232, 1)
+theme_override_colors/default_color = Color(0.21960784, 0.21960784, 0.41568628, 1)
 theme_override_font_sizes/normal_font_size = 26
 text = "Display"
 
@@ -153,14 +174,21 @@ layout_mode = 2
 theme = ExtResource("1_83qjl")
 
 [node name="Resolution_Label" type="RichTextLabel" parent="PanelContainer/MarginContainer/Settings_Container/Graphic_Container/Resolution_Container" unique_id=699072851]
-custom_minimum_size = Vector2(100, 25)
+custom_minimum_size = Vector2(250, 25)
 layout_mode = 2
 theme = ExtResource("1_83qjl")
+theme_override_font_sizes/normal_font_size = 25
 text = "Resolution"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Resolution_Dropdown" type="OptionButton" parent="PanelContainer/MarginContainer/Settings_Container/Graphic_Container/Resolution_Container" unique_id=353767585]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme = ExtResource("1_83qjl")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_f368g")
 selected = 0
 item_count = 3
 popup/item_0/text = "1920 x 1080"
@@ -171,72 +199,92 @@ popup/item_2/text = "1280 x 720"
 popup/item_2/id = 2
 
 [node name="SSAO_Container" type="HBoxContainer" parent="PanelContainer/MarginContainer/Settings_Container/Graphic_Container" unique_id=1516219058]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme = ExtResource("1_83qjl")
 
 [node name="SSAO_CheckBox" type="CheckBox" parent="PanelContainer/MarginContainer/Settings_Container/Graphic_Container/SSAO_Container" unique_id=1806804596]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme = ExtResource("1_83qjl")
+alignment = 1
 
 [node name="SSAO_Label" type="RichTextLabel" parent="PanelContainer/MarginContainer/Settings_Container/Graphic_Container/SSAO_Container" unique_id=1256372412]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 theme = ExtResource("1_83qjl")
+theme_override_font_sizes/normal_font_size = 25
 text = "SSAO"
+vertical_alignment = 1
 
 [node name="SSR_Container" type="HBoxContainer" parent="PanelContainer/MarginContainer/Settings_Container/Graphic_Container" unique_id=167975321]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme = ExtResource("1_83qjl")
 
 [node name="SSR_CheckBox" type="CheckBox" parent="PanelContainer/MarginContainer/Settings_Container/Graphic_Container/SSR_Container" unique_id=1252839583]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme = ExtResource("1_83qjl")
 
 [node name="SSR_Label" type="RichTextLabel" parent="PanelContainer/MarginContainer/Settings_Container/Graphic_Container/SSR_Container" unique_id=1532986911]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 theme = ExtResource("1_83qjl")
+theme_override_font_sizes/normal_font_size = 25
 text = "SSR"
+vertical_alignment = 1
 
 [node name="SSIL_Container" type="HBoxContainer" parent="PanelContainer/MarginContainer/Settings_Container/Graphic_Container" unique_id=733797014]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme = ExtResource("1_83qjl")
 
 [node name="SSIL_CheckBox" type="CheckBox" parent="PanelContainer/MarginContainer/Settings_Container/Graphic_Container/SSIL_Container" unique_id=1110172231]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme = ExtResource("1_83qjl")
 
 [node name="SSIL_Label" type="RichTextLabel" parent="PanelContainer/MarginContainer/Settings_Container/Graphic_Container/SSIL_Container" unique_id=1355280587]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 theme = ExtResource("1_83qjl")
+theme_override_font_sizes/normal_font_size = 25
 text = "SSIL"
+vertical_alignment = 1
 
 [node name="FullScreen_Container" type="HBoxContainer" parent="PanelContainer/MarginContainer/Settings_Container/Graphic_Container" unique_id=807589352]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme = ExtResource("1_83qjl")
 
 [node name="Fullscreen_CheckBox" type="CheckBox" parent="PanelContainer/MarginContainer/Settings_Container/Graphic_Container/FullScreen_Container" unique_id=315781722]
+custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme = ExtResource("1_83qjl")
 
 [node name="Fullscreen_Label" type="RichTextLabel" parent="PanelContainer/MarginContainer/Settings_Container/Graphic_Container/FullScreen_Container" unique_id=430166394]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 theme = ExtResource("1_83qjl")
+theme_override_font_sizes/normal_font_size = 25
 text = "Fullscreen"
+vertical_alignment = 1
 
 [node name="HSeparator3" type="HSeparator" parent="PanelContainer/MarginContainer/Settings_Container" unique_id=1524388991]
 layout_mode = 2
 theme = ExtResource("1_83qjl")
 
 [node name="Save_Button" type="Button" parent="PanelContainer/MarginContainer/Settings_Container" unique_id=1653729770]
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_7h2wy")
 text = "Save"
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/Settings_Container/HBoxContainer/Close_Button" to="." method="_on_close_button_pressed"]
 [connection signal="value_changed" from="PanelContainer/MarginContainer/Settings_Container/GeneralContainer/Master_Container/Master_Slider" to="." method="_on_master_slider_value_changed"]
-[connection signal="value_changed" from="PanelContainer/MarginContainer/Settings_Container/SFX_Container/SFX_Slider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/Settings_Container/GeneralContainer/SFX_Container/SFX_Slider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="item_selected" from="PanelContainer/MarginContainer/Settings_Container/Graphic_Container/Resolution_Container/Resolution_Dropdown" to="." method="_on_resolution_dropdown_item_selected"]
 [connection signal="toggled" from="PanelContainer/MarginContainer/Settings_Container/Graphic_Container/SSAO_Container/SSAO_CheckBox" to="." method="_on_ssao_check_box_toggled"]
 [connection signal="toggled" from="PanelContainer/MarginContainer/Settings_Container/Graphic_Container/SSR_Container/SSR_CheckBox" to="." method="_on_ssr_check_box_toggled"]

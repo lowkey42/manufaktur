@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cq1yy7ikiwch"]
+
+[ext_resource type="Script" uid="uid://bqwtnv4xum8ha" path="res://gameplay/interactables/popup/Popup.cs" id="1_0gril"]
+[ext_resource type="Texture2D" uid="uid://bb4ae6bn8kpt2" path="res://gameplay/interactables/popup/popup_placeholder.png" id="1_d7ppj"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_358bx"]
+size = Vector2(1, 1.9)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0gril"]
+cull_mode = 2
+albedo_texture = ExtResource("1_d7ppj")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_358bx"]
+size = Vector3(1, 1.9, 0.1)
+
+[node name="Popup" type="Node3D" unique_id=1517823302]
+script = ExtResource("1_0gril")
+
+[node name="Origin" type="Node3D" parent="." unique_id=2029802706]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Origin" unique_id=1484528743]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Origin/StaticBody3D" unique_id=196952897]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 0)
+mesh = SubResource("QuadMesh_358bx")
+surface_material_override/0 = SubResource("StandardMaterial3D_0gril")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Origin/StaticBody3D" unique_id=1224128999]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 0)
+shape = SubResource("BoxShape3D_358bx")
