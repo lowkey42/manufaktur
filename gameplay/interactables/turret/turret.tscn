@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://b8524aomrv8qu"]
+
+[ext_resource type="Script" uid="uid://nanlu5trd087" path="res://gameplay/interactables/turret/Turret.cs" id="1_0who8"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xxm84"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_xxm84"]
+
+[node name="Turret" type="Node3D" unique_id=1180370954]
+script = ExtResource("1_0who8")
+
+[node name="FireTimer" type="Timer" parent="." unique_id=119769133]
+autostart = true
+
+[node name="Origin" type="Node3D" parent="." unique_id=1919462712]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Body" type="StaticBody3D" parent="Origin" unique_id=10349814]
+collision_layer = 8
+metadata/collision_preset_name = "__custom__"
+
+[node name="Collision" type="CollisionShape3D" parent="Origin/Body" unique_id=1525545935]
+shape = SubResource("CapsuleShape3D_xxm84")
+
+[node name="Mesh" type="MeshInstance3D" parent="Origin/Body" unique_id=2054780171]
+mesh = SubResource("CapsuleMesh_xxm84")
+
+[node name="BulletOrigin" type="Node3D" parent="Origin" unique_id=594718308]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="BulletDirection" type="RayCast3D" parent="Origin/BulletOrigin" unique_id=1871838329]
+target_position = Vector3(10, 0, 0)
+debug_shape_custom_color = Color(0.61960787, 0.45882353, 1, 1)
+debug_shape_thickness = 5

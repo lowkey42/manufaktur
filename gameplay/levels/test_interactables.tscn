@@ -12,6 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://cpw0fkglnysia" path="res://gameplay/interactables/jump_pad/jump_pad.tscn" id="10_ceaov"]
 [ext_resource type="Resource" uid="uid://cpolmb16j5f4h" path="res://gameplay/items/superjump/Superjump1.tres" id="11_3w8ib"]
 [ext_resource type="Resource" uid="uid://ca2jjf4ix8v2n" path="res://gameplay/items/sandwitch/Sandwitch.tres" id="12_bknvr"]
+[ext_resource type="PackedScene" uid="uid://cq1yy7ikiwch" path="res://gameplay/interactables/popup/popup.tscn" id="13_mrx4j"]
+[ext_resource type="PackedScene" uid="uid://b8524aomrv8qu" path="res://gameplay/interactables/turret/turret.tscn" id="14_m3i5n"]
+[ext_resource type="PackedScene" uid="uid://u1m12x5kgkkn" path="res://gameplay/interactables/turret/Bullet.tscn" id="15_0m6g6"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_q6kq1"]
 size = Vector2(18, 18)
@@ -28,7 +31,7 @@ _startDelay = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.423128, 0, 5.2467394)
 
 [node name="Finish" parent="." index="4" unique_id=1714722049]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.01445, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.061985, 0, 18.478695)
 
 [node name="DoorRight" parent="." index="5" unique_id=416618077 instance=ExtResource("2_ilbrc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24735117, 0, -6.018709)
@@ -213,3 +216,11 @@ omni_range = 35.147
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights" index="5" unique_id=1490539855]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7559366, 3.202303, 8.660814)
 omni_range = 35.147
+
+[node name="Popup" parent="." index="25" unique_id=1517823302 instance=ExtResource("13_mrx4j")]
+transform = Transform3D(0.65158224, 0, 0.758578, 0, 1, 0, -0.758578, 0, 0.65158224, -20.621769, 0.01, -0.043765068)
+
+[node name="Turret" parent="." index="26" unique_id=1180370954 instance=ExtResource("14_m3i5n")]
+transform = Transform3D(0.4620427, 0, -0.8868576, 0, 1, 0, 0.8868576, 0, 0.4620427, -7.261525, 0, 14.112454)
+FireRate = 2.0
+BulletTemplate = ExtResource("15_0m6g6")
