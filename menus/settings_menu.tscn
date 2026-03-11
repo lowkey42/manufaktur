@@ -2,6 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://cdh01f3cdy86t" path="res://commons/main_theme.tres" id="1_83qjl"]
 [ext_resource type="Script" uid="uid://b57x7amkff8wm" path="res://menus/SettingsMenu.cs" id="2_v0bl3"]
+[ext_resource type="Shortcut" uid="uid://7cs6fghgm3fk" path="res://menus/escape_shortcut.tres" id="3_n4a8d"]
 
 [node name="Settings" type="Control" unique_id=61109220 node_paths=PackedStringArray("_masterSlider", "_sfxSlider", "_fullscreenBox", "_resDropdown", "_ssaoButton", "_ssilButton", "_ssrButton")]
 layout_mode = 3
@@ -69,6 +70,7 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 theme = ExtResource("1_83qjl")
+shortcut = ExtResource("3_n4a8d")
 text = "X"
 
 [node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/Settings_Container" unique_id=724774366]
