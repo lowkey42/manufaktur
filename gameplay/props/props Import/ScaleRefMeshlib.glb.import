@@ -42,9 +42,6 @@ _subresources={
 "PATH:3mWallScaleRef": {
 "generate/physics": true
 },
-"PATH:3x1Plane": {
-"generate/physics": true
-},
 "PATH:3x2Plane": {
 "generate/physics": true
 },
@@ -61,6 +58,9 @@ _subresources={
 "generate/physics": true
 },
 "PATH:5x10Plane": {
+"generate/physics": true
+},
+"PATH:5x10Plane_001": {
 "generate/physics": true
 },
 "PATH:5x5Corner": {
