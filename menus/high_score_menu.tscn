@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c0ovdom26ebms" path="res://menus/HighScoreMenu.cs" id="1"]
 [ext_resource type="Texture2D" uid="uid://ff04yh0rdln3" path="res://icon.svg" id="2"]
+[ext_resource type="Shortcut" uid="uid://7cs6fghgm3fk" path="res://menus/escape_shortcut.tres" id="2_klmml"]
 
 [node name="HighScorePanel" type="Control" unique_id=1000]
 layout_mode = 3
@@ -50,6 +51,7 @@ size_flags_horizontal = 8
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 8
+shortcut = ExtResource("2_klmml")
 text = "X"
 script = ExtResource("1")
 

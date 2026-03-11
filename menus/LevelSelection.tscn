@@ -4,6 +4,7 @@
 [ext_resource type="Theme" uid="uid://cdh01f3cdy86t" path="res://commons/main_theme.tres" id="1_ma3l3"]
 [ext_resource type="Texture2D" uid="uid://ff04yh0rdln3" path="res://icon.svg" id="2_60kdo"]
 [ext_resource type="Script" uid="uid://ck28o4xy2wkjo" path="res://menus/LevelSelection.cs" id="2_p6kpr"]
+[ext_resource type="Shortcut" uid="uid://7cs6fghgm3fk" path="res://menus/escape_shortcut.tres" id="3_50gvo"]
 [ext_resource type="Script" uid="uid://csyrf4gbhsvin" path="res://menus/AnimatedButton.cs" id="6_50gvo"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r3nxf"]
@@ -64,6 +65,7 @@ vertical_alignment = 1
 [node name="Close_Button" type="Button" parent="Panel/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=694799862]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+shortcut = ExtResource("3_50gvo")
 text = "X"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=416470793]
