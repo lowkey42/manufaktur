@@ -243,6 +243,7 @@ assets = SubResource("Terrain3DAssets_d4u8d")
 mesh_size = 64
 vertex_spacing = 1.5
 top_level = true
+metadata/_edit_lock_ = true
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="5" unique_id=557387831]
 transform = Transform3D(-92.4049, 0.477171, -38.2244, 0.711044, 99.9964, -0.470609, 38.2208, -0.706656, -92.4049, 88.8877, 40.3078, 311.534)

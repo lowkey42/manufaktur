@@ -148,7 +148,7 @@ public partial class GameCore : Node {
 		tween.TweenProperty(_deathMaterial, "shader_parameter/shatter_progress", 1.0, 0.4);
 		
 		await ToSignal(GetTree().CreateTimer(0.3), "timeout");
-
+		
 		GetTree().Paused = true;
 		_hud.ShowHighscore(_highscoreList, null, (GetParentOrNull<Node>() as Level)?.NextLevelScene);
 		Input.SetMouseMode(Input.MouseModeEnum.Visible);
