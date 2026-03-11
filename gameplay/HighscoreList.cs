@@ -29,21 +29,26 @@ public class HighscoreList {
 			new(list, dict["name"].AsString(), (float) dict["time"].AsDouble(), dict["ghost"].AsString());
 
 		public string GetUserGhostPath() {
-			if (GhostId == null)
+			if (GhostId == null) {
 				return null;
-			if (GhostId == "DEFAULT")
+			}
+			if (GhostId == "DEFAULT") {
 				return null;
+			}
 
 			return $"user://{_list._levelName}_ghost_{GhostId}.json";
 		}
 
 		public PlayerPath LoadGhost() {
-			if (GhostId == null)
+			if (GhostId == null) {
 				return null;
-			if (GhostId == "DEFAULT" && _list._defaultGhost != null)
+			}
+			if (GhostId == "DEFAULT" && _list._defaultGhost != null) {
 				return new PlayerPath(_list._defaultGhost);
-			if (FileAccess.FileExists(GetUserGhostPath()))
+			}
+			if (FileAccess.FileExists(GetUserGhostPath())) {
 				return new PlayerPath(GetUserGhostPath());
+			}
 			return null;
 		}
 	}
@@ -116,8 +121,9 @@ public class HighscoreList {
 		foreach (var fileName in dir.GetFiles()) {
 			if (fileName.StartsWith(levelName)) {
 				var err = dir.Remove(fileName);
-				if (err != Error.Ok)
+				if (err != Error.Ok) {
 					GD.PrintErr($"Failed to delete {fileName}: {err}");
+				}
 			}
 		}
 	}
@@ -125,12 +131,14 @@ public class HighscoreList {
 	public Entry AddHighscoreEntry(string name, float time) {
 		var i = 0;
 		for (; i < _entries.Count; i++) {
-			if (_entries[i].Time > time)
+			if (_entries[i].Time > time) {
 				break;
+			}
 		}
 
-		if (i >= _maxEntries)
+		if (i >= _maxEntries) {
 			return null;
+		}
 
 		var newEntry = new Entry(this, name, time, Guid.NewGuid().ToString());
 		_entries.Insert(i, newEntry);

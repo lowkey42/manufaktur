@@ -71,10 +71,12 @@ public class PlayerPath {
 	}
 
 	public void AddSample(float time, Player player, float minSampleDistance, float minSampleTimespan) {
-		if (_samples.Count > 0 && (_samples[^1].Position - player.GlobalPosition).LengthSquared() < minSampleDistance * minSampleDistance)
+		if (_samples.Count > 0 && (_samples[^1].Position - player.GlobalPosition).LengthSquared() < minSampleDistance * minSampleDistance) {
 			return;
-		if (_samples.Count > 0 && (time - _samples[^1].Time) < minSampleTimespan)
+		}
+		if (_samples.Count > 0 && (time - _samples[^1].Time) < minSampleTimespan) {
 			return;
+		}
 
 		var transform = player.GlobalTransform;
 		_samples.Add(new Sample() {Time = time, Position = transform.Origin, Rotation = transform.Basis.GetRotationQuaternion(), Teleported = false});
@@ -89,8 +91,9 @@ public class PlayerPath {
 	public void SampleGhost(float time, float previousTime, Ghost ghost) {
 		var lastIndexBefore = 0;
 		for (var i = 0; i < _samples.Count; i++) {
-			if (_samples[i].Time > time)
+			if (_samples[i].Time > time) {
 				break;
+			}
 			lastIndexBefore = i;
 		}
 

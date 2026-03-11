@@ -7,8 +7,10 @@ public partial class ItemDurationContainer : Control {
 	}
 
 	public void OnInventoryItemUsed(ItemResource item, ItemResource[] items) {
-		if (item is not DurationItemResource durationItem) return;
-		
+		if (item is not DurationItemResource durationItem) {
+			return;
+		}
+
 		var progressBar = new TextureProgressBar();
 		
 		progressBar.TextureProgress  = item.Texture;

@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://cuvg1hq2yhlom" path="res://gameplay/items/dash/Dash1.tres" id="9_rutv5"]
 [ext_resource type="PackedScene" uid="uid://cpw0fkglnysia" path="res://gameplay/interactables/jump_pad/jump_pad.tscn" id="10_ceaov"]
 [ext_resource type="Resource" uid="uid://cpolmb16j5f4h" path="res://gameplay/items/superjump/Superjump1.tres" id="11_3w8ib"]
+[ext_resource type="Resource" uid="uid://ca2jjf4ix8v2n" path="res://gameplay/items/sandwitch/Sandwitch.tres" id="12_bknvr"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_q6kq1"]
 size = Vector2(18, 18)
@@ -24,7 +25,7 @@ size = Vector3(18, 1, 18)
 _startDelay = 0
 
 [node name="SpawnPoint" parent="." index="3" unique_id=407262584]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4859102, 0, 2.635954)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.423128, 0, 5.2467394)
 
 [node name="Finish" parent="." index="4" unique_id=1714722049]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.01445, 0, 0)
@@ -114,13 +115,20 @@ EnableAutoRespawn = true
 RespawnTime = 2.0
 SpawnOnTrigger = false
 
-[node name="ItemSpawer3" parent="." index="21" unique_id=1366285013 instance=ExtResource("7_m3i5n")]
+[node name="ItemSpawer6" parent="." index="21" unique_id=1146996132 instance=ExtResource("7_m3i5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.913976, 0, 7.999984)
+item = ExtResource("12_bknvr")
+EnableAutoRespawn = true
+RespawnTime = 2.0
+SpawnOnTrigger = false
+
+[node name="ItemSpawer3" parent="." index="22" unique_id=1366285013 instance=ExtResource("7_m3i5n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.96352863, 0, 7.942168)
 item = ExtResource("8_0m6g6")
 EnableAutoRespawn = true
 SpawnOnTrigger = false
 
-[node name="Floor" type="Node" parent="." index="22" unique_id=1073680705]
+[node name="Floor" type="Node" parent="." index="23" unique_id=1073680705]
 
 [node name="Floor4" type="StaticBody3D" parent="Floor" index="0" unique_id=103876161]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, 18)
@@ -181,7 +189,7 @@ mesh = SubResource("PlaneMesh_q6kq1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_yeoal")
 
-[node name="Lights" type="Node" parent="." index="23" unique_id=1432435672]
+[node name="Lights" type="Node" parent="." index="24" unique_id=1432435672]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights" index="0" unique_id=1106621468]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.655924, 7.4862094, 13.495009)

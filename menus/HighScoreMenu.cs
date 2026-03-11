@@ -26,8 +26,9 @@ public partial class HighScoreMenu : Control
 			var scoreNode = GetNodeOrNull<HBoxContainer>(
 			                                             $"PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Score_{i + 1}");
 
-			if (scoreNode == null)
+			if (scoreNode == null) {
 				continue;
+			}
 
 			var nameLabel  = scoreNode.GetNode<RichTextLabel>("RichTextLabel");
 			var scoreLabel = scoreNode.GetNode<RichTextLabel>("RichTextLabel2");
