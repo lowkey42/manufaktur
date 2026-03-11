@@ -3,9 +3,7 @@
 [ext_resource type="Script" uid="uid://cv7ejwged0lxv" path="res://gameplay/hud/Hud.cs" id="1_ceo1m"]
 [ext_resource type="Script" uid="uid://b7kcw1isuywu2" path="res://gameplay/hud/HighscorePanel.cs" id="2_ceo1m"]
 [ext_resource type="PackedScene" uid="uid://dqilcdf823eoa" path="res://gameplay/hud/highscore_row.tscn" id="3_2048h"]
-[ext_resource type="PackedScene" uid="uid://8tq1tak0cl4n" path="res://gameplay/hud/InventoryUI.tscn" id="4_tbdus"]
-[ext_resource type="PackedScene" path="res://gameplay/hud/highscore_row.tscn" id="3_2048h"]
-[ext_resource type="PackedScene" uid="uid://8tq1tak0cl4n" path="res://gameplay/hud/Inventory/InventoryUI.tscn" id="4_tbdus"]
+[ext_resource type="PackedScene" uid="uid://8tq1tak0cl4n" path="res://gameplay/hud/Inventory/InventoryUi.tscn" id="4_tbdus"]
 [ext_resource type="PackedScene" uid="uid://b521fsdfux417" path="res://gameplay/hud/Inventory/ItemDurationContainer.tscn" id="5_phc85"]
 
 [node name="Hud" type="CanvasLayer" unique_id=127962132 node_paths=PackedStringArray("_labelCurrentTime", "_labelBestTime", "_highscorePanel", "_nextButton", "_labelCountdown")]
@@ -137,15 +135,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Next"
 
-[node name="ItemDurationContainer" parent="." unique_id=1530550477 instance=ExtResource("5_phc85")]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="Inventory" parent="." unique_id=601817208 instance=ExtResource("4_tbdus")]
 anchors_preset = 7
 anchor_left = 0.5
@@ -153,6 +142,15 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ItemDurationContainer" parent="." unique_id=1530550477 instance=ExtResource("5_phc85")]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
 grow_vertical = 0
 
 [connection signal="pressed" from="HighscorePanel/VBoxContainer/HBoxContainer/ResetButton" to="." method="OnReset"]

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://00ip0t0c74ti" path="res://gameplay/base_level.tscn" id="1_5pioa"]
 [ext_resource type="JSON" path="res://gameplay/levels/level01_ghost.json" id="2_6uu1f"]
 [ext_resource type="Material" uid="uid://c21s2t813typy" path="res://commons/textures/placeholder_material.tres" id="2_f0u35"]
-[ext_resource type="PackedScene" path="res://gameplay/interactables/spike_trap.tscn" id="3_qped4"]
+[ext_resource type="PackedScene" uid="uid://di7d1utnoba6s" path="res://gameplay/interactables/spike_trap.tscn" id="3_qped4"]
 [ext_resource type="Script" uid="uid://cwuugq4s37e0j" path="res://gameplay/levels/WorldEnvironment.cs" id="4_418pq"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_5pioa"]

@@ -1,7 +1,6 @@
 using Godot;
 using System;
 
-[GlobalClass]
 public partial class SuperjumpItem : DurationItemResource {
 	[Export]
 	public float JumpStrength { get; set; } = 20f;

@@ -1,31 +1,29 @@
 using Godot;
 using System;
 
-public partial class ItemDurationIndicator : Control
-{
+public partial class ItemDurationIndicator : Control {
 	public Texture2D Texture { get; set; }
 
 	public float Duration { get; set; }
-
-	[Export]
-	private NodePath _progressBarPath;
+	
+	private TextureProgressBar _progressBar;
 
 	public override void _Ready() {
 		base._Ready();
+		
+		_progressBar = GetNode<TextureProgressBar>("PanelContainer/TextureProgressBar");
 
-		var progressBar = GetNode<TextureProgressBar>(_progressBarPath);
+		// Scale texture to the control size
+		_progressBar.TextureProgress = Texture;
 
-		if (progressBar != null) {
-			progressBar.TextureProgress = Texture;
-		}
+		_progressBar.Scale = new Vector2(0.5f, 0.5f);
 
-		var tween = progressBar.CreateTween();
-		tween.TweenProperty(progressBar, "value", 0, Duration);
+		var tween = this.CreateTween();
+		tween.TweenProperty(_progressBar, "value", 0, Duration);
 
-		this.AddChild(progressBar);
-		this.MoveChild(progressBar, 0);
+		this.AddChild(_progressBar);
 
 		var timer = GetTree().CreateTimer(Duration);
-		timer.Timeout += progressBar.QueueFree;
+		timer.Timeout += this.QueueFree;
 	}
 }
