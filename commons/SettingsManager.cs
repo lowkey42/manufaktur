@@ -74,7 +74,7 @@ public partial class SettingsManager : Node
 		UpdateWorldEnvironment();
 	}
 	
-	private void UpdateWorldEnvironment()
+	public void UpdateWorldEnvironment()
 	{
 		var worldEnv = GetTree().Root.FindChild("WorldEnvironment", true, false) as WorldEnvironment;
     
