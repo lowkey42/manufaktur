@@ -4,20 +4,27 @@ using System.Globalization;
 using Manufaktur.gameplay;
 
 public partial class Hud : CanvasLayer {
+	[Export(PropertyHint.File, "*.tscn")] private string _mainMenuScene;
+
 	[Export] private PackedScene _highScoreRow;
 
 	[Export] private RichTextLabel _labelCurrentTime;
 	[Export] private RichTextLabel _labelBestTime;
 	[Export] private Control _highscorePanel;
+	[Export] private Button _nextButton;
 
 	[Export] private Label _labelCountdown;
 
+	private HighscoreList _highscores;
 	private HighscoreList.Entry _newEntry;
 	private TextEdit _newEntryNameEdit;
 	private int _lastCountdownValue = -1;
+	private string _nextLevelScene;
 
-	public void ShowHighscore(HighscoreList highscores, HighscoreList.Entry newEntry) {
-		_newEntry = newEntry;
+	public void ShowHighscore(HighscoreList highscores, HighscoreList.Entry newEntry, string nextLevelScene) {
+		_highscores     = highscores;
+		_newEntry       = newEntry;
+		_nextLevelScene = nextLevelScene;
 
 		var prevHighscoreRow = _highscorePanel.GetNode<Control>("%HighscoreHeader");
 		var position         = 1;
@@ -42,6 +49,12 @@ public partial class Hud : CanvasLayer {
 		}
 
 		_highscorePanel.Show();
+		_nextButton.Disabled = !highscores.IsMinimumTimeReached() || nextLevelScene == null || nextLevelScene.Length == 0;
+	}
+
+	public override void _Process(double delta) {
+		if (_highscorePanel.Visible)
+			Input.SetMouseMode(Input.MouseModeEnum.Visible);
 	}
 
 	private void OnRowChange() {
@@ -49,11 +62,20 @@ public partial class Hud : CanvasLayer {
 			_newEntry.Name = _newEntryNameEdit.Text;
 	}
 
+	public void OnReset() {
+		_newEntry = null;
+		_highscores.ResetProgress();
+		OnRetry();
+	}
+
 	public void OnExit() {
 		OnRowChange();
 		GetTree().Paused = false;
 
-		// TODO: return to menu
+		var error = GetTree().ChangeSceneToFile(_mainMenuScene);
+		if (error != Error.Ok) {
+			GD.PrintErr(error);
+		}
 	}
 
 	public void OnRetry() {
@@ -69,7 +91,11 @@ public partial class Hud : CanvasLayer {
 	public void OnNext() {
 		OnRowChange();
 		GetTree().Paused = false;
-		// TODO: load next level
+
+		var error = GetTree().ChangeSceneToFile(_nextLevelScene);
+		if (error != Error.Ok) {
+			GD.PrintErr(error);
+		}
 	}
 
 	public void SetCurrentTime(float currentTime) {
@@ -103,7 +129,6 @@ public partial class Hud : CanvasLayer {
 			tween.Chain().TweenProperty(_labelCountdown, "scale", new Vector2(1.4f, 0.6f), duration * 0.2f)  // Impact Squash
 			     .SetTrans(Tween.TransitionType.Bounce);
 			tween.Chain().TweenProperty(_labelCountdown, "scale", new Vector2(1.0f, 1.0f), duration * 0.1f); // Reset
-			
 		} else {
 			_labelCountdown.Text = "GO";
 			GetTree().CreateTween().TweenProperty(_labelCountdown, "modulate:a", 0.0f, 0.5f)

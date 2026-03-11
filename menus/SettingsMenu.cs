@@ -85,12 +85,28 @@ public partial class SettingsMenu : Control {
 	}
 
 	private void _on_close_button_pressed() {
-		this.Visible = false;
 		EmitSignal(SignalName.Closed);
 	}
 
 	private void _on_save_button_pressed() {
 		SettingsManager.Instance.SaveSettings();
 		EmitSignal(SignalName.Closed);
+	}
+	
+	public void start_anim() 
+	{
+				Vector2 startPos = this.Position;
+        
+        		this.Modulate = new Color(1,1,1,0);
+        		this.Position = startPos + new Vector2(0, -200);
+        
+        		var tween = GetTree()
+        		           .CreateTween()
+        		           .SetParallel()
+        		           .SetEase(Tween.EaseType.Out)
+        		           .SetTrans(Tween.TransitionType.Cubic);
+        
+        		tween.TweenProperty(this, "position:y", startPos.Y, 1.0f);
+        		tween.TweenProperty(this, "modulate:a", 1.0f, 1.0f);
 	}
 }
