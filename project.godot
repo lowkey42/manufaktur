@@ -60,6 +60,10 @@ spawn_point=""
 
 auto_rebuild=true
 
+[gui]
+
+theme/custom="uid://cdh01f3cdy86t"
+
 [input]
 
 ui_left={
@@ -168,5 +172,6 @@ occlusion_culling/use_occlusion_culling=true
 [richer_text_label]
 
 fonts={
+&"Ethnocentric": "res://commons/fonts/Ethnocentric-Regular.otf",
 &"Gak Tahu": "res://commons/fonts/Gak Tahu.ttf"
 }

@@ -6,7 +6,27 @@
 [ext_resource type="PackedScene" uid="uid://bewigwlwwmn8o" path="res://gameplay/hud/Inventory/InventoryUi.tscn" id="4_tbdus"]
 [ext_resource type="PackedScene" uid="uid://b521fsdfux417" path="res://gameplay/hud/Inventory/ItemDurationContainer.tscn" id="5_phc85"]
 
-[node name="Hud" type="CanvasLayer" unique_id=127962132 node_paths=PackedStringArray("_labelCurrentTime", "_labelBestTime", "_highscorePanel", "_nextButton", "_labelCountdown")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_50gvo"]
+bg_color = Color(0.3647059, 0.5529412, 0.7411765, 1)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g51lr"]
+bg_color = Color(0.19215687, 0.21568628, 0.3019608, 1)
+
+[sub_resource type="InputEventKey" id="InputEventKey_phc85"]
+keycode = 82
+
+[sub_resource type="InputEventKey" id="InputEventKey_td46j"]
+device = -1
+keycode = 4194336
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_phc85"]
+button_index = 6
+
+[sub_resource type="Shortcut" id="Shortcut_td46j"]
+events = [SubResource("InputEventKey_phc85"), SubResource("InputEventKey_td46j"), SubResource("InputEventJoypadButton_phc85")]
+
+[node name="Hud" type="CanvasLayer" unique_id=127962132 node_paths=PackedStringArray("_labelCurrentTime", "_labelBestTime", "_highscorePanel", "_nextButton", "_retryButton", "_labelCountdown")]
 process_mode = 3
 script = ExtResource("1_ceo1m")
 _mainMenuScene = "uid://c0u0t8bci7xwj"
@@ -14,7 +34,8 @@ _highScoreRow = ExtResource("3_2048h")
 _labelCurrentTime = NodePath("CurrentTime")
 _labelBestTime = NodePath("BestTime")
 _highscorePanel = NodePath("HighscorePanel")
-_nextButton = NodePath("HighscorePanel/VBoxContainer/HBoxContainer/NextButton")
+_nextButton = NodePath("HighscorePanel/MarginContainer/VBoxContainer/HBoxContainer/NextButton")
+_retryButton = NodePath("HighscorePanel/MarginContainer/VBoxContainer/HBoxContainer/RetryButton")
 _labelCountdown = NodePath("Countdown")
 
 [node name="CurrentTime" type="RichTextLabel" parent="." unique_id=493737036]
@@ -71,12 +92,41 @@ offset_right = 200.0
 offset_bottom = 65.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_50gvo")
 script = ExtResource("2_ceo1m")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HighscorePanel" unique_id=367631542]
-layout_mode = 2
+[node name="Node" type="Node2D" parent="HighscorePanel" unique_id=515849504]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="HighscorePanel/VBoxContainer" unique_id=1121832799]
+[node name="ResetButton" type="Button" parent="HighscorePanel/Node" unique_id=1885897927]
+top_level = true
+custom_minimum_size = Vector2(0, 40)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -40.0
+offset_right = 128.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_g51lr")
+text = "[DEBUG Reset]"
+
+[node name="MarginContainer" type="MarginContainer" parent="HighscorePanel" unique_id=1743072491]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HighscorePanel/MarginContainer" unique_id=367631542]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HighscorePanel/MarginContainer/VBoxContainer" unique_id=1121832799]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 40
 text = "Highscore"
@@ -84,11 +134,11 @@ fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HighscoreHeader" type="HBoxContainer" parent="HighscorePanel/VBoxContainer" unique_id=1492345618]
+[node name="HighscoreHeader" type="HBoxContainer" parent="HighscorePanel/MarginContainer/VBoxContainer" unique_id=1492345618]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Number" type="Label" parent="HighscorePanel/VBoxContainer/HighscoreHeader" unique_id=881501087]
+[node name="Number" type="Label" parent="HighscorePanel/MarginContainer/VBoxContainer/HighscoreHeader" unique_id=881501087]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
@@ -96,7 +146,7 @@ text = "#"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Time" type="Label" parent="HighscorePanel/VBoxContainer/HighscoreHeader" unique_id=192490643]
+[node name="Time" type="Label" parent="HighscorePanel/MarginContainer/VBoxContainer/HighscoreHeader" unique_id=192490643]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
@@ -104,7 +154,7 @@ text = "Time"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Name" type="Label" parent="HighscorePanel/VBoxContainer/HighscoreHeader" unique_id=1637172013]
+[node name="Name" type="Label" parent="HighscorePanel/MarginContainer/VBoxContainer/HighscoreHeader" unique_id=1637172013]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 26
@@ -112,27 +162,32 @@ text = "Player"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HighscorePanel/VBoxContainer" unique_id=1973791245]
+[node name="HBoxContainer" type="HBoxContainer" parent="HighscorePanel/MarginContainer/VBoxContainer" unique_id=1973791245]
 layout_mode = 2
 
-[node name="ResetButton" type="Button" parent="HighscorePanel/VBoxContainer/HBoxContainer" unique_id=1885897927]
+[node name="ExitButton" type="Button" parent="HighscorePanel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1090773494]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_horizontal = 3
-text = "[DEBUG Reset]"
-
-[node name="ExitButton" type="Button" parent="HighscorePanel/VBoxContainer/HBoxContainer" unique_id=1090773494]
-layout_mode = 2
-size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_g51lr")
 text = "Exit"
 
-[node name="RetryButton" type="Button" parent="HighscorePanel/VBoxContainer/HBoxContainer" unique_id=2096042221]
+[node name="RetryButton" type="Button" parent="HighscorePanel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2096042221]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_g51lr")
+shortcut = SubResource("Shortcut_td46j")
 text = "Retry"
 
-[node name="NextButton" type="Button" parent="HighscorePanel/VBoxContainer/HBoxContainer" unique_id=19795080]
+[node name="NextButton" type="Button" parent="HighscorePanel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=19795080]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_g51lr")
 text = "Next"
 
 [node name="Inventory" parent="." unique_id=601817208 instance=ExtResource("4_tbdus")]
@@ -153,7 +208,7 @@ anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[connection signal="pressed" from="HighscorePanel/VBoxContainer/HBoxContainer/ResetButton" to="." method="OnReset"]
-[connection signal="pressed" from="HighscorePanel/VBoxContainer/HBoxContainer/ExitButton" to="." method="OnExit"]
-[connection signal="pressed" from="HighscorePanel/VBoxContainer/HBoxContainer/RetryButton" to="." method="OnRetry"]
-[connection signal="pressed" from="HighscorePanel/VBoxContainer/HBoxContainer/NextButton" to="." method="OnNext"]
+[connection signal="pressed" from="HighscorePanel/Node/ResetButton" to="." method="OnReset"]
+[connection signal="pressed" from="HighscorePanel/MarginContainer/VBoxContainer/HBoxContainer/ExitButton" to="." method="OnExit"]
+[connection signal="pressed" from="HighscorePanel/MarginContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="OnRetry"]
+[connection signal="pressed" from="HighscorePanel/MarginContainer/VBoxContainer/HBoxContainer/NextButton" to="." method="OnNext"]

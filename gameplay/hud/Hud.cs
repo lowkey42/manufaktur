@@ -12,6 +12,7 @@ public partial class Hud : CanvasLayer {
 	[Export] private RichTextLabel _labelBestTime;
 	[Export] private Control _highscorePanel;
 	[Export] private Button _nextButton;
+	[Export] private Button _retryButton;
 
 	[Export] private Label _labelCountdown;
 
@@ -50,6 +51,12 @@ public partial class Hud : CanvasLayer {
 
 		_highscorePanel.Show();
 		_nextButton.Disabled = !highscores.IsMinimumTimeReached() || nextLevelScene == null || nextLevelScene.Length == 0;
+
+		if (_nextButton.Disabled) {
+			_retryButton.GrabFocus();
+		} else {
+			_nextButton.GrabFocus();
+		}
 	}
 
 	public override void _Process(double delta) {
