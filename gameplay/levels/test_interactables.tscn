@@ -25,66 +25,66 @@ size = Vector3(18, 1, 18)
 [node name="BaseLevel" unique_id=433332774 instance=ExtResource("1_ik6r3")]
 
 [node name="GameCore" parent="." index="0" unique_id=910148981]
-_startDelay = 0
+_startDelay = -1
 
 [node name="SpawnPoint" parent="." index="3" unique_id=407262584]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.423128, 0, 5.2467394)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5560455, 0, 3.3669977)
 
 [node name="Finish" parent="." index="4" unique_id=1714722049]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.061985, 0, 18.478695)
 
 [node name="DoorRight" parent="." index="5" unique_id=416618077 instance=ExtResource("2_ilbrc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24735117, 0, -6.018709)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.632345, 0, 4.9516315)
 Channel = 1
 
 [node name="DoorLeft" parent="." index="6" unique_id=316856242 instance=ExtResource("3_3w8ib")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.0152206)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.384995, 0, 4.95512)
 Channel = 1
 
 [node name="Wall" parent="." index="7" unique_id=1359160769 instance=ExtResource("4_bknvr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1657286, 0, -6.05075)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.550724, 0, 4.919591)
 Channel = 2
 
 [node name="button5" parent="." index="8" unique_id=897939974 instance=ExtResource("5_mrx4j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5106459, 0, 4.9072537)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.874348, 0, 15.877594)
 TriggerOnExit = true
 Channel = 3
 OnlyTriggerOnce = false
 
 [node name="button3" parent="." index="9" unique_id=1205029011 instance=ExtResource("5_mrx4j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.208395, 0, -4.315926)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.59339, 0, 6.6544147)
 TriggerOnExit = true
 Channel = 2
 OnlyTriggerOnce = false
 
 [node name="button4" parent="." index="10" unique_id=931679548 instance=ExtResource("5_mrx4j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1102066, 0, -3.021532)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.495201, 0, 7.9488087)
 TriggerOnExit = true
 Channel = 1
 OnlyTriggerOnce = false
 
 [node name="button2" parent="." index="11" unique_id=780248523 instance=ExtResource("5_mrx4j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.758509, 0, -3.0789676)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.626486, 0, 7.891373)
 Channel = 1
 OnlyTriggerOnce = false
 
 [node name="button" parent="." index="12" unique_id=672892045 instance=ExtResource("5_mrx4j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1608236, 0, -3.0510519)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.22417, 0, 7.9192886)
 OnlyTriggerOnce = false
 
 [node name="MovingPlatform" parent="." index="13" unique_id=1860802399 instance=ExtResource("6_hm5in")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0770645, 0.006809473, -5.7917805)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.30793, 0.006809473, 5.1785603)
 Stop2 = Vector3(0, 3, 0)
 
 [node name="MovingPlatform2" parent="." index="14" unique_id=83219577 instance=ExtResource("6_hm5in")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3849945, 0, 2.9703407)
 Stop2 = Vector3(0, 0, 8)
 Triggerable = false
 Looping = true
 StartEnabled = true
 
 [node name="MovingPlatform3" parent="." index="15" unique_id=1402077356 instance=ExtResource("6_hm5in")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7259064, 0, 18.97034)
 Stop2 = Vector3(0, 3.5, -12)
 TravelTimeSeconds = 7.0
 Triggerable = false
@@ -92,41 +92,41 @@ Looping = true
 StartEnabled = true
 
 [node name="ItemSpawer2" parent="." index="16" unique_id=1895522051 instance=ExtResource("7_m3i5n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0912309, 0, 6.7414927)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.293764, 0, 17.711834)
 item = ExtResource("8_0m6g6")
 SpawnOnTrigger = false
 Channel = 3
 
 [node name="ItemSpawer" parent="." index="17" unique_id=110308397 instance=ExtResource("7_m3i5n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0869951, 0, 4.942091)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.298, 0, 15.912432)
 item = ExtResource("9_rutv5")
 Channel = 3
 
 [node name="JumpPad" parent="." index="18" unique_id=1812779473 instance=ExtResource("10_ceaov")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.285989, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.099007, 0, 10.970341)
 
 [node name="ItemSpawer4" parent="." index="19" unique_id=108897726 instance=ExtResource("7_m3i5n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3089733, 0, 7.999984)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.693968, 0, 18.970325)
 item = ExtResource("9_rutv5")
 EnableAutoRespawn = true
 SpawnOnTrigger = false
 
 [node name="ItemSpawer5" parent="." index="20" unique_id=2006657899 instance=ExtResource("7_m3i5n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5370197, 0, 7.999984)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.922014, 0, 18.970325)
 item = ExtResource("11_3w8ib")
 EnableAutoRespawn = true
 RespawnTime = 2.0
 SpawnOnTrigger = false
 
 [node name="ItemSpawer6" parent="." index="21" unique_id=1146996132 instance=ExtResource("7_m3i5n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.913976, 0, 7.999984)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.298971, 0, 18.970325)
 item = ExtResource("12_bknvr")
 EnableAutoRespawn = true
 RespawnTime = 2.0
 SpawnOnTrigger = false
 
 [node name="ItemSpawer3" parent="." index="22" unique_id=1366285013 instance=ExtResource("7_m3i5n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.96352863, 0, 7.942168)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.348522, 0, 18.91251)
 item = ExtResource("8_0m6g6")
 EnableAutoRespawn = true
 SpawnOnTrigger = false
@@ -218,9 +218,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7559366, 3.202303, 8.66081
 omni_range = 35.147
 
 [node name="Popup" parent="." index="25" unique_id=1517823302 instance=ExtResource("13_mrx4j")]
-transform = Transform3D(0.65158224, 0, 0.758578, 0, 1, 0, -0.758578, 0, 0.65158224, -20.621769, 0.01, -0.043765068)
+transform = Transform3D(-0.68970793, 0, 0.72408766, 0, 1, 0, -0.72408766, 0, -0.68970793, -6.4705205, 0.01, 20.720097)
 
 [node name="Turret" parent="." index="26" unique_id=1180370954 instance=ExtResource("14_m3i5n")]
-transform = Transform3D(0.4620427, 0, -0.8868576, 0, 1, 0, 0.8868576, 0, 0.4620427, -7.261525, 0, 14.112454)
-FireRate = 2.0
+transform = Transform3D(-0.573176, 0, -0.8194322, 0.27423304, 0.9423383, -0.19182038, 0.7721823, -0.3346623, -0.5401257, -18.150988, 0, 23.808887)
 BulletTemplate = ExtResource("15_0m6g6")

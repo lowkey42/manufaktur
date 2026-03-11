@@ -8,6 +8,9 @@ size = Vector3(2, 0.2, 2)
 [sub_resource type="BoxMesh" id="BoxMesh_rtdd5"]
 size = Vector3(2, 0.2, 2)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e1mb0"]
+albedo_color = Color(0.3254902, 0.6, 1, 1)
+
 [node name="MovingPlatform" type="Node3D" unique_id=1860802399]
 script = ExtResource("1_b5ekv")
 
@@ -20,3 +23,4 @@ shape = SubResource("BoxShape3D_g5nlb")
 
 [node name="Mesh" type="MeshInstance3D" parent="Body" unique_id=374044707]
 mesh = SubResource("BoxMesh_rtdd5")
+surface_material_override/0 = SubResource("StandardMaterial3D_e1mb0")
