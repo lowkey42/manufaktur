@@ -27,11 +27,14 @@ public class ResourceGroup {
 	/// </summary>
 	// ReSharper disable once MemberCanBePrivate.Global
 	public static ResourceGroup Of(Resource wrapped) {
-		if (wrapped == null) throw new ArgumentNullException(nameof(wrapped));
+		if (wrapped == null) {
+			throw new ArgumentNullException(nameof(wrapped));
+		}
 
 		if (wrapped.GetScript().As<Script>() is not GDScript gdScript ||
-		    !gdScript.ResourcePath.EndsWith("resource_group.gd"))
+		    !gdScript.ResourcePath.EndsWith("resource_group.gd")) {
 			throw new ArgumentException("Resource is not a resource group");
+		}
 
 		return new ResourceGroup(wrapped);
 	}
@@ -132,10 +135,11 @@ public class ResourceGroup {
 
 	private static void PushInto<T>(IEnumerable<Resource> items, ICollection<T> destination) {
 		foreach (var item in items) {
-			if (item is T t)
+			if (item is T t) {
 				destination.Add(t);
-			else
+			} else {
 				GD.PushError("Item ", item, " is not of required type ", typeof(T).Namespace, ". Skipping.");
+			}
 		}
 	}
 }

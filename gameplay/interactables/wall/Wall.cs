@@ -27,11 +27,13 @@ public partial class Wall : Triggerable {
 
 	private void ApplyState() {
 		// Visual
-		if (_mesh != null)
+		if (_mesh != null) {
 			_mesh.Visible = !_isDisabled;
+		}
 
 		// Collision
-		if (_collider != null)
+		if (_collider != null) {
 			_collider.ProcessMode = _isDisabled ? ProcessModeEnum.Disabled : ProcessModeEnum.Inherit;
+		}
 	}
 }

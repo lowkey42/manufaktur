@@ -45,13 +45,15 @@ public partial class GameCore : Node {
 		}
 
 		var highscoreEntries = _highscoreList.Entries;
-		if (highscoreEntries.Length > 0)
+		if (highscoreEntries.Length > 0) {
 			_hud.SetBestTime(highscoreEntries[0].Time);
+		}
 
 		foreach (var entry in highscoreEntries) {
 			var ghostPath = entry.LoadGhost();
-			if (ghostPath == null)
+			if (ghostPath == null) {
 				continue;
+			}
 
 			_ghost = (Ghost) _ghostScene.Instantiate();
 			_ghost.SetPath(ghostPath);
@@ -69,8 +71,9 @@ public partial class GameCore : Node {
 
 		for (var i = 0; i < _startDelay; i++) {
 			var timeLeft = _startDelay - i;
-			if (timeLeft <= _ghostHeadStart)
+			if (timeLeft <= _ghostHeadStart) {
 				_ghost?.Start();
+			}
 
 			_hud.SetCountdown(timeLeft);
 			await ToSignal(GetTree().CreateTimer(1.0), "timeout");

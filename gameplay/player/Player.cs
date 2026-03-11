@@ -151,8 +151,9 @@ public partial class Player : CharacterBody3D {
 		_jumpAborted         = false;
 		_jumping             = true;
 		Velocity             = Velocity with {Y = _jumpVelocity};
-		if (!IsNearlyGrounded())
+		if (!IsNearlyGrounded()) {
 			_jumpsLeft--;
+		}
 	}
 
 	private void AbortJump() {
@@ -197,13 +198,15 @@ public partial class Player : CharacterBody3D {
 		} else {
 			var targetSpeed  = _maxSpeed / 3.6f;
 			var acceleration = _acceleration.Sample(Mathf.Clamp(oldVelocity.Length() * 3.6f / _maxSpeed, 0, 1));
-			if (acceleration > _previousAcceleration)
+			if (acceleration > _previousAcceleration) {
 				_previousAcceleration = acceleration;
-			else
+			} else {
 				acceleration = _previousAcceleration = Mathf.Lerp(_previousAcceleration, acceleration, ((float) delta) / _accelerationSmoothingTime);
+			}
 
-			if (!IsOnFloor())
+			if (!IsOnFloor()) {
 				acceleration *= _airAccelerationFactor;
+			}
 
 			// modulate by analog input
 			targetSpeed  *= Math.Min(1.0f, inputDir.Length());
@@ -233,13 +236,15 @@ public partial class Player : CharacterBody3D {
 			_airTime   = 0;
 		} else {
 			Velocity = Velocity with {Y = Velocity.Y - _gravity * (float) delta};
-			if (Velocity.Y < -_maxFallSpeed)
+			if (Velocity.Y < -_maxFallSpeed) {
 				Velocity = Velocity with {Y = -_maxFallSpeed};
+			}
 			_airTime += (float) delta;
 		}
 
-		if (_jumping)
+		if (_jumping) {
 			_jumpDuration += (float) delta;
+		}
 
 		// handle jump input
 		if (Input.IsActionJustPressed("jump")) {
@@ -253,8 +258,9 @@ public partial class Player : CharacterBody3D {
 		// check / handle buffered jumps
 		if (_jumpPendingTimeLeft > 0) {
 			_jumpPendingTimeLeft -= (float) delta;
-			if (_jumpPendingTimeLeft <= 0)
+			if (_jumpPendingTimeLeft <= 0) {
 				_jumpPendingTimeLeft = 0;
+			}
 			if (CanJump()) {
 				Jump();
 			}

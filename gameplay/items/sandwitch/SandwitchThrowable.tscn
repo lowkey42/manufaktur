@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://vbkvxxnthhei"]
+
+[ext_resource type="Texture2D" uid="uid://dap4i8aglhbi5" path="res://gameplay/items/sandwitch/sandwitch.png" id="1_udatv"]
+[ext_resource type="Script" uid="uid://cgfxr3rrf54mf" path="res://gameplay/items/sandwitch/SandwitchThrowable.cs" id="1_xqwc0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_je3jd"]
+size = Vector3(0.2, 0.2, 0.1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_fuvpk"]
+size = Vector2(0.2, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_udatv"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("1_udatv")
+
+[node name="SandwitchThrowable" type="Node3D" unique_id=1855001945]
+script = ExtResource("1_xqwc0")
+ShockwaveRadius = 12.0
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1775338860]
+collision_layer = 5
+metadata/collision_preset_name = "__custom__"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1538083348]
+shape = SubResource("BoxShape3D_je3jd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=1165296984]
+mesh = SubResource("QuadMesh_fuvpk")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_udatv")
