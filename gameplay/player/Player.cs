@@ -57,6 +57,9 @@ public partial class Player : CharacterBody3D {
 
 	[Export] public Inventory Inventory { get; private set; }
 
+	public float VelocityPercent => Mathf.Min(1.0f, (Velocity * new Vector3(1, 0, 1)).Length() / _maxSpeed);
+	public Vector3 RelativeVelocityPercent => Vector3.One.Min((_camera.GlobalTransform.Basis.Inverse() * Velocity) / new Vector3(_maxSpeed, _maxFallFSpeed, _maxSpeed));
+	
 	private bool _firstFrame = true;
 	private float _gravity;
 	private float _jumpVelocity;
