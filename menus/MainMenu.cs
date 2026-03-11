@@ -30,18 +30,29 @@ public partial class MainMenu : Control {
     }
 	
 
-    private void OpenSubMenu(Control menu, float yOffset)
-    {
-	    _mainMenu.Visible = false; 
-	    menu.Visible      = true;
-       
-	    Vector2 finalPos = menu.Position; 
-	    
+    private void OpenSubMenu(Control menu, float yOffset) {
+
+	    menu.Visible = true;
+   
+	    Vector2 menuFinalPos = menu.Position; 
+	    Vector2 mainStartPos = _mainMenu.Position;
+    
 	    var tween = GetTree().CreateTween().SetParallel().SetEase(Tween.EaseType.Out).SetTrans(Tween.TransitionType.Sine);
-	    
-	    tween.TweenProperty(menu, "position:y", finalPos.Y, 0.8f).From(finalPos.Y + yOffset);
-	    
+    
+
+	    tween.TweenProperty(menu, "position:y", menuFinalPos.Y, 0.8f).From(menuFinalPos.Y + yOffset);
 	    tween.TweenProperty(menu, "modulate:a", 1.0f, 0.3f).From(0.0f);
+
+
+	    tween.TweenProperty(_mainMenu, "position:y", mainStartPos.Y + 1000f, 1f);
+	    tween.TweenProperty(_mainMenu, "modulate:a", 0.0f, 0.5f);
+
+
+	    tween.Chain().TweenCallback(Callable.From(() => {
+		    _mainMenu.Visible  = false;
+		    _mainMenu.Position = mainStartPos; 
+		    _mainMenu.Modulate = new Color(1, 1, 1, 1);
+	    }));
     }
 
     private void CloseSubMenu(Control menu, float yOffset, Action onComplete)
@@ -71,7 +82,6 @@ public partial class MainMenu : Control {
 
     private void OnScoreOpened(string path) 
     {
-
        CloseSubMenu(_levelSelectionMenu, -300f, () => {
            _highScoreMenu._load_score(path);
            OpenSubMenu(_highScoreMenu, 300f);
@@ -92,6 +102,8 @@ public partial class MainMenu : Control {
            AnimMenu();
        }
     }
+    
+    
     
     private void _on_close_button_pressed() 
     {

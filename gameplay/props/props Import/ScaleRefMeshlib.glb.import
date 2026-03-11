@@ -60,8 +60,9 @@ _subresources={
 "PATH:5x10Plane": {
 "generate/physics": true
 },
-"PATH:5x10Plane_001": {
-"generate/physics": true
+"PATH:5x10Plane_002": {
+"generate/physics": true,
+"physics/shape_type": 1
 },
 "PATH:5x5Corner": {
 "generate/physics": true
@@ -95,10 +96,6 @@ _subresources={
 },
 "PATH:Scaffolding3_5m-h-ScaleRef": {
 "generate/physics": true
-},
-"PATH:Solid 237_002": {
-"generate/physics": true,
-"physics/shape_type": 0
 },
 "PATH:StaircaseScaleRef": {
 "generate/physics": true
