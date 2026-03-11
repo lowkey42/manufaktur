@@ -10,9 +10,11 @@ size = Vector3(4, 2, 0.2)
 
 [node name="Wall" type="Node3D" unique_id=1359160769]
 script = ExtResource("1_5c1x0")
-ColliderPath = NodePath("Body")
 
 [node name="Body" type="StaticBody3D" parent="." unique_id=288695522]
+collision_layer = 4
+collision_mask = 2
+metadata/collision_preset_name = "__custom__"
 
 [node name="Collision" type="CollisionShape3D" parent="Body" unique_id=1258397955]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0)

@@ -84,6 +84,7 @@ public partial class MovingPlatform : Triggerable {
 		_tween?.Kill();
 
 		_tween = CreateTween();
+		_tween.SetProcessMode(Tween.TweenProcessMode.Physics);
 		_tween.SetTrans(Transition);
 		_tween.SetEase(Ease);
 

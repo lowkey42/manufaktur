@@ -144,6 +144,7 @@ pause={
 3d_physics/layer_2="player"
 3d_physics/layer_3="interactables"
 3d_physics/layer_4="turret"
+3d_physics/layer_5="glitched"
 
 [physics]
 

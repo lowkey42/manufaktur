@@ -1,0 +1,11 @@
+[gd_resource type="Resource" format=3 uid="uid://deq3k6gx5td7k"]
+
+[ext_resource type="Script" uid="uid://igcxuyp3hfqt" path="res://gameplay/items/glitch/GlitchItem.cs" id="1_80x0b"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xu1qi"]
+size = Vector2(400, 600)
+
+[resource]
+script = ExtResource("1_80x0b")
+Duration = 8.0
+Texture = SubResource("PlaceholderTexture2D_xu1qi")
