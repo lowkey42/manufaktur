@@ -45,6 +45,7 @@ public partial class GameCore : Node {
 		if (spawnPoints.Count > 0) {
 			if (spawnPoints[Random.Shared.Next(0, spawnPoints.Count)] is Node3D sp) {
 				_player.GlobalPosition = sp.GlobalPosition;
+				_player.GlobalRotation = sp.GlobalRotation;
 			}
 		}
 
