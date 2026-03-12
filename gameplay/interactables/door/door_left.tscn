@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://c6oo31slh8dwc"]
 
 [ext_resource type="Script" uid="uid://df3f8wsptjk6n" path="res://gameplay/interactables/door/Door.cs" id="1_57cea"]
+[ext_resource type="AudioStream" uid="uid://nf7jpdat4fy" path="res://gameplay/interactables/door/DoorOpen1.wav" id="2_1a4t3"]
+[ext_resource type="AudioStream" uid="uid://c7bp6axkb4mu5" path="res://gameplay/interactables/door/DoorClose1.wav" id="3_bloq1"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_u6r3j"]
 size = Vector3(1.6, 2.2, 0.1)
@@ -44,8 +46,10 @@ _data = {
 &"RESET": SubResource("Animation_u6r3j")
 }
 
-[node name="DoorLeft" type="Node3D" unique_id=416618077]
+[node name="DoorLeft" type="Node3D" unique_id=416618077 node_paths=PackedStringArray("_openSoundPlayer", "_closeSoundPlayer")]
 script = ExtResource("1_57cea")
+_openSoundPlayer = NodePath("OpenPlayer")
+_closeSoundPlayer = NodePath("ClosePlayer")
 
 [node name="DoorOrigin" type="Node3D" parent="." unique_id=365306840]
 
@@ -60,3 +64,9 @@ shape = SubResource("BoxShape3D_x0v46")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2117666360]
 libraries/ = SubResource("AnimationLibrary_uawth")
+
+[node name="OpenPlayer" type="AudioStreamPlayer3D" parent="." unique_id=396997353]
+stream = ExtResource("2_1a4t3")
+
+[node name="ClosePlayer" type="AudioStreamPlayer3D" parent="." unique_id=47262242]
+stream = ExtResource("3_bloq1")
