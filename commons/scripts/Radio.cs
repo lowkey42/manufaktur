@@ -10,7 +10,15 @@ public partial class Radio : Node
 	public string MusicBus { get; set; } = "Music";
 
 	[Export]
+	public string UiSfxBus { get; set; } = "UI";
+
+	[Export]
 	public float MusicFadeDuration { get; private set; } = 0.5f;
+	
+	[Export] public AudioStream[] UiHoverSoundPool;
+
+	private int _lastIndex = -1;
+	private Random _random = new Random();
 
 	private AudioStream _currentlyPlayingSong = null;
 	private int _currentMusicVolume = 100;
@@ -22,6 +30,10 @@ public partial class Radio : Node
 	public override void _Ready()
 	{
 		Instance = this;
+	}
+
+	public void PlayUiSfx(AudioStream sfx, int volume = 100) {
+		PlaySfx(sfx, volume, UiSfxBus);
 	}
 
 	/// <summary>
@@ -88,4 +100,37 @@ public partial class Radio : Node
 			_currentTween = null;
 		}
 	}
+
+	private async void PlaySfx(AudioStream sfx, int volume, string bus) {
+		AudioStreamPlayer player = new();
+
+		player.Stream = sfx;
+		player.Bus = bus;
+		player.Autoplay = true;
+		player.ProcessMode = ProcessModeEnum.Always;
+
+		if (volume != 100) {
+			player.VolumeLinear = volume / 100f;
+		}
+
+		AddChild(player);
+
+		var duration = sfx.GetLength();
+		await ToSignal(GetTree().CreateTimer(duration + 0.1f), "timeout");
+		player.QueueFree();
+	}
+	
+	public void PlayRandomSound() {
+		if (UiHoverSoundPool == null || UiHoverSoundPool.Length == 0) return;
+		int randomIndex = _random.Next(0, UiHoverSoundPool.Length);
+		while (randomIndex == _lastIndex && UiHoverSoundPool.Length > 1) {
+			randomIndex = _random.Next(0, UiHoverSoundPool.Length);
+		}
+
+		_lastIndex  = randomIndex;
+		var stream = UiHoverSoundPool[randomIndex];
+		PlayUiSfx(stream);
+	}
+	
+	
 }

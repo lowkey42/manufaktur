@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cgdr4h347rrbe"]
 
-[ext_resource type="Script" uid="uid://cmrfmjwpoem43" path="res://menus/TextureSequencer.cs" id="1_apav8"]
-[ext_resource type="Script" uid="uid://cxgyy3qd3p6dj" path="res://menus/TextureStep.cs" id="2_n34jt"]
+[ext_resource type="Script" uid="uid://b27ysl5meq4ud" path="res://menus/TextureSequencer.cs" id="1_apav8"]
+[ext_resource type="Script" uid="uid://diyu2jfomurj5" path="res://menus/TextureStep.cs" id="2_n34jt"]
 [ext_resource type="Texture2D" uid="uid://bb1q5syu8gswj" path="res://commons/storie/story_frame_1.png" id="2_yhjr0"]
 [ext_resource type="Texture2D" uid="uid://c5qiidlu8i83y" path="res://commons/storie/story_frame_2.png" id="4_k8afv"]
 [ext_resource type="Texture2D" uid="uid://cwcnsprk88hoq" path="res://commons/storie/story_frame_3.png" id="5_0ut0m"]
@@ -19,62 +19,50 @@
 [sub_resource type="Resource" id="Resource_rcbpk"]
 script = ExtResource("2_n34jt")
 Image = ExtResource("2_yhjr0")
-metadata/_custom_type_script = "uid://cxgyy3qd3p6dj"
 
 [sub_resource type="Resource" id="Resource_s8e15"]
 script = ExtResource("2_n34jt")
 Image = ExtResource("4_k8afv")
-metadata/_custom_type_script = "uid://cxgyy3qd3p6dj"
 
 [sub_resource type="Resource" id="Resource_5fq7b"]
 script = ExtResource("2_n34jt")
 Image = ExtResource("5_0ut0m")
-metadata/_custom_type_script = "uid://cxgyy3qd3p6dj"
 
 [sub_resource type="Resource" id="Resource_fh1a1"]
 script = ExtResource("2_n34jt")
 Image = ExtResource("6_0rd6t")
-metadata/_custom_type_script = "uid://cxgyy3qd3p6dj"
 
 [sub_resource type="Resource" id="Resource_6frm5"]
 script = ExtResource("2_n34jt")
 Image = ExtResource("7_727p4")
-metadata/_custom_type_script = "uid://cxgyy3qd3p6dj"
 
 [sub_resource type="Resource" id="Resource_qf7x8"]
 script = ExtResource("2_n34jt")
 Image = ExtResource("8_7klk8")
-metadata/_custom_type_script = "uid://cxgyy3qd3p6dj"
 
 [sub_resource type="Resource" id="Resource_0o0tf"]
 script = ExtResource("2_n34jt")
 Image = ExtResource("9_lit01")
-metadata/_custom_type_script = "uid://cxgyy3qd3p6dj"
 
 [sub_resource type="Resource" id="Resource_nrogf"]
 script = ExtResource("2_n34jt")
 Image = ExtResource("10_kcftc")
-metadata/_custom_type_script = "uid://cxgyy3qd3p6dj"
 
 [sub_resource type="Resource" id="Resource_2301c"]
 script = ExtResource("2_n34jt")
 Image = ExtResource("11_bg1r0")
-metadata/_custom_type_script = "uid://cxgyy3qd3p6dj"
 
 [sub_resource type="Resource" id="Resource_kg6eg"]
 script = ExtResource("2_n34jt")
 Image = ExtResource("12_kgtaa")
-metadata/_custom_type_script = "uid://cxgyy3qd3p6dj"
 
 [sub_resource type="Resource" id="Resource_36lxa"]
 script = ExtResource("2_n34jt")
 Image = ExtResource("13_hi2r4")
-metadata/_custom_type_script = "uid://cxgyy3qd3p6dj"
 
 [sub_resource type="Resource" id="Resource_5m3pn"]
 script = ExtResource("2_n34jt")
 Image = ExtResource("14_d8q87")
-metadata/_custom_type_script = "uid://cxgyy3qd3p6dj"
 
 [node name="Control" type="Control" unique_id=172627991]
 layout_mode = 3
