@@ -63,7 +63,7 @@ public partial class Player : CharacterBody3D {
 
 	/// <summary>seconds the controller remembers jump-inputs that can't happen yet, to be executed on the next opportunity</summary>
 	[Export]
-	private float _accelerationSmoothingTime = 0.25f;
+	private float _accelerationSmoothingTime = 0.5f;
 
 	[Export] private Curve _targetFov;
 
@@ -82,6 +82,8 @@ public partial class Player : CharacterBody3D {
 	public Vector3 RelativeVelocityPercent =>
 		Vector3.One.Min((_camera.GlobalTransform.Basis.Inverse() * Velocity) / new Vector3(_maxSpeed, _maxFallSpeed, _maxSpeed));
 
+	public float Acceleration => _previousAcceleration;
+	
 	private bool _firstFrame = true;
 	private float _gravity;
 	private float _airTime;
@@ -180,6 +182,13 @@ public partial class Player : CharacterBody3D {
 
 		var oldVelocity = ToHorizontal(velocity);
 
+		var acceleration = _acceleration.Sample(oldVelocity.Length() * 3.6f);
+		if (acceleration > _previousAcceleration) {
+			_previousAcceleration = acceleration;
+		} else {
+			acceleration = _previousAcceleration = Mathf.Lerp(_previousAcceleration, acceleration, ((float) delta) / _accelerationSmoothingTime);
+		}
+		
 		if (inputDir.IsZeroApprox()) {
 			if (Mathf.Abs(velocity.X) < 0.01f || Mathf.Abs(velocity.Z) < 0.01f) {
 				velocity.X = 0;
@@ -197,12 +206,6 @@ public partial class Player : CharacterBody3D {
 			}
 		} else {
 			var targetSpeed  = _maxSpeed / 3.6f;
-			var acceleration = _acceleration.Sample(Mathf.Clamp(oldVelocity.Length() * 3.6f / _maxSpeed, 0, 1));
-			if (acceleration > _previousAcceleration) {
-				_previousAcceleration = acceleration;
-			} else {
-				acceleration = _previousAcceleration = Mathf.Lerp(_previousAcceleration, acceleration, ((float) delta) / _accelerationSmoothingTime);
-			}
 
 			if (!IsOnFloor()) {
 				acceleration *= _airAccelerationFactor;
