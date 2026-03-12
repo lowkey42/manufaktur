@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://vnbk5134ooi1"
-path="res://.godot/imported/Dash1.wav-2faef69b67e11e2293c7524074293f3d.sample"
+uid="uid://cma0c63hjtkaw"
+path="res://.godot/imported/Pew2.wav-b2c775f95411990f2d160353a42bb0ee.sample"
 
 [deps]
 
-source_file="res://gameplay/items/vfx/Dash1.wav"
-dest_files=["res://.godot/imported/Dash1.wav-2faef69b67e11e2293c7524074293f3d.sample"]
+source_file="res://gameplay/interactables/turret/Pew2.wav"
+dest_files=["res://.godot/imported/Pew2.wav-b2c775f95411990f2d160353a42bb0ee.sample"]
 
 [params]
 

@@ -239,10 +239,7 @@ subdivide_depth = 2
 TimeMinimum = 35.0
 MinimumTimeGhost = ExtResource("2_oxca8")
 
-[node name="SceneMusic" parent="." index="1" unique_id=1650332442]
-Music = ExtResource("3_xguuw")
-
-[node name="DirectionalLight3D" parent="." index="2" unique_id=1057689463]
+[node name="DirectionalLight3D" parent="." index="1" unique_id=1057689463]
 visible = false
 
 [node name="WorldEnvironment" parent="." index="3" unique_id=1608441752]

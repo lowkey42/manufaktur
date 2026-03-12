@@ -4,6 +4,7 @@ using System;
 public partial class Popup : Node3D {
 	[Export]
 	public float TriggerRadius = 12.0f;
+	[Export] private AudioStreamPlayer3D _soundPlayer;
 
 	private Node3D _origin;
 	private Tween _tween;
@@ -57,6 +58,7 @@ public partial class Popup : Node3D {
 
 	public void PopUp() {
 		var tween = this.CreateTween();
+		_soundPlayer.Play();
 		tween.TweenProperty(_origin, "rotation_degrees", new Vector3(0, 0, 0), 0.5f)
 		     .SetTrans(Tween.TransitionType.Back)
 		     .SetEase(Tween.EaseType.Out);

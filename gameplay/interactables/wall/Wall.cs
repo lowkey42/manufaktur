@@ -5,7 +5,9 @@ namespace Manufaktur.gameplay.interactables.wall;
 public partial class Wall : Triggerable {
 	[Export] public bool StartDisabled = false;
 
-	private Node3D _mesh;
+	[Export] private AudioStreamPlayer3D _plopSoundPlayer;
+
+private Node3D _mesh;
 	private StaticBody3D _collider;
 
 	private bool _isDisabled;
@@ -22,7 +24,13 @@ public partial class Wall : Triggerable {
 
 	public override void Trigger() {
 		_isDisabled = !_isDisabled;
+		
 		ApplyState();
+		
+		if(_isDisabled)
+		{
+			_plopSoundPlayer.Play();
+		}
 	}
 
 	private void ApplyState() {

@@ -5,8 +5,9 @@ public partial class SandwitchThrowable : Node3D {
 	[Export] public float Duration { get; set; } = 1.5f;
 	[Export] public float ThrowSpeed { get; set; } = 16.0f;
 	[Export] public float ThrowArcUpwardSpeed { get; set; } = 4.0f;
+	[Export] private AudioStreamPlayer3D _explosionSoundPlayer;
 
-	[ExportGroup("Shockwave")]
+[ExportGroup("Shockwave")]
 	[Export] public float ShockwaveRadius { get; set; } = 5.0f;
 	[Export] public float ShockwaveStrength { get; set; } = 150.0f;
 	[Export] public uint ShockwaveCollisionMask { get; set; } = 2;

@@ -76,6 +76,8 @@ public partial class Player : CharacterBody3D {
 	[Export] private Camera3D _camera;
 
 	[Export] public Inventory Inventory { get; private set; }
+	
+	[Export] public AudioStreamPlayer3D ItemUseSoundPlayer { get; private set; }
 
 	public float VelocityPercent => Mathf.Min(1.0f, (Velocity * new Vector3(1, 0, 1)).Length() / _maxSpeed);
 

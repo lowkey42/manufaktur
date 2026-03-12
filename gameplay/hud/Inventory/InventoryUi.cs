@@ -7,27 +7,36 @@ public partial class InventoryUi : Control {
 	[Export] public float CardRotationStep { get; set; } = 5f;
 	[Export] public float CardVerticalOffset { get; set; } = 10f;
 
+	[Export] private AudioStreamPlayer _itemCollectedPlayer;
+
 	public override void _Ready() {
 		EventBus.Instance.InventoryItemCollected += OnInventoryItemChanged;
-		EventBus.Instance.InventoryItemUsed += OnInventoryItemChanged;
+		EventBus.Instance.InventoryItemCollected += OnInventoryItemCollected;
+		EventBus.Instance.InventoryItemUsed      += OnInventoryItemChanged;
+	}
+
+	private void OnInventoryItemCollected(ItemResource item, ItemResource[] items) {
+		_itemCollectedPlayer.Play();
+		GD.Print("Collected Item");
 	}
 
 	private void OnInventoryItemChanged(ItemResource item, ItemResource[] items) {
 		foreach (var child in this.GetChildren()) {
-			child.QueueFree();
+			if (child is TextureRect textureRect) {
+				child.QueueFree();
+			}
 		}
 
-		if (items == null)
-		{ return; }
-		
+		if (items == null) { return; }
+
 		// Calculate starting position to center the fan
 		var totalWidth = (items.Length - 1) * CardOverlap + CardWidth;
 		var startX     = -totalWidth / 2;
-			
+
 		for (var i = 0; i < items.Length; i++) {
 			var itemTexture = new TextureRect();
 			itemTexture.Texture           = items[i].HandTexture;
-			itemTexture.TextureFilter	 = TextureFilterEnum.LinearWithMipmapsAnisotropic;
+			itemTexture.TextureFilter     = TextureFilterEnum.LinearWithMipmapsAnisotropic;
 			itemTexture.CustomMinimumSize = new Vector2(CardWidth, CardHeight);
 			itemTexture.ExpandMode        = TextureRect.ExpandModeEnum.FitWidth;
 			itemTexture.StretchMode       = TextureRect.StretchModeEnum.KeepAspectCentered;

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://5dbmybil8p2j"
-path="res://.godot/imported/Granate 2.wav-4478b25107255c72d474da360d99722c.sample"
+path="res://.godot/imported/Granate 2.wav-13725258d38ebabc0d994cac4bc826b4.sample"
 
 [deps]
 
-source_file="res://gameplay/items/vfx/Granate 2.wav"
-dest_files=["res://.godot/imported/Granate 2.wav-4478b25107255c72d474da360d99722c.sample"]
+source_file="res://gameplay/items/sandwitch/Granate 2.wav"
+dest_files=["res://.godot/imported/Granate 2.wav-13725258d38ebabc0d994cac4bc826b4.sample"]
 
 [params]
 

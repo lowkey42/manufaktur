@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cgq4jiux02bo7" path="res://gameplay/items/sandwitch/sandwitch.png" id="1_udatv"]
 [ext_resource type="Script" uid="uid://cgfxr3rrf54mf" path="res://gameplay/items/sandwitch/SandwitchThrowable.cs" id="1_xqwc0"]
+[ext_resource type="AudioStream" uid="uid://q6l3vl8t11hv" path="res://gameplay/items/sandwitch/Granate 4.wav" id="3_ecnlv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_je3jd"]
 size = Vector3(0.2, 0.2, 0.1)
@@ -15,8 +16,9 @@ cull_mode = 2
 shading_mode = 0
 albedo_texture = ExtResource("1_udatv")
 
-[node name="SandwitchThrowable" type="Node3D" unique_id=1855001945]
+[node name="SandwitchThrowable" type="Node3D" unique_id=1855001945 node_paths=PackedStringArray("_explosionSoundPlayer")]
 script = ExtResource("1_xqwc0")
+_explosionSoundPlayer = NodePath("AudioStreamPlayer3D")
 ShockwaveRadius = 12.0
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1775338860]
@@ -30,3 +32,6 @@ shape = SubResource("BoxShape3D_je3jd")
 mesh = SubResource("QuadMesh_fuvpk")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_udatv")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1879879478]
+stream = ExtResource("3_ecnlv")

@@ -2,13 +2,29 @@
 
 [ext_resource type="Script" uid="uid://nanlu5trd087" path="res://gameplay/interactables/turret/Turret.cs" id="1_0who8"]
 [ext_resource type="PackedScene" uid="uid://cpbck2hlh85ha" path="res://3D Files WIP/Manufaktur_Turret_FK_v01.glb" id="2_hvilh"]
+[ext_resource type="AudioStream" uid="uid://vd5vtf8qa8h0" path="res://gameplay/interactables/turret/Pew1.wav" id="3_1awjr"]
+[ext_resource type="AudioStream" uid="uid://cma0c63hjtkaw" path="res://gameplay/interactables/turret/Pew2.wav" id="4_p8nro"]
+[ext_resource type="AudioStream" uid="uid://b846xpqov8kci" path="res://gameplay/interactables/turret/Pew3.wav" id="5_8u5mq"]
+[ext_resource type="AudioStream" uid="uid://be0yl0ny8n5am" path="res://gameplay/interactables/turret/Pew4.wav" id="6_fo7m4"]
+[ext_resource type="AudioStream" uid="uid://1t55ndwm3ov0" path="res://gameplay/interactables/turret/Pew5.wav" id="7_k7u7p"]
+[ext_resource type="AudioStream" uid="uid://y0sqjmju0jdn" path="res://gameplay/interactables/turret/Pew6.wav" id="8_anae6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xxm84"]
 radius = 1.0805664
 height = 3.8220215
 
-[node name="Turret" type="Node3D" unique_id=1180370954]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_h7tv7"]
+streams_count = 6
+stream_0/stream = ExtResource("3_1awjr")
+stream_1/stream = ExtResource("4_p8nro")
+stream_2/stream = ExtResource("5_8u5mq")
+stream_3/stream = ExtResource("6_fo7m4")
+stream_4/stream = ExtResource("7_k7u7p")
+stream_5/stream = ExtResource("8_anae6")
+
+[node name="Turret" type="Node3D" unique_id=1180370954 node_paths=PackedStringArray("_fireSoundPlayer")]
 script = ExtResource("1_0who8")
+_fireSoundPlayer = NodePath("AudioStreamPlayer3D")
 
 [node name="FireTimer" type="Timer" parent="." unique_id=119769133]
 autostart = true
@@ -34,3 +50,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4813957, 0)
 target_position = Vector3(10, 0, 0)
 debug_shape_custom_color = Color(0.61960787, 0.45882353, 1, 1)
 debug_shape_thickness = 5
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=928089880]
+stream = SubResource("AudioStreamRandomizer_h7tv7")

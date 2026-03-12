@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b4l8gv5fdmby7" path="res://gameplay/interactables/jump_pad/JumpPad.cs" id="1_fndgy"]
 [ext_resource type="PackedScene" uid="uid://k1dqh7mne6ky" path="res://3D Files WIP/Manufaktur_Mattress_v01.glb" id="3_jaidj"]
 [ext_resource type="Texture2D" uid="uid://3ddpmos5wma7" path="res://3D Files WIP/TextureSet_Beach_Assets_V01.png" id="3_vb8cc"]
+[ext_resource type="AudioStream" uid="uid://k7p61w6mmbg6" path="res://gameplay/interactables/jump_pad/Boing.wav" id="4_n0jxw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o15d4"]
 size = Vector3(3.7633057, 0.50228274, 6.0500565)
@@ -10,8 +11,9 @@ size = Vector3(3.7633057, 0.50228274, 6.0500565)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n0jxw"]
 albedo_texture = ExtResource("3_vb8cc")
 
-[node name="JumpPad" type="Node3D" unique_id=1812779473]
+[node name="JumpPad" type="Node3D" unique_id=1812779473 node_paths=PackedStringArray("_boingSoundPlayer")]
 script = ExtResource("1_fndgy")
+_boingSoundPlayer = NodePath("AudioStreamPlayer3D")
 
 [node name="JumpPadArea" type="Area3D" parent="." unique_id=16318120]
 collision_layer = 4
@@ -24,7 +26,10 @@ shape = SubResource("BoxShape3D_o15d4")
 
 [node name="Manufaktur_Mattress_v01" parent="JumpPadArea" unique_id=1086843990 instance=ExtResource("3_jaidj")]
 
-[node name="Matress" parent="JumpPadArea/Manufaktur_Mattress_v01" index="0" unique_id=31425728]
+[node name="Matress" parent="JumpPadArea/Manufaktur_Mattress_v01" index="0" unique_id=1740754636]
 material_override = SubResource("StandardMaterial3D_n0jxw")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1647651524]
+stream = ExtResource("4_n0jxw")
 
 [editable path="JumpPadArea/Manufaktur_Mattress_v01"]

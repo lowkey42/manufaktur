@@ -9,6 +9,7 @@ public partial class Turret : Node3D {
 	[Export] public float MaxBulletTravelDistance { get; set; }= 100f;
 
 	[Export] public PackedScene BulletTemplate { get; set; }
+	[Export] private AudioStreamPlayer3D _fireSoundPlayer;
 
 	private RayCast3D _fireDirection;
 	private Node3D _bulletOrigin;
@@ -56,5 +57,7 @@ public partial class Turret : Node3D {
 
 		var direction = (_fireDirection.GlobalTransform.Basis * _fireDirection.TargetPosition).Normalized();
 		nextBullet.Fire(direction);
+		
+		_fireSoundPlayer.Play();
 	}
 }

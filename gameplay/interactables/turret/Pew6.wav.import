@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://vd5vtf8qa8h0"
-path="res://.godot/imported/Pew1.wav-47de2646d31a17cc02b96077873092b9.sample"
+uid="uid://y0sqjmju0jdn"
+path="res://.godot/imported/Pew6.wav-6ca67ecbf6dddaee775fb91eb9386fdd.sample"
 
 [deps]
 
-source_file="res://gameplay/interactables/vfx/Pew1.wav"
-dest_files=["res://.godot/imported/Pew1.wav-47de2646d31a17cc02b96077873092b9.sample"]
+source_file="res://gameplay/interactables/turret/Pew6.wav"
+dest_files=["res://.godot/imported/Pew6.wav-6ca67ecbf6dddaee775fb91eb9386fdd.sample"]
 
 [params]
 
