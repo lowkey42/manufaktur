@@ -5,11 +5,12 @@
 [ext_resource type="Script" uid="uid://ckxb8gutbgkk" path="res://gameplay/GhostTracker.cs" id="2_ggeim"]
 [ext_resource type="PackedScene" uid="uid://dwa5sbx8g6fh1" path="res://gameplay/player/ghost.tscn" id="2_u5ufx"]
 [ext_resource type="PackedScene" uid="uid://uesictnom2dy" path="res://gameplay/hud/hud.tscn" id="4_s0qlc"]
-[ext_resource type="Material" uid="uid://bxf085mokjs76" path="res://commons/shaders/speed_lines.tres" id="6_rlwjj"]
+[ext_resource type="Material" uid="uid://bx5jn7vxjtxi1" path="res://commons/shaders/speed_lines.tres" id="6_rlwjj"]
 [ext_resource type="Material" uid="uid://cjvbclgvol1q" path="res://commons/shaders/death_effect.tres" id="7_fhy4x"]
 [ext_resource type="PackedScene" uid="uid://lhjhuxo3eceu" path="res://menus/pause_menu.tscn" id="7_ysyhx"]
+[ext_resource type="AudioStream" uid="uid://dx18n1ecnpdpd" path="res://gameplay/player/vfx/GlassShatter.wav" id="9_mty66"]
 
-[node name="GameCore" type="Node" unique_id=910148981 node_paths=PackedStringArray("_hud", "_player", "_ghostTracker", "_deathEffect")]
+[node name="GameCore" type="Node" unique_id=910148981 node_paths=PackedStringArray("_hud", "_player", "_ghostTracker", "_deathEffect", "_deathSound")]
 script = ExtResource("1_uoxhe")
 _ghostScene = ExtResource("2_u5ufx")
 _hud = NodePath("Hud")
@@ -18,6 +19,7 @@ _ghostTracker = NodePath("GhostTracker")
 _speedLineMaterial = ExtResource("6_rlwjj")
 _deathMaterial = ExtResource("7_fhy4x")
 _deathEffect = NodePath("CanvasLayer/Death")
+_deathSound = NodePath("AudioStreamPlayer")
 
 [node name="GhostTracker" type="Node" parent="." unique_id=288071560 node_paths=PackedStringArray("_player")]
 script = ExtResource("2_ggeim")
@@ -53,3 +55,8 @@ grow_vertical = 2
 
 [node name="PauseMenu" parent="." unique_id=1089073059 instance=ExtResource("7_ysyhx")]
 visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=931841921]
+stream = ExtResource("9_mty66")
+volume_db = -10.0
+bus = &"Sound Effects"

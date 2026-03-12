@@ -20,6 +20,8 @@ public partial class GameCore : Node {
 	[Export] private ShaderMaterial _deathMaterial;
 
 	[Export] private CanvasItem _deathEffect;
+	
+	[Export] private AudioStreamPlayer _deathSound;
 
 	private HighscoreList _highscoreList;
 
@@ -139,8 +141,8 @@ public partial class GameCore : Node {
 	}
 	
 	private async void OnPlayerDied() {
-		// TODO: play particle-effect(?)
-		// TODO: play sound-effect
+		if(_deathSound != null)
+			_deathSound.Play();
 		
 		_deathEffect.Visible = true;
 		_deathMaterial.SetShaderParameter("shatter_progress", 0.0);
@@ -148,9 +150,9 @@ public partial class GameCore : Node {
 		
 		_player.ProcessMode = ProcessModeEnum.Disabled;
 		var tween = CreateTween();
-		tween.TweenProperty(_deathMaterial, "shader_parameter/shatter_progress", 1.0, 0.4);
+		tween.TweenProperty(_deathMaterial, "shader_parameter/shatter_progress", 1.0, 0.25);
 		
-		await ToSignal(GetTree().CreateTimer(0.3), "timeout");
+		await ToSignal(GetTree().CreateTimer(0.2), "timeout");
 		
 		GetTree().Paused = true;
 		_hud.ShowHighscore(_highscoreList, null, (GetParentOrNull<Node>() as Level)?.NextLevelScene);
