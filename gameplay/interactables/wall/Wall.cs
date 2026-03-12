@@ -6,7 +6,7 @@ public partial class Wall : Triggerable {
 	[Export] public bool StartDisabled = false;
 
 	private Node3D _mesh;
-	private CollisionObject3D _collider;
+	private StaticBody3D _collider;
 
 	private bool _isDisabled;
 
@@ -14,7 +14,7 @@ public partial class Wall : Triggerable {
 		base._Ready();
 
 		_mesh = GetNodeOrNull<Node3D>("Body/Mesh");
-		_collider = GetNodeOrNull<CollisionObject3D>("Body/Collider");
+		_collider = GetNodeOrNull<StaticBody3D>("Body");
 
 		_isDisabled = StartDisabled;
 		ApplyState();
@@ -33,7 +33,10 @@ public partial class Wall : Triggerable {
 
 		// Collision
 		if (_collider != null) {
-			_collider.ProcessMode = _isDisabled ? ProcessModeEnum.Disabled : ProcessModeEnum.Inherit;
+			uint collisionlayer = _isDisabled ? (uint) GameHelpers.CollisionLayers.Noclip : (uint) GameHelpers.CollisionLayers.Interactables;
+			
+			GD.Print($"Collider set to {collisionlayer}");
+			_collider.CollisionLayer = collisionlayer;
 		}
 	}
 }

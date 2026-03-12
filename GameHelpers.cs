@@ -10,5 +10,6 @@ public static class GameHelpers {
 		Interactables = 1 << 2,
 		Turret = 1 << 3,
 		Glitched = 1 << 4,
+		Noclip = 1 << 5,
 	}	
 }

@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://b8524aomrv8qu" path="res://gameplay/interactables/turret/turret.tscn" id="14_m3i5n"]
 [ext_resource type="PackedScene" uid="uid://u1m12x5kgkkn" path="res://gameplay/interactables/turret/Bullet.tscn" id="15_0m6g6"]
 [ext_resource type="PackedScene" uid="uid://d1se4gcs1hq0t" path="res://gameplay/interactables/glitched_wall/glitched_wall.tscn" id="17_rutv5"]
+[ext_resource type="PackedScene" uid="uid://di7d1utnoba6s" path="res://gameplay/interactables/spike_trap.tscn" id="18_ceaov"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_q6kq1"]
 size = Vector2(18, 18)
@@ -55,7 +56,6 @@ OnlyTriggerOnce = false
 
 [node name="button3" parent="." index="9" unique_id=1205029011 instance=ExtResource("5_mrx4j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.59339, 0, 6.6544147)
-TriggerOnExit = true
 Channel = 2
 OnlyTriggerOnce = false
 
@@ -242,3 +242,9 @@ BulletTemplate = ExtResource("15_0m6g6")
 
 [node name="GlitchedWall" parent="." index="28" unique_id=621091586 instance=ExtResource("17_rutv5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.15635, 0, 21.221054)
+
+[node name="DeathZone" parent="." index="29" unique_id=189809183]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8364916, 0)
+
+[node name="SpikeTrap" parent="." index="30" unique_id=1930964686 instance=ExtResource("18_ceaov")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7710447, 0, 5.6951504)

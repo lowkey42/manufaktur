@@ -1,6 +1,6 @@
 [gd_resource type="Resource" format=3 uid="uid://bns1rj1bxxvj5"]
 
-[ext_resource type="Texture2D" uid="uid://b0qbueur37xm1" path="res://gameplay/items/boost/schmonster.png" id="1_jvieo"]
+[ext_resource type="Texture2D" uid="uid://ckaswvty7faft" path="res://gameplay/items/boost/boost_item.png" id="1_jvieo"]
 [ext_resource type="Script" uid="uid://dptffthi1rvth" path="res://gameplay/items/boost/BoostItem.cs" id="1_m64fp"]
 
 [resource]

@@ -23,6 +23,7 @@ public partial class ButtonScript : Trigger {
 		GD.Print("Button pressed");
 
 		if (TriggerOnEnter) {
+			GD.Print("Trigger on enter");
 			FireTrigger();
 		}
 	}
@@ -32,6 +33,7 @@ public partial class ButtonScript : Trigger {
 		GD.Print("Button released");
 
 		if (TriggerOnExit) {
+			GD.Print("Trigger on release");
 			FireTrigger();
 		}
 	}

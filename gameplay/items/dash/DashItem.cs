@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class DashItem : ItemResource {
+public partial class DashItem : DurationItemResource {
 	[Export]
 	public float DashStrength { get; set; } = 150f;
 
@@ -10,6 +10,6 @@ public partial class DashItem : ItemResource {
 
 		Vector3 dashVector = direction.Normalized() * DashStrength;
 
-		player.Velocity += dashVector;
+		player.Velocity = dashVector;
 	}
 }
