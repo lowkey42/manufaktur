@@ -2,6 +2,9 @@ using Godot;
 using System;
 
 public partial class AnimatedButton : Button {
+	[Export] public SoundPool HoverSounds;	
+	
+
 	private Tween tween;
 	public override void _Ready() {
 		PivotOffset      =  Size * new Vector2(0.5f, 1.0f);
@@ -28,7 +31,7 @@ public partial class AnimatedButton : Button {
 		tween.SetTrans(Tween.TransitionType.Linear);
 		tween.TweenProperty(this, "scale", new Vector2(1.1f, 1.1f), 0.25f);
 
-		Radio.Instance.PlayRandomSound();
+		Radio.Instance.PlayRandomSound(HoverSounds.pool, Radio.Instance.UiSfxBus);
 	}
 
 	private void _onMouse_exited() {
