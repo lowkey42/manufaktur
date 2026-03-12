@@ -3,16 +3,10 @@
 [ext_resource type="Script" uid="uid://dl8bucyrvu5o" path="res://gameplay/items/dash/DashItem.cs" id="1_jgrrj"]
 [ext_resource type="Texture2D" uid="uid://blxv7ed7tlahy" path="res://gameplay/items/dash/IMG_3836.png" id="1_ys4po"]
 [ext_resource type="Texture2D" uid="uid://cquvr8aftr1n2" path="res://gameplay/items/dash/schmonster.png" id="2_k8a08"]
-[ext_resource type="AudioStream" uid="uid://vnbk5134ooi1" path="res://gameplay/items/dash/Dash1.wav" id="3_24ryg"]
-
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_031jb"]
-streams_count = 1
-stream_0/stream = ExtResource("3_24ryg")
 
 [resource]
 script = ExtResource("1_jgrrj")
 Duration = 2.0
 HandTexture = ExtResource("1_ys4po")
 SpawnerTexture = ExtResource("2_k8a08")
-UseSounds = SubResource("AudioStreamRandomizer_031jb")
 metadata/_custom_type_script = "uid://dl8bucyrvu5o"
