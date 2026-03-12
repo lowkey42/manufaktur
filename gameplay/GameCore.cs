@@ -141,6 +141,8 @@ public partial class GameCore : Node {
 	}
 	
 	private async void OnPlayerDied() {
+		Radio.Instance.SetMusicVolume(50);
+		
 		if(_deathSound != null)
 			_deathSound.Play();
 		
