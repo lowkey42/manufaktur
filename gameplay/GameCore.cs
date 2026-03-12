@@ -132,7 +132,7 @@ public partial class GameCore : Node {
 	}
 
 	private async void ResetLevel() {
-		await ToSignal(GetTree().CreateTimer(2.0), "timeout");
+		await ToSignal(GetTree().CreateTimer(0.1), "timeout");
 
 		var error = GetTree().ReloadCurrentScene();
 		if (error != Error.Ok) {

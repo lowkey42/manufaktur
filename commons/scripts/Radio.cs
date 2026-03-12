@@ -15,8 +15,6 @@ public partial class Radio : Node
 	[Export]
 	public float MusicFadeDuration { get; private set; } = 0.5f;
 	
-	[Export] public AudioStream[] UiHoverSoundPool;
-
 	private int _lastIndex = -1;
 	private Random _random = new Random();
 
@@ -120,17 +118,15 @@ public partial class Radio : Node
 		player.QueueFree();
 	}
 	
-	public void PlayRandomSound() {
-		if (UiHoverSoundPool == null || UiHoverSoundPool.Length == 0) return;
-		int randomIndex = _random.Next(0, UiHoverSoundPool.Length);
-		while (randomIndex == _lastIndex && UiHoverSoundPool.Length > 1) {
-			randomIndex = _random.Next(0, UiHoverSoundPool.Length);
+	public void PlayRandomSound(AudioStream[] pool, string bus, int volume = 100) {
+		if (pool == null || pool.Length == 0) return;
+		int randomIndex = _random.Next(0, pool.Length);
+		while (randomIndex == _lastIndex && pool.Length > 1) {
+			randomIndex = _random.Next(0, pool.Length);
 		}
 
 		_lastIndex  = randomIndex;
-		var stream = UiHoverSoundPool[randomIndex];
-		PlayUiSfx(stream);
+		var stream = pool[randomIndex];
+		PlaySfx(stream, volume, bus);
 	}
-	
-	
 }
