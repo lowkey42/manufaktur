@@ -26,13 +26,14 @@ button_index = 6
 [sub_resource type="Shortcut" id="Shortcut_td46j"]
 events = [SubResource("InputEventKey_phc85"), SubResource("InputEventKey_td46j"), SubResource("InputEventJoypadButton_phc85")]
 
-[node name="Hud" type="CanvasLayer" unique_id=127962132 node_paths=PackedStringArray("_labelCurrentTime", "_labelBestTime", "_highscorePanel", "_nextButton", "_retryButton", "_labelCountdown")]
+[node name="Hud" type="CanvasLayer" unique_id=127962132 node_paths=PackedStringArray("_labelCurrentTime", "_labelBestTime", "_labelSpeed", "_highscorePanel", "_nextButton", "_retryButton", "_labelCountdown")]
 process_mode = 3
 script = ExtResource("1_ceo1m")
 _mainMenuScene = "uid://c0u0t8bci7xwj"
 _highScoreRow = ExtResource("3_2048h")
 _labelCurrentTime = NodePath("CurrentTime")
 _labelBestTime = NodePath("BestTime")
+_labelSpeed = NodePath("Speed")
 _highscorePanel = NodePath("HighscorePanel")
 _nextButton = NodePath("HighscorePanel/MarginContainer/VBoxContainer/HBoxContainer/NextButton")
 _retryButton = NodePath("HighscorePanel/MarginContainer/VBoxContainer/HBoxContainer/RetryButton")
@@ -47,6 +48,21 @@ theme_override_font_sizes/normal_font_size = 50
 text = "3232.3232"
 fit_content = true
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Speed" type="RichTextLabel" parent="." unique_id=29086951]
+custom_minimum_size = Vector2(500, 0)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1.0
+offset_bottom = 50.0
+grow_horizontal = 0
+theme_override_font_sizes/normal_font_size = 50
+text = "120 km/h
+5 m/s"
+fit_content = true
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="BestTime" type="RichTextLabel" parent="." unique_id=2025407240]

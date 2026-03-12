@@ -109,6 +109,8 @@ public partial class GameCore : Node {
 			ResetLevel();
 		}
 
+		_hud.SetSpeedMeter(_player.Velocity.Length() * 3.6f, _player.Acceleration);
+		
 		var camVelocity = _player.RelativeVelocityPercent;
 		_speedLineMaterial.SetShaderParameter("blur_direction", camVelocity);
 		_speedLineMaterial.SetShaderParameter("effect_power", _player.VelocityPercent);
