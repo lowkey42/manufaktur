@@ -125,7 +125,7 @@ public partial class Hud : CanvasLayer {
 	}
 
 	public void SetSpeedMeter(float speedKmph, float accelerationMps) {
-		_labelSpeed.Text = Mathf.CeilToInt(speedKmph) + " km/h\n" + Mathf.CeilToInt(speedKmph > 0 ? accelerationMps : 0) + " m/s";
+		_labelSpeed.Text = Mathf.CeilToInt(speedKmph) + " Manumeter/h\n";
 	}
 
 	public void SetCountdown(int countdown) {
