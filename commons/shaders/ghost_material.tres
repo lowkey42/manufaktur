@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://3khy7rmfm1x6"]
+
+[ext_resource type="Shader" uid="uid://devmf4fua2vbo" path="res://commons/shaders/ghost_shader.tres" id="1_bwkvt"]
+[ext_resource type="Texture2D" uid="uid://c8pajwhhkmxew" path="res://commons/shaders/ghost_noise.tres" id="2_yufpb"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_bwkvt")
+shader_parameter/BaseColor3 = Color(0.9184543, 0.66949725, 0.842436, 1)
+shader_parameter/TimeScale = 0.1
+shader_parameter/Texture2DParameter = ExtResource("2_yufpb")
+shader_parameter/AspectRatio = 1.0
