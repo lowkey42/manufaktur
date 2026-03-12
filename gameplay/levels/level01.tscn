@@ -3,8 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://00ip0t0c74ti" path="res://gameplay/base_level.tscn" id="1_5pioa"]
 [ext_resource type="JSON" path="res://gameplay/levels/level01_ghost.json" id="2_6uu1f"]
 [ext_resource type="Material" uid="uid://c21s2t813typy" path="res://commons/textures/placeholder_material.tres" id="2_f0u35"]
-[ext_resource type="PackedScene" uid="uid://di7d1utnoba6s" path="res://gameplay/interactables/spike_trap.tscn" id="3_qped4"]
+[ext_resource type="PackedScene" path="res://gameplay/interactables/spike_trap.tscn" id="3_qped4"]
 [ext_resource type="Script" uid="uid://cwuugq4s37e0j" path="res://gameplay/levels/WorldEnvironment.cs" id="4_418pq"]
+[ext_resource type="PackedScene" uid="uid://due0aqalux7sq" path="res://gameplay/props/props Import/BeachBall.tscn" id="6_favqn"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_5pioa"]
 size = Vector2(100, 100)
@@ -51,3 +52,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.958788, 0, -18.359535)
 
 [node name="SpikeTrap" parent="." index="6" unique_id=189809183 instance=ExtResource("3_qped4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.062111, 0, -11.76894)
+
+[node name="CollisionShape3D" parent="DeathZone/Area3D" parent_id_path=PackedInt32Array(383152636) index="0" unique_id=167147070]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6113429, 0)
+
+[node name="RigidBody3D" parent="." index="8" unique_id=1682720803 instance=ExtResource("6_favqn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0597181, 2.80685, -2.7537127)
