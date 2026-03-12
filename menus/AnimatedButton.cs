@@ -2,13 +2,15 @@ using Godot;
 using System;
 
 public partial class AnimatedButton : Button {
+	private MenuSoundPlayer HoverSoundPlayer;
 	private Tween tween;
 	public override void _Ready() {
-		PivotOffset  =  Size * new Vector2(0.5f, 1.0f);
-		ButtonDown   += _onButton_Down;
-		ButtonUp     += _onButton_Up;
-		MouseExited  += _onMouse_exited;
-		MouseEntered += _onMouse_entered;
+		HoverSoundPlayer =  GetNode<MenuSoundPlayer>("%MenuSoundPlayer");
+		PivotOffset      =  Size * new Vector2(0.5f, 1.0f);
+		ButtonDown       += _onButton_Down;
+		ButtonUp         += _onButton_Up;
+		MouseExited      += _onMouse_exited;
+		MouseEntered     += _onMouse_entered;
 		CallDeferred(nameof(SetPivot));
 
 	}
@@ -28,6 +30,11 @@ public partial class AnimatedButton : Button {
 		tween.SetTrans(Tween.TransitionType.Linear);
 		tween.TweenProperty(this, "scale", new Vector2(1.1f, 1.1f), 0.25f);
 
+		if (HoverSoundPlayer.Playing) {
+			HoverSoundPlayer.Stop();
+		}
+
+		HoverSoundPlayer.PlayRandomSound();
 	}
 
 	private void _onMouse_exited() {
