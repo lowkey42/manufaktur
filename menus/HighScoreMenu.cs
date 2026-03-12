@@ -19,7 +19,7 @@ public partial class HighScoreMenu : Control
 	public void _load_score(string levelName)
 	{
 		var list    = new HighscoreList(levelName);
-		var entries = list.Entries;
+		var entries = list.EntriesLocal;
 
 		for (int i = 0; i < 9; i++)
 		{
