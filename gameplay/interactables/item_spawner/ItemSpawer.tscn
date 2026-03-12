@@ -11,7 +11,7 @@ is_hemisphere = true
 radius = 0.25
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_8qreh"]
-radius = 0.3
+margin = 1.0
 
 [node name="ItemSpawer" type="Node3D" unique_id=1895522051]
 script = ExtResource("1_p2ixt")
