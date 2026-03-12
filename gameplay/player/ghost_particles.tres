@@ -1,8 +1,8 @@
 [gd_resource type="ParticleProcessMaterial" format=3 uid="uid://c6q25asw7u55o"]
 
 [sub_resource type="Gradient" id="Gradient_8r5eh"]
-offsets = PackedFloat32Array(0, 0.052176338, 0.3509513, 0.6952859, 0.8608099, 1)
-colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0.36, 0.36, 0.36, 0, 0, 0, 0, 0)
+offsets = PackedFloat32Array(0, 0.052176338, 0.3509513, 0.72645545, 0.99918395)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1, 0.2, 0.2, 0.2, 1, 1, 1, 1, 0, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_n6j0t"]
 gradient = SubResource("Gradient_8r5eh")
@@ -31,6 +31,13 @@ data = {
 [sub_resource type="ImageTexture" id="ImageTexture_8y3i7"]
 image = SubResource("Image_sswab")
 
+[sub_resource type="Curve" id="Curve_5d017"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.8961596, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_lpgy5"]
+curve = SubResource("Curve_5d017")
+
 [resource]
 lifetime_randomness = 0.09
 emission_shape = 5
@@ -46,5 +53,6 @@ angular_velocity_max = 14.479983
 gravity = Vector3(0, 0, 0)
 scale_min = 0.39999998
 scale_max = 0.79999995
-color = Color(0.097499944, 0, 0.15, 0.9019608)
+scale_curve = SubResource("CurveTexture_lpgy5")
+color = Color(0.38999978, 0, 0.6, 0.9019608)
 color_ramp = SubResource("GradientTexture1D_n6j0t")
