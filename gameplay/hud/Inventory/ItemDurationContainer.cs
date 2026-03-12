@@ -14,6 +14,7 @@ public partial class ItemDurationContainer : Control {
 		var progressBar = new TextureProgressBar();
 		
 		progressBar.TextureProgress  = item.Texture;
+		progressBar.TextureFilter    = TextureFilterEnum.LinearWithMipmapsAnisotropic;
 		progressBar.NinePatchStretch = true;
 
 		progressBar.Value = 100;

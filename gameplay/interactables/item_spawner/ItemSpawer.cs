@@ -40,13 +40,14 @@ public partial class ItemSpawer : Triggerable {
 
 			if (item != null && item.Texture != null) {
 				var quadMesh = new QuadMesh();
-				quadMesh.Size = new Vector2(0.15f, 0.3f);
+				quadMesh.Size = new Vector2(0.4f, 0.8f);
 
 				var material = new StandardMaterial3D();
 				material.AlbedoTexture = item.Texture;
 				material.Transparency  = BaseMaterial3D.TransparencyEnum.Alpha;
 				material.CullMode      = BaseMaterial3D.CullModeEnum.Disabled;
 				material.ShadingMode   = BaseMaterial3D.ShadingModeEnum.Unshaded;
+				material.TextureFilter = BaseMaterial3D.TextureFilterEnum.LinearWithMipmapsAnisotropic;
 
 				meshInstance                  = new MeshInstance3D();
 				meshInstance.Mesh             = quadMesh;

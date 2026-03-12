@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbw83qhlqt5v2"
-path.s3tc="res://.godot/imported/dash_item.png-0afeecccde223b30bfe00943d0863626.s3tc.ctex"
-path.etc2="res://.godot/imported/dash_item.png-0afeecccde223b30bfe00943d0863626.etc2.ctex"
+uid="uid://ogdyeamh5gtl"
+path.s3tc="res://.godot/imported/IMG_3839.png-88b3c98942d678d378dbe258729ceb7d.s3tc.ctex"
+path.etc2="res://.godot/imported/IMG_3839.png-88b3c98942d678d378dbe258729ceb7d.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://gameplay/items/dash/dash_item.png"
-dest_files=["res://.godot/imported/dash_item.png-0afeecccde223b30bfe00943d0863626.s3tc.ctex", "res://.godot/imported/dash_item.png-0afeecccde223b30bfe00943d0863626.etc2.ctex"]
+source_file="res://gameplay/items/sandwitch/IMG_3839.png"
+dest_files=["res://.godot/imported/IMG_3839.png-88b3c98942d678d378dbe258729ceb7d.s3tc.ctex", "res://.godot/imported/IMG_3839.png-88b3c98942d678d378dbe258729ceb7d.etc2.ctex"]
 
 [params]
 

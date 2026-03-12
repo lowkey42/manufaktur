@@ -2,22 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0qbueur37xm1"
-path.s3tc="res://.godot/imported/schmonster.png-f025cd8f63728997e6df0b06b64aea4d.s3tc.ctex"
-path.etc2="res://.godot/imported/schmonster.png-f025cd8f63728997e6df0b06b64aea4d.etc2.ctex"
+uid="uid://dl51mr5iy675m"
+path="res://.godot/imported/IMG_3840.png-022456c940dd329f8c872beac23be86f.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://gameplay/items/dash/schmonster.png"
-dest_files=["res://.godot/imported/schmonster.png-f025cd8f63728997e6df0b06b64aea4d.s3tc.ctex", "res://.godot/imported/schmonster.png-f025cd8f63728997e6df0b06b64aea4d.etc2.ctex"]
+source_file="res://gameplay/items/superjump/IMG_3840.png"
+dest_files=["res://.godot/imported/IMG_3840.png-022456c940dd329f8c872beac23be86f.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -39,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

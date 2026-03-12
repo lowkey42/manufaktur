@@ -1,6 +1,6 @@
 [gd_resource type="Resource" format=3 uid="uid://cpolmb16j5f4h"]
 
-[ext_resource type="Texture2D" uid="uid://c1fvu7uf4rudm" path="res://gameplay/items/superjump/old_mattress.png" id="1_3ay55"]
+[ext_resource type="Texture2D" uid="uid://dl51mr5iy675m" path="res://gameplay/items/superjump/IMG_3840.png" id="1_3ay55"]
 [ext_resource type="Script" uid="uid://7y1fs0oos65t" path="res://gameplay/items/superjump/SuperjumpItem.cs" id="1_ixmlu"]
 
 [resource]

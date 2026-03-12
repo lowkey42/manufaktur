@@ -3,7 +3,7 @@ using Godot;
 public partial class InventoryUi : Control {
 	[Export] public float CardWidth { get; set; } = 150f;
 	[Export] public float CardHeight { get; set; } = 225f;
-	[Export] public float CardOverlap { get; set; } = 50f;
+	[Export] public float CardOverlap { get; set; } = 25f;
 	[Export] public float CardRotationStep { get; set; } = 5f;
 	[Export] public float CardVerticalOffset { get; set; } = 10f;
 
@@ -27,6 +27,7 @@ public partial class InventoryUi : Control {
 		for (var i = 0; i < items.Length; i++) {
 			var itemTexture = new TextureRect();
 			itemTexture.Texture           = items[i].Texture;
+			itemTexture.TextureFilter	 = TextureFilterEnum.LinearWithMipmapsAnisotropic;
 			itemTexture.CustomMinimumSize = new Vector2(CardWidth, CardHeight);
 			itemTexture.ExpandMode        = TextureRect.ExpandModeEnum.FitWidth;
 			itemTexture.StretchMode       = TextureRect.StretchModeEnum.KeepAspectCentered;

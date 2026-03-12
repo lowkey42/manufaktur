@@ -1,7 +1,7 @@
 [gd_resource type="Resource" format=3 uid="uid://cuvg1hq2yhlom"]
 
 [ext_resource type="Script" uid="uid://dl8bucyrvu5o" path="res://gameplay/items/dash/DashItem.cs" id="1_jgrrj"]
-[ext_resource type="Texture2D" uid="uid://b0qbueur37xm1" path="res://gameplay/items/dash/schmonster.png" id="1_ys4po"]
+[ext_resource type="Texture2D" uid="uid://blxv7ed7tlahy" path="res://gameplay/items/dash/IMG_3836.png" id="1_ys4po"]
 
 [resource]
 script = ExtResource("1_jgrrj")

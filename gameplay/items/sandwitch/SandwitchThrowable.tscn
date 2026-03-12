@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://vbkvxxnthhei"]
 
-[ext_resource type="Texture2D" uid="uid://dap4i8aglhbi5" path="res://gameplay/items/sandwitch/sandwitch.png" id="1_udatv"]
+[ext_resource type="Texture2D" uid="uid://cgq4jiux02bo7" path="res://gameplay/items/sandwitch/sandwitch.png" id="1_udatv"]
 [ext_resource type="Script" uid="uid://cgfxr3rrf54mf" path="res://gameplay/items/sandwitch/SandwitchThrowable.cs" id="1_xqwc0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_je3jd"]

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" format=3 uid="uid://deq3k6gx5td7k"]
 
 [ext_resource type="Script" uid="uid://igcxuyp3hfqt" path="res://gameplay/items/glitch/GlitchItem.cs" id="1_80x0b"]
-[ext_resource type="Texture2D" uid="uid://3vlrm1q76ilx" path="res://gameplay/items/glitch/Cofefe.png" id="1_xu1qi"]
+[ext_resource type="Texture2D" uid="uid://b3e0mntad3n2m" path="res://gameplay/items/glitch/IMG_3832.png" id="1_xu1qi"]
 
 [resource]
 script = ExtResource("1_80x0b")
