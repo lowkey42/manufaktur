@@ -49,7 +49,7 @@ public partial class GameCore : Node {
 			}
 		}
 
-		var highscoreEntries = _highscoreList.Entries;
+		var highscoreEntries = _highscoreList.EntriesLocal;
 		if (highscoreEntries.Length > 0) {
 			_hud.SetBestTime(highscoreEntries[0].Time);
 		}
@@ -119,8 +119,8 @@ public partial class GameCore : Node {
 	private void OnFinished() {
 		_finishTime = _time;
 
-		var entry = _highscoreList.AddHighscoreEntry("Manu", _finishTime);
-		if (entry != null) {
+		var entry = _highscoreList.AddHighscoreEntry("****", _finishTime);
+		if (entry is {GhostId: not null}) {
 			_ghostTracker.Path.Save(entry.GetUserGhostPath());
 		}
 

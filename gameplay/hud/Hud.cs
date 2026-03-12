@@ -4,6 +4,8 @@ using System.Globalization;
 using Manufaktur.gameplay;
 
 public partial class Hud : CanvasLayer {
+	private static string _previousName = "Manu";
+	
 	[Export(PropertyHint.File, "*.tscn")] private string _mainMenuScene;
 
 	[Export] private PackedScene _highScoreRow;
@@ -11,15 +13,18 @@ public partial class Hud : CanvasLayer {
 	[Export] private RichTextLabel _labelCurrentTime;
 	[Export] private RichTextLabel _labelBestTime;
 	[Export] private RichTextLabel _labelSpeed;
+	
 	[Export] private Control _highscorePanel;
 	[Export] private Button _nextButton;
 	[Export] private Button _retryButton;
+	
+	[Export] private Control _newEntryPanel;
+	[Export] private TextEdit _newEntryName;
 
 	[Export] private Label _labelCountdown;
 
 	private HighscoreList _highscores;
 	private HighscoreList.Entry _newEntry;
-	private TextEdit _newEntryNameEdit;
 	private int _lastCountdownValue = -1;
 	private string _nextLevelScene;
 
@@ -28,26 +33,13 @@ public partial class Hud : CanvasLayer {
 		_newEntry       = newEntry;
 		_nextLevelScene = nextLevelScene;
 
-		var prevHighscoreRow = _highscorePanel.GetNode<Control>("%HighscoreHeader");
-		var position         = 1;
-		foreach (var entry in highscores.Entries) {
-			var row = (Control) _highScoreRow.Instantiate();
-			row.GetNode<Label>("Number").Text = position + ".";
-			position++;
-			row.GetNode<Label>("Time").Text = FormatTime(entry.Time);
-			if (entry == newEntry) {
-				var edit = row.GetNode<TextEdit>("Name/Edit");
-				_newEntryNameEdit                        =  edit;
-				row.GetNode<Label>("Name/Label").Visible =  false;
-				edit.Visible                             =  true;
-				edit.Text                                =  entry.Name;
-				edit.TextChanged                         += OnRowChange;
-			} else {
-				row.GetNode<Label>("Name/Label").Text = entry.Name;
-			}
+		ShowHighscoreItems(highscores.EntriesLocal, _highscorePanel.GetNode<Control>("%LocalHighscoreHeader"));
+		ShowHighscoreItems(highscores.EntriesGlobal, _highscorePanel.GetNode<Control>("%GlobalHighscoreHeader"));
 
-			prevHighscoreRow.AddSibling(row);
-			prevHighscoreRow = row;
+		if (newEntry != null) {
+			_newEntryName.Text        =  _previousName;
+			_newEntryName.TextChanged += OnRowChange;
+			_newEntryPanel.Show();
 		}
 
 		_highscorePanel.Show();
@@ -60,6 +52,22 @@ public partial class Hud : CanvasLayer {
 		}
 	}
 
+	private void ShowHighscoreItems(HighscoreList.Entry[] entries, Control previousSibling) {
+		var prevHighscoreRow = previousSibling;
+		var position         = 1;
+		foreach (var entry in entries) {
+			var row = (Control) _highScoreRow.Instantiate();
+			row.GetNode<Label>("Number").Text = position + ".";
+			position++;
+			row.GetNode<Label>("Time").Text = FormatTime(entry.Time);
+			row.GetNode<Label>("Name").Text = entry.Name;
+
+			prevHighscoreRow.AddSibling(row);
+			prevHighscoreRow = row;
+		}
+	}
+
+
 	public override void _Process(double delta) {
 		if (_highscorePanel.Visible) {
 			Input.SetMouseMode(Input.MouseModeEnum.Visible);
@@ -67,8 +75,8 @@ public partial class Hud : CanvasLayer {
 	}
 
 	private void OnRowChange() {
-		if (_newEntry != null && _newEntryNameEdit != null) {
-			_newEntry.Name = _newEntryNameEdit.Text;
+		if (_newEntry != null && _newEntryName != null) {
+			_previousName = _newEntry.Name = _newEntryName.Text;
 		}
 	}
 

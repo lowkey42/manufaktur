@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using Godot;
 using Godot.Collections;
@@ -51,6 +50,10 @@ public class HighscoreList {
 			}
 			return null;
 		}
+
+		public void ClearGhostId() {
+			GhostId = null;
+		}
 	}
 
 	private const int _maxEntries = 10;
@@ -58,9 +61,11 @@ public class HighscoreList {
 	private readonly string _levelName;
 
 	private readonly Json _defaultGhost;
-	private readonly List<Entry> _entries = [];
+	private readonly List<Entry> _entriesLocal = [];
+	private readonly List<Entry> _entriesGlobal = [];
 
-	public Entry[] Entries => _entries.ToArray();
+	public Entry[] EntriesLocal => _entriesLocal.ToArray();
+	public Entry[] EntriesGlobal => _entriesGlobal.ToArray();
 
 	public float TimeMinimum { get; private set; }
 	public float TimeBronze { get; private set; }
@@ -90,24 +95,32 @@ public class HighscoreList {
 			}
 
 			var jsonData = json.Data.AsGodotDictionary();
-			foreach (var entry in jsonData["entries"].AsGodotArray<Dictionary>()) {
-				_entries.Add(Entry.FromDictionary(this, entry));
+			if(jsonData.TryGetValue("entries", out var entriesLocal)) {
+				foreach (var entry in entriesLocal.AsGodotArray<Dictionary>()) {
+					_entriesLocal.Add(Entry.FromDictionary(this, entry));
+				}
+			}
+
+			if(jsonData.TryGetValue("entriesGlobal", out var entriesGlobal)) {
+				foreach (var entry in entriesGlobal.AsGodotArray<Dictionary>()) {
+					_entriesGlobal.Add(Entry.FromDictionary(this, entry));
+				}
 			}
 		}
 
-		if (_entries.Count == 0) {
+		if (_entriesLocal.Count == 0) {
 			// static fallback if no highscore list exists
-			_entries.Add(new Entry(this, "Schmanu", TimeMinimum, "DEFAULT"));
+			_entriesLocal.Add(new Entry(this, "Schmanu", TimeMinimum, "DEFAULT"));
 		}
 	}
 
 	public static Entry LoadTopEntry(string levelName) {
 		var list = new HighscoreList(levelName);
-		return list.Entries.Length > 0 ? list.Entries[0] : null;
+		return list.EntriesLocal.Length > 0 ? list.EntriesLocal[0] : null;
 	}
 
 	public void ResetProgress() {
-		_entries.Clear();
+		_entriesLocal.Clear();
 		ResetProgress(_levelName);
 	}
 
@@ -118,57 +131,82 @@ public class HighscoreList {
 			return;
 		}
 
+		// delete all ghosts
 		foreach (var fileName in dir.GetFiles()) {
-			if (fileName.StartsWith(levelName)) {
+			if (fileName.StartsWith(levelName + "_ghost_")) {
 				var err = dir.Remove(fileName);
 				if (err != Error.Ok) {
 					GD.PrintErr($"Failed to delete {fileName}: {err}");
 				}
 			}
 		}
+		
+		// clear local score boards
+		var scores = new HighscoreList(levelName);
+		scores._entriesLocal.Clear();
+		scores.Save();
 	}
 
 	public Entry AddHighscoreEntry(string name, float time) {
+		var newEntry    = new Entry(this, name, time, Guid.NewGuid().ToString());
+		var newInLocal  = InsertNewEntry(newEntry, _entriesLocal, true);
+		var newInGlobal = InsertNewEntry(newEntry, _entriesGlobal, false);
+		if (newInLocal)
+			return newEntry;
+		
+		if (newInGlobal) {
+			newEntry.ClearGhostId();
+			return newEntry;
+		}
+
+		return null;
+	}
+
+	private bool InsertNewEntry(Entry newEntry, List<Entry> entries, bool deleteGhosts) {
 		var i = 0;
-		for (; i < _entries.Count; i++) {
-			if (_entries[i].Time > time) {
+		for (; i < entries.Count; i++) {
+			if (entries[i].Time > newEntry.Time) {
 				break;
 			}
 		}
 
 		if (i >= _maxEntries) {
-			return null;
+			return false;
 		}
-
-		var newEntry = new Entry(this, name, time, Guid.NewGuid().ToString());
-		_entries.Insert(i, newEntry);
-		while (_entries.Count > _maxEntries) {
-			var ghostPath = _entries[^1].GetUserGhostPath();
-			if (ghostPath != null && FileAccess.FileExists(ghostPath)) {
+		
+		entries.Insert(i, newEntry);
+		while (entries.Count > _maxEntries) {
+			var ghostPath = entries[^1].GetUserGhostPath();
+			if (deleteGhosts && ghostPath != null && FileAccess.FileExists(ghostPath)) {
 				DirAccess.RemoveAbsolute(ghostPath);
 			}
 
-			_entries.RemoveAt(_entries.Count - 1);
+			entries.RemoveAt(entries.Count - 1);
 		}
 
-		return newEntry;
+		return true;
 	}
 
 	public void Save() {
 		var path = $"user://{_levelName}_highscore.json";
 
-		var entries = new Array<Dictionary>();
-		foreach (var entry in _entries) {
-			entries.Add(entry.ToDictionary());
+		var entriesLocal = new Array<Dictionary>();
+		foreach (var entry in _entriesLocal) {
+			entriesLocal.Add(entry.ToDictionary());
+		}
+		
+		var entriesGlobal = new Array<Dictionary>();
+		foreach (var entry in _entriesGlobal) {
+			entriesGlobal.Add(entry.ToDictionary());
 		}
 
-		var data = new Dictionary {{"entries", entries}};
+		var data = new Dictionary {{"entries", entriesLocal}, {"entriesGlobal", entriesGlobal}};
 
 		using var file = FileAccess.Open(path, FileAccess.ModeFlags.Write);
 		file.StoreString(Json.Stringify(data, "\t"));
 	}
 
 	public bool IsMinimumTimeReached() {
-		return _entries.Any(e => e.GhostId != "DEFAULT" && e.Time < TimeMinimum);
+		return _entriesLocal.Any(e => e.GhostId != "DEFAULT" && e.Time < TimeMinimum);
 	}
 }

@@ -3,8 +3,13 @@
 [ext_resource type="Script" uid="uid://cv7ejwged0lxv" path="res://gameplay/hud/Hud.cs" id="1_ceo1m"]
 [ext_resource type="Script" uid="uid://b7kcw1isuywu2" path="res://gameplay/hud/HighscorePanel.cs" id="2_ceo1m"]
 [ext_resource type="PackedScene" uid="uid://dqilcdf823eoa" path="res://gameplay/hud/highscore_row.tscn" id="3_2048h"]
+[ext_resource type="FontFile" uid="uid://cb1m4ocmfckw3" path="res://commons/fonts/Ethnocentric-Regular.otf" id="3_td46j"]
 [ext_resource type="PackedScene" uid="uid://bewigwlwwmn8o" path="res://gameplay/hud/Inventory/InventoryUi.tscn" id="4_tbdus"]
 [ext_resource type="PackedScene" uid="uid://b521fsdfux417" path="res://gameplay/hud/Inventory/ItemDurationContainer.tscn" id="5_phc85"]
+
+[sub_resource type="FontVariation" id="FontVariation_phc85"]
+base_font = ExtResource("3_td46j")
+spacing_glyph = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_50gvo"]
 bg_color = Color(0.3647059, 0.5529412, 0.7411765, 1)
@@ -26,7 +31,7 @@ button_index = 6
 [sub_resource type="Shortcut" id="Shortcut_td46j"]
 events = [SubResource("InputEventKey_phc85"), SubResource("InputEventKey_td46j"), SubResource("InputEventJoypadButton_phc85")]
 
-[node name="Hud" type="CanvasLayer" unique_id=127962132 node_paths=PackedStringArray("_labelCurrentTime", "_labelBestTime", "_labelSpeed", "_highscorePanel", "_nextButton", "_retryButton", "_labelCountdown")]
+[node name="Hud" type="CanvasLayer" unique_id=127962132 node_paths=PackedStringArray("_labelCurrentTime", "_labelBestTime", "_labelSpeed", "_highscorePanel", "_nextButton", "_retryButton", "_newEntryPanel", "_newEntryName", "_labelCountdown")]
 process_mode = 3
 script = ExtResource("1_ceo1m")
 _mainMenuScene = "uid://c0u0t8bci7xwj"
@@ -34,20 +39,26 @@ _highScoreRow = ExtResource("3_2048h")
 _labelCurrentTime = NodePath("CurrentTime")
 _labelBestTime = NodePath("BestTime")
 _labelSpeed = NodePath("Speed")
-_highscorePanel = NodePath("HighscorePanel")
-_nextButton = NodePath("HighscorePanel/MarginContainer/VBoxContainer/HBoxContainer/NextButton")
-_retryButton = NodePath("HighscorePanel/MarginContainer/VBoxContainer/HBoxContainer/RetryButton")
+_highscorePanel = NodePath("Highscores")
+_nextButton = NodePath("Highscores/Buttons/MarginContainer/HBoxContainer2/NextButton")
+_retryButton = NodePath("Highscores/Buttons/MarginContainer/HBoxContainer2/RetryButton")
+_newEntryPanel = NodePath("Highscores/NewEntry")
+_newEntryName = NodePath("Highscores/NewEntry/MarginContainer/HBox/NewEntryName")
 _labelCountdown = NodePath("Countdown")
 
 [node name="CurrentTime" type="RichTextLabel" parent="." unique_id=493737036]
-anchors_preset = 10
-anchor_right = 1.0
+custom_minimum_size = Vector2(375, 0)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -0.5
+offset_right = 0.5
 offset_bottom = 50.0
 grow_horizontal = 2
+theme_override_fonts/normal_font = SubResource("FontVariation_phc85")
 theme_override_font_sizes/normal_font_size = 50
-text = "3232.3232"
+text = "0:00.000"
 fit_content = true
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Speed" type="RichTextLabel" parent="." unique_id=29086951]
@@ -95,66 +106,96 @@ text = "3"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HighscorePanel" type="PanelContainer" parent="." unique_id=1608355547]
+[node name="Highscores" type="VBoxContainer" parent="." unique_id=760273190]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -65.0
-offset_right = 200.0
-offset_bottom = 65.0
+offset_left = -458.0
+offset_top = -142.5
+offset_right = 458.0
+offset_bottom = 142.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="NewEntry" type="PanelContainer" parent="Highscores" unique_id=2011272241]
+visible = false
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_50gvo")
+
+[node name="MarginContainer" type="MarginContainer" parent="Highscores/NewEntry" unique_id=1799467802]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBox" type="HBoxContainer" parent="Highscores/NewEntry/MarginContainer" unique_id=2144644928]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="Control" type="Control" parent="Highscores/NewEntry/MarginContainer/HBox" unique_id=2096706884]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Highscores/NewEntry/MarginContainer/HBox" unique_id=227922326]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 25
+text = "Name"
+horizontal_alignment = 2
+
+[node name="NewEntryName" type="TextEdit" parent="Highscores/NewEntry/MarginContainer/HBox" unique_id=2004170577]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 25
+text = "Manu"
+
+[node name="Control2" type="Control" parent="Highscores/NewEntry/MarginContainer/HBox" unique_id=564560923]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Scoreboards" type="HBoxContainer" parent="Highscores" unique_id=120762717]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="HighscorePanel" type="PanelContainer" parent="Highscores/Scoreboards" unique_id=1608355547]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_50gvo")
 script = ExtResource("2_ceo1m")
 
-[node name="Node" type="Node2D" parent="HighscorePanel" unique_id=515849504]
-
-[node name="ResetButton" type="Button" parent="HighscorePanel/Node" unique_id=1885897927]
-top_level = true
-custom_minimum_size = Vector2(0, 40)
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -128.0
-offset_top = -40.0
-offset_right = 128.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 25
-theme_override_styles/normal = SubResource("StyleBoxFlat_g51lr")
-text = "[DEBUG Reset]"
-
-[node name="MarginContainer" type="MarginContainer" parent="HighscorePanel" unique_id=1743072491]
+[node name="MarginContainer" type="MarginContainer" parent="Highscores/Scoreboards/HighscorePanel" unique_id=1743072491]
 layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HighscorePanel/MarginContainer" unique_id=367631542]
+[node name="VBoxContainer" type="VBoxContainer" parent="Highscores/Scoreboards/HighscorePanel/MarginContainer" unique_id=367631542]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="RichTextLabel" type="RichTextLabel" parent="HighscorePanel/MarginContainer/VBoxContainer" unique_id=1121832799]
+[node name="RichTextLabel" type="RichTextLabel" parent="Highscores/Scoreboards/HighscorePanel/MarginContainer/VBoxContainer" unique_id=1121832799]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 40
-text = "Highscore"
+text = "Local
+Scoreboard"
 fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HighscoreHeader" type="HBoxContainer" parent="HighscorePanel/MarginContainer/VBoxContainer" unique_id=1492345618]
+[node name="LocalHighscoreHeader" type="HBoxContainer" parent="Highscores/Scoreboards/HighscorePanel/MarginContainer/VBoxContainer" unique_id=1492345618]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Number" type="Label" parent="HighscorePanel/MarginContainer/VBoxContainer/HighscoreHeader" unique_id=881501087]
+[node name="Number" type="Label" parent="Highscores/Scoreboards/HighscorePanel/MarginContainer/VBoxContainer/LocalHighscoreHeader" unique_id=881501087]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
@@ -162,7 +203,7 @@ text = "#"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Time" type="Label" parent="HighscorePanel/MarginContainer/VBoxContainer/HighscoreHeader" unique_id=192490643]
+[node name="Time" type="Label" parent="Highscores/Scoreboards/HighscorePanel/MarginContainer/VBoxContainer/LocalHighscoreHeader" unique_id=192490643]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
@@ -170,7 +211,7 @@ text = "Time"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Name" type="Label" parent="HighscorePanel/MarginContainer/VBoxContainer/HighscoreHeader" unique_id=1637172013]
+[node name="Name" type="Label" parent="Highscores/Scoreboards/HighscorePanel/MarginContainer/VBoxContainer/LocalHighscoreHeader" unique_id=1637172013]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 26
@@ -178,10 +219,81 @@ text = "Player"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HighscorePanel/MarginContainer/VBoxContainer" unique_id=1973791245]
+[node name="Control" type="Control" parent="Highscores/Scoreboards/HighscorePanel/MarginContainer/VBoxContainer" unique_id=557242170]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HighscorePanelGlobal" type="PanelContainer" parent="Highscores/Scoreboards" unique_id=122585635]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_50gvo")
+script = ExtResource("2_ceo1m")
+
+[node name="MarginContainer" type="MarginContainer" parent="Highscores/Scoreboards/HighscorePanelGlobal" unique_id=1313632226]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Highscores/Scoreboards/HighscorePanelGlobal/MarginContainer" unique_id=691099048]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Highscores/Scoreboards/HighscorePanelGlobal/MarginContainer/VBoxContainer" unique_id=316984492]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 40
+text = "Global
+Scoreboard"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GlobalHighscoreHeader" type="HBoxContainer" parent="Highscores/Scoreboards/HighscorePanelGlobal/MarginContainer/VBoxContainer" unique_id=312561458]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="ExitButton" type="Button" parent="HighscorePanel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1090773494]
+[node name="Number" type="Label" parent="Highscores/Scoreboards/HighscorePanelGlobal/MarginContainer/VBoxContainer/GlobalHighscoreHeader" unique_id=337615062]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "#"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Time" type="Label" parent="Highscores/Scoreboards/HighscorePanelGlobal/MarginContainer/VBoxContainer/GlobalHighscoreHeader" unique_id=1141488997]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Time"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Name" type="Label" parent="Highscores/Scoreboards/HighscorePanelGlobal/MarginContainer/VBoxContainer/GlobalHighscoreHeader" unique_id=695777789]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 26
+text = "Player"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="PanelContainer" parent="Highscores" unique_id=1724496003]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_50gvo")
+
+[node name="MarginContainer" type="MarginContainer" parent="Highscores/Buttons" unique_id=1308523623]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Highscores/Buttons/MarginContainer" unique_id=1973791245]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ExitButton" type="Button" parent="Highscores/Buttons/MarginContainer/HBoxContainer2" unique_id=1090773494]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -189,7 +301,15 @@ theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_g51lr")
 text = "Exit"
 
-[node name="RetryButton" type="Button" parent="HighscorePanel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2096042221]
+[node name="ResetButton" type="Button" parent="Highscores/Buttons/MarginContainer/HBoxContainer2" unique_id=1885897927]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_g51lr")
+text = "Reset"
+
+[node name="RetryButton" type="Button" parent="Highscores/Buttons/MarginContainer/HBoxContainer2" unique_id=2096042221]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -198,7 +318,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_g51lr")
 shortcut = SubResource("Shortcut_td46j")
 text = "Retry"
 
-[node name="NextButton" type="Button" parent="HighscorePanel/MarginContainer/VBoxContainer/HBoxContainer" unique_id=19795080]
+[node name="NextButton" type="Button" parent="Highscores/Buttons/MarginContainer/HBoxContainer2" unique_id=19795080]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -224,7 +344,7 @@ anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[connection signal="pressed" from="HighscorePanel/Node/ResetButton" to="." method="OnReset"]
-[connection signal="pressed" from="HighscorePanel/MarginContainer/VBoxContainer/HBoxContainer/ExitButton" to="." method="OnExit"]
-[connection signal="pressed" from="HighscorePanel/MarginContainer/VBoxContainer/HBoxContainer/RetryButton" to="." method="OnRetry"]
-[connection signal="pressed" from="HighscorePanel/MarginContainer/VBoxContainer/HBoxContainer/NextButton" to="." method="OnNext"]
+[connection signal="pressed" from="Highscores/Buttons/MarginContainer/HBoxContainer2/ExitButton" to="." method="OnExit"]
+[connection signal="pressed" from="Highscores/Buttons/MarginContainer/HBoxContainer2/ResetButton" to="." method="OnReset"]
+[connection signal="pressed" from="Highscores/Buttons/MarginContainer/HBoxContainer2/RetryButton" to="." method="OnRetry"]
+[connection signal="pressed" from="Highscores/Buttons/MarginContainer/HBoxContainer2/NextButton" to="." method="OnNext"]
