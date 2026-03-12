@@ -4,7 +4,8 @@ using System;
 public partial class Bullet : Node3D {
 	[Export] public float BulletSpeed { get; set; } = 10f;
 
-	private float _maxDistance = 100f;
+	public float MaxDistance { get; set; } = 500f;
+
 	private float _distanceTraveled = 0f;
 
 	private Vector3 _direction;
@@ -27,7 +28,8 @@ public partial class Bullet : Node3D {
 		_distanceTraveled += movement.Length();
 
 		// Destroy after max distance
-		if (_distanceTraveled >= _maxDistance) {
+		if (_distanceTraveled >= MaxDistance) {
+			GD.Print($"Bullet exceeded max distance ({_distanceTraveled} >= {MaxDistance}). Destroying.");
 			QueueFree();
 		}
 	}
@@ -36,7 +38,10 @@ public partial class Bullet : Node3D {
 		if (body is Player) {
 			EventBus.Instance.EmitPlayerDied();
 		}
-
+		if(body is GridMap) {
+			return;
+		}
+		
 		QueueFree();
 	}
 

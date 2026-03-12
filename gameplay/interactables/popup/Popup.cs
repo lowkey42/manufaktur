@@ -3,7 +3,7 @@ using System;
 
 public partial class Popup : Node3D {
 	[Export]
-	public float TriggerRadius = 6.0f;
+	public float TriggerRadius = 12.0f;
 
 	private Node3D _origin;
 	private Tween _tween;

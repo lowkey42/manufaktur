@@ -52,7 +52,7 @@ public partial class SandwitchThrowable : Node3D {
 		if (ShowTimerDisplay) {
 			_timerDisplayMesh      = new MeshInstance3D();
 			_timerDisplayMesh.Name = "TimerDisplaySphere";
-			_timerDisplayMesh.Mesh = new SphereMesh {Radius = 2.0f, Height = 4.0f};
+			_timerDisplayMesh.Mesh = new SphereMesh {Radius = 1.0f, Height = 2.0f};
 			_timerDisplayMesh.MaterialOverride = new StandardMaterial3D {
 				ShadingMode  = BaseMaterial3D.ShadingModeEnum.Unshaded,
 				Transparency = BaseMaterial3D.TransparencyEnum.Alpha,

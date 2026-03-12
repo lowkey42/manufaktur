@@ -1,7 +1,7 @@
 [gd_resource type="MeshLibrary" format=4 uid="uid://bvn32tj8p3bms"]
 
 [ext_resource type="Material" uid="uid://dcsfdxfjbsijg" path="res://commons/Materials/BaseGrid_material_3d.tres" id="1_0f1bx"]
-[ext_resource type="Material" uid="uid://fn32jpi2g7ej" path="res://commons/Materials/BaseColorGradient.tres" id="2_h82wk"]
+[ext_resource type="Material" path="res://commons/Materials/BaseColorGradient.tres" id="2_h82wk"]
 [ext_resource type="Texture2D" uid="uid://dy6hy7y83ph8t" path="res://gameplay/props/props Import/ScaleRefMeshlib_TextureSet_Wood_FK_v01.png" id="3_h82wk"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_wnds2"]

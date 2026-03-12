@@ -74,73 +74,80 @@ OnlyTriggerOnce = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.22417, 0, 7.9192886)
 OnlyTriggerOnce = false
 
-[node name="MovingPlatform" parent="." index="13" unique_id=1860802399 instance=ExtResource("6_hm5in")]
+[node name="Node3D" type="Node3D" parent="." index="13" unique_id=1478654237]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.30793, 3.0174038, 5.1785603)
+
+[node name="MovingPlatform" parent="." index="14" unique_id=1860802399 node_paths=PackedStringArray("EndCoordinate") instance=ExtResource("6_hm5in")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.30793, 0.006809473, 5.1785603)
-Stop2 = Vector3(0, 3, 0)
+EndCoordinate = NodePath("../Node3D")
+TravelTimeSeconds = 5.0
+OneWayOnly = true
 
-[node name="MovingPlatform2" parent="." index="14" unique_id=83219577 instance=ExtResource("6_hm5in")]
+[node name="MovingPlatform2" parent="." index="15" unique_id=83219577 node_paths=PackedStringArray("EndCoordinate") instance=ExtResource("6_hm5in")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3849945, 0, 2.9703407)
-Stop2 = Vector3(0, 0, 8)
-Triggerable = false
+EndCoordinate = NodePath("Node3D")
 Looping = true
+Triggerable = false
 StartEnabled = true
 
-[node name="MovingPlatform3" parent="." index="15" unique_id=1402077356 instance=ExtResource("6_hm5in")]
+[node name="Node3D" type="Node3D" parent="MovingPlatform2" index="1" unique_id=875754897]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 13.059002)
+
+[node name="MovingPlatform3" parent="." index="16" unique_id=1402077356 instance=ExtResource("6_hm5in")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7259064, 0, 18.97034)
-Stop2 = Vector3(0, 3.5, -12)
 TravelTimeSeconds = 7.0
-Triggerable = false
 Looping = true
+Triggerable = false
 StartEnabled = true
 
-[node name="ItemSpawer2" parent="." index="16" unique_id=1895522051 instance=ExtResource("7_m3i5n")]
+[node name="ItemSpawer2" parent="." index="17" unique_id=1895522051 instance=ExtResource("7_m3i5n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.293764, 0, 17.711834)
 item = ExtResource("8_0m6g6")
 SpawnOnTrigger = false
 Channel = 3
 
-[node name="ItemSpawer" parent="." index="17" unique_id=110308397 instance=ExtResource("7_m3i5n")]
+[node name="ItemSpawer" parent="." index="18" unique_id=110308397 instance=ExtResource("7_m3i5n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.298, 0, 15.912432)
 item = ExtResource("9_rutv5")
 Channel = 3
 
-[node name="JumpPad" parent="." index="18" unique_id=1812779473 instance=ExtResource("10_ceaov")]
+[node name="JumpPad" parent="." index="19" unique_id=1812779473 instance=ExtResource("10_ceaov")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.099007, 0, 10.970341)
 
-[node name="ItemSpawer4" parent="." index="19" unique_id=108897726 instance=ExtResource("7_m3i5n")]
+[node name="ItemSpawer4" parent="." index="20" unique_id=108897726 instance=ExtResource("7_m3i5n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.693968, 0, 18.970325)
 item = ExtResource("9_rutv5")
 EnableAutoRespawn = true
 SpawnOnTrigger = false
 
-[node name="ItemSpawer5" parent="." index="20" unique_id=2006657899 instance=ExtResource("7_m3i5n")]
+[node name="ItemSpawer5" parent="." index="21" unique_id=2006657899 instance=ExtResource("7_m3i5n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.922014, 0, 18.970325)
 item = ExtResource("11_3w8ib")
 EnableAutoRespawn = true
 RespawnTime = 2.0
 SpawnOnTrigger = false
 
-[node name="ItemSpawer6" parent="." index="21" unique_id=1146996132 instance=ExtResource("7_m3i5n")]
+[node name="ItemSpawer6" parent="." index="22" unique_id=1146996132 instance=ExtResource("7_m3i5n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.298971, 0, 18.970325)
 item = ExtResource("12_bknvr")
 EnableAutoRespawn = true
 RespawnTime = 2.0
 SpawnOnTrigger = false
 
-[node name="ItemSpawer7" parent="." index="22" unique_id=1327817371 instance=ExtResource("7_m3i5n")]
+[node name="ItemSpawer7" parent="." index="23" unique_id=1327817371 instance=ExtResource("7_m3i5n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.609947, 0, 18.970325)
 item = ExtResource("13_0m6g6")
 EnableAutoRespawn = true
 RespawnTime = 2.0
 SpawnOnTrigger = false
 
-[node name="ItemSpawer3" parent="." index="23" unique_id=1366285013 instance=ExtResource("7_m3i5n")]
+[node name="ItemSpawer3" parent="." index="24" unique_id=1366285013 instance=ExtResource("7_m3i5n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.348522, 0, 18.91251)
 item = ExtResource("8_0m6g6")
 EnableAutoRespawn = true
 SpawnOnTrigger = false
 
-[node name="Floor" type="Node" parent="." index="24" unique_id=1073680705]
+[node name="Floor" type="Node" parent="." index="25" unique_id=1073680705]
 
 [node name="Floor4" type="StaticBody3D" parent="Floor" index="0" unique_id=103876161]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, 18)
@@ -208,7 +215,7 @@ mesh = SubResource("PlaneMesh_q6kq1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_yeoal")
 
-[node name="Lights" type="Node" parent="." index="25" unique_id=1432435672]
+[node name="Lights" type="Node" parent="." index="26" unique_id=1432435672]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights" index="0" unique_id=1106621468]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.655924, 7.4862094, 13.495009)
@@ -233,18 +240,18 @@ omni_range = 35.147
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7559366, 3.202303, 8.660814)
 omni_range = 35.147
 
-[node name="Popup" parent="." index="26" unique_id=1517823302 instance=ExtResource("13_mrx4j")]
+[node name="Popup" parent="." index="27" unique_id=1517823302 instance=ExtResource("13_mrx4j")]
 transform = Transform3D(-0.68970793, 0, 0.72408766, 0, 1, 0, -0.72408766, 0, -0.68970793, -6.4705205, 0.01, 20.720097)
 
-[node name="Turret" parent="." index="27" unique_id=1180370954 instance=ExtResource("14_m3i5n")]
-transform = Transform3D(-0.72512186, 0, 0.6886204, 0, 1.0000002, 0, -0.6886204, 0, -0.72512186, -18.150988, -0.5855582, 23.808887)
+[node name="Turret" parent="." index="28" unique_id=1180370954 instance=ExtResource("14_m3i5n")]
+transform = Transform3D(0.83388567, 0, 0.5519369, 0, 1.0000002, 0, -0.5519369, 0, 0.83388567, -18.150988, -0.5855582, 23.808887)
 BulletTemplate = ExtResource("15_0m6g6")
 
-[node name="GlitchedWall" parent="." index="28" unique_id=621091586 instance=ExtResource("17_rutv5")]
+[node name="GlitchedWall" parent="." index="29" unique_id=621091586 instance=ExtResource("17_rutv5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.15635, 0, 21.221054)
 
-[node name="DeathZone" parent="." index="29" unique_id=189809183]
+[node name="DeathZone" parent="." index="30" unique_id=189809183]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8364916, 0)
 
-[node name="SpikeTrap" parent="." index="30" unique_id=1930964686 instance=ExtResource("18_ceaov")]
+[node name="SpikeTrap" parent="." index="31" unique_id=1930964686 instance=ExtResource("18_ceaov")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7710447, 0, 5.6951504)

@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://b8524aomrv8qu"]
 
 [ext_resource type="Script" uid="uid://nanlu5trd087" path="res://gameplay/interactables/turret/Turret.cs" id="1_0who8"]
-[ext_resource type="ArrayMesh" uid="uid://cvbpxetyl3g3b" path="res://3D Files WIP/turret.tres" id="2_hvilh"]
+[ext_resource type="ArrayMesh" uid="uid://dtox0rql8occb" path="res://3D Files WIP/turret.tres" id="2_hvilh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xxm84"]
-radius = 1.6914063
-height = 4.326172
+radius = 1.0805664
+height = 3.8220215
 
 [node name="Turret" type="Node3D" unique_id=1180370954]
 script = ExtResource("1_0who8")
@@ -21,15 +21,15 @@ collision_layer = 8
 metadata/collision_preset_name = "__custom__"
 
 [node name="Collision" type="CollisionShape3D" parent="Origin/Body" unique_id=1525545935]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0737305, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8216553, 0)
 shape = SubResource("CapsuleShape3D_xxm84")
 
 [node name="Mesh" type="MeshInstance3D" parent="Origin/Body" unique_id=2054780171]
-transform = Transform3D(-0.95371693, 0, 0.30070588, 0, 1, 0, -0.30070588, 0, -0.95371693, 0, 0, 0)
+transform = Transform3D(-0.7152877, 0, 0.2255294, 0, 0.75, 0, -0.2255294, 0, -0.7152877, 0, 0, 0)
 mesh = ExtResource("2_hvilh")
 
 [node name="BulletOrigin" type="Node3D" parent="Origin" unique_id=594718308]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9043531, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4813957, 0)
 
 [node name="BulletDirection" type="RayCast3D" parent="Origin/BulletOrigin" unique_id=1871838329]
 target_position = Vector3(10, 0, 0)

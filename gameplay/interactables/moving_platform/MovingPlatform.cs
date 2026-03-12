@@ -4,25 +4,26 @@ namespace Manufaktur.gameplay.interactables.moving_platform;
 
 public partial class MovingPlatform : Triggerable {
 
-	[ExportGroup("Stops (local space)")]
-	[Export] public Vector3 Stop1 = new Vector3(0, 0, 0);
-	[Export] public Vector3 Stop2 = new Vector3(0, 5, 0);
+	[ExportGroup("Stops")]
+	[Export] public Node3D EndCoordinate;
 
 	[ExportGroup("Motion")]
 	[Export(PropertyHint.Range, "0.05,30.0,0.05")] public float TravelTimeSeconds = 1.5f;
+	[Export] public float StartDelay = 0.0f;
 	[Export] public Tween.TransitionType Transition = Tween.TransitionType.Sine;
 	[Export] public Tween.EaseType Ease = Tween.EaseType.InOut;
 
 	[ExportGroup("Options")]
-	[Export] public bool Triggerable = true;
 	[Export] public bool Looping = false;
-	[Export] public bool StartEnabled = false;
 	[Export] public bool OneWayOnly = false;  
-	[Export] public bool StartAtEnd = false;
+	[Export] public bool StartAtEnd = false;  
+	[Export] public bool Triggerable = true;
+	[Export] public bool StartEnabled = false;
 
 	private AnimatableBody3D _platform;
 	private Tween _tween;
 	private Vector3 _lastPosition;
+	private Vector3 _spawnPosition;
 
 	private enum State { AtStop1, AtStop2, Moving }
 	private State _state;
@@ -36,12 +37,18 @@ public partial class MovingPlatform : Triggerable {
 			return;
 		}
 
-		_platform.Position = StartAtEnd ? Stop2 : Stop1;
-		_lastPosition = _platform.GlobalPosition;
-		_state = StartAtEnd ? State.AtStop2 : State.AtStop1;
+		_spawnPosition = _platform.GlobalPosition;
+
+		_platform.GlobalPosition = StartAtEnd ? EndCoordinate.GlobalPosition : _platform.GlobalPosition;
+		_lastPosition            = _platform.GlobalPosition;
+		_state                   = StartAtEnd ? State.AtStop2 : State.AtStop1;
 
 		if (Looping && StartEnabled) {
-			StartLooping();
+			if (StartDelay > 0) {
+				GetTree().CreateTimer(StartDelay).Timeout += StartLooping;
+			} else {
+				StartLooping();
+			}
 		}
 	}
 
@@ -72,12 +79,16 @@ public partial class MovingPlatform : Triggerable {
 			if (_state == State.AtStop2) {
 				return;
 			}
-			target = Stop2;
+			target = EndCoordinate.GlobalPosition;
 		} else {
-			target = (_state == State.AtStop2) ? Stop1 : Stop2;
+			target = (_state == State.AtStop2) ? _spawnPosition : EndCoordinate.GlobalPosition;
 		}
 
-		MoveTo(target);
+		if (StartDelay > 0) {
+			GetTree().CreateTimer(StartDelay).Timeout += () => MoveTo(target);
+		} else {
+			MoveTo(target);
+		}
 	}
 
 	private void MoveTo(Vector3 targetLocalPos) {
@@ -90,12 +101,12 @@ public partial class MovingPlatform : Triggerable {
 
 		_state = State.Moving;
 
-		_tween.TweenProperty(_platform, "position", targetLocalPos, TravelTimeSeconds);
+		_tween.TweenProperty(_platform, "global_position", targetLocalPos, TravelTimeSeconds);
 
 		_tween.Finished += () => {
-			if (targetLocalPos.IsEqualApprox(Stop1)) {
+			if (targetLocalPos.IsEqualApprox(_spawnPosition)) {
 				_state = State.AtStop1;
-			} else if (targetLocalPos.IsEqualApprox(Stop2)) {
+			} else if (targetLocalPos.IsEqualApprox(EndCoordinate.GlobalPosition)) {
 				_state = State.AtStop2;
 			}
 
@@ -111,16 +122,17 @@ public partial class MovingPlatform : Triggerable {
 		_tween?.Kill();
 
 		_tween = CreateTween();
+		_tween.SetProcessMode(Tween.TweenProcessMode.Physics);
 		_tween.SetTrans(Transition);
 		_tween.SetEase(Ease);
 		_tween.SetLoops();
 
-		Vector3 firstTarget = (_state == State.AtStop2) ? Stop1 : Stop2;
+		Vector3 firstTarget = (_state == State.AtStop2) ? _spawnPosition : EndCoordinate.GlobalPosition;
 
 		_state = State.Moving;
 
-		_tween.TweenProperty(_platform, "position", firstTarget, TravelTimeSeconds);
-		_tween.TweenProperty(_platform, "position", firstTarget.IsEqualApprox(Stop2) ? Stop1 : Stop2, TravelTimeSeconds);
+		_tween.TweenProperty(_platform, "global_position", firstTarget, TravelTimeSeconds);
+		_tween.TweenProperty(_platform, "global_position", firstTarget.IsEqualApprox(EndCoordinate.GlobalPosition) ? _spawnPosition : EndCoordinate.GlobalPosition, TravelTimeSeconds);
 	}
 
 	private void StopLooping() {
@@ -131,9 +143,9 @@ public partial class MovingPlatform : Triggerable {
 			_platform.ConstantLinearVelocity = Vector3.Zero;
 		}
 
-		if (_platform.Position.IsEqualApprox(Stop1)) {
+		if (_platform.GlobalPosition.IsEqualApprox(_spawnPosition)) {
 			_state = State.AtStop1;
-		} else if (_platform.Position.IsEqualApprox(Stop2)) {
+		} else if (_platform.GlobalPosition.IsEqualApprox(EndCoordinate.GlobalPosition)) {
 			_state = State.AtStop2;
 		} else {
 			_state = State.Moving;

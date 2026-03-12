@@ -6,6 +6,8 @@ public partial class Turret : Node3D {
 	[Export] public int BurstBulletCount { get; set; } = 5;
 	[Export] public float TimeBetweenBurstBullets { get; set; } = 0.07f;
 
+	[Export] public float MaxBulletTravelDistance { get; set; }= 100f;
+
 	[Export] public PackedScene BulletTemplate { get; set; }
 
 	private RayCast3D _fireDirection;
@@ -46,6 +48,8 @@ public partial class Turret : Node3D {
 			GD.PushWarning("BulletTemplate is not assigned or is not a Bullet scene.");
 			return;
 		}
+		
+		nextBullet.MaxDistance = MaxBulletTravelDistance;
 
 		AddChild(nextBullet);
 		nextBullet.GlobalTransform = _bulletOrigin.GlobalTransform;

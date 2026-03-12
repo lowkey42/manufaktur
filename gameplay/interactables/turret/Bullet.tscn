@@ -3,11 +3,11 @@
 [ext_resource type="Script" uid="uid://dw1j7gpq8lrvb" path="res://gameplay/interactables/turret/Bullet.cs" id="1_yg8k5"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_pvxan"]
-radius = 0.05
+radius = 0.15
 
 [sub_resource type="SphereMesh" id="SphereMesh_pvxan"]
-radius = 0.05
-height = 0.1
+radius = 0.15
+height = 0.3
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pvxan"]
 albedo_color = Color(5.912981, 0, 0, 1)
