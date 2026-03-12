@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://cgdr4h347rrbe"]
+
+[ext_resource type="Script" uid="uid://cmrfmjwpoem43" path="res://menus/TextureSequencer.cs" id="1_apav8"]
+[ext_resource type="Script" uid="uid://cxgyy3qd3p6dj" path="res://menus/TextureStep.cs" id="2_n34jt"]
+[ext_resource type="Texture2D" uid="uid://bb1q5syu8gswj" path="res://commons/storie/story_frame_1.png" id="2_yhjr0"]
+[ext_resource type="Texture2D" uid="uid://c5qiidlu8i83y" path="res://commons/storie/story_frame_2.png" id="4_k8afv"]
+[ext_resource type="Texture2D" uid="uid://cwcnsprk88hoq" path="res://commons/storie/story_frame_3.png" id="5_0ut0m"]
+[ext_resource type="Texture2D" uid="uid://dm6giufs6vxru" path="res://commons/storie/story_frame_4.png" id="6_0rd6t"]
+[ext_resource type="Texture2D" uid="uid://cewvbbrfxcvm7" path="res://commons/storie/story_frame_5.png" id="7_727p4"]
+[ext_resource type="Texture2D" uid="uid://cmdj3f35w4yya" path="res://commons/storie/story_frame_6.png" id="8_7klk8"]
+[ext_resource type="Texture2D" uid="uid://bs02y07gd1n01" path="res://commons/storie/story_frame_7.png" id="9_lit01"]
+[ext_resource type="Texture2D" uid="uid://ca3gptrjxjapw" path="res://commons/storie/story_frame_8.png" id="10_kcftc"]
+[ext_resource type="Texture2D" uid="uid://csb5lamnhxagl" path="res://commons/storie/story_frame_9.png" id="11_bg1r0"]
+[ext_resource type="Texture2D" uid="uid://c8ubcuhlabvot" path="res://commons/storie/story_frame_10.png" id="12_kgtaa"]
+[ext_resource type="Texture2D" uid="uid://c8n56h7dj1fff" path="res://commons/storie/story_frame_11.png" id="13_hi2r4"]
+[ext_resource type="Texture2D" uid="uid://xdm11joq7jeu" path="res://commons/storie/story_frame_12.png" id="14_d8q87"]
+[ext_resource type="PackedScene" uid="uid://cjkqp2iw5cift" path="res://gameplay/levels/BeachLevel01.tscn" id="15_k8afv"]
+
+[sub_resource type="Resource" id="Resource_rcbpk"]
+script = ExtResource("2_n34jt")
+Image = ExtResource("2_yhjr0")
+metadata/_custom_type_script = "uid://cxgyy3qd3p6dj"
+
+[sub_resource type="Resource" id="Resource_s8e15"]
+script = ExtResource("2_n34jt")
+Image = ExtResource("4_k8afv")
+metadata/_custom_type_script = "uid://cxgyy3qd3p6dj"
+
+[sub_resource type="Resource" id="Resource_5fq7b"]
+script = ExtResource("2_n34jt")
+Image = ExtResource("5_0ut0m")
+metadata/_custom_type_script = "uid://cxgyy3qd3p6dj"
+
+[sub_resource type="Resource" id="Resource_fh1a1"]
+script = ExtResource("2_n34jt")
+Image = ExtResource("6_0rd6t")
+metadata/_custom_type_script = "uid://cxgyy3qd3p6dj"
+
+[sub_resource type="Resource" id="Resource_6frm5"]
+script = ExtResource("2_n34jt")
+Image = ExtResource("7_727p4")
+metadata/_custom_type_script = "uid://cxgyy3qd3p6dj"
+
+[sub_resource type="Resource" id="Resource_qf7x8"]
+script = ExtResource("2_n34jt")
+Image = ExtResource("8_7klk8")
+metadata/_custom_type_script = "uid://cxgyy3qd3p6dj"
+
+[sub_resource type="Resource" id="Resource_0o0tf"]
+script = ExtResource("2_n34jt")
+Image = ExtResource("9_lit01")
+metadata/_custom_type_script = "uid://cxgyy3qd3p6dj"
+
+[sub_resource type="Resource" id="Resource_nrogf"]
+script = ExtResource("2_n34jt")
+Image = ExtResource("10_kcftc")
+metadata/_custom_type_script = "uid://cxgyy3qd3p6dj"
+
+[sub_resource type="Resource" id="Resource_2301c"]
+script = ExtResource("2_n34jt")
+Image = ExtResource("11_bg1r0")
+metadata/_custom_type_script = "uid://cxgyy3qd3p6dj"
+
+[sub_resource type="Resource" id="Resource_kg6eg"]
+script = ExtResource("2_n34jt")
+Image = ExtResource("12_kgtaa")
+metadata/_custom_type_script = "uid://cxgyy3qd3p6dj"
+
+[sub_resource type="Resource" id="Resource_36lxa"]
+script = ExtResource("2_n34jt")
+Image = ExtResource("13_hi2r4")
+metadata/_custom_type_script = "uid://cxgyy3qd3p6dj"
+
+[sub_resource type="Resource" id="Resource_5m3pn"]
+script = ExtResource("2_n34jt")
+Image = ExtResource("14_d8q87")
+metadata/_custom_type_script = "uid://cxgyy3qd3p6dj"
+
+[node name="Control" type="Control" unique_id=172627991]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=783970370]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_apav8")
+Sequence = Array[Object]([SubResource("Resource_rcbpk"), SubResource("Resource_s8e15"), SubResource("Resource_5fq7b"), SubResource("Resource_fh1a1"), SubResource("Resource_6frm5"), SubResource("Resource_qf7x8"), SubResource("Resource_0o0tf"), SubResource("Resource_nrogf"), SubResource("Resource_2301c"), SubResource("Resource_kg6eg"), SubResource("Resource_36lxa"), SubResource("Resource_5m3pn")])
+NextLevel = ExtResource("15_k8afv")

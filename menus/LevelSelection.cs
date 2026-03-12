@@ -47,13 +47,13 @@ public partial class LevelSelection : Control
 
         Texture2D defaultImg = GD.Load<Texture2D>("res://commons/textures/placeholder.png");
 
-        btn1.Pressed += () => SelectLevel("Level 1", "res://gameplay/levels/level01.tscn", "Level1", defaultImg);
+        btn1.Pressed += () => SelectLevel("Level 1", "res://menus/story_menu_real.tscn", "Level1", defaultImg);
         btn2.Pressed += () => SelectLevel("Level 2", "res://gameplay/levels/level02.tscn", "Level2", defaultImg);
         btn3.Pressed += () => SelectLevel("Level 3", "res://gameplay/levels/level03.tscn", "Level3", defaultImg);
         btn4.Pressed += () => SelectLevel("Level 4", "res://gameplay/levels/level04.tscn", "Level4", defaultImg);
 
 
-        CallDeferred(MethodName.SelectLevel, "Level 1", "res://gameplay/levels/level01.tscn", "Level1", defaultImg);
+        CallDeferred(MethodName.SelectLevel, "Level 1", "res://menus/story_menu_real.tscn", "Level1", defaultImg);
     }
     
     private void SelectLevel(string levelName, string scenePath, string highscoreKey, Texture2D image)
