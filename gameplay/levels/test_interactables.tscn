@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://b8524aomrv8qu" path="res://gameplay/interactables/turret/turret.tscn" id="14_m3i5n"]
 [ext_resource type="PackedScene" uid="uid://u1m12x5kgkkn" path="res://gameplay/interactables/turret/Bullet.tscn" id="15_0m6g6"]
 [ext_resource type="PackedScene" uid="uid://d1se4gcs1hq0t" path="res://gameplay/interactables/glitched_wall/glitched_wall.tscn" id="17_rutv5"]
+[ext_resource type="PackedScene" uid="uid://di7d1utnoba6s" path="res://gameplay/interactables/spike_trap.tscn" id="18_ceaov"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_q6kq1"]
 size = Vector2(18, 18)
@@ -27,10 +28,10 @@ size = Vector3(18, 1, 18)
 [node name="BaseLevel" unique_id=433332774 instance=ExtResource("1_ik6r3")]
 
 [node name="GameCore" parent="." index="0" unique_id=910148981]
-_startDelay = -1
+_startDelay = 1
 
 [node name="SpawnPoint" parent="." index="3" unique_id=407262584]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5560455, 0, 3.3669977)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -31.317358, 4.7683716e-07, 12.332392)
 
 [node name="Finish" parent="." index="4" unique_id=1714722049]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.061985, 0, 18.478695)
@@ -55,7 +56,6 @@ OnlyTriggerOnce = false
 
 [node name="button3" parent="." index="9" unique_id=1205029011 instance=ExtResource("5_mrx4j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.59339, 0, 6.6544147)
-TriggerOnExit = true
 Channel = 2
 OnlyTriggerOnce = false
 
@@ -237,8 +237,14 @@ omni_range = 35.147
 transform = Transform3D(-0.68970793, 0, 0.72408766, 0, 1, 0, -0.72408766, 0, -0.68970793, -6.4705205, 0.01, 20.720097)
 
 [node name="Turret" parent="." index="27" unique_id=1180370954 instance=ExtResource("14_m3i5n")]
-transform = Transform3D(-0.573176, 0, -0.8194322, 0.27423304, 0.9423383, -0.19182038, 0.7721823, -0.3346623, -0.5401257, -18.150988, 0, 23.808887)
+transform = Transform3D(-0.72512186, 0, 0.6886204, 0, 1.0000002, 0, -0.6886204, 0, -0.72512186, -18.150988, -0.5855582, 23.808887)
 BulletTemplate = ExtResource("15_0m6g6")
 
 [node name="GlitchedWall" parent="." index="28" unique_id=621091586 instance=ExtResource("17_rutv5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.15635, 0, 21.221054)
+
+[node name="DeathZone" parent="." index="29" unique_id=189809183]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8364916, 0)
+
+[node name="SpikeTrap" parent="." index="30" unique_id=1930964686 instance=ExtResource("18_ceaov")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7710447, 0, 5.6951504)

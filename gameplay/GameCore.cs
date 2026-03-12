@@ -45,6 +45,7 @@ public partial class GameCore : Node {
 		if (spawnPoints.Count > 0) {
 			if (spawnPoints[Random.Shared.Next(0, spawnPoints.Count)] is Node3D sp) {
 				_player.GlobalPosition = sp.GlobalPosition;
+				_player.GlobalRotation = sp.GlobalRotation;
 			}
 		}
 
@@ -108,6 +109,8 @@ public partial class GameCore : Node {
 			ResetLevel();
 		}
 
+		_hud.SetSpeedMeter(_player.Velocity.Length() * 3.6f, _player.Acceleration);
+		
 		var camVelocity = _player.RelativeVelocityPercent;
 		_speedLineMaterial.SetShaderParameter("blur_direction", camVelocity);
 		_speedLineMaterial.SetShaderParameter("effect_power", _player.VelocityPercent);
@@ -148,7 +151,7 @@ public partial class GameCore : Node {
 		tween.TweenProperty(_deathMaterial, "shader_parameter/shatter_progress", 1.0, 0.4);
 		
 		await ToSignal(GetTree().CreateTimer(0.3), "timeout");
-
+		
 		GetTree().Paused = true;
 		_hud.ShowHighscore(_highscoreList, null, (GetParentOrNull<Node>() as Level)?.NextLevelScene);
 		Input.SetMouseMode(Input.MouseModeEnum.Visible);

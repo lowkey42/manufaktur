@@ -10,7 +10,7 @@ public partial class LevelSelection : Control
     public delegate void ScoreOpenEventHandler(string levelName);
 
 
-    private VBoxContainer _rightPanelContent;
+    private VBoxContainer _rightPanelContent; 
     private RichTextLabel _currentNameLabel;
     private TextureRect _currentImage;
     private RichTextLabel _currentScoreLabel;
@@ -21,29 +21,29 @@ public partial class LevelSelection : Control
 
     private string _currentScenePath = "";
     private string _currentHighscoreKey = "";
-    private Tween _rightPanelTween;
+    private Tween _rightPanelTween; 
 
     public override void _Ready()
     {
 
-        _rightPanelContent = GetNode<VBoxContainer>("CurrentSelectedLevelContainer/MarginContainer/VBoxContainer");
+        _rightPanelContent = GetNode<VBoxContainer>("%RightPanelContent");
         
-        _currentNameLabel  = _rightPanelContent.GetNode<RichTextLabel>("RichTextLabel");
-        _currentImage      = _rightPanelContent.GetNode<TextureRect>("CurrentLevelImage");
-        _currentScoreLabel = _rightPanelContent.GetNode<RichTextLabel>("CurrentScoreLabel");
+        _currentNameLabel  = GetNode<RichTextLabel>("%CurrentNameLabel");
+        _currentImage      = GetNode<TextureRect>("%CurrentLevelImage");
+        _currentScoreLabel = GetNode<RichTextLabel>("%CurrentScoreLabel");
         
-        _startLevelButton  = _rightPanelContent.GetNode<Button>("HBoxContainer2/Load_current_Level_Button");
-        _highScoreButton   = _rightPanelContent.GetNode<Button>("HBoxContainer2/Load_HighScoreButton_Current_level");
+        _startLevelButton  = GetNode<Button>("%StartLevelButton");
+        _highScoreButton   = GetNode<Button>("%HighScoreButton");
 
 
         _startLevelButton.Pressed += OnStartPressed;
         _highScoreButton.Pressed  += OnHighscorePressed;
 
 
-        var btn1 = GetNode<Button>("Panel/MarginContainer/VBoxContainer/VBoxContainer/Level1Button");
-        var btn2 = GetNode<Button>("Panel/MarginContainer/VBoxContainer/VBoxContainer/Level2Button");
-        var btn3 = GetNode<Button>("Panel/MarginContainer/VBoxContainer/VBoxContainer/Level3Button");
-        var btn4 = GetNode<Button>("Panel/MarginContainer/VBoxContainer/VBoxContainer/Level4Button");
+        var btn1 = GetNode<Button>("%Level1Button");
+        var btn2 = GetNode<Button>("%Level2Button");
+        var btn3 = GetNode<Button>("%Level3Button");
+        var btn4 = GetNode<Button>("%Level4Button");
 
         Texture2D defaultImg = GD.Load<Texture2D>("res://commons/textures/placeholder.png");
 
@@ -67,14 +67,7 @@ public partial class LevelSelection : Control
         _currentImage.Texture = image;
 
         var topScore = HighscoreList.LoadTopEntry(highscoreKey);
-        if (topScore != null)
-        {
-            _currentScoreLabel.Text = $"{topScore.Name} - {topScore.Time}";
-        }
-        else
-        {
-            _currentScoreLabel.Text = "Noch kein Highscore";
-        }
+        _currentScoreLabel.Text = topScore != null ? $"{topScore.Name} - {topScore.Time}" : "Noch kein Highscore";
 
 
         AnimateRightPanel();
@@ -82,20 +75,16 @@ public partial class LevelSelection : Control
 
     private void AnimateRightPanel()
     {
-
         _rightPanelTween?.Kill();
 
-
-        _rightPanelContent.PivotOffset = _rightPanelContent.Size / 2f;
-        _rightPanelContent.Modulate = new Color(1, 1, 1, 0);
-        _rightPanelContent.Scale = new Vector2(0.98f, 0.98f);
-
+        _rightPanelContent.PivotOffset = _rightPanelContent.Size / 2f; 
+        _rightPanelContent.Modulate = new Color(1, 1, 1, 0); 
+        _rightPanelContent.Scale = new Vector2(0.95f, 0.95f); 
 
         _rightPanelTween = GetTree().CreateTween().SetParallel().SetTrans(Tween.TransitionType.Cubic).SetEase(Tween.EaseType.Out);
         
-
-        _rightPanelTween.TweenProperty(_rightPanelContent, "modulate:a", 1.0f, 2f);
-        _rightPanelTween.TweenProperty(_rightPanelContent, "scale", Vector2.One, 2f);
+        _rightPanelTween.TweenProperty(_rightPanelContent, "modulate:a", 1.0f, 0.25f);
+        _rightPanelTween.TweenProperty(_rightPanelContent, "scale", Vector2.One, 0.25f);
     }
 
     private async void OnStartPressed()

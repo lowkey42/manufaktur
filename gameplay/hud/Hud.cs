@@ -10,8 +10,10 @@ public partial class Hud : CanvasLayer {
 
 	[Export] private RichTextLabel _labelCurrentTime;
 	[Export] private RichTextLabel _labelBestTime;
+	[Export] private RichTextLabel _labelSpeed;
 	[Export] private Control _highscorePanel;
 	[Export] private Button _nextButton;
+	[Export] private Button _retryButton;
 
 	[Export] private Label _labelCountdown;
 
@@ -50,6 +52,12 @@ public partial class Hud : CanvasLayer {
 
 		_highscorePanel.Show();
 		_nextButton.Disabled = !highscores.IsMinimumTimeReached() || nextLevelScene == null || nextLevelScene.Length == 0;
+
+		if (_nextButton.Disabled) {
+			_retryButton.GrabFocus();
+		} else {
+			_nextButton.GrabFocus();
+		}
 	}
 
 	public override void _Process(double delta) {
@@ -108,6 +116,10 @@ public partial class Hud : CanvasLayer {
 		_labelBestTime.Text = FormatTime(bestTime);
 	}
 
+	public void SetSpeedMeter(float speedKmph, float accelerationMps) {
+		_labelSpeed.Text = Mathf.CeilToInt(speedKmph) + " km/h\n" + Mathf.CeilToInt(speedKmph > 0 ? accelerationMps : 0) + " m/s";
+	}
+
 	public void SetCountdown(int countdown) {
 		if (_lastCountdownValue == countdown) {
 			return;
@@ -143,6 +155,4 @@ public partial class Hud : CanvasLayer {
 	private static string FormatTime(float currentTime) {
 		return TimeSpan.FromSeconds(currentTime).ToString(@"m\:ss\.fff");
 	}
-	
-	
 }

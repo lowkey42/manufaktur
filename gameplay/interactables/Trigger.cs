@@ -9,7 +9,9 @@ public abstract partial class Trigger : Node3D {
 	private bool fired = false;
 
 	public virtual void FireTrigger() {
-		if (fired) { return; }
+		if (OnlyTriggerOnce && fired) { return; }
+
+		fired = true;
 
 		GD.Print($"Firing trigger on channel {Channel}");
 
