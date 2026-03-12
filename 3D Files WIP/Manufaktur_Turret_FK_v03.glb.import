@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cpbck2hlh85ha"
-path="res://.godot/imported/Manufaktur_Turret_FK_v01.glb-109c5f92eb5974ae640fba50ba9e1c60.scn"
+uid="uid://c7llka1xfod0d"
+path="res://.godot/imported/Manufaktur_Turret_FK_v03.glb-d8340b322c1c0a37bf58f2c7069fa4c4.scn"
 
 [deps]
 
-source_file="res://3D Files WIP/Manufaktur_Turret_FK_v01.glb"
-dest_files=["res://.godot/imported/Manufaktur_Turret_FK_v01.glb-109c5f92eb5974ae640fba50ba9e1c60.scn"]
+source_file="res://3D Files WIP/Manufaktur_Turret_FK_v03.glb"
+dest_files=["res://.godot/imported/Manufaktur_Turret_FK_v03.glb-d8340b322c1c0a37bf58f2c7069fa4c4.scn"]
 
 [params]
 

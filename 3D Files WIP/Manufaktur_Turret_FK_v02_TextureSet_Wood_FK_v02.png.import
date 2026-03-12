@@ -2,18 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ff04yh0rdln3"
-path.s3tc="res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.s3tc.ctex"
-path.etc2="res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.etc2.ctex"
+uid="uid://bv5kqmq503xc7"
+path.s3tc="res://.godot/imported/Manufaktur_Turret_FK_v02_TextureSet_Wood_FK_v02.png-2b513f5a3d36ad6076593b1f98339d38.s3tc.ctex"
+path.etc2="res://.godot/imported/Manufaktur_Turret_FK_v02_TextureSet_Wood_FK_v02.png-2b513f5a3d36ad6076593b1f98339d38.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "de8f34941068cdafcfe1f253566087e4"
+}
 
 [deps]
 
-source_file="res://icon.svg"
-dest_files=["res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.s3tc.ctex", "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.etc2.ctex"]
+source_file="res://3D Files WIP/Manufaktur_Turret_FK_v02_TextureSet_Wood_FK_v02.png"
+dest_files=["res://.godot/imported/Manufaktur_Turret_FK_v02_TextureSet_Wood_FK_v02.png-2b513f5a3d36ad6076593b1f98339d38.s3tc.ctex", "res://.godot/imported/Manufaktur_Turret_FK_v02_TextureSet_Wood_FK_v02.png-2b513f5a3d36ad6076593b1f98339d38.etc2.ctex"]
 
 [params]
 
@@ -40,6 +43,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=0
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

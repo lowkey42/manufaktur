@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cpbck2hlh85ha"
-path="res://.godot/imported/Manufaktur_Turret_FK_v01.glb-109c5f92eb5974ae640fba50ba9e1c60.scn"
+uid="uid://b1oc14bolyr8d"
+path="res://.godot/imported/Manufaktur_BeachChair_v01.glb-e198608c102ea4684143d869fdf2a481.scn"
 
 [deps]
 
-source_file="res://3D Files WIP/Manufaktur_Turret_FK_v01.glb"
-dest_files=["res://.godot/imported/Manufaktur_Turret_FK_v01.glb-109c5f92eb5974ae640fba50ba9e1c60.scn"]
+source_file="res://3D Files WIP/Manufaktur_BeachChair_v01.glb"
+dest_files=["res://.godot/imported/Manufaktur_BeachChair_v01.glb-e198608c102ea4684143d869fdf2a481.scn"]
 
 [params]
 
