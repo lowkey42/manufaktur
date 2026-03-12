@@ -8,6 +8,7 @@ public partial class Ghost : Node3D {
 	[Export] private MeshInstance3D _mesh;
 	[Export] private GpuParticles3D _particles;
 	[Export] private CollisionShape3D _body;
+	[Export] private AudioStreamPlayer3D _knockbackSound;
 
 	private PlayerPath _path;
 	private float _time;
@@ -28,6 +29,9 @@ public partial class Ghost : Node3D {
 			var knockback = (p.GlobalPosition - GlobalPosition).Normalized() * _knockbackVelocity;
 			knockback.Y *= 0.25f;
 			p.Velocity  =  knockback;
+			
+			if(_knockbackSound != null)
+				_knockbackSound.Play();
 		}
 	}
 

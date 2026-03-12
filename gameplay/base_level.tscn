@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://7jekhbp45ds0" path="res://gameplay/game_core.tscn" id="1_1x18m"]
 [ext_resource type="Script" uid="uid://7s0xxujvrde7" path="res://gameplay/Level.cs" id="1_vom85"]
 [ext_resource type="PackedScene" uid="uid://c1btrphh4u5a0" path="res://gameplay/interactables/spawn_point.tscn" id="2_nopgp"]
+[ext_resource type="Script" uid="uid://rk6ergkns8hq" path="res://commons/scripts/SceneMusic.cs" id="3_g3utt"]
 [ext_resource type="PackedScene" uid="uid://bvg3jpsto66fu" path="res://gameplay/interactables/finish.tscn" id="3_vom85"]
 [ext_resource type="Script" uid="uid://dt7hh2mn5iiy5" path="res://gameplay/interactables/SpikeTrap.cs" id="5_knlha"]
 
@@ -14,6 +15,10 @@
 script = ExtResource("1_vom85")
 
 [node name="GameCore" parent="." unique_id=910148981 instance=ExtResource("1_1x18m")]
+
+[node name="SceneMusic" type="Node" parent="." unique_id=1650332442]
+script = ExtResource("3_g3utt")
+metadata/_custom_type_script = "uid://rk6ergkns8hq"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1057689463]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)

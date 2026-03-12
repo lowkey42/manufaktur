@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://c8ca3dt14ci0k"]
+
+[ext_resource type="Shader" uid="uid://45cm0qg6n8s6" path="res://commons/shaders/Stylized_Smoke_Shader.gdshader" id="1_cxja2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cxja2"]
+render_priority = 0
+shader = ExtResource("1_cxja2")
+shader_parameter/Color = Color(0, 0, 0, 1)
+shader_parameter/Fernal_Power = 0.0
+shader_parameter/Vor_Scale = 3.0
+shader_parameter/Vor_Speed = 1.0
+shader_parameter/Emmision_Power = 1.0
+shader_parameter/Alpha_Clip = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_tfypx"]
+
+[sub_resource type="Gradient" id="Gradient_tfypx"]
+colors = PackedColorArray(0.99215686, 0.06666667, 0.06666667, 1, 0.3647059, 0.5529412, 0.7411765, 1)
+
+[sub_resource type="Gradient" id="Gradient_8rn2h"]
+colors = PackedColorArray(0.27450982, 0.2901961, 0.2627451, 1, 0.3647059, 0.5529412, 0.7411765, 1)
+
+[node name="Node3D" type="Node3D" unique_id=1585800204]
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=2065318976]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.312937, 0)
+material_override = SubResource("ShaderMaterial_cxja2")
+amount = 50
+lifetime = 2.67
+explosiveness = 0.5
+randomness = 0.1
+lifetime_randomness = 0.5
+mesh = SubResource("QuadMesh_tfypx")
+emission_shape = 2
+emission_sphere_radius = 1.0
+gravity = Vector3(0, 1, 0)
+initial_velocity_min = 0.1
+initial_velocity_max = 0.2
+angular_velocity_max = 0.1
+linear_accel_max = 0.1
+radial_accel_max = 0.1
+tangential_accel_min = 0.1
+tangential_accel_max = 0.5
+damping_min = 0.1
+damping_max = 1.0
+angle_max = 55.0
+scale_amount_min = 0.5
+color = Color(1, 0, 0, 1)
+color_ramp = SubResource("Gradient_tfypx")
+color_initial_ramp = SubResource("Gradient_8rn2h")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+anim_speed_min = 0.5
+anim_speed_max = 1.0
+anim_offset_min = 0.5
+anim_offset_max = 1.0

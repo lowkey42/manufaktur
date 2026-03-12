@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bewigwlwwmn8o"]
 
-[ext_resource type="Script" uid="uid://ddqs2h2nvf0nm" path="res://gameplay/hud/Inventory/InventoryUi.cs" id="1_3abqa"]
+[ext_resource type="Script" uid="uid://cmihbkenb2r5i" path="res://gameplay/hud/Inventory/InventoryUi.cs" id="1_3abqa"]
 
 [node name="Inventory" type="Control" unique_id=601817208]
 layout_mode = 3

@@ -40,6 +40,7 @@ debug_color = Color(0, 0.6457332, 0.26038483, 0.41960785)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=908539865]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, -0.25)
+doppler_tracking = 2
 current = true
 fov = 85.0
 near = 0.1

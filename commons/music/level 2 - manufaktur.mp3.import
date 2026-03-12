@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dw3xe42cmgftd"
+path="res://.godot/imported/level 2 - manufaktur.mp3-53857729687b2e486792fa80d9c07721.mp3str"
+
+[deps]
+
+source_file="res://commons/music/level 2 - manufaktur.mp3"
+dest_files=["res://.godot/imported/level 2 - manufaktur.mp3-53857729687b2e486792fa80d9c07721.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=19.285
+bpm=140.0
+beat_count=0
+bar_beats=4

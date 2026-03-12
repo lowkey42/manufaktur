@@ -49,7 +49,6 @@ public partial class Popup : Node3D {
 	}
 
 	public void PopDown() {
-		GD.Print("Pop Down");
 		var tween = this.CreateTween();
 		tween.TweenProperty(_origin, "rotation_degrees", new Vector3(-90, 0, 0), 0.5f)
 		     .SetTrans(Tween.TransitionType.Back)
@@ -57,7 +56,6 @@ public partial class Popup : Node3D {
 	}
 
 	public void PopUp() {
-		GD.Print("Pop Up");
 		var tween = this.CreateTween();
 		tween.TweenProperty(_origin, "rotation_degrees", new Vector3(0, 0, 0), 0.5f)
 		     .SetTrans(Tween.TransitionType.Back)
