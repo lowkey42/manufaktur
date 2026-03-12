@@ -2,7 +2,7 @@ using Godot;
 
 public partial class SettingsMenu : Control 
 {
-    // Keine [Export] mehr nötig, wir holen das sicher per Code
+
     private HSlider _masterSlider;
     private HSlider _sfxSlider;
     private CheckBox _fullscreenBox;
@@ -11,7 +11,7 @@ public partial class SettingsMenu : Control
     private CheckBox _ssilButton;
     private CheckBox _ssrButton;
     
-    private PanelContainer _panel; // Für die Animation
+    private PanelContainer _panel;
 
     [Signal]
     public delegate void ClosedEventHandler();
@@ -26,7 +26,7 @@ public partial class SettingsMenu : Control
        _ssaoButton    = GetNode<CheckBox>("%SSAO_CheckBox");
        _ssilButton    = GetNode<CheckBox>("%SSIL_CheckBox");
        _ssrButton     = GetNode<CheckBox>("%SSR_CheckBox");
-       _panel         = GetNode<PanelContainer>("PanelContainer"); // Das sichtbare Fenster
+       _panel         = GetNode<PanelContainer>("PanelContainer");
 
 
        _masterSlider.Value          = SettingsManager.Instance.MasterVolume;
