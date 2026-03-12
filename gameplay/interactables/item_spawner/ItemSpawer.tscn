@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://di3rrw1px67qn"]
 
 [ext_resource type="Script" uid="uid://yfcioxfa8e8o" path="res://gameplay/interactables/item_spawner/ItemSpawer.cs" id="1_p2ixt"]
+[ext_resource type="Texture2D" uid="uid://drayfvyk2ujiy" path="res://gameplay/interactables/item_spawner/flare_01.png" id="2_8qreh"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_30c8b"]
 radius = 0.25
@@ -13,7 +14,34 @@ radius = 0.25
 [sub_resource type="SphereShape3D" id="SphereShape3D_8qreh"]
 margin = 1.0
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p2ixt"]
+direction = Vector3(0, 1, 0)
+spread = 30.0
+initial_velocity_min = 0.099999994
+initial_velocity_max = 1.0
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = -1.6093254e-05
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = -2.2351742e-05
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0rcvm"]
+transparency = 1
+cull_mode = 2
+albedo_texture = ExtResource("2_8qreh")
+emission_enabled = true
+emission = Color(0.297, 0.5181001, 0.9, 1)
+emission_energy_multiplier = 30.0
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_fk1dw"]
+material = SubResource("StandardMaterial3D_0rcvm")
+size = Vector2(0.15, 0.15)
+
 [node name="ItemSpawer" type="Node3D" unique_id=1895522051]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 script = ExtResource("1_p2ixt")
 
 [node name="Body" type="Area3D" parent="." unique_id=1658786522]
@@ -34,3 +62,10 @@ metadata/collision_preset_name = "__custom__"
 
 [node name="CollectionCollision" type="CollisionShape3D" parent="Item/CollectionArea" unique_id=667342588]
 shape = SubResource("SphereShape3D_8qreh")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1581963870]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.023951769, 0)
+amount = 200
+lifetime = 0.8
+process_material = SubResource("ParticleProcessMaterial_p2ixt")
+draw_pass_1 = SubResource("QuadMesh_fk1dw")

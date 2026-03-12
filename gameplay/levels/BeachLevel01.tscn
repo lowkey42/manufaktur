@@ -46,6 +46,7 @@ ambient_light_color = Color(0.921569, 0.921569, 0, 1)
 ssr_enabled = true
 ssao_enabled = true
 ssao_radius = 0.01
+glow_enabled = true
 volumetric_fog_density = 0.01
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_20ii1"]
@@ -415,7 +416,7 @@ EnableAutoRespawn = true
 SpawnOnTrigger = false
 
 [node name="Dash4" parent="Interactables/Items" index="4" unique_id=2126798201 instance=ExtResource("19_viicr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -136.3508, 4.4366717, 267.57507)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -143.6965, 4.4366717, 261.91623)
 item = ExtResource("21_xmvng")
 EnableAutoRespawn = true
 SpawnOnTrigger = false
@@ -505,7 +506,7 @@ MaxBulletTravelDistance = 60.0
 BulletTemplate = ExtResource("16_ki26l")
 
 [node name="Turret8" parent="Interactables/Turrets" index="7" unique_id=1641332814 instance=ExtResource("15_xfbjl")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -225.56525, 9.024342, 467.6939)
+transform = Transform3D(-0.97023237, 0, -0.242176, 0, 1, 0, 0.242176, 0, -0.97023237, -223.45961, 8.291799, 464.87836)
 BulletTemplate = ExtResource("16_ki26l")
 
 [node name="Jumppads" type="Node" parent="Interactables" index="5" unique_id=1120016271]

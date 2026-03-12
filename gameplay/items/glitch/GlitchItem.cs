@@ -11,8 +11,9 @@ public partial class GlitchItem : DurationItemResource
 		_timer = player.GetTree().CreateTimer(Duration);
 		
 		_timer.Timeout += () => {
-			//check for if player has been disposed
-			player.CollisionMask += (int)GameHelpers.CollisionLayers.Glitched;
+			if (IsInstanceValid(player)) {
+				player.CollisionMask += (int) GameHelpers.CollisionLayers.Glitched;
+			}
 		};
 	}
 }
