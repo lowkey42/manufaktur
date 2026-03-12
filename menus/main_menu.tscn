@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://crt0tg6q7ndeh" path="res://menus/EndlessScroller.cs" id="11_kk4mm"]
 [ext_resource type="Script" uid="uid://efxehlbofws" path="res://menus/HexAnim.cs" id="11_nc6jr"]
 [ext_resource type="Texture2D" uid="uid://b2mrmof7mh5sw" path="res://commons/Materials/blue_main_menu.png" id="11_rx1ud"]
+[ext_resource type="AudioStream" uid="uid://c0fxql6x5n08y" path="res://commons/music/ManuMenu.wav" id="14_wcdpt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pwbes"]
 bg_color = Color(0.3647059, 0.5529412, 0.7411765, 1)
@@ -172,6 +173,10 @@ mouse_filter = 2
 texture = ExtResource("10_nc6jr")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=649479807]
+stream = ExtResource("14_wcdpt")
+autoplay = true
 
 [connection signal="pressed" from="MainMenuPanel/VBoxContainer/StartButton" to="." method="OpenLevelSelection"]
 [connection signal="pressed" from="MainMenuPanel/VBoxContainer/SettingsButton" to="." method="OpenSettings"]

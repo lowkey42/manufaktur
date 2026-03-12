@@ -326,7 +326,7 @@ public partial class Player : CharacterBody3D {
 			if (collision.GetCollider() is RigidBody3D rigidBody) {
 				float   pushForce     = 3.0f;
 				Vector3 pushDirection = -collision.GetNormal();
-				pushDirection.Y = 0;
+				pushDirection.Y = 0.5f;
 				pushDirection   = pushDirection.Normalized();
 				Vector3 hitPosition = collision.GetPosition() - rigidBody.GlobalPosition;
 				rigidBody.ApplyImpulse(pushDirection * pushForce, hitPosition);
