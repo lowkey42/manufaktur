@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dms4ukds2g1lg"]
+
+[ext_resource type="Script" uid="uid://dh1lhq1w6aiyw" path="res://commons/scripts/Radio.cs" id="1_tw6hl"]
+
+[node name="Radio" type="Node" unique_id=1223213207]
+script = ExtResource("1_tw6hl")
