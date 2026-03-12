@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://dms4ukds2g1lg"]
 
 [ext_resource type="Script" uid="uid://dh1lhq1w6aiyw" path="res://commons/scripts/Radio.cs" id="1_tw6hl"]
+[ext_resource type="AudioStream" uid="uid://4srknh8c7274" path="res://commons/vfx/MenuHover1.wav" id="2_l6afn"]
+[ext_resource type="AudioStream" uid="uid://dawmpp4wxr8s2" path="res://commons/vfx/MenuHover2.wav" id="3_dqaws"]
+[ext_resource type="AudioStream" uid="uid://ctqgggwggix8h" path="res://commons/vfx/MenuHover3.wav" id="4_af0sk"]
 
 [node name="Radio" type="Node" unique_id=1223213207]
 script = ExtResource("1_tw6hl")
+UiHoverSoundPool = Array[AudioStream]([ExtResource("2_l6afn"), ExtResource("3_dqaws"), ExtResource("4_af0sk")])

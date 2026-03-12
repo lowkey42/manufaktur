@@ -14,6 +14,11 @@ public partial class Radio : Node
 
 	[Export]
 	public float MusicFadeDuration { get; private set; } = 0.5f;
+	
+	[Export] public AudioStream[] UiHoverSoundPool;
+
+	private int _lastIndex = -1;
+	private Random _random = new Random();
 
 	private AudioStream _currentlyPlayingSong = null;
 	private int _currentMusicVolume = 100;
@@ -114,4 +119,18 @@ public partial class Radio : Node
 		await ToSignal(GetTree().CreateTimer(duration + 0.1f), "timeout");
 		player.QueueFree();
 	}
+	
+	public void PlayRandomSound() {
+		if (UiHoverSoundPool == null || UiHoverSoundPool.Length == 0) return;
+		int randomIndex = _random.Next(0, UiHoverSoundPool.Length);
+		while (randomIndex == _lastIndex && UiHoverSoundPool.Length > 1) {
+			randomIndex = _random.Next(0, UiHoverSoundPool.Length);
+		}
+
+		_lastIndex  = randomIndex;
+		var stream = UiHoverSoundPool[randomIndex];
+		PlayUiSfx(stream);
+	}
+	
+	
 }

@@ -15,10 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://b2mrmof7mh5sw" path="res://commons/Materials/blue_main_menu.png" id="11_rx1ud"]
 [ext_resource type="Script" uid="uid://rk6ergkns8hq" path="res://commons/scripts/SceneMusic.cs" id="14_u3dsk"]
 [ext_resource type="AudioStream" uid="uid://c0fxql6x5n08y" path="res://commons/music/ManuMenu.wav" id="14_wcdpt"]
-[ext_resource type="AudioStream" uid="uid://4srknh8c7274" path="res://commons/vfx/MenuHover1.wav" id="16_ygrj5"]
-[ext_resource type="Script" uid="uid://bcgg1m0vnq2nv" path="res://menus/MenuSoundPlayer.cs" id="17_kqtkm"]
-[ext_resource type="AudioStream" uid="uid://dawmpp4wxr8s2" path="res://commons/vfx/MenuHover2.wav" id="18_68bju"]
-[ext_resource type="AudioStream" uid="uid://ctqgggwggix8h" path="res://commons/vfx/MenuHover3.wav" id="19_047xs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pwbes"]
 bg_color = Color(0.3647059, 0.5529412, 0.7411765, 1)
@@ -182,11 +178,6 @@ stretch_mode = 5
 [node name="SceneMusic" type="Node" parent="." unique_id=525388288]
 script = ExtResource("14_u3dsk")
 Music = ExtResource("14_wcdpt")
-
-[node name="MenuSoundPlayer" type="Node" parent="." unique_id=1713416573]
-unique_name_in_owner = true
-script = ExtResource("17_kqtkm")
-SoundPool = Array[AudioStream]([ExtResource("16_ygrj5"), ExtResource("18_68bju"), ExtResource("19_047xs")])
 
 [connection signal="pressed" from="MainMenuPanel/VBoxContainer/StartButton" to="." method="OpenLevelSelection"]
 [connection signal="pressed" from="MainMenuPanel/VBoxContainer/SettingsButton" to="." method="OpenSettings"]
