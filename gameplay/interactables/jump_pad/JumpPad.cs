@@ -3,7 +3,7 @@ using System;
 
 public partial class JumpPad : Node3D {
 	private Area3D _area;
-
+	
 	[Export] public float JumpForce { get; set; } = 65.0f;
 
 	public override void _Ready() {
@@ -16,7 +16,6 @@ public partial class JumpPad : Node3D {
 
 	private void OnBodyEntered(Node3D body) {
 		if (body is Player player) {
-
 			player.Velocity = new Vector3(player.Velocity.X, JumpForce, player.Velocity.Z);
 		}
 	}

@@ -38,12 +38,12 @@ public partial class ItemSpawer : Triggerable {
 		if (!spawned) {
 			spawned = true;
 
-			if (item != null && item.Texture != null) {
+			if (item != null && item.SpawnerTexture != null) {
 				var quadMesh = new QuadMesh();
 				quadMesh.Size = new Vector2(0.4f, 0.8f);
 
 				var material = new StandardMaterial3D();
-				material.AlbedoTexture = item.Texture;
+				material.AlbedoTexture = item.SpawnerTexture;
 				material.Transparency  = BaseMaterial3D.TransparencyEnum.Alpha;
 				material.CullMode      = BaseMaterial3D.CullModeEnum.Disabled;
 				material.ShadingMode   = BaseMaterial3D.ShadingModeEnum.Unshaded;

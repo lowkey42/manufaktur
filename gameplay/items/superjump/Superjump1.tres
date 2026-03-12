@@ -2,9 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://dl51mr5iy675m" path="res://gameplay/items/superjump/IMG_3840.png" id="1_3ay55"]
 [ext_resource type="Script" uid="uid://7y1fs0oos65t" path="res://gameplay/items/superjump/SuperjumpItem.cs" id="1_ixmlu"]
+[ext_resource type="Texture2D" uid="uid://cj7e8i68n1r28" path="res://gameplay/items/superjump/Magic Mike shoes.png" id="2_3hq7n"]
 
 [resource]
 script = ExtResource("1_ixmlu")
 JumpStrength = 10.0
-Texture = ExtResource("1_3ay55")
+HandTexture = ExtResource("1_3ay55")
+SpawnerTexture = ExtResource("2_3hq7n")
 metadata/_custom_type_script = "uid://7y1fs0oos65t"
