@@ -8,11 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://cvv5omm6grlor" path="res://menus/credits_menu.tscn" id="6_a63lr"]
 [ext_resource type="PackedScene" uid="uid://k2040505eddu" path="res://menus/high_score_menu.tscn" id="6_pwbes"]
 [ext_resource type="Shader" uid="uid://bxp14y1yokjlo" path="res://menus/main_menu_var_2.gdshader" id="10_caclp"]
-[ext_resource type="Texture2D" uid="uid://b287ggcikkp8t" path="res://commons/Materials/manu_tapete.png" id="10_kk4mm"]
 [ext_resource type="Texture2D" uid="uid://df7uukofrmrgq" path="res://commons/Materials/manu_leonardo_ratio.png" id="10_nc6jr"]
 [ext_resource type="Shader" uid="uid://nylevraohuxe" path="res://menus/endless_scroller.gdshader" id="10_rx1ud"]
 [ext_resource type="Script" uid="uid://crt0tg6q7ndeh" path="res://menus/EndlessScroller.cs" id="11_kk4mm"]
 [ext_resource type="Script" uid="uid://efxehlbofws" path="res://menus/HexAnim.cs" id="11_nc6jr"]
+[ext_resource type="Texture2D" uid="uid://b2mrmof7mh5sw" path="res://commons/Materials/blue_main_menu.png" id="11_rx1ud"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pwbes"]
 bg_color = Color(0.3647059, 0.5529412, 0.7411765, 1)
@@ -152,11 +152,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("10_kk4mm")
+texture = ExtResource("11_rx1ud")
 script = ExtResource("11_kk4mm")
-ScrollSpeed = Vector2(0.01, 0.01)
+ScrollSpeed = Vector2(0.05, 0.05)
 
 [node name="TextureRect3" type="TextureRect" parent="." unique_id=1547104291]
+visible = false
 z_index = -5
 layout_mode = 1
 anchors_preset = 1

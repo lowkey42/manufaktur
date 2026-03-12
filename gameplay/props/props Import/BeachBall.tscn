@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://due0aqalux7sq"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_418pq"]
+friction = 0.05
+bounce = 0.6
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_418pq"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_favqn"]
+
+[node name="RigidBody3D" type="RigidBody3D" unique_id=1682720803]
+collision_mask = 3
+mass = 0.1
+physics_material_override = SubResource("PhysicsMaterial_418pq")
+linear_velocity = Vector3(0.1, 0.1, 0.1)
+linear_damp = 1.5
+angular_damp = 1.5
+metadata/collision_preset_name = "__custom__"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=586013925]
+shape = SubResource("SphereShape3D_418pq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1104478674]
+mesh = SubResource("SphereMesh_favqn")

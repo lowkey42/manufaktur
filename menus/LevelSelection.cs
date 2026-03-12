@@ -67,14 +67,7 @@ public partial class LevelSelection : Control
         _currentImage.Texture = image;
 
         var topScore = HighscoreList.LoadTopEntry(highscoreKey);
-        if (topScore != null)
-        {
-            _currentScoreLabel.Text = $"{topScore.Name} - {topScore.Time}";
-        }
-        else
-        {
-            _currentScoreLabel.Text = "Noch kein Highscore";
-        }
+        _currentScoreLabel.Text = topScore != null ? $"{topScore.Name} - {topScore.Time}" : "Noch kein Highscore";
 
 
         AnimateRightPanel();
