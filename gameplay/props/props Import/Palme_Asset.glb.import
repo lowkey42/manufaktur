@@ -42,7 +42,7 @@ _subresources={
 "Wood_FK": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://commons/Materials/BaseColorGradient.tres",
-"use_external/path": "uid://fn32jpi2g7ej"
+"use_external/path": "uid://dam321ld4wisp"
 }
 },
 "nodes": {
