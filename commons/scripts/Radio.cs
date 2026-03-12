@@ -69,6 +69,7 @@ public partial class Radio : Node
 		player.Bus = MusicBus;
 		player.PlaybackType = AudioServer.PlaybackType.Stream;
 		player.Autoplay = true;
+		player.ProcessMode = ProcessModeEnum.Always;
 
 		AddChild(player);
 		_currentMusicPlayer = player;
