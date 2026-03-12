@@ -110,15 +110,15 @@ public partial class Player : CharacterBody3D {
 		_gravity      = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle() * _gravityFactor;
 		_jumpVelocity = Mathf.Sqrt(2 * _gravity * _jumpHeight);
 		_camera.Fov   = _targetFov.Sample(0);
+		Input.SetMouseMode(Input.MouseModeEnum.Captured);
 	}
 
 	public override void _Input(InputEvent e) {
-		if ((e is InputEventMouseButton mb) && mb.ButtonIndex == MouseButton.Right) {
-			_mouseCaptured = e.IsPressed();
-			Input.SetMouseMode(_mouseCaptured ? Input.MouseModeEnum.Captured : Input.MouseModeEnum.Visible);
+		if (e.IsActionPressed("toggle_capture")) {
+			Input.SetMouseMode(Input.GetMouseMode()==Input.MouseModeEnum.Visible ? Input.MouseModeEnum.Captured : Input.MouseModeEnum.Visible);
 		}
 
-		if ((e is InputEventMouseMotion mm) && _mouseCaptured) {
+		if ((e is InputEventMouseMotion mm) && Input.GetMouseMode()==Input.MouseModeEnum.Captured) {
 			RotateY(-mm.Relative.X * _mouseSensitivity); // Horizontal look
 			_camera.Rotation = new Vector3(Mathf.Clamp(_camera.Rotation.X - mm.Relative.Y * _mouseSensitivity, Mathf.DegToRad(-80), Mathf.DegToRad(80)),
 			                               _camera.Rotation.Y, _camera.Rotation.Z);

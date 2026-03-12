@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ctyxpkkm5xws4"
-path="res://.godot/imported/Schmanu_Painted.gltf-405d3bbd90941174b6f34f8a6a63f6b3.scn"
+uid="uid://vlo0scu763cm"
+path="res://.godot/imported/Manufaktur_4xBillboards_v01.glb-09f6df62568868666567df72decd7e69.scn"
 
 [deps]
 
-source_file="res://gameplay/props/Schmanu_Texturen/Schmanu_Painted.gltf"
-dest_files=["res://.godot/imported/Schmanu_Painted.gltf-405d3bbd90941174b6f34f8a6a63f6b3.scn"]
+source_file="res://3D Files WIP/Manufaktur_4xBillboards_v01.glb"
+dest_files=["res://.godot/imported/Manufaktur_4xBillboards_v01.glb-09f6df62568868666567df72decd7e69.scn"]
 
 [params]
 
