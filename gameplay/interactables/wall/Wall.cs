@@ -35,7 +35,6 @@ public partial class Wall : Triggerable {
 		if (_collider != null) {
 			uint collisionlayer = _isDisabled ? (uint) GameHelpers.CollisionLayers.Noclip : (uint) GameHelpers.CollisionLayers.Interactables;
 			
-			GD.Print($"Collider set to {collisionlayer}");
 			_collider.CollisionLayer = collisionlayer;
 		}
 	}

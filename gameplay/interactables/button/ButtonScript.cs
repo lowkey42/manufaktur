@@ -20,20 +20,16 @@ public partial class ButtonScript : Trigger {
 
 	public void OnAreaBodyEntered(Node3D body) {
 		_player.Play("Press");
-		GD.Print("Button pressed");
 
 		if (TriggerOnEnter) {
-			GD.Print("Trigger on enter");
 			FireTrigger();
 		}
 	}
 
 	public void OnAreaBodyExited(Node3D body) {
 		_player.PlayBackwards("Press");
-		GD.Print("Button released");
 
 		if (TriggerOnExit) {
-			GD.Print("Trigger on release");
 			FireTrigger();
 		}
 	}

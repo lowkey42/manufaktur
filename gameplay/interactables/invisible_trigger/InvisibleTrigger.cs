@@ -18,7 +18,6 @@ public partial class InvisibleTrigger : Trigger
 
 	public void OnAreaBodyEntered(Node3D body) {
 		_player.Play("Press");
-		GD.Print("Button pressed");
 
 		if (TriggerOnEnter) {
 			FireTrigger();
@@ -27,7 +26,6 @@ public partial class InvisibleTrigger : Trigger
 
 	public void OnAreaBodyExited(Node3D body) {
 		_player.PlayBackwards("Press");
-		GD.Print("Button released");
 
 		if (TriggerOnExit) {
 			FireTrigger();

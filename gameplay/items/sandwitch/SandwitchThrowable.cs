@@ -61,7 +61,6 @@ public partial class SandwitchThrowable : Node3D {
 			};
 			_body.AddChild(_timerDisplayMesh);
 			_timerDisplayMesh.Position = Vector3.Zero;
-			// No tween here anymore — Launch() creates it so Duration is already set
 		}
 	}
 

@@ -13,8 +13,6 @@ public abstract partial class Trigger : Node3D {
 
 		fired = true;
 
-		GD.Print($"Firing trigger on channel {Channel}");
-
 		string groupName = $"triggerable_{Channel}";
 		var triggerables = GetTree().GetNodesInGroup(groupName);
 
