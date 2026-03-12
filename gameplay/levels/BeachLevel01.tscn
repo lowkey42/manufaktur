@@ -348,13 +348,13 @@ EnableAutoRespawn = true
 SpawnOnTrigger = false
 
 [node name="Dash" parent="Interactables/Items" index="1" unique_id=55552116 instance=ExtResource("19_viicr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -161.98068, 4.4825616, 37.77632)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -162.048, 4.4825616, 38.794792)
 item = ExtResource("21_xmvng")
 EnableAutoRespawn = true
 SpawnOnTrigger = false
 
 [node name="Dash3" parent="Interactables/Items" index="2" unique_id=350048728 instance=ExtResource("19_viicr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.4928, 8.929577, 126.81629)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.07827, 8.929577, 138.67685)
 item = ExtResource("21_xmvng")
 EnableAutoRespawn = true
 SpawnOnTrigger = false
@@ -452,13 +452,13 @@ BulletTemplate = ExtResource("16_ki26l")
 [node name="Jumppads" type="Node" parent="Interactables" index="5" unique_id=1120016271]
 
 [node name="JumpPad" parent="Interactables/Jumppads" index="0" unique_id=1812779473 instance=ExtResource("18_okmpl")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -54.593613, 8.935447, 273.2245)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.593613, 8.80775, 273.2245)
 JumpForce = 60.0
 
-[node name="JumpPad2" parent="Interactables/Jumppads" index="1" unique_id=436513532 instance=ExtResource("18_okmpl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -164.5893, 4.4790916, 39.072834)
+[node name="JumpPad2" parent="Interactables/Jumppads" index="1" unique_id=1483464552 instance=ExtResource("18_okmpl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -165.80458, 4.3359184, 38.36561)
 JumpForce = 50.0
 
-[node name="JumpPad3" parent="Interactables/Jumppads" index="2" unique_id=1182470610 instance=ExtResource("18_okmpl")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -26.124367, 4.5171566, 440.615)
+[node name="JumpPad3" parent="Interactables/Jumppads" index="2" unique_id=80134864 instance=ExtResource("18_okmpl")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -26.800325, 4.364466, 441.1848)
 JumpForce = 85.0

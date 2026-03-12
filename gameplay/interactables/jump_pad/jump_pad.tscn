@@ -1,15 +1,14 @@
 [gd_scene format=3 uid="uid://cpw0fkglnysia"]
 
 [ext_resource type="Script" uid="uid://b4l8gv5fdmby7" path="res://gameplay/interactables/jump_pad/JumpPad.cs" id="1_fndgy"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_o15d4"]
-size = Vector3(2, 0.1, 2)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o15d4"]
-albedo_color = Color(0.7, 0.55300003, 0.070000015, 1)
+[ext_resource type="PackedScene" uid="uid://k1dqh7mne6ky" path="res://3D Files WIP/Manufaktur_Mattress_v01.glb" id="3_jaidj"]
+[ext_resource type="Texture2D" uid="uid://3ddpmos5wma7" path="res://3D Files WIP/TextureSet_Beach_Assets_V01.png" id="3_vb8cc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o15d4"]
-size = Vector3(2, 0.3, 2)
+size = Vector3(3.7633057, 0.50228274, 6.0500565)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n0jxw"]
+albedo_texture = ExtResource("3_vb8cc")
 
 [node name="JumpPad" type="Node3D" unique_id=1812779473]
 script = ExtResource("1_fndgy")
@@ -19,10 +18,13 @@ collision_layer = 4
 collision_mask = 2
 metadata/collision_preset_name = "__custom__"
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="JumpPadArea" unique_id=1691665499]
-mesh = SubResource("BoxMesh_o15d4")
-surface_material_override/0 = SubResource("StandardMaterial3D_o15d4")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="JumpPadArea" unique_id=328255893]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23834229, 0.40576783, -0.07842636)
 shape = SubResource("BoxShape3D_o15d4")
+
+[node name="Manufaktur_Mattress_v01" parent="JumpPadArea" unique_id=1086843990 instance=ExtResource("3_jaidj")]
+
+[node name="Matress" parent="JumpPadArea/Manufaktur_Mattress_v01" index="0" unique_id=31425728]
+material_override = SubResource("StandardMaterial3D_n0jxw")
+
+[editable path="JumpPadArea/Manufaktur_Mattress_v01"]

@@ -242,6 +242,7 @@ omni_range = 35.147
 
 [node name="Popup" parent="." index="27" unique_id=1517823302 instance=ExtResource("13_mrx4j")]
 transform = Transform3D(-0.68970793, 0, 0.72408766, 0, 1, 0, -0.72408766, 0, -0.68970793, -6.4705205, 0.01, 20.720097)
+TriggerRadius = 6.0
 
 [node name="Turret" parent="." index="28" unique_id=1180370954 instance=ExtResource("14_m3i5n")]
 transform = Transform3D(0.83388567, 0, 0.5519369, 0, 1.0000002, 0, -0.5519369, 0, 0.83388567, -18.150988, -0.5855582, 23.808887)

@@ -2,8 +2,10 @@
 
 [ext_resource type="Script" uid="uid://igcxuyp3hfqt" path="res://gameplay/items/glitch/GlitchItem.cs" id="1_80x0b"]
 [ext_resource type="Texture2D" uid="uid://b3e0mntad3n2m" path="res://gameplay/items/glitch/IMG_3832.png" id="1_xu1qi"]
+[ext_resource type="Texture2D" uid="uid://3vlrm1q76ilx" path="res://gameplay/items/glitch/Cofefe.png" id="2_g375g"]
 
 [resource]
 script = ExtResource("1_80x0b")
 Duration = 8.0
-Texture = ExtResource("1_xu1qi")
+HandTexture = ExtResource("1_xu1qi")
+SpawnerTexture = ExtResource("2_g375g")

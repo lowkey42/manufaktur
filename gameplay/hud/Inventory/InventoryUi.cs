@@ -26,7 +26,7 @@ public partial class InventoryUi : Control {
 			
 		for (var i = 0; i < items.Length; i++) {
 			var itemTexture = new TextureRect();
-			itemTexture.Texture           = items[i].Texture;
+			itemTexture.Texture           = items[i].HandTexture;
 			itemTexture.TextureFilter	 = TextureFilterEnum.LinearWithMipmapsAnisotropic;
 			itemTexture.CustomMinimumSize = new Vector2(CardWidth, CardHeight);
 			itemTexture.ExpandMode        = TextureRect.ExpandModeEnum.FitWidth;

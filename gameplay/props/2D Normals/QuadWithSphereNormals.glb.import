@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://k1dqh7mne6ky"
-path="res://.godot/imported/Manufaktur_Mattress_v01.glb-4d0229c60cba3946dc46ed64226f7413.scn"
+uid="uid://c8hosj7busflb"
+path="res://.godot/imported/QuadWithSphereNormals.glb-149af7d82195db53ddb01a95e5dc124a.scn"
 
 [deps]
 
-source_file="res://3D Files WIP/Manufaktur_Mattress_v01.glb"
-dest_files=["res://.godot/imported/Manufaktur_Mattress_v01.glb-4d0229c60cba3946dc46ed64226f7413.scn"]
+source_file="res://gameplay/props/2D Normals/QuadWithSphereNormals.glb"
+dest_files=["res://.godot/imported/QuadWithSphereNormals.glb-149af7d82195db53ddb01a95e5dc124a.scn"]
 
 [params]
 
@@ -37,18 +37,6 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"meshes": {
-"Manufaktur_Mattress_v01_Cube": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 20.0,
-"save_to_file/enabled": false,
-"save_to_file/fallback_path": "res://3D Files WIP/mattress.tres",
-"save_to_file/path": "uid://bvtl3nl4cv14s"
-}
-}
-}
+_subresources={}
 gltf/naming_version=2
 gltf/embedded_image_handling=1

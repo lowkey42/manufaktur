@@ -29,7 +29,6 @@ public partial class Bullet : Node3D {
 
 		// Destroy after max distance
 		if (_distanceTraveled >= MaxDistance) {
-			GD.Print($"Bullet exceeded max distance ({_distanceTraveled} >= {MaxDistance}). Destroying.");
 			QueueFree();
 		}
 	}
