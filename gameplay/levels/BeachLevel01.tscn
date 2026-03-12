@@ -4,7 +4,6 @@
 [ext_resource type="JSON" path="res://gameplay/levels/BeachLevel01-Ghost.json" id="2_oxca8"]
 [ext_resource type="Shader" uid="uid://ppxu1fie33lf" path="res://addons/proton_scatter/demos/assets/materials/grass.gdshader" id="2_xfbjl"]
 [ext_resource type="Texture2D" uid="uid://d23p13yi7asw0" path="res://addons/proton_scatter/demos/assets/textures/t_grass_2.png" id="3_ki26l"]
-[ext_resource type="AudioStream" uid="uid://dl3eiddfx8wck" path="res://commons/music/level 1 - messestrand.mp3" id="3_xguuw"]
 [ext_resource type="Shader" uid="uid://cvjcsvn0qwyhy" path="res://gameplay/levels/terrain/grass2.gdshader" id="4_20ii1"]
 [ext_resource type="Texture2D" uid="uid://csbqi7v2jna65" path="res://addons/proton_scatter/demos/assets/textures/grass1.png" id="5_okmpl"]
 [ext_resource type="Shader" uid="uid://c3hs3dqbov4tw" path="res://gameplay/levels/terrain/algen.gdshader" id="6_nvk0l"]
@@ -28,7 +27,6 @@
 [ext_resource type="PackedScene" uid="uid://cq1yy7ikiwch" path="res://gameplay/interactables/popup/popup.tscn" id="22_mjd6v"]
 [ext_resource type="Resource" uid="uid://deq3k6gx5td7k" path="res://gameplay/items/glitch/Glitch1.tres" id="23_fqmxt"]
 [ext_resource type="PackedScene" uid="uid://mcg0cr5cy1et" path="res://gameplay/props/props Import/Palme_Asset.glb" id="26_qvhjy"]
-[ext_resource type="PackedScene" uid="uid://lngr0ceaxmqc" path="res://gameplay/props/AssetGym_Felix.tscn" id="29_ouo46"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mk68e"]
 
@@ -239,7 +237,7 @@ subdivide_depth = 2
 TimeMinimum = 35.0
 MinimumTimeGhost = ExtResource("2_oxca8")
 
-[node name="DirectionalLight3D" parent="." index="1" unique_id=1057689463]
+[node name="DirectionalLight3D" parent="." index="2" unique_id=1057689463]
 visible = false
 
 [node name="WorldEnvironment" parent="." index="3" unique_id=1608441752]
@@ -499,6 +497,3 @@ transform = Transform3D(0.08642465, 0, -1.4975082, 0, 1.5, 0, 1.4975082, 0, 0.08
 
 [node name="Palme_Asset5" parent="." index="16" unique_id=1379582936 instance=ExtResource("26_qvhjy")]
 transform = Transform3D(1.4520772, 0, -0.37612742, 0, 1.5, 0, 0.37612742, 0, 1.4520772, -150.15486, 19.171125, 246.31326)
-
-[node name="AssetGymFelix" parent="." index="18" unique_id=388648016 instance=ExtResource("29_ouo46")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 80.70055, 22.66499, -102.68316)
