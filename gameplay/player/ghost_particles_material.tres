@@ -1,0 +1,20 @@
+[gd_resource type="QuadMesh" format=3 uid="uid://dkigq48fyut0n"]
+
+[ext_resource type="Texture2D" uid="uid://bl4ofacdt5p30" path="res://gameplay/player/ghost_particle.png" id="1_ue88j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s50sa"]
+transparency = 1
+blend_mode = 4
+cull_mode = 2
+depth_draw_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_ue88j")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[resource]
+material = SubResource("StandardMaterial3D_s50sa")

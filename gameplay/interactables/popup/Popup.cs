@@ -11,8 +11,6 @@ public partial class Popup : Node3D {
 	private bool _up = false;
 
 	public override void _Ready() {
-		_tween = this.CreateTween();
-
 		_origin                 = GetNode<Node3D>("Origin");
 		_origin.RotationDegrees = new Vector3(-90, 0, 0);
 	}
@@ -35,10 +33,13 @@ public partial class Popup : Node3D {
 		foreach (Godot.Collections.Dictionary hit in hits) {
 			var collider = hit["collider"].AsGodotObject();
 			if (collider is not Player player) { continue; }
-
+			
 			noPlayer = false;
-			this._up = true;
-			this.PopUp();
+			
+			if(!_up) {
+				this._up = true;
+				this.PopUp();
+			}
 		}
 
 		if (noPlayer && _up) {
@@ -48,14 +49,14 @@ public partial class Popup : Node3D {
 	}
 
 	public void PopDown() {
-		var tween = CreateTween();
+		var tween = this.CreateTween();
 		tween.TweenProperty(_origin, "rotation_degrees", new Vector3(-90, 0, 0), 0.5f)
 		     .SetTrans(Tween.TransitionType.Back)
 		     .SetEase(Tween.EaseType.Out);
 	}
 
 	public void PopUp() {
-		var tween = CreateTween();
+		var tween = this.CreateTween();
 		tween.TweenProperty(_origin, "rotation_degrees", new Vector3(0, 0, 0), 0.5f)
 		     .SetTrans(Tween.TransitionType.Back)
 		     .SetEase(Tween.EaseType.Out);

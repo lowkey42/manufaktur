@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl51mr5iy675m"
-path.s3tc="res://.godot/imported/IMG_3840.png-022456c940dd329f8c872beac23be86f.s3tc.ctex"
-path.etc2="res://.godot/imported/IMG_3840.png-022456c940dd329f8c872beac23be86f.etc2.ctex"
+uid="uid://3ddpmos5wma7"
+path.s3tc="res://.godot/imported/TextureSet_Beach_Assets_V01.png-efe62aaa94296ca61dcb3df229558572.s3tc.ctex"
+path.etc2="res://.godot/imported/TextureSet_Beach_Assets_V01.png-efe62aaa94296ca61dcb3df229558572.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://gameplay/items/superjump/IMG_3840.png"
-dest_files=["res://.godot/imported/IMG_3840.png-022456c940dd329f8c872beac23be86f.s3tc.ctex", "res://.godot/imported/IMG_3840.png-022456c940dd329f8c872beac23be86f.etc2.ctex"]
+source_file="res://3D Files WIP/TextureSet_Beach_Assets_V01.png"
+dest_files=["res://.godot/imported/TextureSet_Beach_Assets_V01.png-efe62aaa94296ca61dcb3df229558572.s3tc.ctex", "res://.godot/imported/TextureSet_Beach_Assets_V01.png-efe62aaa94296ca61dcb3df229558572.etc2.ctex"]
 
 [params]
 

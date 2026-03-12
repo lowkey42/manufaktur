@@ -2,22 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl51mr5iy675m"
-path.s3tc="res://.godot/imported/IMG_3840.png-022456c940dd329f8c872beac23be86f.s3tc.ctex"
-path.etc2="res://.godot/imported/IMG_3840.png-022456c940dd329f8c872beac23be86f.etc2.ctex"
+uid="uid://bl4ofacdt5p30"
+path="res://.godot/imported/ghost_particle.png-34c02d44773c258b010f403af65b9761.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://gameplay/items/superjump/IMG_3840.png"
-dest_files=["res://.godot/imported/IMG_3840.png-022456c940dd329f8c872beac23be86f.s3tc.ctex", "res://.godot/imported/IMG_3840.png-022456c940dd329f8c872beac23be86f.etc2.ctex"]
+source_file="res://gameplay/player/ghost_particle.png"
+dest_files=["res://.godot/imported/ghost_particle.png-34c02d44773c258b010f403af65b9761.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -34,7 +32,7 @@ process/channel_remap/green=1
 process/channel_remap/blue=2
 process/channel_remap/alpha=3
 process/fix_alpha_border=true
-process/premult_alpha=false
+process/premult_alpha=true
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false

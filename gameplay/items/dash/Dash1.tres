@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://dl8bucyrvu5o" path="res://gameplay/items/dash/DashItem.cs" id="1_jgrrj"]
 [ext_resource type="Texture2D" uid="uid://blxv7ed7tlahy" path="res://gameplay/items/dash/IMG_3836.png" id="1_ys4po"]
+[ext_resource type="Texture2D" uid="uid://cquvr8aftr1n2" path="res://gameplay/items/dash/schmonster.png" id="2_k8a08"]
 
 [resource]
 script = ExtResource("1_jgrrj")
 Duration = 2.0
-Texture = ExtResource("1_ys4po")
+HandTexture = ExtResource("1_ys4po")
+SpawnerTexture = ExtResource("2_k8a08")
 metadata/_custom_type_script = "uid://dl8bucyrvu5o"
