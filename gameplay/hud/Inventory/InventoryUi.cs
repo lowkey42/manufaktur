@@ -16,6 +16,18 @@ public partial class InventoryUi : Control {
 		EventBus.Instance.InventoryItemUsed      += OnInventoryItemChanged;
 		EventBus.Instance.InventoryItemUsed	  += OnInventoryItemUsed;
 	}
+	
+	public override void _Notification(int what)
+	{
+		if (what == NotificationPredelete)
+		{
+			EventBus.Instance.InventoryItemCollected -= OnInventoryItemChanged;
+			EventBus.Instance.InventoryItemCollected -= OnInventoryItemCollected;
+			EventBus.Instance.InventoryItemUsed      -= OnInventoryItemChanged;
+			EventBus.Instance.InventoryItemUsed      -= OnInventoryItemUsed;
+		}
+	}
+
 
 	private void OnInventoryItemCollected(ItemResource item, ItemResource[] items) {
 		_itemCollectedPlayer.Play();

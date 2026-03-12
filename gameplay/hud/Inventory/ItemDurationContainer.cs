@@ -6,24 +6,30 @@ public partial class ItemDurationContainer : Control {
 		EventBus.Instance.InventoryItemUsed += OnInventoryItemUsed;
 	}
 
+	public override void _Notification(int what) {
+		if (what == NotificationPredelete) {
+			EventBus.Instance.InventoryItemUsed -= OnInventoryItemUsed;
+		}
+	}
+
 	public void OnInventoryItemUsed(ItemResource item, ItemResource[] items) {
 		if (item is not DurationItemResource durationItem) {
 			return;
 		}
 
 		var progressBar = new TextureProgressBar();
-		
+
 		progressBar.TextureProgress  = item.HandTexture;
 		progressBar.TextureFilter    = TextureFilterEnum.LinearWithMipmapsAnisotropic;
 		progressBar.NinePatchStretch = true;
 
-		progressBar.Value = 100;
-		progressBar.FillMode = (int)TextureProgressBar.FillModeEnum.CounterClockwise;
-		
-		progressBar.CustomMinimumSize = new Vector2(64, 96);
-		progressBar.Size = new Vector2(64, 96);
+		progressBar.Value    = 100;
+		progressBar.FillMode = (int) TextureProgressBar.FillModeEnum.CounterClockwise;
+
+		progressBar.CustomMinimumSize   = new Vector2(64, 96);
+		progressBar.Size                = new Vector2(64, 96);
 		progressBar.SizeFlagsHorizontal = SizeFlags.ExpandFill;
-		progressBar.SizeFlagsVertical = SizeFlags.ExpandFill;
+		progressBar.SizeFlagsVertical   = SizeFlags.ExpandFill;
 
 		var tween = progressBar.CreateTween();
 		tween.TweenProperty(progressBar, "value", 0, durationItem.Duration);
