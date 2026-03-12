@@ -52,12 +52,10 @@ script = ExtResource("1_rqbgu")
 [node name="MainMenuPanel" type="PanelContainer" parent="." unique_id=177719705]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.28100002
+anchors_preset = 9
 anchor_bottom = 1.0
-offset_left = 186.0
-offset_right = -0.52001953
-offset_bottom = -2.0
+offset_left = 100.0
+offset_right = 500.0
 grow_vertical = 2
 theme = ExtResource("1_8gy84")
 theme_override_styles/panel = SubResource("StyleBoxFlat_pwbes")
@@ -151,10 +149,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -676.0
-offset_top = -659.0
-offset_right = 912.0
-offset_bottom = 741.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -165,17 +159,18 @@ ScrollSpeed = Vector2(0.01, 0.01)
 [node name="TextureRect3" type="TextureRect" parent="." unique_id=1547104291]
 z_index = -5
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.717
-anchor_bottom = 0.404
-offset_left = 1160.0
-offset_top = 19.0
-offset_right = 436.36
-offset_bottom = 174.68
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -700.0
+offset_top = 50.0
+offset_right = -100.0
+offset_bottom = 400.0
+grow_horizontal = 0
 mouse_filter = 2
 texture = ExtResource("10_nc6jr")
-expand_mode = 2
-stretch_mode = 4
+expand_mode = 1
+stretch_mode = 5
 
 [connection signal="pressed" from="MainMenuPanel/VBoxContainer/StartButton" to="." method="OpenLevelSelection"]
 [connection signal="pressed" from="MainMenuPanel/VBoxContainer/SettingsButton" to="." method="OpenSettings"]
