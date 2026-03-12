@@ -50,6 +50,18 @@ public partial class TextureSequencer : TextureRect
 			Texture = currentStep.Image;
 		}
 	}
+	
+	public override void _UnhandledInput(InputEvent @event)
+	{
+		if (@event is InputEventKey eventKey)
+		{
+			if (eventKey.Pressed && eventKey.Keycode == Key.Escape)
+			{
+				ChangeScene();
+			}
+		}
+	}
+
 
 	private void ChangeScene() {
 		GetTree().ChangeSceneToPacked(NextLevel);
