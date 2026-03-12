@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://y0sqjmju0jdn"
-path="res://.godot/imported/Pew6.wav-07e1dc7c7d6169a9777d8c95544f17ef.sample"
+uid="uid://vnbk5134ooi1"
+path="res://.godot/imported/Dash1.wav-8ca5dfbd67d915129653568f74cbc03e.sample"
 
 [deps]
 
-source_file="res://gameplay/interactables/vfx/Pew6.wav"
-dest_files=["res://.godot/imported/Pew6.wav-07e1dc7c7d6169a9777d8c95544f17ef.sample"]
+source_file="res://gameplay/items/dash/Dash1.wav"
+dest_files=["res://.godot/imported/Dash1.wav-8ca5dfbd67d915129653568f74cbc03e.sample"]
 
 [params]
 

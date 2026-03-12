@@ -30,11 +30,8 @@ size = Vector3(18, 1, 18)
 [node name="GameCore" parent="." index="0" unique_id=910148981]
 _startDelay = 1
 
-[node name="SpawnPoint" parent="." index="3" unique_id=407262584]
+[node name="SpawnPoint" parent="." index="4" unique_id=407262584]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -31.317358, 4.7683716e-07, 12.332392)
-
-[node name="Finish" parent="." index="4" unique_id=1714722049]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.061985, 0, 18.478695)
 
 [node name="DoorRight" parent="." index="5" unique_id=416618077 instance=ExtResource("2_ilbrc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.632345, 0, 4.9516315)
@@ -251,8 +248,11 @@ BulletTemplate = ExtResource("15_0m6g6")
 [node name="GlitchedWall" parent="." index="29" unique_id=621091586 instance=ExtResource("17_rutv5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.15635, 0, 21.221054)
 
-[node name="DeathZone" parent="." index="30" unique_id=189809183]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8364916, 0)
+[node name="Finish" parent="." index="30" unique_id=1714722049]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.061985, 0, 18.478695)
 
 [node name="SpikeTrap" parent="." index="31" unique_id=1930964686 instance=ExtResource("18_ceaov")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7710447, 0, 5.6951504)
+
+[node name="DeathZone" parent="." index="32" unique_id=189809183]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8364916, 0)

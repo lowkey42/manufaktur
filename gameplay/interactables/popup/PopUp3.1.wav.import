@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://1u3vujxcc8ex"
-path="res://.godot/imported/PopUp3.1.wav-8fbd1fb45f78f0bb89e4d5d496807fff.sample"
+path="res://.godot/imported/PopUp3.1.wav-00ca69bef96735628236728a02bd5cd3.sample"
 
 [deps]
 
-source_file="res://gameplay/interactables/vfx/PopUp3.1.wav"
-dest_files=["res://.godot/imported/PopUp3.1.wav-8fbd1fb45f78f0bb89e4d5d496807fff.sample"]
+source_file="res://gameplay/interactables/popup/PopUp3.1.wav"
+dest_files=["res://.godot/imported/PopUp3.1.wav-00ca69bef96735628236728a02bd5cd3.sample"]
 
 [params]
 

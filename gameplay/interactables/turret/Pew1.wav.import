@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://c8c7ds8w4e1ab"
-path="res://.godot/imported/Glitch1.wav-f1c6f6094ef979b0d6db5a41afb85a11.sample"
+uid="uid://vd5vtf8qa8h0"
+path="res://.godot/imported/Pew1.wav-d3e0c1cff0cd28cf10be112348cafe5d.sample"
 
 [deps]
 
-source_file="res://gameplay/items/vfx/Glitch1.wav"
-dest_files=["res://.godot/imported/Glitch1.wav-f1c6f6094ef979b0d6db5a41afb85a11.sample"]
+source_file="res://gameplay/interactables/turret/Pew1.wav"
+dest_files=["res://.godot/imported/Pew1.wav-d3e0c1cff0cd28cf10be112348cafe5d.sample"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dccixdbbkmxc8"
-path="res://.godot/imported/ItemCollect1.wav-dc74bb71b348b2fe3b143ff1074e28da.sample"
+path="res://.godot/imported/ItemCollect1.wav-c806ab5ead09d21faa0f94a53420a901.sample"
 
 [deps]
 
-source_file="res://gameplay/items/vfx/ItemCollect1.wav"
-dest_files=["res://.godot/imported/ItemCollect1.wav-dc74bb71b348b2fe3b143ff1074e28da.sample"]
+source_file="res://gameplay/hud/Inventory/ItemCollect1.wav"
+dest_files=["res://.godot/imported/ItemCollect1.wav-c806ab5ead09d21faa0f94a53420a901.sample"]
 
 [params]
 

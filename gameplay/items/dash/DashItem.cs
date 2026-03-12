@@ -6,6 +6,7 @@ public partial class DashItem : DurationItemResource {
 	public float DashStrength { get; set; } = 75.0f;
 
 	public override void Use(Player player) {
+		base.Use(player);
 		Vector3 direction = player.GetFacingDirection();
 
 		Vector3 dashVector = direction.Normalized() * DashStrength;

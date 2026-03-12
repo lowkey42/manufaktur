@@ -7,6 +7,8 @@ public partial class ButtonScript : Trigger {
 	[Export] public bool TriggerOnEnter { get; set; } = true;
 	[Export] public bool TriggerOnExit { get; set; } = false;
 
+	[Export] private AudioStreamPlayer3D _pressSoundPlayer;
+	
 	private Area3D _area;
 	private AnimationPlayer _player;
 
@@ -20,6 +22,7 @@ public partial class ButtonScript : Trigger {
 
 	public void OnAreaBodyEntered(Node3D body) {
 		_player.Play("Press");
+		_pressSoundPlayer.Play();
 
 		if (TriggerOnEnter) {
 			FireTrigger();
