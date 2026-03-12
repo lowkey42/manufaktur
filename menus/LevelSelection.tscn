@@ -6,6 +6,10 @@
 [ext_resource type="Script" uid="uid://ck28o4xy2wkjo" path="res://menus/LevelSelection.cs" id="2_p6kpr"]
 [ext_resource type="Shortcut" uid="uid://7cs6fghgm3fk" path="res://menus/escape_shortcut.tres" id="3_50gvo"]
 [ext_resource type="Script" uid="uid://csyrf4gbhsvin" path="res://menus/AnimatedButton.cs" id="6_50gvo"]
+[ext_resource type="Script" uid="uid://bcgg1m0vnq2nv" path="res://menus/MenuSoundPlayer.cs" id="7_q0l7x"]
+[ext_resource type="AudioStream" uid="uid://4srknh8c7274" path="res://commons/vfx/MenuHover1.wav" id="8_uerr4"]
+[ext_resource type="AudioStream" uid="uid://dawmpp4wxr8s2" path="res://commons/vfx/MenuHover2.wav" id="9_q21yb"]
+[ext_resource type="AudioStream" uid="uid://ctqgggwggix8h" path="res://commons/vfx/MenuHover3.wav" id="10_2t2o8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_50gvo"]
 bg_color = Color(0.3647059, 0.5529412, 0.7411765, 1)
@@ -169,5 +173,11 @@ theme_override_font_sizes/normal_font_size = 30
 text = "3m 35s 14ms"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MenuSoundPlayer" type="AudioStreamPlayer" parent="." unique_id=1750974988]
+unique_name_in_owner = true
+volume_db = -20.0
+script = ExtResource("7_q0l7x")
+SoundPool = Array[AudioStream]([ExtResource("8_uerr4"), ExtResource("9_q21yb"), ExtResource("10_2t2o8")])
 
 [connection signal="pressed" from="LayoutContainer/MainSplit/Panel/MarginContainer/VBoxContainer/HBoxContainer2/Close_Button" to="." method="_on_close_button_pressed"]
