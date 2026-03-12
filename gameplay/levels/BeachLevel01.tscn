@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://cq1yy7ikiwch" path="res://gameplay/interactables/popup/popup.tscn" id="22_mjd6v"]
 [ext_resource type="Resource" uid="uid://deq3k6gx5td7k" path="res://gameplay/items/glitch/Glitch1.tres" id="23_fqmxt"]
 [ext_resource type="PackedScene" uid="uid://mcg0cr5cy1et" path="res://gameplay/props/props Import/Palme_Asset.glb" id="26_qvhjy"]
+[ext_resource type="PackedScene" uid="uid://lngr0ceaxmqc" path="res://gameplay/props/AssetGym_Felix.tscn" id="29_ouo46"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mk68e"]
 
@@ -465,6 +466,7 @@ BulletTemplate = ExtResource("16_ki26l")
 
 [node name="Turret8" parent="Interactables/Turrets" index="7" unique_id=1641332814 instance=ExtResource("15_xfbjl")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -225.56525, 9.024342, 467.6939)
+BulletTemplate = ExtResource("16_ki26l")
 
 [node name="Jumppads" type="Node" parent="Interactables" index="5" unique_id=1120016271]
 
@@ -500,3 +502,6 @@ transform = Transform3D(0.08642465, 0, -1.4975082, 0, 1.5, 0, 1.4975082, 0, 0.08
 
 [node name="Palme_Asset5" parent="." index="16" unique_id=1379582936 instance=ExtResource("26_qvhjy")]
 transform = Transform3D(1.4520772, 0, -0.37612742, 0, 1.5, 0, 0.37612742, 0, 1.4520772, -150.15486, 19.171125, 246.31326)
+
+[node name="AssetGymFelix" parent="." index="18" unique_id=388648016 instance=ExtResource("29_ouo46")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 80.70055, 22.66499, -102.68316)
