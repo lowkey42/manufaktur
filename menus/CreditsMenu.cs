@@ -36,10 +36,10 @@ public partial class CreditsMenu : Control
 
             
 
-		_activeTween.TweenProperty(_scrollPanel, "scroll_vertical", 0, 3.0f)
+		_activeTween.TweenProperty(_scrollPanel, "scroll_vertical", 0, 10.0f)
 		            .SetTrans(Tween.TransitionType.Quad);
 		
-		_activeTween.TweenProperty(_scrollPanel, "scroll_vertical", maxScroll, 5.0f)
+		_activeTween.TweenProperty(_scrollPanel, "scroll_vertical", maxScroll, 10.0f)
 		            .SetTrans(Tween.TransitionType.Quad);
 
 		_activeTween.SetLoops();
