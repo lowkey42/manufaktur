@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class MenuSoundPlayer : AudioStreamPlayer {
+public partial class MenuSoundPlayer : Node {
 	[Export] public AudioStream[] SoundPool;
 
 	private int _lastIndex = -1;
@@ -15,7 +15,7 @@ public partial class MenuSoundPlayer : AudioStreamPlayer {
 		}
 
 		_lastIndex  = randomIndex;
-		this.Stream = SoundPool[randomIndex];
-		this.Play();
+		var stream = SoundPool[randomIndex];
+		Radio.Instance.PlayUiSfx(stream);
 	}
 }

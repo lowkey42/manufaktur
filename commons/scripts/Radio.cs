@@ -10,6 +10,9 @@ public partial class Radio : Node
 	public string MusicBus { get; set; } = "Music";
 
 	[Export]
+	public string UiSfxBus { get; set; } = "UI";
+
+	[Export]
 	public float MusicFadeDuration { get; private set; } = 0.5f;
 
 	private AudioStream _currentlyPlayingSong = null;
@@ -22,6 +25,10 @@ public partial class Radio : Node
 	public override void _Ready()
 	{
 		Instance = this;
+	}
+
+	public void PlayUiSfx(AudioStream sfx, int volume = 100) {
+		PlaySfx(sfx, volume, UiSfxBus);
 	}
 
 	/// <summary>
@@ -87,5 +94,24 @@ public partial class Radio : Node
 			_currentTween.Kill();
 			_currentTween = null;
 		}
+	}
+
+	private async void PlaySfx(AudioStream sfx, int volume, string bus) {
+		AudioStreamPlayer player = new();
+
+		player.Stream = sfx;
+		player.Bus = bus;
+		player.Autoplay = true;
+		player.ProcessMode = ProcessModeEnum.Always;
+
+		if (volume != 100) {
+			player.VolumeLinear = volume / 100f;
+		}
+
+		AddChild(player);
+
+		var duration = sfx.GetLength();
+		await ToSignal(GetTree().CreateTimer(duration + 0.1f), "timeout");
+		player.QueueFree();
 	}
 }

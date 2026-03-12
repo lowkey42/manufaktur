@@ -183,10 +183,8 @@ stretch_mode = 5
 script = ExtResource("14_u3dsk")
 Music = ExtResource("14_wcdpt")
 
-[node name="MenuSoundPlayer" type="AudioStreamPlayer" parent="." unique_id=866937712]
+[node name="MenuSoundPlayer" type="Node" parent="." unique_id=1713416573]
 unique_name_in_owner = true
-stream = ExtResource("16_ygrj5")
-bus = &"UI"
 script = ExtResource("17_kqtkm")
 SoundPool = Array[AudioStream]([ExtResource("16_ygrj5"), ExtResource("18_68bju"), ExtResource("19_047xs")])
 
