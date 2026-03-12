@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://djkbkr3gw268h"
+path="res://.godot/imported/Granate 1.wav-3ccf0fc1b6d2f36edc5bcc8e255a46fe.sample"
+
+[deps]
+
+source_file="res://gameplay/items/vfx/Granate 1.wav"
+dest_files=["res://.godot/imported/Granate 1.wav-3ccf0fc1b6d2f36edc5bcc8e255a46fe.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
