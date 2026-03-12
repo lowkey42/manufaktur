@@ -4,11 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ctyxpkkm5xws4"
-valid=false
+path="res://.godot/imported/Schmanu_Painted.gltf-405d3bbd90941174b6f34f8a6a63f6b3.scn"
 
 [deps]
 
 source_file="res://gameplay/props/Schmanu_Texturen/Schmanu_Painted.gltf"
+dest_files=["res://.godot/imported/Schmanu_Painted.gltf-405d3bbd90941174b6f34f8a6a63f6b3.scn"]
 
 [params]
 
