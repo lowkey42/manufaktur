@@ -3,11 +3,18 @@
 [ext_resource type="Script" uid="uid://cmihbkenb2r5i" path="res://gameplay/hud/Inventory/InventoryUi.cs" id="1_3abqa"]
 [ext_resource type="AudioStream" uid="uid://dccixdbbkmxc8" path="res://gameplay/hud/Inventory/ItemCollect1.wav" id="2_2jnfh"]
 
-[node name="Inventory" type="Control" unique_id=601817208 node_paths=PackedStringArray("_itemCollectedPlayer")]
+[node name="Inventory" type="Control" unique_id=601817208 node_paths=PackedStringArray("_itemCollectedPlayer", "_itemUsedPlayer")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_3abqa")
-_itemCollectedPlayer = NodePath("AudioStreamPlayer")
+_itemCollectedPlayer = NodePath("ItemCollectedPlayer")
+_itemUsedPlayer = NodePath("ItemUsedPlayer")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1111619665]
+[node name="ItemUsedPlayer" type="AudioStreamPlayer" parent="." unique_id=748531090]
+volume_db = -14.0
+bus = &"Sound Effects"
+
+[node name="ItemCollectedPlayer" type="AudioStreamPlayer" parent="." unique_id=1111619665]
 stream = ExtResource("2_2jnfh")
+volume_db = -14.0
+bus = &"Sound Effects"

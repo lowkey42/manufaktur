@@ -7,7 +7,7 @@ public partial class SandwitchThrowable : Node3D {
 	[Export] public float ThrowArcUpwardSpeed { get; set; } = 4.0f;
 	[Export] private AudioStreamPlayer3D _explosionSoundPlayer;
 
-[ExportGroup("Shockwave")]
+	[ExportGroup("Shockwave")]
 	[Export] public float ShockwaveRadius { get; set; } = 5.0f;
 	[Export] public float ShockwaveStrength { get; set; } = 150.0f;
 	[Export] public uint ShockwaveCollisionMask { get; set; } = 2;
@@ -88,8 +88,9 @@ public partial class SandwitchThrowable : Node3D {
 	}
 
 	private void Explode() {
+		_explosionSoundPlayer.Play();
 		ApplyShockwave();
-		QueueFree();
+		GetTree().CreateTimer(_explosionSoundPlayer.Stream.GetLength()).Timeout += QueueFree;
 	}
 
 	private void ApplyShockwave() {

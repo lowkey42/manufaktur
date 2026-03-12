@@ -35,3 +35,5 @@ surface_material_override/0 = SubResource("StandardMaterial3D_udatv")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1879879478]
 stream = ExtResource("3_ecnlv")
+volume_db = -14.0
+bus = &"Sound Effects"

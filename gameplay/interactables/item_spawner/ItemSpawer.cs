@@ -40,7 +40,7 @@ public partial class ItemSpawer : Triggerable {
 
 			if (item != null && item.SpawnerTexture != null) {
 				var quadMesh = new QuadMesh();
-				quadMesh.Size = new Vector2(0.4f, 0.8f);
+				quadMesh.Size = new Vector2(1.2f, 1.2f);
 
 				var material = new StandardMaterial3D();
 				material.AlbedoTexture = item.SpawnerTexture;

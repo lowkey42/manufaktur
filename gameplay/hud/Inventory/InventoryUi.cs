@@ -8,16 +8,22 @@ public partial class InventoryUi : Control {
 	[Export] public float CardVerticalOffset { get; set; } = 10f;
 
 	[Export] private AudioStreamPlayer _itemCollectedPlayer;
+	[Export] private AudioStreamPlayer _itemUsedPlayer;
 
 	public override void _Ready() {
 		EventBus.Instance.InventoryItemCollected += OnInventoryItemChanged;
 		EventBus.Instance.InventoryItemCollected += OnInventoryItemCollected;
 		EventBus.Instance.InventoryItemUsed      += OnInventoryItemChanged;
+		EventBus.Instance.InventoryItemUsed	  += OnInventoryItemUsed;
 	}
 
 	private void OnInventoryItemCollected(ItemResource item, ItemResource[] items) {
 		_itemCollectedPlayer.Play();
-		GD.Print("Collected Item");
+	}
+
+	private void OnInventoryItemUsed(ItemResource item, ItemResource[] items) {
+		_itemUsedPlayer.Stream = item.UseSounds;
+		_itemUsedPlayer.Play();
 	}
 
 	private void OnInventoryItemChanged(ItemResource item, ItemResource[] items) {

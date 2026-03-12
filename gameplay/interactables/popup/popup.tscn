@@ -53,3 +53,4 @@ shape = SubResource("BoxShape3D_358bx")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=378988312]
 stream = SubResource("AudioStreamRandomizer_xre5c")
+bus = &"Sound Effects"

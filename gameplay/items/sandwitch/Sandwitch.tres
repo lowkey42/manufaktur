@@ -4,9 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://ogdyeamh5gtl" path="res://gameplay/items/sandwitch/IMG_3839.png" id="1_ds1hy"]
 [ext_resource type="Script" uid="uid://c0y6lh7icu3ie" path="res://gameplay/items/sandwitch/SandwitchItem.cs" id="2_ds1hy"]
 [ext_resource type="PackedScene" uid="uid://vbkvxxnthhei" path="res://gameplay/items/sandwitch/SandwitchThrowable.tscn" id="2_is1sc"]
+[ext_resource type="AudioStream" uid="uid://djkbkr3gw268h" path="res://gameplay/items/sandwitch/Granate 1.wav" id="4_wgebw"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_is1sc"]
+streams_count = 1
+stream_0/stream = ExtResource("4_wgebw")
 
 [resource]
 script = ExtResource("2_ds1hy")
 Duration = 1.0
 HandTexture = ExtResource("1_ds1hy")
 SpawnerTexture = ExtResource("1_6o0s5")
+UseSounds = SubResource("AudioStreamRandomizer_is1sc")

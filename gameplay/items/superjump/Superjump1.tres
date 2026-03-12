@@ -3,10 +3,16 @@
 [ext_resource type="Texture2D" uid="uid://dl51mr5iy675m" path="res://gameplay/items/superjump/IMG_3840.png" id="1_3ay55"]
 [ext_resource type="Script" uid="uid://7y1fs0oos65t" path="res://gameplay/items/superjump/SuperjumpItem.cs" id="1_ixmlu"]
 [ext_resource type="Texture2D" uid="uid://cj7e8i68n1r28" path="res://gameplay/items/superjump/Magic Mike shoes.png" id="2_3hq7n"]
+[ext_resource type="AudioStream" uid="uid://k7p61w6mmbg6" path="res://gameplay/interactables/jump_pad/Boing.wav" id="3_psnmi"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_bmckv"]
+streams_count = 1
+stream_0/stream = ExtResource("3_psnmi")
 
 [resource]
 script = ExtResource("1_ixmlu")
 JumpStrength = 10.0
 HandTexture = ExtResource("1_3ay55")
 SpawnerTexture = ExtResource("2_3hq7n")
+UseSounds = SubResource("AudioStreamRandomizer_bmckv")
 metadata/_custom_type_script = "uid://7y1fs0oos65t"

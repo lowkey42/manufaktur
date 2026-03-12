@@ -67,6 +67,8 @@ libraries/ = SubResource("AnimationLibrary_uawth")
 
 [node name="OpenPlayer" type="AudioStreamPlayer3D" parent="." unique_id=396997353]
 stream = ExtResource("2_1a4t3")
+bus = &"Sound Effects"
 
 [node name="ClosePlayer" type="AudioStreamPlayer3D" parent="." unique_id=47262242]
 stream = ExtResource("3_bloq1")
+bus = &"Sound Effects"

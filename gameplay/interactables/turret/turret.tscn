@@ -53,3 +53,4 @@ debug_shape_thickness = 5
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=928089880]
 stream = SubResource("AudioStreamRandomizer_h7tv7")
+bus = &"Sound Effects"

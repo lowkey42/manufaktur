@@ -74,3 +74,4 @@ libraries/ = SubResource("AnimationLibrary_kbkgg")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1142063558]
 stream = ExtResource("2_ar2i8")
+bus = &"Sound Effects"
