@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://k2040505eddu"]
 
 [ext_resource type="Script" uid="uid://c0ovdom26ebms" path="res://menus/HighScoreMenu.cs" id="1"]
-[ext_resource type="Texture2D" uid="uid://ff04yh0rdln3" path="res://icon.svg" id="2"]
 [ext_resource type="Theme" uid="uid://cdh01f3cdy86t" path="res://commons/main_theme.tres" id="2_k83c2"]
 [ext_resource type="Shortcut" uid="uid://7cs6fghgm3fk" path="res://menus/escape_shortcut.tres" id="2_klmml"]
 [ext_resource type="Script" uid="uid://ccb5gufjbbupq" path="res://menus/ExitButton.cs" id="4_sxc4f"]
@@ -114,15 +113,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Score_1" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ScoreListContainer" unique_id=1010]
+custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ScoreListContainer/Score_1" unique_id=1011]
-clip_contents = true
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-texture = ExtResource("2")
-expand_mode = 2
-stretch_mode = 4
 
 [node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ScoreListContainer/Score_1" unique_id=1012]
 custom_minimum_size = Vector2(300, 30)
@@ -141,15 +133,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Score_2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ScoreListContainer" unique_id=1014]
+custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ScoreListContainer/Score_2" unique_id=1015]
-clip_contents = true
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-texture = ExtResource("2")
-expand_mode = 2
-stretch_mode = 4
 
 [node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ScoreListContainer/Score_2" unique_id=1016]
 custom_minimum_size = Vector2(300, 30)
@@ -168,15 +153,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Score_3" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ScoreListContainer" unique_id=969238815]
+custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ScoreListContainer/Score_3" unique_id=1096898105]
-clip_contents = true
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-texture = ExtResource("2")
-expand_mode = 2
-stretch_mode = 4
 
 [node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ScoreListContainer/Score_3" unique_id=1649758806]
 custom_minimum_size = Vector2(300, 30)
@@ -195,15 +173,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Score_4" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ScoreListContainer" unique_id=538085539]
+custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ScoreListContainer/Score_4" unique_id=1254501339]
-clip_contents = true
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-texture = ExtResource("2")
-expand_mode = 2
-stretch_mode = 4
 
 [node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ScoreListContainer/Score_4" unique_id=1495116100]
 custom_minimum_size = Vector2(300, 30)
@@ -222,15 +193,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Score_5" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ScoreListContainer" unique_id=1512277031]
+custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ScoreListContainer/Score_5" unique_id=982666197]
-clip_contents = true
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-texture = ExtResource("2")
-expand_mode = 2
-stretch_mode = 4
 
 [node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ScoreListContainer/Score_5" unique_id=1231187587]
 custom_minimum_size = Vector2(300, 30)
@@ -249,15 +213,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Score_6" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ScoreListContainer" unique_id=1917602321]
+custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ScoreListContainer/Score_6" unique_id=637669511]
-clip_contents = true
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-texture = ExtResource("2")
-expand_mode = 2
-stretch_mode = 4
 
 [node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ScoreListContainer/Score_6" unique_id=1246572660]
 custom_minimum_size = Vector2(300, 30)
@@ -276,15 +233,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Score_7" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ScoreListContainer" unique_id=238838706]
+custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ScoreListContainer/Score_7" unique_id=1621614298]
-clip_contents = true
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-texture = ExtResource("2")
-expand_mode = 2
-stretch_mode = 4
 
 [node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ScoreListContainer/Score_7" unique_id=1904089735]
 custom_minimum_size = Vector2(300, 30)
@@ -303,15 +253,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Score_8" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ScoreListContainer" unique_id=1449085998]
+custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ScoreListContainer/Score_8" unique_id=1569714492]
-clip_contents = true
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-texture = ExtResource("2")
-expand_mode = 2
-stretch_mode = 4
 
 [node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ScoreListContainer/Score_8" unique_id=577136838]
 custom_minimum_size = Vector2(300, 30)
@@ -330,15 +273,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Score_9" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ScoreListContainer" unique_id=1062081006]
+custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ScoreListContainer/Score_9" unique_id=1918818086]
-clip_contents = true
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-texture = ExtResource("2")
-expand_mode = 2
-stretch_mode = 4
 
 [node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ScoreListContainer/Score_9" unique_id=66931846]
 custom_minimum_size = Vector2(300, 30)
