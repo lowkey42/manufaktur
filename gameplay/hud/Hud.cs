@@ -2,11 +2,12 @@ using Godot;
 using System;
 using System.ComponentModel;
 using System.Globalization;
+using System.Text.RegularExpressions;
 using Manufaktur.gameplay;
 
 public partial class Hud : CanvasLayer {
 	private static string _previousName = "Manu";
-	
+
 	[Export(PropertyHint.File, "*.tscn")] private string _mainMenuScene;
 
 	[Export] private PackedScene _highScoreRow;
@@ -14,11 +15,11 @@ public partial class Hud : CanvasLayer {
 	[Export] private RichTextLabel _labelCurrentTime;
 	[Export] private RichTextLabel _labelBestTime;
 	[Export] private RichTextLabel _labelSpeed;
-	
+
 	[Export] private Control _highscorePanel;
 	[Export] private Button _nextButton;
 	[Export] private Button _retryButton;
-	
+
 	[Export] private Control _newEntryPanel;
 	[Export] private TextEdit _newEntryName;
 
@@ -38,8 +39,9 @@ public partial class Hud : CanvasLayer {
 		ShowHighscoreItems(highscores.EntriesGlobal, _highscorePanel.GetNode<Control>("%GlobalHighscoreHeader"), newEntry);
 
 		if (newEntry != null) {
-			_newEntryName.Text        =  _previousName;
-			_newEntryName.TextChanged += OnRowChange;
+			_newEntryName.Text         =  _previousName;
+			_newEntryName.TextChanged  += OnRowChange;
+			_newEntryName.FocusEntered += OnFocusEntered;
 			_newEntryPanel.Show();
 		}
 
@@ -65,9 +67,9 @@ public partial class Hud : CanvasLayer {
 
 			if (newEntry == entry) {
 				var blinkTween = row.CreateTween();
-				blinkTween.SetLoops(); 
+				blinkTween.SetLoops();
 				blinkTween.SetParallel(true);
-				
+
 				foreach (var c in row.GetChildren()) {
 					if (c is Control cc) {
 						var subTween = row.CreateTween();
@@ -81,7 +83,7 @@ public partial class Hud : CanvasLayer {
 					}
 				}
 			}
-			
+
 			prevHighscoreRow.AddSibling(row);
 			prevHighscoreRow = row;
 		}
@@ -96,6 +98,18 @@ public partial class Hud : CanvasLayer {
 
 	private void OnRowChange() {
 		if (_newEntry != null && _newEntryName != null) {
+			var cleanedText = Regex.Replace(_newEntryName.Text, @"\s+", "");
+
+			if (cleanedText.Length > 8) {
+				cleanedText = cleanedText.Substring(0, 8);
+			}
+
+			if (_newEntryName.Text != cleanedText) {
+				var caretColumn = _newEntryName.GetCaretColumn();
+				_newEntryName.Text = cleanedText;
+				_newEntryName.SetCaretColumn(caretColumn); // Try to preserve cursor position
+			}
+
 			_previousName = _newEntry.Name = _newEntryName.Text;
 		}
 	}
@@ -178,6 +192,11 @@ public partial class Hud : CanvasLayer {
 			         .SetTrans(Tween.TransitionType.Linear)
 			         .SetEase(Tween.EaseType.In);
 		}
+	}
+
+	private void OnFocusEntered() {
+		if (_newEntryName != null)
+			_newEntryName.SelectAll();
 	}
 
 	private static string FormatTime(float currentTime) {

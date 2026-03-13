@@ -155,6 +155,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 25
 text = "Manu"
+caret_blink = true
 
 [node name="Control2" type="Control" parent="Highscores/NewEntry/MarginContainer/HBox" unique_id=564560923]
 layout_mode = 2
