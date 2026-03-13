@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://cvv5omm6grlor"]
 
 [ext_resource type="Script" uid="uid://dbf6wbgb6kocu" path="res://menus/CreditsMenu.cs" id="1_vbcsv"]
-[ext_resource type="Texture2D" uid="uid://gskkmdby62te" path="res://commons/textures/placeholder.png" id="2_kacps"]
+[ext_resource type="VideoStream" uid="uid://bnxcqhocstbk2" path="res://file_example_MP4_640_3MG.ogv" id="2_kacps"]
 [ext_resource type="Shortcut" uid="uid://7cs6fghgm3fk" path="res://menus/escape_shortcut.tres" id="2_xpenk"]
-[ext_resource type="Texture2D" uid="uid://dld260x0tqfcf" path="res://commons/textures/placeholder_schmanu.png" id="3_0oii8"]
 [ext_resource type="Script" uid="uid://ccb5gufjbbupq" path="res://menus/ExitButton.cs" id="3_x5fnw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xpenk"]
@@ -23,7 +22,6 @@ grow_vertical = 2
 script = ExtResource("1_vbcsv")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=828436626]
-custom_minimum_size = Vector2(600, 800)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -32,8 +30,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -300.0
 offset_top = -400.0
-offset_right = 300.0
-offset_bottom = 400.0
+offset_right = 500.0
+offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xpenk")
@@ -61,279 +59,10 @@ shortcut = ExtResource("2_xpenk")
 text = "X"
 script = ExtResource("3_x5fnw")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=927394761]
-unique_name_in_owner = true
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=469307970]
 layout_mode = 2
-size_flags_vertical = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer" unique_id=14094861]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Person14" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1804825339]
-custom_minimum_size = Vector2(0, 150)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person14" unique_id=1545763416]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-texture = ExtResource("2_kacps")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person14" unique_id=2134372728]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Manu"
-fit_content = true
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Person1" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1763264361]
-custom_minimum_size = Vector2(0, 150)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person1" unique_id=1828768244]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-texture = ExtResource("2_kacps")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person1" unique_id=1146679535]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Alex"
-fit_content = true
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Person2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=71320825]
-custom_minimum_size = Vector2(0, 150)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person2" unique_id=895530497]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-texture = ExtResource("2_kacps")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person2" unique_id=1774813051]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Amy"
-fit_content = true
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Person3" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1600862092]
-custom_minimum_size = Vector2(0, 150)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person3" unique_id=183980478]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-texture = ExtResource("2_kacps")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person3" unique_id=900436959]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Benedikt Breitlauch"
-fit_content = true
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Person4" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1355641800]
-custom_minimum_size = Vector2(0, 150)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person4" unique_id=1444244560]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-texture = ExtResource("2_kacps")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person4" unique_id=684938670]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Elyzra Ryest"
-fit_content = true
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Person5" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1091343971]
-custom_minimum_size = Vector2(0, 150)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person5" unique_id=691959655]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-texture = ExtResource("2_kacps")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person5" unique_id=1302556317]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Felix Köcher"
-fit_content = true
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Person6" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1137968172]
-custom_minimum_size = Vector2(0, 150)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person6" unique_id=1604012351]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-texture = ExtResource("2_kacps")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person6" unique_id=1791264172]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Finn Marci"
-fit_content = true
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Person7" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1881377228]
-custom_minimum_size = Vector2(0, 150)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person7" unique_id=1006879775]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-texture = ExtResource("3_0oii8")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person7" unique_id=1245661408]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Florian Oetke"
-fit_content = true
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Person8" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1774600685]
-custom_minimum_size = Vector2(0, 150)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person8" unique_id=1906278647]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-texture = ExtResource("3_0oii8")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person8" unique_id=1419882647]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Jonas Novaki"
-fit_content = true
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Person9" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1819372393]
-custom_minimum_size = Vector2(0, 150)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person9" unique_id=1295338428]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-texture = ExtResource("3_0oii8")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person9" unique_id=878348606]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Mae"
-fit_content = true
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Person10" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1325201522]
-custom_minimum_size = Vector2(0, 150)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person10" unique_id=410490759]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-texture = ExtResource("3_0oii8")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person10" unique_id=50364819]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Sunna Linn"
-fit_content = true
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Person11" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1465572802]
-custom_minimum_size = Vector2(0, 150)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person11" unique_id=1259424633]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-texture = ExtResource("3_0oii8")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person11" unique_id=284704851]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Thomas Thudt"
-fit_content = true
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Person12" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=2018615542]
-custom_minimum_size = Vector2(0, 150)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person12" unique_id=1538418414]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-texture = ExtResource("3_0oii8")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person12" unique_id=71412487]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Yannick Späder"
-fit_content = true
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Person13" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1853592877]
-custom_minimum_size = Vector2(0, 150)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person13" unique_id=1368115200]
-custom_minimum_size = Vector2(150, 150)
-layout_mode = 2
-texture = ExtResource("3_0oii8")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/Person13" unique_id=939653825]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Schmanu"
-fit_content = true
-horizontal_alignment = 1
-vertical_alignment = 1
+stream = ExtResource("2_kacps")
+autoplay = true
+loop = true
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

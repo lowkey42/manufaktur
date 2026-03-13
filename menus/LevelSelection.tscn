@@ -68,6 +68,7 @@ theme = ExtResource("1_ma3l3")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="LayoutContainer/MainSplit/Panel/MarginContainer/VBoxContainer" unique_id=404903441]
 layout_mode = 2
+alignment = 2
 
 [node name="Close_Button" type="Button" parent="LayoutContainer/MainSplit/Panel/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=694799862]
 custom_minimum_size = Vector2(50, 50)
