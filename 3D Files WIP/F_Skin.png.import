@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0n5vi52eqdrs"
-path.s3tc="res://.godot/imported/TextureSet_Beach_Assets_V01.png-efe62aaa94296ca61dcb3df229558572.s3tc.ctex"
-path.etc2="res://.godot/imported/TextureSet_Beach_Assets_V01.png-efe62aaa94296ca61dcb3df229558572.etc2.ctex"
+uid="uid://2er306viial5"
+path.s3tc="res://.godot/imported/F_Skin.png-e0c68bba6de3072d5d2926bdd77ab42c.s3tc.ctex"
+path.etc2="res://.godot/imported/F_Skin.png-e0c68bba6de3072d5d2926bdd77ab42c.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://3D Files WIP/TextureSet_Beach_Assets_V01.png"
-dest_files=["res://.godot/imported/TextureSet_Beach_Assets_V01.png-efe62aaa94296ca61dcb3df229558572.s3tc.ctex", "res://.godot/imported/TextureSet_Beach_Assets_V01.png-efe62aaa94296ca61dcb3df229558572.etc2.ctex"]
+source_file="res://3D Files WIP/F_Skin.png"
+dest_files=["res://.godot/imported/F_Skin.png-e0c68bba6de3072d5d2926bdd77ab42c.s3tc.ctex", "res://.godot/imported/F_Skin.png-e0c68bba6de3072d5d2926bdd77ab42c.etc2.ctex"]
 
 [params]
 

@@ -6,7 +6,7 @@ public partial class Popup : Node3D {
 	public float TriggerRadius = 24.0f;
 	
 	[Export]
-	public float PopupRotationDegrees = 80.0f;
+	public float PopupRotationDegrees = -90.0f;
 
 	[Export]
 	public float PushbackVelocity = 120f;
