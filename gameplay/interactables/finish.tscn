@@ -1,25 +1,12 @@
 [gd_scene format=3 uid="uid://bvg3jpsto66fu"]
 
 [ext_resource type="Script" uid="uid://cqqrwyoy1jto7" path="res://gameplay/interactables/Finish.cs" id="1_16a74"]
-[ext_resource type="PackedScene" uid="uid://ctyxpkkm5xws4" path="res://gameplay/props/Schmanu_Texturen/Schmanu_Painted.gltf" id="2_ijb8j"]
-[ext_resource type="Texture2D" uid="uid://bxmqwpm32lxi7" path="res://gameplay/props/Schmanu_Texturen/Manu_Midpoly_DefaultMaterial_BaseColor.png" id="3_8i4p3"]
+[ext_resource type="PackedScene" uid="uid://cv1p1mp2b5fu6" path="res://gameplay/props/Schmanu_Siegerpose.glb" id="2_8i4p3"]
 [ext_resource type="Texture2D" uid="uid://bl4ofacdt5p30" path="res://gameplay/player/ghost_particle.png" id="4_0g1sc"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_x5fet"]
 height = 3.0
 radius = 1.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0g1sc"]
-albedo_texture = ExtResource("3_8i4p3")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gln7x"]
-albedo_texture = ExtResource("3_8i4p3")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hh03y"]
-albedo_texture = ExtResource("3_8i4p3")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ycnbq"]
-albedo_texture = ExtResource("3_8i4p3")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8i4p3"]
 transparency = 1
@@ -92,20 +79,7 @@ metadata/collision_preset_name = "__custom__"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 shape = SubResource("CylinderShape3D_x5fet")
 
-[node name="Schmanu_Painted" parent="." unique_id=1379553802 instance=ExtResource("2_ijb8j")]
-transform = Transform3D(0.37, 0, 0, 0, 0.37, 0, 0, 0, 0.37, 0, 0, 0)
-
-[node name="Manu_Body" parent="Schmanu_Painted/ROOT" parent_id_path=PackedInt32Array(1379553802, 783727585) index="0" unique_id=1702795712]
-material_override = SubResource("StandardMaterial3D_0g1sc")
-
-[node name="Manu_Schnurrbart" parent="Schmanu_Painted/ROOT" parent_id_path=PackedInt32Array(1379553802, 783727585) index="1" unique_id=491163614]
-material_override = SubResource("StandardMaterial3D_gln7x")
-
-[node name="Manu_Cap" parent="Schmanu_Painted/ROOT" parent_id_path=PackedInt32Array(1379553802, 783727585) index="2" unique_id=1616533227]
-material_override = SubResource("StandardMaterial3D_hh03y")
-
-[node name="Manu_Body_001" parent="Schmanu_Painted/ROOT" parent_id_path=PackedInt32Array(1379553802, 783727585) index="3" unique_id=51954867]
-material_override = SubResource("StandardMaterial3D_ycnbq")
+[node name="Schmanu_Siegerpose" parent="." unique_id=1804996415 instance=ExtResource("2_8i4p3")]
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=2007409111]
 material_override = SubResource("StandardMaterial3D_8i4p3")
@@ -117,5 +91,3 @@ process_material = SubResource("ParticleProcessMaterial_0g1sc")
 draw_pass_1 = SubResource("QuadMesh_gln7x")
 
 [connection signal="body_entered" from="Area3D" to="." method="OnEnter"]
-
-[editable path="Schmanu_Painted"]
