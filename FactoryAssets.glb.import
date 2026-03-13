@@ -41,8 +41,8 @@ _subresources={
 "materials": {
 "GDW2026_Trim.001": {
 "use_external/enabled": true,
-"use_external/fallback_path": "",
-"use_external/path": ""
+"use_external/fallback_path": "res://commons/Materials/TrimFactory_material.tres",
+"use_external/path": "uid://bod5dn2ugg4bl"
 },
 "factoryBaseMat": {
 "use_external/enabled": true,
