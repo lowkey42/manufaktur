@@ -34,6 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://bb77s75a1qhpc" path="res://3D Files WIP/TextureSet_Billboard_v02.png" id="32_8titr"]
 [ext_resource type="PackedScene" uid="uid://cg3eu6cqm7wsw" path="res://gameplay/props/Palme_Asset.glb" id="33_why16"]
 [ext_resource type="Texture2D" uid="uid://benxx34jepqth" path="res://3D Files WIP/TextureSet_Billboard_v01.png" id="34_bxkxm"]
+[ext_resource type="PackedScene" uid="uid://cho4vnpb72s0" path="res://gameplay/props/props Import/Manufaktur_Factory_EiffeltowerALaManu_v01.glb" id="35_d4u8d"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mk68e"]
 
@@ -886,5 +887,11 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DecoStuff/Billboard_ManuBeach/StaticBody3D" index="0" unique_id=1054293055]
 shape = SubResource("ConcavePolygonShape3D_ytofh")
+
+[node name="Manufaktur_Factory_EiffeltowerALaManu_v01" parent="." index="18" unique_id=448991849 instance=ExtResource("35_d4u8d")]
+transform = Transform3D(-1.5529145, 0, -5.795555, 0, 6, 0, 5.795555, 0, -1.5529145, -96, 0, 407)
+
+[node name="Manufaktur_Factory_EiffeltowerALaManu_v02" parent="." index="19" unique_id=2025231721 instance=ExtResource("35_d4u8d")]
+transform = Transform3D(-1.5529145, 0, -5.795555, 0, 6, 0, 5.795555, 0, -1.5529145, -217, 42, 163)
 
 [editable path="AssetGymFelix"]
