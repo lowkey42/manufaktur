@@ -175,8 +175,6 @@ toggle_capture={
 [physics]
 
 3d/physics_engine="Jolt Physics"
-jolt_physics_3d/simulation/generate_all_kinematic_contacts=true
-jolt_physics_3d/queries/enable_ray_cast_face_index=true
 3d/default_gravity=20.0
 common/physics_interpolation=true
 
