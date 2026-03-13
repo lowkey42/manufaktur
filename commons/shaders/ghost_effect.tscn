@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://df22x30c4v0i8"]
+
+[ext_resource type="Script" uid="uid://c4iiohx04lcl8" path="res://commons/shaders/GhostEffect.cs" id="1_5rrld"]
+[ext_resource type="Material" uid="uid://3khy7rmfm1x6" path="res://commons/shaders/ghost_material.tres" id="2_6s35u"]
+
+[node name="Ghost Effect" type="Node" unique_id=1720688645]
+script = ExtResource("1_5rrld")
+ghostMaterial = ExtResource("2_6s35u")

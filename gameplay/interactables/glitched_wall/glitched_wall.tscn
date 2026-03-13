@@ -1,17 +1,12 @@
 [gd_scene format=3 uid="uid://d1se4gcs1hq0t"]
 
+[ext_resource type="Material" uid="uid://3khy7rmfm1x6" path="res://commons/shaders/ghost_material.tres" id="1_seig3"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_5odoc"]
 size = Vector3(4, 2, 0.2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_seig3"]
 size = Vector3(4, 2, 0.2)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5odoc"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_seig3"]
-transparency = 1
-albedo_color = Color(1, 1, 1, 0.6666667)
-albedo_texture = SubResource("PlaceholderTexture2D_5odoc")
 
 [node name="GlitchedWall" type="Node3D" unique_id=621091586]
 
@@ -27,4 +22,4 @@ shape = SubResource("BoxShape3D_5odoc")
 [node name="Mesh" type="MeshInstance3D" parent="Body" unique_id=2088605395]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0)
 mesh = SubResource("BoxMesh_seig3")
-surface_material_override/0 = SubResource("StandardMaterial3D_seig3")
+surface_material_override/0 = ExtResource("1_seig3")

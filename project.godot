@@ -35,6 +35,7 @@ CollisionPresetRuntime="*uid://u810pt6u5apa"
 EventBus="*uid://c6eo2p7cfvmf6"
 SettingsManager="*uid://bcitpw3xhbhpy"
 RadioModule="*uid://dms4ukds2g1lg"
+GhostEffectModule="*uid://df22x30c4v0i8"
 
 [debug_draw_3d]
 

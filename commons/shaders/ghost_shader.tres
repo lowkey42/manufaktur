@@ -94,6 +94,9 @@ default_value_enabled = true
 [sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_8smcp"]
 operator = 2
 
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_pladu"]
+constant = 0.8
+
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_8smcp"]
 source = 5
 texture = ExtResource("1_3gxdn")
@@ -186,4 +189,6 @@ nodes/fragment/33/node = SubResource("VisualShaderNodeColorParameter_3gxdn")
 nodes/fragment/33/position = Vector2(111.111115, 377.7778)
 nodes/fragment/37/node = SubResource("VisualShaderNodeVectorOp_8smcp")
 nodes/fragment/37/position = Vector2(602.6872, 641.47296)
-nodes/fragment/connections = PackedInt32Array(2, 0, 6, 0, 7, 0, 6, 1, 8, 0, 4, 2, 10, 0, 9, 0, 9, 0, 11, 0, 11, 1, 12, 0, 11, 0, 12, 1, 14, 0, 13, 0, 13, 0, 15, 0, 14, 1, 15, 1, 17, 0, 19, 0, 18, 0, 19, 1, 19, 0, 16, 1, 12, 0, 13, 1, 16, 0, 14, 0, 8, 0, 21, 2, 22, 0, 23, 0, 23, 1, 24, 1, 24, 0, 21, 0, 23, 0, 25, 0, 20, 0, 25, 1, 25, 0, 24, 0, 4, 0, 26, 0, 27, 0, 26, 2, 21, 0, 28, 0, 28, 0, 30, 0, 30, 0, 26, 1, 29, 0, 31, 0, 32, 0, 31, 1, 31, 0, 28, 1, 15, 0, 4, 0, 5, 0, 16, 0, 33, 0, 37, 0, 37, 0, 0, 0, 26, 0, 37, 1)
+nodes/fragment/38/node = SubResource("VisualShaderNodeFloatConstant_pladu")
+nodes/fragment/38/position = Vector2(578.311, 167.4537)
+nodes/fragment/connections = PackedInt32Array(2, 0, 6, 0, 7, 0, 6, 1, 8, 0, 4, 2, 10, 0, 9, 0, 9, 0, 11, 0, 11, 1, 12, 0, 11, 0, 12, 1, 14, 0, 13, 0, 13, 0, 15, 0, 14, 1, 15, 1, 17, 0, 19, 0, 18, 0, 19, 1, 19, 0, 16, 1, 12, 0, 13, 1, 16, 0, 14, 0, 8, 0, 21, 2, 22, 0, 23, 0, 23, 1, 24, 1, 24, 0, 21, 0, 23, 0, 25, 0, 20, 0, 25, 1, 25, 0, 24, 0, 4, 0, 26, 0, 27, 0, 26, 2, 21, 0, 28, 0, 28, 0, 30, 0, 30, 0, 26, 1, 29, 0, 31, 0, 32, 0, 31, 1, 31, 0, 28, 1, 15, 0, 4, 0, 5, 0, 16, 0, 33, 0, 37, 0, 37, 0, 0, 0, 26, 0, 37, 1, 38, 0, 0, 1)
