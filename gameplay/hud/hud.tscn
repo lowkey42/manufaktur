@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://csyrf4gbhsvin" path="res://menus/AnimatedButton.cs" id="5_8y1lg"]
 [ext_resource type="PackedScene" uid="uid://b521fsdfux417" path="res://gameplay/hud/Inventory/ItemDurationContainer.tscn" id="5_phc85"]
 [ext_resource type="Resource" uid="uid://dl7uhmd64xfe6" path="res://commons/sounds/main_menu_ui_hover_sounds.tres" id="6_8k45c"]
+[ext_resource type="AudioStream" uid="uid://kjo5n4ca4h3o" path="res://gameplay/hud/Achievement.wav" id="7_y0gat"]
 
 [sub_resource type="FontVariation" id="FontVariation_phc85"]
 base_font = ExtResource("3_td46j")
@@ -33,7 +34,7 @@ button_index = 6
 [sub_resource type="Shortcut" id="Shortcut_td46j"]
 events = [SubResource("InputEventKey_phc85"), SubResource("InputEventKey_td46j"), SubResource("InputEventJoypadButton_phc85")]
 
-[node name="Hud" type="CanvasLayer" unique_id=127962132 node_paths=PackedStringArray("_labelCurrentTime", "_labelBestTime", "_labelSpeed", "_highscorePanel", "_nextButton", "_retryButton", "_newEntryPanel", "_newEntryName", "_labelCountdown")]
+[node name="Hud" type="CanvasLayer" unique_id=127962132 node_paths=PackedStringArray("_labelCurrentTime", "_labelBestTime", "_labelSpeed", "_highscorePanel", "_nextButton", "_retryButton", "_newEntryPanel", "_newEntryName", "_newHighscoreAudio", "_labelCountdown")]
 process_mode = 3
 script = ExtResource("1_ceo1m")
 _mainMenuScene = "uid://c0u0t8bci7xwj"
@@ -46,6 +47,7 @@ _nextButton = NodePath("Highscores/Buttons/MarginContainer/HBoxContainer2/NextBu
 _retryButton = NodePath("Highscores/Buttons/MarginContainer/HBoxContainer2/RetryButton")
 _newEntryPanel = NodePath("Highscores/NewEntry")
 _newEntryName = NodePath("Highscores/NewEntry/MarginContainer/HBox/NewEntryName")
+_newHighscoreAudio = NodePath("Highscores/AudioStreamPlayer")
 _labelCountdown = NodePath("Countdown")
 
 [node name="CurrentTime" type="RichTextLabel" parent="." unique_id=493737036]
@@ -334,6 +336,11 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_g51lr")
 text = "Next"
 script = ExtResource("5_8y1lg")
 HoverSounds = ExtResource("6_8k45c")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Highscores" unique_id=1748519826]
+stream = ExtResource("7_y0gat")
+volume_db = -15.0
+bus = &"UI"
 
 [node name="Inventory" parent="." unique_id=601817208 instance=ExtResource("4_tbdus")]
 anchors_preset = 7
