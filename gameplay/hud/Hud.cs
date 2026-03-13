@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.ComponentModel;
 using System.Globalization;
 using Manufaktur.gameplay;
 
@@ -33,8 +34,8 @@ public partial class Hud : CanvasLayer {
 		_newEntry       = newEntry;
 		_nextLevelScene = nextLevelScene;
 
-		ShowHighscoreItems(highscores.EntriesLocal, _highscorePanel.GetNode<Control>("%LocalHighscoreHeader"));
-		ShowHighscoreItems(highscores.EntriesGlobal, _highscorePanel.GetNode<Control>("%GlobalHighscoreHeader"));
+		ShowHighscoreItems(highscores.EntriesLocal, _highscorePanel.GetNode<Control>("%LocalHighscoreHeader"), newEntry);
+		ShowHighscoreItems(highscores.EntriesGlobal, _highscorePanel.GetNode<Control>("%GlobalHighscoreHeader"), newEntry);
 
 		if (newEntry != null) {
 			_newEntryName.Text        =  _previousName;
@@ -52,7 +53,7 @@ public partial class Hud : CanvasLayer {
 		}
 	}
 
-	private void ShowHighscoreItems(HighscoreList.Entry[] entries, Control previousSibling) {
+	private void ShowHighscoreItems(HighscoreList.Entry[] entries, Control previousSibling, HighscoreList.Entry newEntry) {
 		var prevHighscoreRow = previousSibling;
 		var position         = 1;
 		foreach (var entry in entries) {
@@ -62,6 +63,25 @@ public partial class Hud : CanvasLayer {
 			row.GetNode<Label>("Time").Text = FormatTime(entry.Time);
 			row.GetNode<Label>("Name").Text = entry.Name;
 
+			if (newEntry == entry) {
+				var blinkTween = row.CreateTween();
+				blinkTween.SetLoops(); 
+				blinkTween.SetParallel(true);
+				
+				foreach (var c in row.GetChildren()) {
+					if (c is Control cc) {
+						var subTween = row.CreateTween();
+						subTween.TweenProperty(cc, "modulate", Colors.DarkRed, 1.0f)
+						        .From(Colors.White)
+						        .SetTrans(Tween.TransitionType.Sine)
+						        .SetEase(Tween.EaseType.InOut);
+						subTween.TweenProperty(cc, "modulate", Colors.White, 1.0f)
+						        .From(Colors.DarkRed);
+						blinkTween.TweenSubtween(subTween);
+					}
+				}
+			}
+			
 			prevHighscoreRow.AddSibling(row);
 			prevHighscoreRow = row;
 		}
