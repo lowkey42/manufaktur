@@ -2,6 +2,7 @@
 
 [ext_resource type="Material" uid="uid://dam321ld4wisp" path="res://commons/Materials/BaseColorGradient.tres" id="1_68ppe"]
 [ext_resource type="Material" uid="uid://bod5dn2ugg4bl" path="res://commons/Materials/TrimFactory_material.tres" id="2_wb63x"]
+[ext_resource type="PackedScene" uid="uid://d7drwooflcw5" path="res://gameplay/props/props Import/Manufaktur_Factory_ManuTurret_v01.glb" id="3_wb63x"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_b1hxa"]
 _surfaces = [{
@@ -907,3 +908,6 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FactoryAssets2/FloorQuad/StaticBody3D" unique_id=2010960087]
 shape = SubResource("ConvexPolygonShape3D_iw8v6")
+
+[node name="Manufaktur_Factory_ManuTurret_v01" parent="." unique_id=164447718 instance=ExtResource("3_wb63x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.790363, 0, 8.634289)
