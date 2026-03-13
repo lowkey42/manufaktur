@@ -53,12 +53,9 @@ public partial class TextureSequencer : TextureRect
 	
 	public override void _UnhandledInput(InputEvent @event)
 	{
-		if (@event is InputEventKey eventKey)
+		if (@event is InputEventKey eventKey || @event is InputEventMouseButton)
 		{
-			if (eventKey.Pressed && (eventKey.Keycode == Key.Escape  || eventKey.Keycode == Key.Enter || eventKey.Keycode == Key.Space))
-			{
-				ChangeScene();
-			}
+			ChangeScene();
 		}
 	}
 

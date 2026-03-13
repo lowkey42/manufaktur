@@ -72,7 +72,7 @@ var last_speed_ratio: float = -1.0
 func _validate_property(property: Dictionary) -> void:
 	var dynamic_properties = [
 		"min_footstep_delay",
-		"max_footstep_delay", 
+		"max_footstep_delay",
 		"character_max_speed",
 		"min_movement_velocity"
 	]
@@ -128,7 +128,7 @@ func _setup_sound_maps() -> void:
 	movement_sound_map.clear()
 	landing_sound_map.clear()
 	all_possible_material_names.clear()
-	
+
 	for entry in material_footstep_sound_map:
 		var material_name = entry.material_name
 		movement_sound_map[material_name] = entry.movement_sound
@@ -144,7 +144,7 @@ func _configure_material_detectors() -> void:
 		chain_of_responsibility.add_handler(meta_data_material_detector.detect)
 	if h_terrain_material_detection:
 		chain_of_responsibility.add_handler(h_terrain_material_detector.detect)
-	
+
 	var shared_properties = {
 		"accepted_meta_data_names": accepted_meta_data_names,
 		"all_possible_material_names": all_possible_material_names,
@@ -168,27 +168,27 @@ func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
 	landing_detector.update(character)
-	
+
 	if auto_play_type == AutoPlayType.DISABLED:
 		count_up_timer.update(delta)
 		return
-	
+
 	var footstep_delay = _get_current_footstep_delay()
 	if count_up_timer.is_elapsed(footstep_delay):
 		_try_play_movement_footstep()
 		count_up_timer.reset()
-	
+
 	count_up_timer.update(delta)
 
 func _get_current_footstep_delay() -> float:
 	if auto_play_type == AutoPlayType.STATIC:
 		return auto_play_delay
-	
+
 	var speed_ratio = _calculate_speed_ratio()
 	if speed_ratio != last_speed_ratio:
 		cached_footstep_delay = lerpf(max_footstep_delay, min_footstep_delay, speed_ratio)
 		last_speed_ratio = speed_ratio
-	
+
 	return cached_footstep_delay
 
 func _calculate_speed_ratio() -> float:
@@ -200,9 +200,9 @@ func _try_play_movement_footstep() -> void:
 		play_footstep(FootstepType.MOVEMENT)
 
 func _should_play_movement_sound() -> bool:
-	return (is_colliding() and 
-			character and 
-			character.is_on_floor() and 
+	return (is_colliding() and
+			character and
+			character.is_on_floor() and
 			character.velocity.length() > min_movement_velocity)
 #endregion
 
@@ -211,11 +211,11 @@ func play_footstep(type: FootstepType) -> void:
 	if not is_colliding():
 		_debug_log("No collider detected. No sound will be played.")
 		return
-	
+
 	if type == FootstepType.MOVEMENT and not _should_play_movement_sound():
 		_debug_log("Character not moving or not on floor. Movement sound skipped.")
 		return
-	
+
 	var material_name = _detect_surface_material()
 	var sound_stream = _get_sound_for_material(material_name, type)
 	if sound_stream:
@@ -232,14 +232,14 @@ func _detect_surface_material() -> String:
 	var collider = get_collider()
 	if not collider:
 		return ""
-	
+
 	var material_name = chain_of_responsibility.handle([self])
 	return material_name if material_name else ""
 
 func _get_sound_for_material(material_name: String, type: FootstepType) -> AudioStream:
 	var sound_map = landing_sound_map if type == FootstepType.LANDING else movement_sound_map
 	var default_sound = default_material_footstep_landing_sound if type == FootstepType.LANDING else default_material_footstep_movement_sound
-	
+
 	return sound_map.get(material_name, default_sound)
 #endregion
 
