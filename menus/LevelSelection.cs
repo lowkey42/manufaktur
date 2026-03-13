@@ -46,14 +46,16 @@ public partial class LevelSelection : Control
         var btn4 = GetNode<Button>("%Level4Button");
 
         Texture2D defaultImg = GD.Load<Texture2D>("res://commons/textures/placeholder.png");
+        Texture2D beachlevelimg = GD.Load<Texture2D>("res://commons/textures/beachlevel01_preview.png");
+        
 
-        btn1.Pressed += () => SelectLevel("Level 1", "res://menus/story_menu_real.tscn", "Level1", defaultImg);
+        btn1.Pressed += () => SelectLevel("baselevel", "res://menus/story_menu_real.tscn", "baselevel", beachlevelimg);
         btn2.Pressed += () => SelectLevel("Level 2", "res://gameplay/levels/level02.tscn", "Level2", defaultImg);
         btn3.Pressed += () => SelectLevel("Level 3", "res://gameplay/levels/level03.tscn", "Level3", defaultImg);
         btn4.Pressed += () => SelectLevel("Level 4", "res://gameplay/levels/level04.tscn", "Level4", defaultImg);
 
 
-        CallDeferred(MethodName.SelectLevel, "Level 1", "res://menus/story_menu_real.tscn", "Level1", defaultImg);
+        CallDeferred(MethodName.SelectLevel, "baselevel", "res://menus/story_menu_real.tscn", "baselevel", beachlevelimg);
     }
     
     private void SelectLevel(string levelName, string scenePath, string highscoreKey, Texture2D image)
@@ -61,7 +63,6 @@ public partial class LevelSelection : Control
 
         _currentScenePath = scenePath;
         _currentHighscoreKey = highscoreKey;
-
 
         _currentNameLabel.Text = levelName;
         _currentImage.Texture = image;
@@ -98,7 +99,6 @@ public partial class LevelSelection : Control
     private void OnHighscorePressed()
     {
         if (string.IsNullOrEmpty(_currentHighscoreKey)) return;
-        
         EmitSignal(SignalName.ScoreOpen, _currentHighscoreKey);
     }
 

@@ -1,7 +1,9 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://bod5dn2ugg4bl"]
 
 [ext_resource type="Texture2D" uid="uid://2oeltlkn2oh3" path="res://TrimBase_DefaultMaterial_BaseColor.png" id="1_fogvs"]
+[ext_resource type="Texture2D" uid="uid://n15ywtknmnym" path="res://TrimBase_DefaultMaterial_Normal.png" id="2_rstqq"]
 
 [resource]
 albedo_texture = ExtResource("1_fogvs")
 normal_enabled = true
+normal_texture = ExtResource("2_rstqq")

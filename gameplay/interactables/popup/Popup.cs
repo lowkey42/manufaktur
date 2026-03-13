@@ -3,17 +3,34 @@ using System;
 
 public partial class Popup : Node3D {
 	[Export]
-	public float TriggerRadius = 12.0f;
-	[Export] private AudioStreamPlayer3D _soundPlayer;
+	public float TriggerRadius = 24.0f;
+	
+	[Export]
+	public float PopupRotationDegrees = 80.0f;
 
-	private Node3D _origin;
+	[Export]
+	public float PushbackVelocity = 120f;
+
+	[Export] private Node3D _rotationOrigin;
+	[Export] private AudioStreamPlayer3D _popupSoundPlayer;
+	[Export] private AudioStreamPlayer3D _pushbackSoundPlayer;
+	[Export] private Area3D _pushbackTriggerArea;
+
 	private Tween _tween;
 
 	private bool _up = false;
 
 	public override void _Ready() {
-		_origin                 = GetNode<Node3D>("Origin");
-		_origin.RotationDegrees = new Vector3(-90, 0, 0);
+		_pushbackTriggerArea.BodyEntered += OnBodyEnteredPushBackArea;
+	}
+
+	private void OnBodyEnteredPushBackArea(Node3D body) {
+		if (body is Player player) {
+			GD.Print("Pushback entered");
+			_pushbackSoundPlayer.Play();
+			var direction = (player.GlobalPosition - this.GlobalPosition).Normalized();
+			player.Velocity =  direction * PushbackVelocity;
+		}
 	}
 
 	public override void _Process(double delta) {
@@ -35,31 +52,38 @@ public partial class Popup : Node3D {
 			var collider = hit["collider"].AsGodotObject();
 			if (collider is not Player player) { continue; }
 			
-			noPlayer = false;
 			
-			if(!_up) {
+			noPlayer = false;
+
+			if (!_up) {
+				GD.Print("Player entered");
 				this._up = true;
 				this.PopUp();
 			}
 		}
 
 		if (noPlayer && _up) {
+			GD.Print("Player left");
 			this._up = false;
 			this.PopDown();
 		}
 	}
 
 	public void PopDown() {
+		GD.Print("Pop Down");
+		
 		var tween = this.CreateTween();
-		tween.TweenProperty(_origin, "rotation_degrees", new Vector3(-90, 0, 0), 0.5f)
+		tween.TweenProperty(_rotationOrigin, "rotation_degrees", new Vector3(PopupRotationDegrees, 0, 0), 0.5f)
 		     .SetTrans(Tween.TransitionType.Back)
 		     .SetEase(Tween.EaseType.Out);
 	}
 
 	public void PopUp() {
+		GD.Print("Pop up");
+		
 		var tween = this.CreateTween();
-		_soundPlayer.Play();
-		tween.TweenProperty(_origin, "rotation_degrees", new Vector3(0, 0, 0), 0.5f)
+		_popupSoundPlayer.Play();
+		tween.TweenProperty(_rotationOrigin, "rotation_degrees", new Vector3(0, 0, 0), 0.5f)
 		     .SetTrans(Tween.TransitionType.Back)
 		     .SetEase(Tween.EaseType.Out);
 	}

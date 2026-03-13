@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://tcfi2logbktk"
-path="res://.godot/imported/FactoryAssets.glb-a1a4c0369f0949dc4494caa8fcc52de3.scn"
+uid="uid://blail22722jm6"
+path="res://.godot/imported/FactoryAssetsFloorQuad.glb-dde7a83bc6229337f134d4c95d5f65aa.scn"
 
 [deps]
 
-source_file="res://gameplay/props/FactoryAssets.glb"
-dest_files=["res://.godot/imported/FactoryAssets.glb-a1a4c0369f0949dc4494caa8fcc52de3.scn"]
+source_file="res://FactoryAssetsFloorQuad.glb"
+dest_files=["res://.godot/imported/FactoryAssetsFloorQuad.glb-dde7a83bc6229337f134d4c95d5f65aa.scn"]
 
 [params]
 
@@ -51,51 +51,9 @@ _subresources={
 }
 },
 "nodes": {
-"PATH:5x5Wall": {
-"generate/physics": true
-},
-"PATH:5x5WallOpenTile": {
-"generate/physics": true,
-"physics/shape_type": 2
-},
-"PATH:5x5WallWindow": {
-"generate/physics": true,
-"physics/shape_type": 2
-},
-"PATH:5x5Wall_001": {
+"PATH:FloorQuad": {
 "generate/physics": true,
 "physics/shape_type": 1
-},
-"PATH:BaseFloor": {
-"generate/physics": true,
-"physics/shape_type": 1
-},
-"PATH:BaseFloorSmall": {
-"generate/physics": true,
-"physics/shape_type": 1
-},
-"PATH:ConveyorBelt_Base": {
-"generate/physics": true,
-"physics/shape_type": 2
-},
-"PATH:FactoryStairs": {
-"generate/physics": true,
-"physics/shape_type": 1
-},
-"PATH:PipeCurved": {
-"generate/physics": true,
-"physics/shape_type": 1
-},
-"PATH:PipeQuadConnector": {
-"generate/physics": true,
-"physics/shape_type": 1
-},
-"PATH:PipeStraight": {
-"generate/physics": true,
-"physics/shape_type": 1
-},
-"PATH:ScaleGrid1x1_002": {
-"generate/physics": true
 }
 }
 }
