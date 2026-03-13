@@ -27,9 +27,7 @@
 [ext_resource type="Resource" uid="uid://cuvg1hq2yhlom" path="res://gameplay/items/dash/Dash1.tres" id="21_xmvng"]
 [ext_resource type="PackedScene" uid="uid://cq1yy7ikiwch" path="res://gameplay/interactables/popup/popup.tscn" id="22_mjd6v"]
 [ext_resource type="Resource" uid="uid://deq3k6gx5td7k" path="res://gameplay/items/glitch/Glitch1.tres" id="23_fqmxt"]
-[ext_resource type="PackedScene" uid="uid://mcg0cr5cy1et" path="res://gameplay/props/props Import/Palme_Asset.glb" id="26_qvhjy"]
 [ext_resource type="Material" uid="uid://dam321ld4wisp" path="res://commons/Materials/BaseColorGradient.tres" id="28_5w5wm"]
-[ext_resource type="Material" uid="uid://ch423q67fp45m" path="res://commons/Materials/BillboardTexture.tres" id="29_8titr"]
 [ext_resource type="PackedScene" uid="uid://lngr0ceaxmqc" path="res://gameplay/props/AssetGym_Felix.tscn" id="29_ouo46"]
 [ext_resource type="PackedScene" uid="uid://due0aqalux7sq" path="res://gameplay/props/props Import/BeachBall.tscn" id="29_whado"]
 
@@ -529,39 +527,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -167.75247, 22.524343, 222.74
 [node name="JumpPad5" parent="Interactables/Jumppads" index="4" unique_id=1684042513 instance=ExtResource("18_okmpl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -259.0984, 18.024342, 348.62683)
 
-[node name="Palme_Asset" parent="." index="12" unique_id=846900554 instance=ExtResource("26_qvhjy")]
-transform = Transform3D(1.485775, 0, -0.20608902, 0, 1.5, 0, 0.20608902, 0, 1.485775, 11.168787, 17.637907, 35.200203)
-
-[node name="Cylinder_Curve" parent="Palme_Asset" index="0" unique_id=1328152379]
-material_override = ExtResource("28_5w5wm")
-
-[node name="Palme_Asset2" parent="." index="13" unique_id=1831424848 instance=ExtResource("26_qvhjy")]
-transform = Transform3D(1.485775, 0, -0.20608902, 0, 1.5, 0, 0.20608902, 0, 1.485775, 5.3633347, 17.637907, 143.13647)
-
-[node name="Cylinder_Curve" parent="Palme_Asset2" index="0" unique_id=1328152379]
-material_override = ExtResource("28_5w5wm")
-surface_material_override/0 = ExtResource("29_8titr")
-
-[node name="Palme_Asset3" parent="." index="14" unique_id=1140497081 instance=ExtResource("26_qvhjy")]
-transform = Transform3D(1.4004831, 0, 0.5372586, 0, 1.5, 0, -0.5372586, 0, 1.4004831, -158.70012, 30.446045, 121.20197)
-
-[node name="Cylinder_Curve" parent="Palme_Asset3" index="0" unique_id=1328152379]
-material_override = ExtResource("28_5w5wm")
-surface_material_override/0 = ExtResource("28_5w5wm")
-
-[node name="Palme_Asset4" parent="." index="15" unique_id=2118111321 instance=ExtResource("26_qvhjy")]
-transform = Transform3D(0.08642465, 0, -1.4975082, 0, 1.5, 0, 1.4975082, 0, 0.08642465, -204.73758, 32.446045, 109.47836)
-
-[node name="Cylinder_Curve" parent="Palme_Asset4" index="0" unique_id=1328152379]
-material_override = ExtResource("28_5w5wm")
-
-[node name="Palme_Asset5" parent="." index="16" unique_id=124370568 instance=ExtResource("26_qvhjy")]
-transform = Transform3D(1.4520772, 0, -0.37612742, 0, 1.5, 0, 0.37612742, 0, 1.4520772, -150.15486, 19.171125, 246.31326)
-
-[node name="Cylinder_Curve" parent="Palme_Asset5" index="0" unique_id=1328152379]
-material_override = ExtResource("28_5w5wm")
-
-[node name="AssetGymFelix" parent="." index="18" unique_id=388648016 instance=ExtResource("29_ouo46")]
+[node name="AssetGymFelix" parent="." index="13" unique_id=388648016 instance=ExtResource("29_ouo46")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 3.3124008, 5.535693, -11.919483)
 
 [node name="Billboard_ManuBeach" parent="AssetGymFelix" index="0" unique_id=838196966]
@@ -625,18 +591,13 @@ transform = Transform3D(0.6666667, 0, 0, 0, 0.6666667, 0, 0, 0, 0.6666667, -4.71
 [node name="Sandwich" parent="AssetGymFelix" index="13" unique_id=16740152]
 transform = Transform3D(0.6666667, 0, 0, 0, 0.6666667, 0, 0, 0, 0.6666667, -3.3126965, -8.374773, 4.6003375)
 
-[node name="BeachBall" parent="." index="19" unique_id=1682720803 instance=ExtResource("29_whado")]
+[node name="BeachBall" parent="." index="14" unique_id=1682720803 instance=ExtResource("29_whado")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.13509, 5.8141747, 135.46568)
 
-[node name="BeachBall2" parent="." index="20" unique_id=1967662059 instance=ExtResource("29_whado")]
+[node name="BeachBall2" parent="." index="15" unique_id=1967662059 instance=ExtResource("29_whado")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.86491, 5.8141747, 163.46568)
 
-[node name="BeachBall3" parent="." index="21" unique_id=85063475 instance=ExtResource("29_whado")]
+[node name="BeachBall3" parent="." index="16" unique_id=85063475 instance=ExtResource("29_whado")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.13509, 5.8141747, 0.46568298)
 
-[editable path="Palme_Asset"]
-[editable path="Palme_Asset2"]
-[editable path="Palme_Asset3"]
-[editable path="Palme_Asset4"]
-[editable path="Palme_Asset5"]
 [editable path="AssetGymFelix"]

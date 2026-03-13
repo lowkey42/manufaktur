@@ -1,0 +1,15 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://b06pi1t67v2lh"]
+
+[ext_resource type="AudioStream" uid="uid://c0sndvvx4dvxu" path="res://gameplay/player/vfx/jump/PlayerLandingWood1.wav" id="1_vxrtd"]
+[ext_resource type="AudioStream" uid="uid://cksc8l1kfvw32" path="res://gameplay/player/vfx/jump/PlayerLandingWood2.wav" id="2_t6pgo"]
+[ext_resource type="AudioStream" uid="uid://djj0vqcpg0u6d" path="res://gameplay/player/vfx/jump/PlayerLandingWood3.wav" id="3_55caw"]
+[ext_resource type="AudioStream" uid="uid://cvk267g522xeb" path="res://gameplay/player/vfx/jump/PlayerLandingWood4.wav" id="4_c6hxg"]
+[ext_resource type="AudioStream" uid="uid://dxiyc7t74d1lc" path="res://gameplay/player/vfx/jump/PlayerLandingWood5.wav" id="5_kmkh3"]
+
+[resource]
+streams_count = 5
+stream_0/stream = ExtResource("1_vxrtd")
+stream_1/stream = ExtResource("2_t6pgo")
+stream_2/stream = ExtResource("3_55caw")
+stream_3/stream = ExtResource("4_c6hxg")
+stream_4/stream = ExtResource("5_kmkh3")

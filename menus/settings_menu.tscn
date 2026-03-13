@@ -3,6 +3,9 @@
 [ext_resource type="Theme" uid="uid://cdh01f3cdy86t" path="res://commons/main_theme.tres" id="1_83qjl"]
 [ext_resource type="Script" uid="uid://b57x7amkff8wm" path="res://menus/SettingsMenu.cs" id="2_v0bl3"]
 [ext_resource type="Shortcut" uid="uid://7cs6fghgm3fk" path="res://menus/escape_shortcut.tres" id="3_n4a8d"]
+[ext_resource type="Script" uid="uid://csyrf4gbhsvin" path="res://menus/AnimatedButton.cs" id="4_f368g"]
+[ext_resource type="Script" uid="uid://ccb5gufjbbupq" path="res://menus/ExitButton.cs" id="4_qiwpd"]
+[ext_resource type="Resource" uid="uid://dl7uhmd64xfe6" path="res://commons/sounds/main_menu_ui_hover_sounds.tres" id="5_qiwpd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n4a8d"]
 bg_color = Color(0.3647059, 0.5529412, 0.7411765, 1)
@@ -83,6 +86,7 @@ theme = ExtResource("1_83qjl")
 theme_override_styles/normal = SubResource("StyleBoxFlat_qiwpd")
 shortcut = ExtResource("3_n4a8d")
 text = "X"
+script = ExtResource("4_qiwpd")
 
 [node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/Settings_Container" unique_id=724774366]
 layout_mode = 2
@@ -102,13 +106,36 @@ theme_override_colors/default_color = Color(0.21960784, 0.21960784, 0.41568628, 
 theme_override_font_sizes/normal_font_size = 25
 text = "General"
 
-[node name="Master_Container" type="HBoxContainer" parent="PanelContainer/MarginContainer/Settings_Container/GeneralContainer" unique_id=297738473]
+[node name="Master_Container" type="HBoxContainer" parent="PanelContainer/MarginContainer/Settings_Container/GeneralContainer" unique_id=697820393]
 custom_minimum_size = Vector2(250, 50)
 layout_mode = 2
 theme = ExtResource("1_83qjl")
 alignment = 1
 
-[node name="Master_Label" type="RichTextLabel" parent="PanelContainer/MarginContainer/Settings_Container/GeneralContainer/Master_Container" unique_id=558996567]
+[node name="Master_Label" type="RichTextLabel" parent="PanelContainer/MarginContainer/Settings_Container/GeneralContainer/Master_Container" unique_id=1442158728]
+custom_minimum_size = Vector2(110, 25)
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+theme_override_font_sizes/normal_font_size = 17
+text = "Master"
+vertical_alignment = 1
+
+[node name="Master_Slider" type="HSlider" parent="PanelContainer/MarginContainer/Settings_Container/GeneralContainer/Master_Container" unique_id=1758329675]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 75)
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("1_83qjl")
+value = 50.0
+rounded = true
+
+[node name="Music_Container" type="HBoxContainer" parent="PanelContainer/MarginContainer/Settings_Container/GeneralContainer" unique_id=297738473]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+alignment = 1
+
+[node name="Music_Label" type="RichTextLabel" parent="PanelContainer/MarginContainer/Settings_Container/GeneralContainer/Music_Container" unique_id=558996567]
 custom_minimum_size = Vector2(100, 25)
 layout_mode = 2
 theme = ExtResource("1_83qjl")
@@ -116,7 +143,7 @@ theme_override_font_sizes/normal_font_size = 20
 text = "Music"
 vertical_alignment = 1
 
-[node name="Master_Slider" type="HSlider" parent="PanelContainer/MarginContainer/Settings_Container/GeneralContainer/Master_Container" unique_id=482351484]
+[node name="Music_Slider" type="HSlider" parent="PanelContainer/MarginContainer/Settings_Container/GeneralContainer/Music_Container" unique_id=482351484]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(250, 75)
 layout_mode = 2
@@ -140,6 +167,29 @@ text = "SFX"
 vertical_alignment = 1
 
 [node name="SFX_Slider" type="HSlider" parent="PanelContainer/MarginContainer/Settings_Container/GeneralContainer/SFX_Container" unique_id=1010863191]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 75)
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("1_83qjl")
+value = 50.0
+rounded = true
+
+[node name="UI_Container" type="HBoxContainer" parent="PanelContainer/MarginContainer/Settings_Container/GeneralContainer" unique_id=1750970121]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+alignment = 1
+
+[node name="UI_Label" type="RichTextLabel" parent="PanelContainer/MarginContainer/Settings_Container/GeneralContainer/UI_Container" unique_id=600718675]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+theme = ExtResource("1_83qjl")
+theme_override_font_sizes/normal_font_size = 20
+text = "UI"
+vertical_alignment = 1
+
+[node name="UI_Slider" type="HSlider" parent="PanelContainer/MarginContainer/Settings_Container/GeneralContainer/UI_Container" unique_id=355450736]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(250, 75)
 layout_mode = 2
@@ -282,10 +332,14 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 35
 theme_override_styles/normal = SubResource("StyleBoxFlat_7h2wy")
 text = "Save"
+script = ExtResource("4_f368g")
+HoverSounds = ExtResource("5_qiwpd")
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/Settings_Container/HBoxContainer/Close_Button" to="." method="_on_close_button_pressed"]
 [connection signal="value_changed" from="PanelContainer/MarginContainer/Settings_Container/GeneralContainer/Master_Container/Master_Slider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/Settings_Container/GeneralContainer/Music_Container/Music_Slider" to="." method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="PanelContainer/MarginContainer/Settings_Container/GeneralContainer/SFX_Container/SFX_Slider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="value_changed" from="PanelContainer/MarginContainer/Settings_Container/GeneralContainer/UI_Container/UI_Slider" to="." method="_on_ui_slider_value_changed"]
 [connection signal="item_selected" from="PanelContainer/MarginContainer/Settings_Container/Graphic_Container/Resolution_Container/Resolution_Dropdown" to="." method="_on_resolution_dropdown_item_selected"]
 [connection signal="toggled" from="PanelContainer/MarginContainer/Settings_Container/Graphic_Container/SSAO_Container/SSAO_CheckBox" to="." method="_on_ssao_check_box_toggled"]
 [connection signal="toggled" from="PanelContainer/MarginContainer/Settings_Container/Graphic_Container/SSR_Container/SSR_CheckBox" to="." method="_on_ssr_check_box_toggled"]

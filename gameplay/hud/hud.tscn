@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bewigwlwwmn8o" path="res://gameplay/hud/Inventory/InventoryUi.tscn" id="4_tbdus"]
 [ext_resource type="Script" uid="uid://csyrf4gbhsvin" path="res://menus/AnimatedButton.cs" id="5_8y1lg"]
 [ext_resource type="PackedScene" uid="uid://b521fsdfux417" path="res://gameplay/hud/Inventory/ItemDurationContainer.tscn" id="5_phc85"]
+[ext_resource type="Resource" uid="uid://dl7uhmd64xfe6" path="res://commons/sounds/main_menu_ui_hover_sounds.tres" id="6_8k45c"]
 
 [sub_resource type="FontVariation" id="FontVariation_phc85"]
 base_font = ExtResource("3_td46j")
@@ -300,6 +301,7 @@ theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_g51lr")
 text = "Exit"
 script = ExtResource("5_8y1lg")
+HoverSounds = ExtResource("6_8k45c")
 
 [node name="ResetButton" type="Button" parent="Highscores/Buttons/MarginContainer/HBoxContainer2" unique_id=1885897927]
 custom_minimum_size = Vector2(0, 40)
@@ -309,6 +311,7 @@ theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_g51lr")
 text = "Reset"
 script = ExtResource("5_8y1lg")
+HoverSounds = ExtResource("6_8k45c")
 
 [node name="RetryButton" type="Button" parent="Highscores/Buttons/MarginContainer/HBoxContainer2" unique_id=2096042221]
 custom_minimum_size = Vector2(0, 40)
@@ -319,6 +322,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_g51lr")
 shortcut = SubResource("Shortcut_td46j")
 text = "Retry"
 script = ExtResource("5_8y1lg")
+HoverSounds = ExtResource("6_8k45c")
 
 [node name="NextButton" type="Button" parent="Highscores/Buttons/MarginContainer/HBoxContainer2" unique_id=19795080]
 custom_minimum_size = Vector2(0, 40)
@@ -328,6 +332,7 @@ theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxFlat_g51lr")
 text = "Next"
 script = ExtResource("5_8y1lg")
+HoverSounds = ExtResource("6_8k45c")
 
 [node name="Inventory" parent="." unique_id=601817208 instance=ExtResource("4_tbdus")]
 anchors_preset = 7

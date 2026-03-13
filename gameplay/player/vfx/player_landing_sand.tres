@@ -1,0 +1,17 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://byr6nf61gf00u"]
+
+[ext_resource type="AudioStream" uid="uid://dwopoy7vfwkyn" path="res://gameplay/player/vfx/jump/PlayerLandingSand1.wav" id="1_frs2e"]
+[ext_resource type="AudioStream" uid="uid://s8i5t8kw42um" path="res://gameplay/player/vfx/jump/PlayerLandingSand2.wav" id="2_qfi0s"]
+[ext_resource type="AudioStream" uid="uid://ds7toeweda7vd" path="res://gameplay/player/vfx/jump/PlayerLandingSand3.wav" id="3_55kcf"]
+[ext_resource type="AudioStream" uid="uid://d3e8tt1jkvclf" path="res://gameplay/player/vfx/jump/PlayerLandingSand4.wav" id="4_p68j8"]
+[ext_resource type="AudioStream" uid="uid://bh605cxb84xxh" path="res://gameplay/player/vfx/jump/PlayerLandingSand5.wav" id="5_skf6s"]
+[ext_resource type="AudioStream" uid="uid://buv88t6x3uqv2" path="res://gameplay/player/vfx/jump/PlayerLandingSand6.wav" id="6_5cdtv"]
+
+[resource]
+streams_count = 6
+stream_0/stream = ExtResource("1_frs2e")
+stream_1/stream = ExtResource("2_qfi0s")
+stream_2/stream = ExtResource("3_55kcf")
+stream_3/stream = ExtResource("4_p68j8")
+stream_4/stream = ExtResource("5_skf6s")
+stream_5/stream = ExtResource("6_5cdtv")
