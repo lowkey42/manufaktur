@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://d1se4gcs1hq0t" path="res://gameplay/interactables/glitched_wall/glitched_wall.tscn" id="17_rutv5"]
 [ext_resource type="PackedScene" uid="uid://di7d1utnoba6s" path="res://gameplay/interactables/spike_trap.tscn" id="18_ceaov"]
 [ext_resource type="PackedScene" uid="uid://xys1pyxjba42" path="res://gameplay/interactables/sandwitch_stomper/sandwich_stomper.tscn" id="19_q6kq1"]
+[ext_resource type="PackedScene" uid="uid://drudybk2kfppd" path="res://gameplay/props/props Import/Manufaktur_Factory_SchmanuStatue_v01.glb" id="20_yeoal"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_q6kq1"]
 size = Vector2(18, 18)
@@ -283,3 +284,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8364916, 0)
 
 [node name="SandwichStomper" parent="." index="33" unique_id=164298217 instance=ExtResource("19_q6kq1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.883007, 0, 5.1449575)
+
+[node name="Manufaktur_Factory_SchmanuStatue_v01" parent="." index="34" unique_id=271320920 instance=ExtResource("20_yeoal")]

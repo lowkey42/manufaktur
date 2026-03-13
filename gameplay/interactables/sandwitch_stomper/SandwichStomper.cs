@@ -5,7 +5,6 @@ using System.ComponentModel.Design;
 public partial class SandwichStomper : Node3D {
 	[ExportGroup("Motion")]
 	[Export(PropertyHint.Range, "0.05,30.0,0.05")] public float TravelTimeSeconds = 1.5f;
-	[Export] public float StartDelay = 0.0f;
 	[Export] public Tween.TransitionType Transition = Tween.TransitionType.Sine;
 	[Export] public Tween.EaseType Ease = Tween.EaseType.InOut;
 
