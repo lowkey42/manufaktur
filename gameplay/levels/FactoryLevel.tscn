@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://c777i63fqp4ko"]
+
+[ext_resource type="PackedScene" uid="uid://00ip0t0c74ti" path="res://gameplay/base_level.tscn" id="1_3fwcc"]
+[ext_resource type="MeshLibrary" uid="uid://f04go3smmvws" path="res://gameplay/props/FactoryMeshLib.tres" id="2_ej6vo"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mk68e"]
+
+[sub_resource type="Sky" id="Sky_xfbjl"]
+sky_material = SubResource("ProceduralSkyMaterial_mk68e")
+
+[sub_resource type="Environment" id="Environment_ki26l"]
+background_mode = 2
+sky = SubResource("Sky_xfbjl")
+ambient_light_source = 3
+ambient_light_color = Color(0.921569, 0.921569, 0, 1)
+ssr_enabled = true
+ssao_enabled = true
+ssao_radius = 0.01
+glow_enabled = true
+volumetric_fog_density = 0.01
+
+[node name="BaseLevel" unique_id=433332774 instance=ExtResource("1_3fwcc")]
+
+[node name="GameCore" parent="." index="0" unique_id=910148981]
+_startDelay = 0
+_ghostScene = null
+
+[node name="WorldEnvironment" parent="." index="3" unique_id=1608441752]
+environment = SubResource("Environment_ki26l")
+
+[node name="SpawnPoint" parent="." index="4" unique_id=407262584]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1553159, 0.7444391)
+
+[node name="Finish" parent="." index="5" unique_id=1714722049]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 76.68907)
+
+[node name="DeathZone" parent="." index="6" unique_id=189809183]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.257839, 0)
+
+[node name="ENV" type="Node3D" parent="." index="7" unique_id=909506101]
+
+[node name="GridMap" type="GridMap" parent="ENV" index="0" unique_id=996366306]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+mesh_library = ExtResource("2_ej6vo")
+cell_size = Vector3(1, 1, 1)
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+data = {
+"cells": PackedInt32Array(65535, 1, 0, 65535, 4, 0, 65535, 7, 0, 65535, 10, 0, 327684, 16, 2, -1, 22, 0)
+}
+metadata/_editor_floor_ = Vector3(0, -1, 0)
