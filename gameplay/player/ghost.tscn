@@ -31,11 +31,13 @@ stream_3/stream = ExtResource("9_al03c")
 stream_4/stream = ExtResource("10_wpato")
 
 [node name="Ghost" type="AnimatableBody3D" unique_id=25899066 node_paths=PackedStringArray("_mesh", "_particles", "_body", "_knockbackSound")]
+collision_layer = 2
 script = ExtResource("1_iemc3")
 _mesh = NodePath("Manu_Body")
 _particles = NodePath("GPUParticles3D")
 _body = NodePath("CollisionShape3D")
 _knockbackSound = NodePath("AudioStreamPlayer3D")
+metadata/collision_preset_name = "__custom__"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1550393334]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

@@ -5,6 +5,7 @@
 [ext_resource type="Shortcut" uid="uid://7cs6fghgm3fk" path="res://menus/escape_shortcut.tres" id="2_klmml"]
 [ext_resource type="Script" uid="uid://ccb5gufjbbupq" path="res://menus/ExitButton.cs" id="4_sxc4f"]
 [ext_resource type="Script" uid="uid://csyrf4gbhsvin" path="res://menus/AnimatedButton.cs" id="5_lqgjm"]
+[ext_resource type="Resource" uid="uid://dl7uhmd64xfe6" path="res://commons/sounds/main_menu_ui_hover_sounds.tres" id="6_lqgjm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sxc4f"]
 bg_color = Color(0.3647059, 0.5529412, 0.7411765, 1)
@@ -81,6 +82,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_lqgjm")
 shortcut = ExtResource("2_klmml")
 text = "Local"
 script = ExtResource("5_lqgjm")
+HoverSounds = ExtResource("6_lqgjm")
 
 [node name="GlobalButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=705382215]
 unique_name_in_owner = true
@@ -91,6 +93,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_lqgjm")
 shortcut = ExtResource("2_klmml")
 text = "Global"
 script = ExtResource("5_lqgjm")
+HoverSounds = ExtResource("6_lqgjm")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1006]
 layout_mode = 2

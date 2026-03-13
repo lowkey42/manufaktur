@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cgnnprhkk76hg"
-path="res://.godot/imported/Manufaktur_Factory_ManuTube_v01.glb-d041c5575d33642b3ce84664f03bbb1d.scn"
+uid="uid://bg3rfa0o0r71b"
+path="res://.godot/imported/Manufaktur_Factory_SchmanuStatue_v01.glb-09fc3974f3e36376a7f2a03b07659f87.scn"
 
 [deps]
 
-source_file="res://gameplay/props/props Import/Manufaktur_Factory_ManuTube_v01.glb"
-dest_files=["res://.godot/imported/Manufaktur_Factory_ManuTube_v01.glb-d041c5575d33642b3ce84664f03bbb1d.scn"]
+source_file="res://3D Files WIP/Manufaktur_Factory_SchmanuStatue_v01.glb"
+dest_files=["res://.godot/imported/Manufaktur_Factory_SchmanuStatue_v01.glb-09fc3974f3e36376a7f2a03b07659f87.scn"]
 
 [params]
 
@@ -37,21 +37,6 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"materials": {
-"@MATERIAL:0": {
-"use_external/enabled": true,
-"use_external/path": "uid://dam321ld4wisp"
-},
-"@MATERIAL:1": {
-"use_external/enabled": true,
-"use_external/path": "uid://dam321ld4wisp"
-},
-"@MATERIAL:2": {
-"use_external/enabled": true,
-"use_external/path": "uid://dam321ld4wisp"
-}
-}
-}
+_subresources={}
 gltf/naming_version=2
 gltf/embedded_image_handling=1

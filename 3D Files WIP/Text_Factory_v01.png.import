@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwup5al14x85m"
-path.s3tc="res://.godot/imported/Manu_Midpoly_DefaultMaterial_Roughness.png-fc962247e6ef651c2b673d3c5e43cb23.s3tc.ctex"
-path.etc2="res://.godot/imported/Manu_Midpoly_DefaultMaterial_Roughness.png-fc962247e6ef651c2b673d3c5e43cb23.etc2.ctex"
+uid="uid://bv25bi5lb8n76"
+path.s3tc="res://.godot/imported/Text_Factory_v01.png-a135de6bc6ec2ee930a376c3f843813a.s3tc.ctex"
+path.etc2="res://.godot/imported/Text_Factory_v01.png-a135de6bc6ec2ee930a376c3f843813a.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://gameplay/props/Schmanu_Texturen/Manu_Midpoly_DefaultMaterial_Roughness.png"
-dest_files=["res://.godot/imported/Manu_Midpoly_DefaultMaterial_Roughness.png-fc962247e6ef651c2b673d3c5e43cb23.s3tc.ctex", "res://.godot/imported/Manu_Midpoly_DefaultMaterial_Roughness.png-fc962247e6ef651c2b673d3c5e43cb23.etc2.ctex"]
+source_file="res://3D Files WIP/Text_Factory_v01.png"
+dest_files=["res://.godot/imported/Text_Factory_v01.png-a135de6bc6ec2ee930a376c3f843813a.s3tc.ctex", "res://.godot/imported/Text_Factory_v01.png-a135de6bc6ec2ee930a376c3f843813a.etc2.ctex"]
 
 [params]
 
