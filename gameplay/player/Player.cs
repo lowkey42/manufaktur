@@ -73,6 +73,8 @@ public partial class Player : CharacterBody3D {
 	[Export] private float _mouseSensitivity = 0.002f;
 	[Export] private float _stickSensitivity = 3.0f;
 
+	[Export] private AudioStreamPlayer3D _jumpPlayer;
+	
 	[Export] private Camera3D _camera;
 
 	[Export] public Inventory Inventory { get; private set; }
@@ -108,7 +110,7 @@ public partial class Player : CharacterBody3D {
 		_gravity      = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle() * _gravityFactor;
 		_jumpVelocity = Mathf.Sqrt(2 * _gravity * _jumpHeight);
 		_camera.Fov   = _targetFov.Sample(0);
-		//Input.SetMouseMode(Input.MouseModeEnum.Captured);
+		Input.SetMouseMode(Input.MouseModeEnum.Captured);
 	}
 
 	public override void _Input(InputEvent e) {
@@ -156,6 +158,17 @@ public partial class Player : CharacterBody3D {
 		Velocity             = Velocity with {Y = _jumpVelocity};
 		if (!IsNearlyGrounded()) {
 			_jumpsLeft--;
+		}
+
+		if (_jumpPlayer != null) {
+			var player = _jumpPlayer;
+			if (_jumpPlayer.IsPlaying()) {
+				player = (AudioStreamPlayer3D) _jumpPlayer.Duplicate();
+				player.Stop();
+				AddChild(player);
+				player.Finished += () => player.QueueFree();
+			}
+			player.Play();
 		}
 	}
 

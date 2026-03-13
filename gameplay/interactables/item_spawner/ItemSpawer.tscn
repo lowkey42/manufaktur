@@ -1,12 +1,9 @@
 [gd_scene format=3 uid="uid://di3rrw1px67qn"]
 
 [ext_resource type="Script" uid="uid://yfcioxfa8e8o" path="res://gameplay/interactables/item_spawner/ItemSpawer.cs" id="1_p2ixt"]
+[ext_resource type="PackedScene" uid="uid://cr21pi0hwdetp" path="res://gameplay/props/Item_Holder.glb" id="2_0rcvm"]
 [ext_resource type="Texture2D" uid="uid://drayfvyk2ujiy" path="res://gameplay/interactables/item_spawner/flare_01.png" id="2_8qreh"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_30c8b"]
-radius = 0.25
-height = 0.25
-is_hemisphere = true
+[ext_resource type="Texture2D" uid="uid://b16m0n4oj4hw0" path="res://gameplay/props/Item_Holder_TextureSet_Beach_Assets_V01.png" id="4_fk1dw"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_p2ixt"]
 radius = 0.25
@@ -40,6 +37,9 @@ billboard_mode = 1
 material = SubResource("StandardMaterial3D_0rcvm")
 size = Vector2(0.15, 0.15)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nugkn"]
+albedo_texture = ExtResource("4_fk1dw")
+
 [node name="ItemSpawer" type="Node3D" unique_id=1895522051 node_paths=PackedStringArray("CollectionArea", "ParticleSpawner")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 script = ExtResource("1_p2ixt")
@@ -47,9 +47,6 @@ CollectionArea = NodePath("Item/CollectionArea")
 ParticleSpawner = NodePath("GPUParticles3D")
 
 [node name="Body" type="Area3D" parent="." unique_id=1658786522]
-
-[node name="Mesh" type="MeshInstance3D" parent="Body" unique_id=1857169059]
-mesh = SubResource("SphereMesh_30c8b")
 
 [node name="Collision" type="CollisionShape3D" parent="Body" unique_id=291243133]
 shape = SubResource("SphereShape3D_p2ixt")
@@ -71,3 +68,11 @@ amount = 200
 lifetime = 0.8
 process_material = SubResource("ParticleProcessMaterial_p2ixt")
 draw_pass_1 = SubResource("QuadMesh_fk1dw")
+
+[node name="Item_Holder" parent="." unique_id=928203116 instance=ExtResource("2_0rcvm")]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+
+[node name="Circle" parent="Item_Holder" index="0" unique_id=2101946678]
+surface_material_override/0 = SubResource("StandardMaterial3D_nugkn")
+
+[editable path="Item_Holder"]
