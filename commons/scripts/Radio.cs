@@ -54,11 +54,15 @@ public partial class Radio : Node
 	public void SetMusicVolume(int volume) {
 		if (volume != _currentMusicVolume) {
 			ClearTween();
-			var tween = CreateTween();
+			var tween = _currentMusicPlayer.CreateTween();
 			tween.TweenProperty(_currentMusicPlayer, "volume_linear", (float) volume / 100f, MusicFadeDuration);
 			_currentMusicVolume = volume;
 			_currentTween = tween;
 		}
+	}
+
+	public int GetMusicVolume() {
+		return _currentMusicVolume;
 	}
 
 	private void StartSong(AudioStream song, int volume) {
