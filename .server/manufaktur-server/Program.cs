@@ -1,7 +1,7 @@
 using System.Diagnostics;
 using System.Text.Json;
 
-string filename = Path.Combine("data", "data_$level.json");
+string filename = Path.Combine("~", ".manufaktur", "data_$level.json");
 
 HashSet<string> levelNames = [
 	"baselevel",
@@ -33,6 +33,7 @@ app.MapGet("/scores/{level}", (string level) =>
 app.MapPost("/score/{level}", (string level, ScoreEntry score) => {
 	if (!VerifyLevel(level)) throw new Exception("Illegal level");
     if (!Verify(score)) throw new Exception("Invalid score");
+	score.name = FilterName(score.name);
     allScores.TryGetValue(level, out Scores scores);
     scores ??= (allScores[level] = new());
     scores.AddEntry(score);
@@ -73,6 +74,10 @@ void Load() {
 			Console.WriteLine(e.Message);
 		}
 	}
+}
+
+string FilterName(string name) {
+	return name.Replace("AfD", "gesichert Rechtsextrem");
 }
 
 record class ScoreEntry
