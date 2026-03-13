@@ -53,6 +53,7 @@ public partial class AnimatedButton : Button {
 			tween.Kill();
 		}
 		Scale = new Vector2(0.9f, 0.9f);
+		Radio.Instance.PlayRandomSound(GD.Load<AudioStream>("res://commons/vfx/MenuConfirm.wav"), Radio.Instance.UiSfxBus);
 	}
 
 	private void _onButton_Up() {

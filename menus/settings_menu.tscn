@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://b57x7amkff8wm" path="res://menus/SettingsMenu.cs" id="2_v0bl3"]
 [ext_resource type="Shortcut" uid="uid://7cs6fghgm3fk" path="res://menus/escape_shortcut.tres" id="3_n4a8d"]
 [ext_resource type="Script" uid="uid://csyrf4gbhsvin" path="res://menus/AnimatedButton.cs" id="4_f368g"]
+[ext_resource type="Script" uid="uid://ccb5gufjbbupq" path="res://menus/ExitButton.cs" id="4_qiwpd"]
 [ext_resource type="Resource" uid="uid://dl7uhmd64xfe6" path="res://commons/sounds/main_menu_ui_hover_sounds.tres" id="5_qiwpd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n4a8d"]
@@ -85,8 +86,7 @@ theme = ExtResource("1_83qjl")
 theme_override_styles/normal = SubResource("StyleBoxFlat_qiwpd")
 shortcut = ExtResource("3_n4a8d")
 text = "X"
-script = ExtResource("4_f368g")
-HoverSounds = ExtResource("5_qiwpd")
+script = ExtResource("4_qiwpd")
 
 [node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/Settings_Container" unique_id=724774366]
 layout_mode = 2
