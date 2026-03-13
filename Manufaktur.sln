@@ -2,6 +2,8 @@
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manufaktur", "Manufaktur.csproj", "{A6F6AA82-693C-44D5-9696-082B7494FD8D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "manufaktur-server", ".server\manufaktur-server\manufaktur-server.csproj", "{0A48F53D-4622-423A-A0BF-D13B97C2B291}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 	Debug|Any CPU = Debug|Any CPU
@@ -15,5 +17,11 @@ Global
 		{A6F6AA82-693C-44D5-9696-082B7494FD8D}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
 		{A6F6AA82-693C-44D5-9696-082B7494FD8D}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
 		{A6F6AA82-693C-44D5-9696-082B7494FD8D}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+		{0A48F53D-4622-423A-A0BF-D13B97C2B291}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A48F53D-4622-423A-A0BF-D13B97C2B291}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A48F53D-4622-423A-A0BF-D13B97C2B291}.ExportDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A48F53D-4622-423A-A0BF-D13B97C2B291}.ExportDebug|Any CPU.Build.0 = Debug|Any CPU
+		{0A48F53D-4622-423A-A0BF-D13B97C2B291}.ExportRelease|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A48F53D-4622-423A-A0BF-D13B97C2B291}.ExportRelease|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 EndGlobal
