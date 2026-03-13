@@ -41,20 +41,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.108201504, 0.7548561, -6.8
 material_override = ExtResource("2_f0u35")
 mesh = SubResource("BoxMesh_5pioa")
 
-[node name="WorldEnvironment" parent="." index="3" unique_id=1608441752]
+[node name="WorldEnvironment" parent="." index="4" unique_id=1608441752]
 script = ExtResource("4_418pq")
 
-[node name="SpawnPoint" parent="." index="4" unique_id=407262584]
+[node name="SpawnPoint" parent="." index="5" unique_id=407262584]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.18455, 0, 4.6905375)
-
-[node name="Finish" parent="." index="5" unique_id=1714722049]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.958788, 0, -18.359535)
 
 [node name="SpikeTrap" parent="." index="6" unique_id=189809183 instance=ExtResource("3_qped4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.062111, 0, -11.76894)
 
-[node name="CollisionShape3D" parent="DeathZone/Area3D" parent_id_path=PackedInt32Array(383152636) index="0" unique_id=167147070]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6113429, 0)
+[node name="Finish" parent="." index="7" unique_id=1714722049]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.958788, 0, -18.359535)
 
 [node name="RigidBody3D" parent="." index="8" unique_id=1682720803 instance=ExtResource("6_favqn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0597181, 2.80685, -2.7537127)
+
+[node name="CollisionShape3D" parent="DeathZone/Area3D" parent_id_path=PackedInt32Array(383152636) index="0" unique_id=167147070]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6113429, 0)
