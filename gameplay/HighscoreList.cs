@@ -193,7 +193,7 @@ public class HighscoreList {
 		SaveGlobalEntries();
 	}
 
-	public async Task<HighscoreList.Entry[]> GetGlobalScores(HighscoreList.Entry newEntry) {
+	public async Task<HighscoreList.Entry[]> GetGlobalScores(HighscoreList.Entry newEntry = null) {
 		if (ScoreServerUrl == null) {
 			return newEntry == null ? [] : [newEntry];
 		}

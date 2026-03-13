@@ -46,7 +46,7 @@ public partial class HighScoreMenu : Control
     private void ShowGlobalScores()
     {
         if (_currentList == null) return;
-        UpdateUI(_currentList.EntriesGlobal);
+        //UpdateUI(_currentList.EntriesGlobal); Removed, is now HighScoreList.GetGlobalScores(Entry?);
     }
 
 
