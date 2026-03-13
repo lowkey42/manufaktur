@@ -12,7 +12,8 @@ public partial class Popup : Node3D {
 	public float PushbackVelocity = 120f;
 
 	[Export] private Node3D _rotationOrigin;
-	[Export] private AudioStreamPlayer3D _soundPlayer;
+	[Export] private AudioStreamPlayer3D _popupSoundPlayer;
+	[Export] private AudioStreamPlayer3D _pushbackSoundPlayer;
 	[Export] private Area3D _pushbackTriggerArea;
 
 	private Tween _tween;
@@ -25,6 +26,8 @@ public partial class Popup : Node3D {
 
 	private void OnBodyEnteredPushBackArea(Node3D body) {
 		if (body is Player player) {
+			GD.Print("Pushback entered");
+			_pushbackSoundPlayer.Play();
 			var direction = (player.GlobalPosition - this.GlobalPosition).Normalized();
 			player.Velocity =  direction * PushbackVelocity;
 		}
@@ -79,7 +82,7 @@ public partial class Popup : Node3D {
 		GD.Print("Pop up");
 		
 		var tween = this.CreateTween();
-		_soundPlayer.Play();
+		_popupSoundPlayer.Play();
 		tween.TweenProperty(_rotationOrigin, "rotation_degrees", new Vector3(0, 0, 0), 0.5f)
 		     .SetTrans(Tween.TransitionType.Back)
 		     .SetEase(Tween.EaseType.Out);

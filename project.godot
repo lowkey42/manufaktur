@@ -52,6 +52,13 @@ window/vsync/vsync_mode=3
 
 project/assembly_name="Manufaktur"
 
+[editor]
+
+movie_writer/video_quality=1.0
+movie_writer/ogv/audio_quality=1.0
+movie_writer/ogv/encoding_speed=3
+movie_writer/movie_file="/tmp/video.ogv"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/collision_presets/plugin.cfg", "res://addons/diagnosticlist/plugin.cfg", "res://addons/godot_3d_auto_collision_generator/plugin.cfg", "res://addons/godot_material_footsteps/plugin.cfg", "res://addons/godot_resource_groups/plugin.cfg", "res://addons/proton_scatter/plugin.cfg", "res://addons/richtext2/plugin.cfg")
@@ -181,10 +188,13 @@ textures/canvas_textures/default_texture_repeat=1
 rendering_device/driver.windows="d3d12"
 textures/vram_compression/import_s3tc_bptc=true
 textures/vram_compression/import_etc2_astc=true
+lights_and_shadows/directional_shadow/soft_shadow_filter_quality=3
+lights_and_shadows/positional_shadow/soft_shadow_filter_quality=3
 textures/default_filters/anisotropic_filtering_level=3
 camera/depth_of_field/depth_of_field_bokeh_quality=2
 camera/depth_of_field/depth_of_field_use_jitter=true
 environment/subsurface_scattering/subsurface_scattering_quality=2
+anti_aliasing/quality/screen_space_aa=2
 occlusion_culling/use_occlusion_culling=true
 
 [richer_text_label]
