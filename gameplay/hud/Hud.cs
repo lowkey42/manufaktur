@@ -23,6 +23,8 @@ public partial class Hud : CanvasLayer {
 	[Export] private Control _newEntryPanel;
 	[Export] private TextEdit _newEntryName;
 
+	[Export] private AudioStreamPlayer _newHighscoreAudio;
+
 	[Export] private Label _labelCountdown;
 
 	private HighscoreList _highscores;
@@ -43,6 +45,10 @@ public partial class Hud : CanvasLayer {
 			_newEntryName.TextChanged  += OnRowChange;
 			_newEntryName.FocusEntered += OnFocusEntered;
 			_newEntryPanel.Show();
+
+			if (_newHighscoreAudio != null) {
+				_newHighscoreAudio.Play();
+			}
 		}
 
 		_highscorePanel.Show();

@@ -191,7 +191,30 @@ mesh = SubResource("PlaneMesh_q6kq1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_yeoal")
 
-[node name="Floor2" type="StaticBody3D" parent="Floor" index="4" unique_id=127431798]
+[node name="Floor7" type="StaticBody3D" parent="Floor" index="4" unique_id=195263858]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54, 0, 18)
+collision_mask = 17
+metadata/collision_preset_name = "__custom__"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor/Floor7" index="0" unique_id=856014724]
+mesh = SubResource("PlaneMesh_q6kq1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/Floor7" index="1" unique_id=2145799951]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_yeoal")
+
+[node name="Floor8" type="StaticBody3D" parent="Floor" index="5" unique_id=1236956982]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54, 0, 0)
+collision_mask = 17
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor/Floor8" index="0" unique_id=291549454]
+mesh = SubResource("PlaneMesh_q6kq1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/Floor8" index="1" unique_id=1232196122]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_yeoal")
+
+[node name="Floor2" type="StaticBody3D" parent="Floor" index="6" unique_id=127431798]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, 0)
 collision_mask = 17
 
@@ -202,7 +225,7 @@ mesh = SubResource("PlaneMesh_q6kq1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_yeoal")
 
-[node name="Floor" type="StaticBody3D" parent="Floor" index="5" unique_id=704426171]
+[node name="Floor" type="StaticBody3D" parent="Floor" index="7" unique_id=704426171]
 collision_mask = 17
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor/Floor" index="0" unique_id=1135117337]
@@ -238,7 +261,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.7559366, 3.202303, 8.66081
 omni_range = 35.147
 
 [node name="Popup" parent="." index="27" unique_id=1517823302 instance=ExtResource("13_mrx4j")]
-transform = Transform3D(-0.68970793, 0, 0.72408766, 0, 1, 0, -0.72408766, 0, -0.68970793, -6.4705205, 0.01, 20.720097)
+transform = Transform3D(-0.95993257, 0, -0.28023103, 0, 1, 0, 0.28023103, 0, -0.95993257, -40.574146, 0.010000953, -2.7990704)
 TriggerRadius = 6.0
 
 [node name="Turret" parent="." index="28" unique_id=1180370954 instance=ExtResource("14_m3i5n")]
