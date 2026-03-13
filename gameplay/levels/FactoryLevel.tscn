@@ -771,7 +771,7 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -187.73485, -181.94913, 479.0
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -187.73485, -181.94913, 577.5409)
 
 [node name="AssetGymFelix" parent="." index="9" unique_id=388648016 instance=ExtResource("4_6tlr6")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 75.37651, -0.34459496, -48.600365)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 81.16168, -0.34459496, -50.482643)
 
 [node name="Turrets" type="Node3D" parent="." index="10" unique_id=731055350]
 
@@ -782,7 +782,7 @@ transform = Transform3D(-1.0000001, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0
 transform = Transform3D(-1.0000001, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0, -1.0000001, 58.96248, 0.5601733, 148.7636)
 
 [node name="SandwichStomper" parent="." index="11" unique_id=164298217 instance=ExtResource("11_s1rtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.94705, 9.208595, 117.81833)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.545004, 9.208595, 105.88014)
 
 [node name="SandwichStomper2" type="Node3D" parent="." index="12" unique_id=1187295080]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.94705, 9.208595, 146.86139)
