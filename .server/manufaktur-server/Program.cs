@@ -1,7 +1,7 @@
 using System.Diagnostics;
 using System.Text.Json;
 
-string filename = Path.Combine("~", ".manufaktur", "data_$level.json");
+string filename = Path.Combine(".manufaktur", "data_$level.json");
 
 HashSet<string> levelNames = [
 	"baselevel",
