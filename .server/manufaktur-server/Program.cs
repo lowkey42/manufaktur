@@ -1,9 +1,10 @@
+using System.Diagnostics;
 using System.Text.Json;
 
 string filename = Path.Combine("data", "data_$level.json");
 
 HashSet<string> levelNames = [
-	"baseLevel",
+	"baselevel",
 	"level01",
 	"test",
 ];
@@ -24,12 +25,14 @@ if (app.Environment.IsDevelopment())
 
 app.MapGet("/scores/{level}", (string level) =>
 {
+	Debug.WriteLine(level);
     if (!VerifyLevel(level)) return null;
     return allScores.TryGetValue(level, out Scores scores) ? scores.scores : new();
 });
 
 app.MapPost("/score/{level}", (string level, ScoreEntry score) => {
-    if (!Verify(score)) throw new Exception();
+	if (!VerifyLevel(level)) throw new Exception("Illegal level");
+    if (!Verify(score)) throw new Exception("Invalid score");
     allScores.TryGetValue(level, out Scores scores);
     scores ??= (allScores[level] = new());
     scores.AddEntry(score);

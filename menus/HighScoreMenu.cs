@@ -4,82 +4,89 @@ using Manufaktur.gameplay;
 
 public partial class HighScoreMenu : Control
 {
-    [Signal]
-    public delegate void ClosedEventHandler();
-    
+	[Signal]
+	public delegate void ClosedEventHandler();
+	
 
-    private HighscoreList _currentList;
+	private HighscoreList _currentList;
+	private bool _showingGlobal = false;
 
-    public override void _Ready()
-    {
+	public override void _Ready()
+	{
 
-        var btnLocal = GetNodeOrNull<Button>("%LocalButton");
-        var btnGlobal = GetNodeOrNull<Button>("%GlobalButton");
+		var btnLocal = GetNodeOrNull<Button>("%LocalButton");
+		var btnGlobal = GetNodeOrNull<Button>("%GlobalButton");
 
-        if (btnLocal != null) 
-            btnLocal.Pressed += ShowLocalScores;
-            
-        if (btnGlobal != null) 
-            btnGlobal.Pressed += ShowGlobalScores;
-    }
+		if (btnLocal != null) 
+			btnLocal.Pressed += ShowLocalScores;
+			
+		if (btnGlobal != null) 
+			btnGlobal.Pressed += ShowGlobalScores;
+	}
 
-    private void _on_close_button_pressed() 
-    {
-       EmitSignal(SignalName.Closed);
-    }
+	private void _on_close_button_pressed() 
+	{
+	   EmitSignal(SignalName.Closed);
+	}
 
-    public void _load_score(string levelName)
-    {
-        _currentList = new HighscoreList(levelName);
-        
+	public void _load_score(string levelName)
+	{
+		_currentList = new HighscoreList(levelName);
+		
 
-        ShowLocalScores();
-    }
-
-
-    private void ShowLocalScores()
-    {
-        if (_currentList == null) return;
-        UpdateUI(_currentList.EntriesLocal);
-    }
-
-    private void ShowGlobalScores()
-    {
-        if (_currentList == null) return;
-        //UpdateUI(_currentList.EntriesGlobal); Removed, is now HighScoreList.GetGlobalScores(Entry?);
-    }
+		ShowLocalScores();
+	}
 
 
-    private void UpdateUI(HighscoreList.Entry[] entries)
-    {
-        var scoreListContainer = GetNodeOrNull<VBoxContainer>("%ScoreListContainer");
-        
-        if (scoreListContainer == null) {
-            GD.PrintErr("Konnte %ScoreListContainer nicht finden!");
-            return;
-        }
+	private void ShowLocalScores()
+	{
+		if (_currentList == null) return;
+		_showingGlobal = false;
+		UpdateUI(_currentList.EntriesLocal);
+	}
 
-        for (int i = 0; i < 9; i++)
-        {
-            var scoreNode = scoreListContainer.GetNodeOrNull<HBoxContainer>($"Score_{i + 1}");
-            if (scoreNode == null) continue;
+	private async void ShowGlobalScores()
+	{
+		if (_currentList == null || _showingGlobal) return;
+		_showingGlobal = true;
+		
+		UpdateUI([]);
 
-            var nameLabel  = scoreNode.GetNodeOrNull<RichTextLabel>("RichTextLabel");
-            var scoreLabel = scoreNode.GetNodeOrNull<RichTextLabel>("RichTextLabel2");
+		var scores = await _currentList.GetGlobalScores();
+		if (_showingGlobal) UpdateUI(scores);
+	}
 
-            if (nameLabel == null || scoreLabel == null) continue;
 
-            if (i < entries.Length)
-            {
-                var entry = entries[i];
-                nameLabel.Text  = entry.Name;
-                scoreLabel.Text = $"{entry.Time:0.000}s";
-            }
-            else
-            {
-                nameLabel.Text  = "-";
-                scoreLabel.Text = "-";
-            }
-        }
-    }
+	private void UpdateUI(HighscoreList.Entry[] entries)
+	{
+		var scoreListContainer = GetNodeOrNull<VBoxContainer>("%ScoreListContainer");
+		
+		if (scoreListContainer == null) {
+			GD.PrintErr("Konnte %ScoreListContainer nicht finden!");
+			return;
+		}
+
+		for (int i = 0; i < 9; i++)
+		{
+			var scoreNode = scoreListContainer.GetNodeOrNull<HBoxContainer>($"Score_{i + 1}");
+			if (scoreNode == null) continue;
+
+			var nameLabel  = scoreNode.GetNodeOrNull<RichTextLabel>("RichTextLabel");
+			var scoreLabel = scoreNode.GetNodeOrNull<RichTextLabel>("RichTextLabel2");
+
+			if (nameLabel == null || scoreLabel == null) continue;
+
+			if (i < entries.Length)
+			{
+				var entry = entries[i];
+				nameLabel.Text  = entry.Name;
+				scoreLabel.Text = $"{entry.Time:0.000}s";
+			}
+			else
+			{
+				nameLabel.Text  = "-";
+				scoreLabel.Text = "-";
+			}
+		}
+	}
 }
