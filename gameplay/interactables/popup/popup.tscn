@@ -54,6 +54,7 @@ size = Vector3(0.708, 0.816, 0.35)
 
 [node name="Popup" type="Node3D" unique_id=1517823302 node_paths=PackedStringArray("_rotationOrigin", "_popupSoundPlayer", "_pushbackSoundPlayer", "_pushbackTriggerArea")]
 script = ExtResource("1_0gril")
+TriggerRadius = 18.0
 _rotationOrigin = NodePath("QuickandDirtyFix/Origin")
 _popupSoundPlayer = NodePath("PopupSoundPlayer")
 _pushbackSoundPlayer = NodePath("PushbackSoundPlayer")

@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://xys1pyxjba42"]
 
-[ext_resource type="PackedScene" uid="uid://drlqtbtd481rq" path="res://gameplay/interactables/moving_platform/moving_platform.tscn" id="1_c5tqm"]
-[ext_resource type="PackedScene" uid="uid://di7d1utnoba6s" path="res://gameplay/interactables/spike_trap.tscn" id="2_yw80n"]
+[ext_resource type="Script" uid="uid://bxtuv52r15db4" path="res://gameplay/interactables/sandwitch_stomper/SandwichStomper.cs" id="1_wdndh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_urk6c"]
 
@@ -204,54 +203,38 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_j55fw")
 
-[node name="SandwichStomper" type="Node3D" unique_id=164298217]
+[node name="SandwichStomper" type="Node3D" unique_id=164298217 node_paths=PackedStringArray("_stomper")]
+script = ExtResource("1_wdndh")
+_stomper = NodePath("stomper")
 
 [node name="Cylinder_022" type="MeshInstance3D" parent="." unique_id=1682571092]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09262657, -4.0420933, -0.014404297)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1112161, 0)
 mesh = SubResource("ArrayMesh_0qocr")
 skeleton = NodePath("")
 
-[node name="MovingPlatform" parent="." unique_id=1860802399 node_paths=PackedStringArray("EndCoordinate") instance=ExtResource("1_c5tqm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19329643, 4.13988, 0.060646057)
-EndCoordinate = NodePath("../StomperCords")
-TravelTimeSeconds = 0.5
-Looping = true
-Triggerable = false
-StartEnabled = true
+[node name="stomper" type="Node3D" parent="." unique_id=1647493915]
 
-[node name="Mesh" parent="MovingPlatform/Body" parent_id_path=PackedInt32Array(1860802399, 758428579) index="1" unique_id=374044707]
-visible = false
-
-[node name="Cylinder_019" type="MeshInstance3D" parent="MovingPlatform/Body" parent_id_path=PackedInt32Array(1860802399, 758428579) index="2" unique_id=99901048]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10066986, 1.5933323, -0.075050354)
+[node name="Cylinder_019" type="MeshInstance3D" parent="stomper" unique_id=99901048]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09262657, 1.7298489, -0.014404297)
 mesh = SubResource("ArrayMesh_chfm5")
 skeleton = NodePath("")
 
-[node name="Cylinder_020" type="MeshInstance3D" parent="MovingPlatform/Body" parent_id_path=PackedInt32Array(1860802399, 758428579) index="3" unique_id=576175569]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10066986, 1.4220963, -0.075050354)
+[node name="Cylinder_020" type="MeshInstance3D" parent="stomper" unique_id=576175569]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09262657, 1.5586128, -0.014404297)
 mesh = SubResource("ArrayMesh_6c70f")
 skeleton = NodePath("")
 
-[node name="Cylinder_021" type="MeshInstance3D" parent="MovingPlatform/Body" parent_id_path=PackedInt32Array(1860802399, 758428579) index="4" unique_id=1213952582]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10066986, 1.0822754, -0.075050354)
+[node name="Cylinder_021" type="MeshInstance3D" parent="stomper" unique_id=1213952582]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09262657, 1.218792, -0.014404297)
 mesh = SubResource("ArrayMesh_mcbdq")
 skeleton = NodePath("")
 
-[node name="Solid 237_003" type="MeshInstance3D" parent="MovingPlatform/Body" parent_id_path=PackedInt32Array(1860802399, 758428579) index="5" unique_id=1246697907]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10066986, -0.115448, 0.10320282)
+[node name="Solid 237_003" type="MeshInstance3D" parent="stomper" unique_id=1246697907]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09262657, 0.021068573, 0.16384888)
 mesh = SubResource("ArrayMesh_m1eqv")
 skeleton = NodePath("")
 
-[node name="Cylinder" type="MeshInstance3D" parent="MovingPlatform/Body" parent_id_path=PackedInt32Array(1860802399, 758428579) index="6" unique_id=727571635]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10066986, 1.1429958, -0.075050354)
+[node name="Cylinder" type="MeshInstance3D" parent="stomper" unique_id=727571635]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09262657, 1.2795124, -0.014404297)
 mesh = SubResource("ArrayMesh_4nble")
 skeleton = NodePath("")
-
-[node name="SpikeTrap" parent="MovingPlatform/Body" parent_id_path=PackedInt32Array(1860802399, 758428579) index="7" unique_id=189809183 instance=ExtResource("2_yw80n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1312027, 0)
-visible = false
-
-[node name="StomperCords" type="Node3D" parent="." unique_id=1471627738]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19329715, -9.236694, -0.084387064)
-
-[editable path="MovingPlatform"]

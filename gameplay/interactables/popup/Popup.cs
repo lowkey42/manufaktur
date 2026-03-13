@@ -15,7 +15,7 @@ public partial class Popup : Node3D {
 	[Export] private AudioStreamPlayer3D _popupSoundPlayer;
 	[Export] private AudioStreamPlayer3D _pushbackSoundPlayer;
 	[Export] private Area3D _pushbackTriggerArea;
-
+	
 	private Tween _tween;
 
 	private bool _up = false;
