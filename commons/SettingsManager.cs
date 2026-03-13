@@ -16,8 +16,8 @@ public partial class SettingsManager : Node
 	
 	public float UiVolume { get; set; } = 50f;
 	
-	public int ResolutionHeight { get; set; } = 1920;
-	public int ResolutionWidth { get; set; } = 1080;
+	public int ResolutionHeight { get; set; } = 1080;
+	public int ResolutionWidth { get; set; } = 1920;
 
 	public bool Ssao { get; set; } = false;
 	
@@ -75,6 +75,10 @@ public partial class SettingsManager : Node
 		float musicDb = Mathf.LinearToDb(MusicVolume / 100f);
 		float uiDb = Mathf.LinearToDb(UiVolume / 100f) - 15f;
 		float sfxDb = Mathf.LinearToDb(SfxVolume / 100f);
+
+		if (!Fullscreen) {
+			DisplayServer.WindowSetSize(new Vector2I(ResolutionWidth, ResolutionHeight));
+		}
 		
 
 		AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Master"), (masterDb));
