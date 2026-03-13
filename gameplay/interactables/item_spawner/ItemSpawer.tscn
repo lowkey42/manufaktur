@@ -40,9 +40,11 @@ billboard_mode = 1
 material = SubResource("StandardMaterial3D_0rcvm")
 size = Vector2(0.15, 0.15)
 
-[node name="ItemSpawer" type="Node3D" unique_id=1895522051]
+[node name="ItemSpawer" type="Node3D" unique_id=1895522051 node_paths=PackedStringArray("CollectionArea", "ParticleSpawner")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 script = ExtResource("1_p2ixt")
+CollectionArea = NodePath("Item/CollectionArea")
+ParticleSpawner = NodePath("GPUParticles3D")
 
 [node name="Body" type="Area3D" parent="." unique_id=1658786522]
 
