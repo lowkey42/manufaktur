@@ -15,4 +15,5 @@ JumpStrength = 10.0
 HandTexture = ExtResource("1_3ay55")
 SpawnerTexture = ExtResource("2_3hq7n")
 UseSounds = SubResource("AudioStreamRandomizer_bmckv")
+SpawnerParticleColor = Color(0.17000002, 0.3775, 1, 1)
 metadata/_custom_type_script = "uid://7y1fs0oos65t"
