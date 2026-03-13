@@ -1,3 +1,17 @@
+using System.Text.Json;
+
+string filename = Path.Combine("data", "data_$level.json");
+
+HashSet<string> levelNames = [
+	"baseLevel",
+	"level01",
+	"test",
+];
+
+Dictionary<string, Scores> allScores = [];
+
+Load();
+
 var builder = WebApplication.CreateBuilder(args);
 
 var app = builder.Build();
@@ -7,11 +21,6 @@ if (app.Environment.IsDevelopment())
 {
 }
 
-HashSet<string> levelNames = [
-    "test"
-];
-
-Dictionary<string, Scores> allScores = [];
 
 app.MapGet("/scores/{level}", (string level) =>
 {
@@ -19,11 +28,12 @@ app.MapGet("/scores/{level}", (string level) =>
     return allScores.TryGetValue(level, out Scores scores) ? scores.scores : new();
 });
 
-app.MapPost("/score", (ScoreEntry score) => {
+app.MapPost("/score/{level}", (string level, ScoreEntry score) => {
     if (!Verify(score)) throw new Exception();
-    allScores.TryGetValue(score.level, out Scores scores);
-    scores ??= (allScores[score.level] = new());
+    allScores.TryGetValue(level, out Scores scores);
+    scores ??= (allScores[level] = new());
     scores.AddEntry(score);
+	Save(level);
 });
 
 app.Run();
@@ -37,16 +47,33 @@ bool Verify(ScoreEntry score)
 {
     if (score.name.Length > 20) return false;
     if (score.name.Length < 1) return false;
-    if (!VerifyLevel(score.level)) return false;
-    if (score.time < 5) return false;
+    if (score.time < 1) return false;
 
     return true;
 }
 
+void Save(string level) {
+	var data = JsonSerializer.Serialize(allScores[level].scores);
+	Directory.CreateDirectory(Path.GetDirectoryName(filename));
+	lock (allScores[level]) {
+		File.WriteAllText(filename.Replace("$level", level), data);
+	}
+}
+
+void Load() {
+	foreach (var level in levelNames) {
+		try {
+			var json = File.ReadAllText(filename.Replace("$level", level));
+			var data = JsonSerializer.Deserialize<List<ScoreEntry>>(json) ?? throw new Exception("Level data is null.");
+			allScores[level] = new Scores() { scores = data };
+		} catch (Exception e) {
+			Console.WriteLine(e.Message);
+		}
+	}
+}
 
 record class ScoreEntry
 {
-    public required string level { get; set; }
     public required string name { get; set; }
     public required float time { get; set; }
 

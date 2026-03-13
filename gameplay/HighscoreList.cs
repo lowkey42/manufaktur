@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Json;
+using System.Threading.Tasks;
 using Godot;
 using Godot.Collections;
 using Manufaktur.gameplay.player;
@@ -8,6 +10,8 @@ using Manufaktur.gameplay.player;
 namespace Manufaktur.gameplay;
 
 public class HighscoreList {
+	private const string ScoreServerUrl = null; // "http://localhost:5189/";
+
 	public class Entry {
 		private readonly HighscoreList _list;
 
@@ -62,10 +66,10 @@ public class HighscoreList {
 
 	private readonly Json _defaultGhost;
 	private readonly List<Entry> _entriesLocal = [];
-	private readonly List<Entry> _entriesGlobal = [];
+
+	private readonly List<Entry> _unsavedGlobalEntries = [];
 
 	public Entry[] EntriesLocal => _entriesLocal.ToArray();
-	public Entry[] EntriesGlobal => _entriesGlobal.ToArray();
 
 	public float TimeMinimum { get; private set; }
 	public float TimeBronze { get; private set; }
@@ -98,12 +102,6 @@ public class HighscoreList {
 			if(jsonData.TryGetValue("entries", out var entriesLocal)) {
 				foreach (var entry in entriesLocal.AsGodotArray<Dictionary>()) {
 					_entriesLocal.Add(Entry.FromDictionary(this, entry));
-				}
-			}
-
-			if(jsonData.TryGetValue("entriesGlobal", out var entriesGlobal)) {
-				foreach (var entry in entriesGlobal.AsGodotArray<Dictionary>()) {
-					_entriesGlobal.Add(Entry.FromDictionary(this, entry));
 				}
 			}
 		}
@@ -150,16 +148,8 @@ public class HighscoreList {
 	public Entry AddHighscoreEntry(string name, float time) {
 		var newEntry    = new Entry(this, name, time, Guid.NewGuid().ToString());
 		var newInLocal  = InsertNewEntry(newEntry, _entriesLocal, true);
-		var newInGlobal = InsertNewEntry(newEntry, _entriesGlobal, false);
-		if (newInLocal)
-			return newEntry;
-		
-		if (newInGlobal) {
-			newEntry.ClearGhostId();
-			return newEntry;
-		}
-
-		return null;
+		_unsavedGlobalEntries.Add(newEntry);
+		return newEntry;
 	}
 
 	private bool InsertNewEntry(Entry newEntry, List<Entry> entries, bool deleteGhosts) {
@@ -195,15 +185,52 @@ public class HighscoreList {
 			entriesLocal.Add(entry.ToDictionary());
 		}
 		
-		var entriesGlobal = new Array<Dictionary>();
-		foreach (var entry in _entriesGlobal) {
-			entriesGlobal.Add(entry.ToDictionary());
-		}
-
-		var data = new Dictionary {{"entries", entriesLocal}, {"entriesGlobal", entriesGlobal}};
+		var data = new Dictionary {{"entries", entriesLocal}};
 
 		using var file = FileAccess.Open(path, FileAccess.ModeFlags.Write);
 		file.StoreString(Json.Stringify(data, "\t"));
+
+		SaveGlobalEntries();
+	}
+
+	public async Task<HighscoreList.Entry[]> GetGlobalScores(HighscoreList.Entry newEntry) {
+		if (ScoreServerUrl == null) {
+			return newEntry == null ? [] : [newEntry];
+		}
+
+		System.Net.Http.HttpClient client = new();
+		var response = await client.GetAsync(ScoreServerUrl + "scores/" + _levelName);
+		var resultJson = await response.Content.ReadAsStringAsync();
+		var data = System.Text.Json.JsonSerializer.Deserialize<List<System.Text.Json.JsonElement>>(resultJson);
+		var result = data.Select(entry => new HighscoreList.Entry(null, entry.GetProperty("name").GetString(), (float) entry.GetProperty("time").GetDouble(), null)).ToList();
+
+		if (newEntry != null) {
+			var index = ~(result.Select(x => x.Time).ToList().BinarySearch(newEntry.Time));
+			result.Insert(index, newEntry);
+		}
+
+		return result.ToArray();
+	}
+
+	private void SaveGlobalEntries() {
+		if (ScoreServerUrl == null) {
+			_unsavedGlobalEntries.Clear();
+			return; 
+		}
+
+		System.Net.Http.HttpClient client = new();
+		foreach (var entry in _unsavedGlobalEntries) {
+			object obj = new {
+				name = entry.Name,
+				time = entry.Time,
+			};
+			try {
+				client.PostAsJsonAsync(ScoreServerUrl + "score/" + _levelName, obj);
+			} catch (Exception e) {
+				GD.PrintErr(e);
+			}
+		}
+		_unsavedGlobalEntries.Clear();
 	}
 
 	public bool IsMinimumTimeReached() {
