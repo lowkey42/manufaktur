@@ -3,5 +3,5 @@ services:
     build: .
     ports:
       - 8080:5189
-    volume:
+    volumes:
       - ~/.manufaktur:~/.manufaktur
