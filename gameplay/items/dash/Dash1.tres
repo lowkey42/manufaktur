@@ -15,4 +15,5 @@ Duration = 2.0
 HandTexture = ExtResource("1_ys4po")
 SpawnerTexture = ExtResource("2_k8a08")
 UseSounds = SubResource("AudioStreamRandomizer_031jb")
+SpawnerParticleColor = Color(0.53, 0.0052999947, 0.0052999947, 1)
 metadata/_custom_type_script = "uid://dl8bucyrvu5o"

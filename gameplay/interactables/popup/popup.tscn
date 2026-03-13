@@ -36,6 +36,7 @@ stream_8/stream = ExtResource("11_pg10u")
 
 [node name="Popup" type="Node3D" unique_id=1517823302 node_paths=PackedStringArray("_soundPlayer")]
 script = ExtResource("1_0gril")
+TriggerRadius = 24.0
 _soundPlayer = NodePath("AudioStreamPlayer3D")
 
 [node name="Origin" type="Node3D" parent="." unique_id=2029802706]

@@ -1,0 +1,15 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://bxwu67usj4rg6"]
+
+[ext_resource type="AudioStream" uid="uid://caqt1t2d70qlu" path="res://gameplay/player/vfx/jump/PlayerLandingMetal1.wav" id="1_esrrq"]
+[ext_resource type="AudioStream" uid="uid://ce1l50yf6sl58" path="res://gameplay/player/vfx/jump/PlayerLandingMetal2.wav" id="2_huwkf"]
+[ext_resource type="AudioStream" uid="uid://1vt50xcwq1lc" path="res://gameplay/player/vfx/jump/PlayerLandingMetal3.wav" id="3_dr2ba"]
+[ext_resource type="AudioStream" uid="uid://df4lnuw5mb1p4" path="res://gameplay/player/vfx/jump/PlayerLandingMetal4.wav" id="4_l4nog"]
+[ext_resource type="AudioStream" uid="uid://cielcbjkdkxro" path="res://gameplay/player/vfx/jump/PlayerLandingMetal5.wav" id="5_k0iie"]
+
+[resource]
+streams_count = 5
+stream_0/stream = ExtResource("1_esrrq")
+stream_1/stream = ExtResource("2_huwkf")
+stream_2/stream = ExtResource("3_dr2ba")
+stream_3/stream = ExtResource("4_l4nog")
+stream_4/stream = ExtResource("5_k0iie")

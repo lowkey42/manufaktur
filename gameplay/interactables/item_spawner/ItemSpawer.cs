@@ -1,9 +1,10 @@
 using Godot;
 using Manufaktur.gameplay;
-using System;
 
 public partial class ItemSpawer : Triggerable {
 	[Export] public ItemResource item { get; set; }
+	[Export] private Area3D CollectionArea { get; set; }
+	[Export] private GpuParticles3D ParticleSpawner { get; set; }
 
 	[ExportGroup("Animation Settings")]
 	[Export] public bool AnimateMesh { get; set; } = true;
@@ -26,17 +27,67 @@ public partial class ItemSpawer : Triggerable {
 
 		itemNode = GetNodeOrNull<Node3D>("Item");
 
-		var collectionArea = GetNodeOrNull<Area3D>("Item/CollectionArea");
-		collectionArea.BodyEntered += OnCollectionAreaBodyEntered;
+		CollectionArea.BodyEntered += OnCollectionAreaBodyEntered;
+
+		SetupParticleMaterialColor();
 
 		if (!SpawnOnTrigger) {
 			SpawnItem();
 		}
 	}
 
+	private void SetupParticleMaterialColor() {
+		if (ParticleSpawner is null) {
+			GD.PrintErr("ItemSpawer ParticleSpawner is null!");
+			return;
+		}
+
+		var drawPass = ParticleSpawner.DrawPass1;
+		if (drawPass is null) {
+			GD.PrintErr("ItemSpawer DrawPass1 is null!");
+			return;
+		}
+
+		var uniqueDrawPass = drawPass.Duplicate(true) as Mesh;
+		if (uniqueDrawPass is null) {
+			GD.PrintErr("ItemSpawer could not duplicate DrawPass1 mesh!");
+			return;
+		}
+
+		ParticleSpawner.DrawPass1 = uniqueDrawPass;
+
+		var sourceMaterial = uniqueDrawPass.SurfaceGetMaterial(0) as StandardMaterial3D;
+		if (sourceMaterial is null && uniqueDrawPass is QuadMesh quadMesh) {
+			sourceMaterial = quadMesh.Material as StandardMaterial3D;
+		}
+
+		if (sourceMaterial is null) {
+			GD.PrintErr("ItemSpawer material is null!");
+			return;
+		}
+
+		var uniqueMaterial = sourceMaterial.Duplicate() as StandardMaterial3D;
+		if (uniqueMaterial is null) {
+			GD.PrintErr("ItemSpawer could not duplicate particle material!");
+			return;
+		}
+
+		uniqueMaterial.EmissionEnabled = true;
+		if (item != null) {
+			uniqueMaterial.Emission = item.SpawnerParticleColor;
+		}
+
+		uniqueDrawPass.SurfaceSetMaterial(0, uniqueMaterial);
+		if (uniqueDrawPass is QuadMesh writableQuadMesh) {
+			writableQuadMesh.Material = uniqueMaterial;
+		}
+	}
+
 	private void SpawnItem() {
 		if (!spawned) {
 			spawned = true;
+			
+			ParticleSpawner.Emitting = true;
 
 			if (item != null && item.SpawnerTexture != null) {
 				var quadMesh = new QuadMesh();
@@ -65,6 +116,9 @@ public partial class ItemSpawer : Triggerable {
 	private void DespawnItem() {
 		if (spawned) {
 			spawned = false;
+
+			ParticleSpawner.Emitting = false;
+
 			if (meshInstance != null) {
 				meshInstance.QueueFree();
 				meshInstance = null;

@@ -8,6 +8,10 @@
 
 config_version=5
 
+[addons]
+
+metadata_manager/template_script_path="uid://e2greom6d80g"
+
 [animation]
 
 compatibility/default_parent_skeleton_in_mesh_instance_3d=true
@@ -50,7 +54,7 @@ project/assembly_name="Manufaktur"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/collision_presets/plugin.cfg", "res://addons/diagnosticlist/plugin.cfg", "res://addons/godot_3d_auto_collision_generator/plugin.cfg", "res://addons/godot_resource_groups/plugin.cfg", "res://addons/input_prompts/plugin.cfg", "res://addons/proton_scatter/plugin.cfg", "res://addons/richtext2/plugin.cfg")
+enabled=PackedStringArray("res://addons/collision_presets/plugin.cfg", "res://addons/diagnosticlist/plugin.cfg", "res://addons/godot_3d_auto_collision_generator/plugin.cfg", "res://addons/godot_material_footsteps/plugin.cfg", "res://addons/godot_resource_groups/plugin.cfg", "res://addons/proton_scatter/plugin.cfg", "res://addons/richtext2/plugin.cfg")
 
 [filesystem]
 
@@ -165,6 +169,8 @@ toggle_capture={
 [physics]
 
 3d/physics_engine="Jolt Physics"
+jolt_physics_3d/simulation/generate_all_kinematic_contacts=true
+jolt_physics_3d/queries/enable_ray_cast_face_index=true
 3d/default_gravity=20.0
 common/physics_interpolation=true
 

@@ -9,12 +9,12 @@ public partial class SettingsManager : Node
 	private const string _savePath = "user://settings.cfg";
 	
 	public bool Fullscreen { get; set; } = false;
-	public float MasterVolume { get; set; } = 0.5f;
+	public float MasterVolume { get; set; } = 50f;
 	
-	public float MusicVolume { get; set; } = 0.5f;
-	public float SfxVolume { get; set; } = 0.5f;
+	public float MusicVolume { get; set; } = 50f;
+	public float SfxVolume { get; set; } = 50f;
 	
-	public float UiVolume { get; set; } = 0.5f;
+	public float UiVolume { get; set; } = 50f;
 	
 	public int ResolutionHeight { get; set; } = 1920;
 	public int ResolutionWidth { get; set; } = 1080;
@@ -36,10 +36,6 @@ public partial class SettingsManager : Node
 	{
 		var err = _config.Load(_savePath);
 
-		if (err != Error.Ok) {
-			GD.Print("Keine Konfigurationsdatei gefunden. Verwende Standardwerte.");
-			return;
-		}
 		Fullscreen       = (bool)_config.GetValue("video", "fullscreen", false);
 		MasterVolume     = (float)_config.GetValue("audio", "master_vol", 50.0f);
 		MusicVolume     = (float)_config.GetValue("audio", "music_vol", 50.0f);
@@ -77,7 +73,7 @@ public partial class SettingsManager : Node
 		
 		float masterDb = Mathf.LinearToDb(MasterVolume / 100f);
 		float musicDb = Mathf.LinearToDb(MusicVolume / 100f);
-		float uiDb = Mathf.LinearToDb(UiVolume / 100f);
+		float uiDb = Mathf.LinearToDb(UiVolume / 100f) - 15f;
 		float sfxDb = Mathf.LinearToDb(SfxVolume / 100f);
 		
 

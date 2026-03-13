@@ -83,7 +83,7 @@ public partial class GameCore : Node {
 			}
 
 			_hud.SetCountdown(timeLeft);
-			await ToSignal(GetTree().CreateTimer(1.0), "timeout");
+			await ToSignal(GetTree().CreateTimer(1.0, false), "timeout");
 		}
 
 		_player.ProcessMode = ProcessModeEnum.Inherit;
