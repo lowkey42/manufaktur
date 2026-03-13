@@ -36,14 +36,14 @@ public partial class SettingsManager : Node
 	{
 		var err = _config.Load(_savePath);
 
-		Fullscreen       = (bool)_config.GetValue("video", "fullscreen", false);
+		Fullscreen       = (bool)_config.GetValue("video", "fullscreen", true);
 		MasterVolume     = (float)_config.GetValue("audio", "master_vol", 50.0f);
 		MusicVolume     = (float)_config.GetValue("audio", "music_vol", 50.0f);
 		SfxVolume        = (float)_config.GetValue("audio", "sfx_vol", 50.0f);
 		UiVolume         = (float)_config.GetValue("audio", "ui_vol", 50.0f);
-		Ssr              = (bool)_config.GetValue("video", "ssr", false);
-		Ssao             = (bool)_config.GetValue("video", "ssao", false);
-		Ssil             = (bool)_config.GetValue("video", "ssil", false);
+		Ssr              = (bool)_config.GetValue("video", "ssr", true);
+		Ssao             = (bool)_config.GetValue("video", "ssao", true);
+		Ssil             = (bool)_config.GetValue("video", "ssil", true);
 		ResolutionHeight = (int)_config.GetValue("video", "ResolutionHeight", 1920);
 		ResolutionWidth  = (int)_config.GetValue("video", "ResolutionWidth", 1080);
 		SaveSettings();
