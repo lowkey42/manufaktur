@@ -4,6 +4,7 @@
 [ext_resource type="Material" uid="uid://bod5dn2ugg4bl" path="res://commons/Materials/TrimFactory_material.tres" id="2_wb63x"]
 [ext_resource type="PackedScene" uid="uid://ct3ocsa4g3low" path="res://gameplay/props/FactoryBigWallPiece.glb" id="3_wb63x"]
 [ext_resource type="PackedScene" uid="uid://d7drwooflcw5" path="res://gameplay/props/props Import/Manufaktur_Factory_ManuTurret_v01.glb" id="4_imx8j"]
+[ext_resource type="PackedScene" uid="uid://cgnnprhkk76hg" path="res://gameplay/props/props Import/Manufaktur_Factory_ManuTube_v01.glb" id="5_y7on4"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_b1hxa"]
 _surfaces = [{
@@ -987,3 +988,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.409523, 0, 0)
 
 [node name="Manufaktur_Factory_ManuTurret_v01" parent="." unique_id=164447718 instance=ExtResource("4_imx8j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.898085, 1.1201901, 27.640688)
+
+[node name="Manufaktur_Factory_ManuTube_v01" parent="." unique_id=373537669 instance=ExtResource("5_y7on4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.348683, 0, 27.201765)
