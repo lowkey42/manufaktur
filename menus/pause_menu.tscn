@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dmbo8atp8xcgj" path="res://menus/PauseMenu.cs" id="1_s0u37"]
 [ext_resource type="Theme" uid="uid://cdh01f3cdy86t" path="res://commons/main_theme.tres" id="2_p1qj3"]
 [ext_resource type="Script" uid="uid://csyrf4gbhsvin" path="res://menus/AnimatedButton.cs" id="3_0wv6w"]
+[ext_resource type="Resource" uid="uid://dl7uhmd64xfe6" path="res://commons/sounds/main_menu_ui_hover_sounds.tres" id="4_qlf07"]
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=1089073059]
 process_mode = 3
@@ -48,6 +49,7 @@ layout_mode = 2
 theme = ExtResource("2_p1qj3")
 text = "Continue"
 script = ExtResource("3_0wv6w")
+HoverSounds = ExtResource("4_qlf07")
 
 [node name="RestartButton" type="Button" parent="PauseMarginContainer/PauseVBoxContainer" unique_id=1178924541]
 custom_minimum_size = Vector2(0, 75)
@@ -55,6 +57,7 @@ layout_mode = 2
 theme = ExtResource("2_p1qj3")
 text = "Restart"
 script = ExtResource("3_0wv6w")
+HoverSounds = ExtResource("4_qlf07")
 
 [node name="ExitButton" type="Button" parent="PauseMarginContainer/PauseVBoxContainer" unique_id=1593364156]
 custom_minimum_size = Vector2(0, 75)
@@ -62,6 +65,7 @@ layout_mode = 2
 theme = ExtResource("2_p1qj3")
 text = "Exit"
 script = ExtResource("3_0wv6w")
+HoverSounds = ExtResource("4_qlf07")
 
 [connection signal="pressed" from="PauseMarginContainer/PauseVBoxContainer/ContinueButton" to="." method="OnResumeButtonPressed"]
 [connection signal="pressed" from="PauseMarginContainer/PauseVBoxContainer/RestartButton" to="." method="OnResetButtonPressed"]

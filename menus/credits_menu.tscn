@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://gskkmdby62te" path="res://commons/textures/placeholder.png" id="2_kacps"]
 [ext_resource type="Shortcut" uid="uid://7cs6fghgm3fk" path="res://menus/escape_shortcut.tres" id="2_xpenk"]
 [ext_resource type="Texture2D" uid="uid://dld260x0tqfcf" path="res://commons/textures/placeholder_schmanu.png" id="3_0oii8"]
+[ext_resource type="Script" uid="uid://csyrf4gbhsvin" path="res://menus/AnimatedButton.cs" id="3_oi14g"]
+[ext_resource type="Resource" uid="uid://dl7uhmd64xfe6" path="res://commons/sounds/main_menu_ui_hover_sounds.tres" id="4_8f2xa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xpenk"]
 bg_color = Color(0.3647059, 0.5529412, 0.7411765, 1)
@@ -58,6 +60,8 @@ layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_x5fnw")
 shortcut = ExtResource("2_xpenk")
 text = "X"
+script = ExtResource("3_oi14g")
+HoverSounds = ExtResource("4_8f2xa")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=927394761]
 unique_name_in_owner = true
