@@ -129,9 +129,4 @@ public partial class Radio : Node
 		var stream = pool[randomIndex];
 		PlaySfx(stream, volume, bus);
 	}
-	
-	public void PlayUiSound(AudioStream stream, string bus, int volume = 100) {
-		if (stream == null) return;
-		PlaySfx(stream, volume, bus);
-	}
 }

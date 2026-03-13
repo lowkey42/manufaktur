@@ -9,6 +9,6 @@ public partial class ExitButton : Button {
 	
 
 	private void _onButton_Down() {
-		Radio.Instance.PlayUiSound(GD.Load<AudioStream>("res://commons/vfx/MenuClose.wav"), Radio.Instance.UiSfxBus);
+		Radio.Instance.PlayUiSfx(GD.Load<AudioStream>("res://commons/vfx/MenuClose.wav"));
 	}
 }
