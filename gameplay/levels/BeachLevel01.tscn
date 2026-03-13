@@ -440,28 +440,28 @@ SpawnOnTrigger = false
 [node name="Popups" type="Node" parent="Interactables" index="3" unique_id=1225409036]
 
 [node name="Popup" parent="Interactables/Popups" index="0" unique_id=1517823302 instance=ExtResource("22_mjd6v")]
-transform = Transform3D(1.808016, 0, -0.8550313, 0, 2, 0, 0.8550313, 0, 1.808016, -245.10007, 17.993513, 553.5379)
+transform = Transform3D(1.356012, 0, -0.6412735, 0, 1.5, 0, 0.6412735, 0, 1.356012, -245.10007, 17.993513, 553.5379)
 
 [node name="Popup2" parent="Interactables/Popups" index="1" unique_id=995668346 instance=ExtResource("22_mjd6v")]
-transform = Transform3D(1.8750017, 0, -0.6959662, 0, 2, 0, 0.6959662, 0, 1.8750017, -49.882446, 4.4686437, 219.27158)
+transform = Transform3D(1.4062512, 0, -0.5219746, 0, 1.5, 0, 0.5219746, 0, 1.4062512, -49.882446, 4.4686437, 219.27158)
 
 [node name="Popup6" parent="Interactables/Popups" index="2" unique_id=225567098 instance=ExtResource("22_mjd6v")]
-transform = Transform3D(1.9993701, 0, -0.05019039, 0, 2, 0, 0.05019039, 0, 1.9993701, -127.765366, 13.48225, 166.49376)
+transform = Transform3D(1.4995276, 0, -0.037642792, 0, 1.5, 0, 0.037642792, 0, 1.4995276, -127.765366, 13.48225, 166.49376)
 
 [node name="Popup3" parent="Interactables/Popups" index="3" unique_id=1924171553 instance=ExtResource("22_mjd6v")]
-transform = Transform3D(2.9536932, 0, -0.5250692, 0, 3, 0, 0.5250692, 0, 2.9536932, -240.0531, 18.014988, 381.83997)
+transform = Transform3D(1.4768466, 0, -0.2625346, 0, 1.5, 0, 0.2625346, 0, 1.4768466, -240.0531, 18.014988, 381.83997)
 
 [node name="Popup4" parent="Interactables/Popups" index="4" unique_id=137748059 instance=ExtResource("22_mjd6v")]
-transform = Transform3D(2.3456717, 0, -1.8702474, 0, 3, 0, 1.8702474, 0, 2.3456717, -78.50528, 13.510698, 576.93225)
+transform = Transform3D(1.1728358, 0, -0.93512356, 0, 1.5, 0, 0.93512356, 0, 1.1728358, -78.50528, 13.510698, 576.93225)
 
 [node name="Popup7" parent="Interactables/Popups" index="5" unique_id=1357032518 instance=ExtResource("22_mjd6v")]
-transform = Transform3D(0.25303134, 0, -2.487162, 0, 2.5, 0, 2.487162, 0, 0.25303134, -192.53363, 18.05185, 636.5734)
+transform = Transform3D(0.15181881, 0, -1.4922972, 0, 1.5, 0, 1.4922972, 0, 0.15181881, -192.53363, 18.05185, 636.5734)
 
 [node name="Popup5" parent="Interactables/Popups" index="6" unique_id=1584264336 instance=ExtResource("22_mjd6v")]
-transform = Transform3D(2.8654323, 0, -0.8884247, 0, 2.9999998, 0, 0.8884247, 0, 2.8654323, -296.77484, 18.02415, 686.9452)
+transform = Transform3D(1.4327161, 0, -0.44421226, 0, 1.5, 0, 0.44421226, 0, 1.4327161, -296.77484, 18.02415, 686.9452)
 
 [node name="Popup8" parent="Interactables/Popups" index="7" unique_id=1135335872 instance=ExtResource("22_mjd6v")]
-transform = Transform3D(2.9896054, 0, -0.24952042, 0, 2.9999995, 0, 0.24952042, 0, 2.9896054, -304.70087, 4.519981, 565.76935)
+transform = Transform3D(1.4948026, 0, -0.1247602, 0, 1.5, 0, 0.1247602, 0, 1.4948026, -304.70087, 4.519981, 565.76935)
 
 [node name="Turrets" type="Node" parent="Interactables" index="4" unique_id=913538308]
 
