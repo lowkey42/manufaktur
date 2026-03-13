@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c0cbiwewmxg0m"]
+
+[ext_resource type="Script" uid="uid://dt2x8mvxt6uc8" path="res://gameplay/LevelManager.cs" id="1_mulox"]
+[ext_resource type="Script" uid="uid://cronyum28888l" path="res://gameplay/levels/LevelData.cs" id="2_uox5x"]
+[ext_resource type="Resource" uid="uid://c2w3vcb1h7cc4" path="res://gameplay/levels/LevelData/beach_level_1.tres" id="3_75dix"]
+[ext_resource type="Resource" uid="uid://bak1s8ceva3i8" path="res://gameplay/levels/LevelData/beach_level_2.tres" id="4_iwlio"]
+[ext_resource type="Resource" uid="uid://ccijxdvsbou26" path="res://gameplay/levels/LevelData/factory_level_1.tres" id="5_58at6"]
+
+[node name="LevelManager" type="Node" unique_id=2064700197]
+script = ExtResource("1_mulox")
+AvailableLevels = Array[ExtResource("2_uox5x")]([ExtResource("3_75dix"), ExtResource("4_iwlio"), ExtResource("5_58at6")])
