@@ -145,6 +145,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
 texture = ExtResource("1_dvbnx")
+expand_mode = 3
 stretch_mode = 5
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="LayoutContainer/MainSplit/CurrentSelectedLevelContainer/MarginContainer/RightPanelContent" unique_id=1995830627]

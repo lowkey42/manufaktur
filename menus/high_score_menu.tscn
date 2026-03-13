@@ -5,6 +5,7 @@
 [ext_resource type="Theme" uid="uid://cdh01f3cdy86t" path="res://commons/main_theme.tres" id="2_k83c2"]
 [ext_resource type="Shortcut" uid="uid://7cs6fghgm3fk" path="res://menus/escape_shortcut.tres" id="2_klmml"]
 [ext_resource type="Script" uid="uid://ccb5gufjbbupq" path="res://menus/ExitButton.cs" id="4_sxc4f"]
+[ext_resource type="Script" uid="uid://csyrf4gbhsvin" path="res://menus/AnimatedButton.cs" id="5_lqgjm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sxc4f"]
 bg_color = Color(0.3647059, 0.5529412, 0.7411765, 1)
@@ -66,6 +67,31 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_lqgjm")
 shortcut = ExtResource("2_klmml")
 text = "X"
 script = ExtResource("4_sxc4f")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1655596337]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="LocalButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=2056638419]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_lqgjm")
+shortcut = ExtResource("2_klmml")
+text = "Local"
+script = ExtResource("5_lqgjm")
+
+[node name="GlobalButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=705382215]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_lqgjm")
+shortcut = ExtResource("2_klmml")
+text = "Global"
+script = ExtResource("5_lqgjm")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1006]
 layout_mode = 2
