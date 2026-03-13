@@ -8,14 +8,12 @@
 [ext_resource type="Resource" uid="uid://dl7uhmd64xfe6" path="res://commons/sounds/main_menu_ui_hover_sounds.tres" id="4_ygrj5"]
 [ext_resource type="PackedScene" uid="uid://cvv5omm6grlor" path="res://menus/credits_menu.tscn" id="6_a63lr"]
 [ext_resource type="PackedScene" uid="uid://k2040505eddu" path="res://menus/high_score_menu.tscn" id="6_pwbes"]
-[ext_resource type="Shader" uid="uid://bxp14y1yokjlo" path="res://menus/main_menu_var_2.gdshader" id="10_caclp"]
-[ext_resource type="Texture2D" uid="uid://df7uukofrmrgq" path="res://commons/Materials/manu_leonardo_ratio.png" id="10_nc6jr"]
 [ext_resource type="Shader" uid="uid://nylevraohuxe" path="res://menus/endless_scroller.gdshader" id="10_rx1ud"]
 [ext_resource type="Script" uid="uid://crt0tg6q7ndeh" path="res://menus/EndlessScroller.cs" id="11_kk4mm"]
-[ext_resource type="Script" uid="uid://efxehlbofws" path="res://menus/HexAnim.cs" id="11_nc6jr"]
 [ext_resource type="Texture2D" uid="uid://b2mrmof7mh5sw" path="res://commons/Materials/blue_main_menu.png" id="11_rx1ud"]
 [ext_resource type="Script" uid="uid://rk6ergkns8hq" path="res://commons/scripts/SceneMusic.cs" id="14_u3dsk"]
 [ext_resource type="AudioStream" uid="uid://c0fxql6x5n08y" path="res://commons/music/ManuMenu.wav" id="14_wcdpt"]
+[ext_resource type="Texture2D" uid="uid://c4hbfd63ap65q" path="res://menus/Title.png" id="14_ygrj5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pwbes"]
 bg_color = Color(0.3647059, 0.5529412, 0.7411765, 1)
@@ -23,21 +21,6 @@ shadow_size = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hswy5"]
 bg_color = Color(1, 1, 1, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vmd75"]
-shader = ExtResource("10_caclp")
-shader_parameter/bg_color = Color(0.0627451, 0.32156864, 0.60784316, 1)
-shader_parameter/line_color = Color(0.9, 0.9, 1, 0.8)
-shader_parameter/grid_size = 155.3850069057875
-shader_parameter/speed = 0.050000002375
-
-[sub_resource type="Gradient" id="Gradient_caclp"]
-interpolation_mode = 2
-interpolation_color_space = 1
-colors = PackedColorArray(0.21960784, 0.21960784, 0.41568628, 1, 0.3647059, 0.5529412, 0.7411765, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_nc6jr"]
-gradient = SubResource("Gradient_caclp")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wcdpt"]
 shader = ExtResource("10_rx1ud")
@@ -109,6 +92,11 @@ alignment = 0
 script = ExtResource("3_pwbes")
 HoverSounds = ExtResource("4_ygrj5")
 
+[node name="Title" type="Sprite2D" parent="MainMenuPanel" unique_id=410300182]
+position = Vector2(203, 294)
+scale = Vector2(0.069, 0.069)
+texture = ExtResource("14_ygrj5")
+
 [node name="LevelSelection" parent="." unique_id=1153605463 instance=ExtResource("4_a63lr")]
 unique_name_in_owner = true
 visible = false
@@ -133,21 +121,6 @@ offset_top = -20.0
 offset_right = 20.0
 offset_bottom = 20.0
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1689940712]
-visible = false
-z_index = -5
-material = SubResource("ShaderMaterial_vmd75")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = SubResource("GradientTexture1D_nc6jr")
-script = ExtResource("11_nc6jr")
-Duration = 20.0
-
 [node name="HintergrundTapete" type="TextureRect" parent="." unique_id=1378526430]
 unique_name_in_owner = true
 z_index = -5
@@ -162,23 +135,6 @@ mouse_filter = 2
 texture = ExtResource("11_rx1ud")
 script = ExtResource("11_kk4mm")
 ScrollSpeed = Vector2(0.05, 0.05)
-
-[node name="TextureRect3" type="TextureRect" parent="." unique_id=1547104291]
-visible = false
-z_index = -5
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -700.0
-offset_top = 50.0
-offset_right = -100.0
-offset_bottom = 400.0
-grow_horizontal = 0
-mouse_filter = 2
-texture = ExtResource("10_nc6jr")
-expand_mode = 1
-stretch_mode = 5
 
 [node name="SceneMusic" type="Node" parent="." unique_id=525388288]
 script = ExtResource("14_u3dsk")
