@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://u4ehmri5mcgp" path="res://FactoryAssets.glb" id="1_2s4lp"]
 [ext_resource type="PackedScene" uid="uid://ct3ocsa4g3low" path="res://gameplay/props/FactoryBigWallPiece.glb" id="3_wb63x"]
+[ext_resource type="PackedScene" uid="uid://cho4vnpb72s0" path="res://gameplay/props/props Import/Manufaktur_Factory_EiffeltowerALaManu_v01.glb" id="4_imx8j"]
 [ext_resource type="PackedScene" uid="uid://cm7q1rhpxiwvl" path="res://gameplay/props/factoryHalterung.glb" id="5_qqspt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wb63x"]
@@ -26,6 +27,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.885399, 0, 43.814552)
 
 [node name="FloorQuad_001" parent="factoryHalterung2" index="0" unique_id=1272586940]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Manufaktur_Factory_EiffeltowerALaManu_v01" parent="." unique_id=1752234671 instance=ExtResource("4_imx8j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.033002, -1.1920929e-07, 42.039257)
 
 [editable path="FactoryAssets3"]
 [editable path="factoryHalterung2"]
