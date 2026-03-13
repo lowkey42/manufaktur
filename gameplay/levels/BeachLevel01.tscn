@@ -28,7 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://cq1yy7ikiwch" path="res://gameplay/interactables/popup/popup.tscn" id="22_mjd6v"]
 [ext_resource type="Resource" uid="uid://deq3k6gx5td7k" path="res://gameplay/items/glitch/Glitch1.tres" id="23_fqmxt"]
 [ext_resource type="Material" uid="uid://dam321ld4wisp" path="res://commons/Materials/BaseColorGradient.tres" id="28_5w5wm"]
-[ext_resource type="PackedScene" uid="uid://lngr0ceaxmqc" path="res://gameplay/props/AssetGym_Felix.tscn" id="29_ouo46"]
+[ext_resource type="PackedScene" path="res://gameplay/props/AssetGym_Felix.tscn" id="29_ouo46"]
 [ext_resource type="PackedScene" uid="uid://due0aqalux7sq" path="res://gameplay/props/props Import/BeachBall.tscn" id="29_whado"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mk68e"]
@@ -609,10 +609,6 @@ transform = Transform3D(1, 0, 0, 0, 0.7492448, -0.66229314, 0, 0.66229314, 0.749
 
 [node name="5x5Planks" parent="AssetGymFelix" index="16" unique_id=272569805]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.657584, -9.75, 12.902983)
-
-[node name="Palme" parent="AssetGymFelix" index="17" unique_id=1303939507]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.0978775, -1.5420659, 26.881283)
-material_override = ExtResource("28_5w5wm")
 
 [node name="BeachBall" parent="." index="14" unique_id=1682720803 instance=ExtResource("29_whado")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.13509, 5.8141747, 135.46568)
