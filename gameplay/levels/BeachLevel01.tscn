@@ -45,11 +45,13 @@ ssr_enabled = true
 ssao_enabled = true
 ssao_radius = 0.01
 glow_enabled = true
+glow_normalized = true
+glow_intensity = 0.25
 volumetric_fog_density = 0.01
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_20ii1"]
 dof_blur_far_enabled = true
-dof_blur_far_distance = 400.0
+dof_blur_far_distance = 2000.0
 
 [sub_resource type="Compositor" id="Compositor_okmpl"]
 
@@ -312,9 +314,10 @@ cast_shadow = 0
 mesh = SubResource("QuadMesh_84dxo")
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="." index="7" unique_id=1786065275]
-transform = Transform3D(0.69070584, 0, 0.7231358, 0, 1, 0, -0.7231358, 0, 0.69070584, 28.301386, 10.490524, -14.890427)
+transform = Transform3D(0.5060337, -0.14977393, 0.8494101, 0, 0.9848077, 0.17364818, -0.86251366, -0.087871835, 0.4983459, 28.301386, 10.490524, -14.890427)
 light_color = Color(0.919048, 0.672662, 0.107584, 1)
 light_energy = 1.833
+shadow_enabled = true
 
 [node name="SpawnPoint" parent="." index="8" unique_id=407262584]
 transform = Transform3D(-0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, -0.70710677, -3.8238392, 6.6598277, -8.739276)
@@ -593,6 +596,21 @@ transform = Transform3D(0.6666667, 0, 0, 0, 0.6666667, 0, 0, 0, 0.6666667, -4.71
 
 [node name="Sandwich" parent="AssetGymFelix" index="13" unique_id=16740152]
 transform = Transform3D(0.6666667, 0, 0, 0, 0.6666667, 0, 0, 0, 0.6666667, -3.3126965, -8.374773, 4.6003375)
+
+[node name="5x10Plane" parent="AssetGymFelix" index="14" unique_id=1919014087]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5766894, -13.083334, 21.510757)
+
+[node name="5x10Bridge_002" parent="AssetGymFelix" index="15" unique_id=235009623]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.591419, -16.75, 18.335892)
+
+[node name="CollisionShape3D" parent="AssetGymFelix/5x10Bridge_002/StaticBody3D" parent_id_path=PackedInt32Array(388648016, 337355234) index="0" unique_id=2064687748]
+transform = Transform3D(1, 0, 0, 0, 0.7492448, -0.66229314, 0, 0.66229314, 0.7492448, 2.5020752, -8.167682, -1.5603523)
+
+[node name="5x5Planks" parent="AssetGymFelix" index="16" unique_id=272569805]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.657584, -9.75, 12.902983)
+
+[node name="Palme" parent="AssetGymFelix" index="17" unique_id=1303939507]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.0978775, -1.5420659, 26.881283)
 
 [node name="BeachBall" parent="." index="14" unique_id=1682720803 instance=ExtResource("29_whado")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.13509, 5.8141747, 135.46568)
