@@ -72,9 +72,8 @@ public partial class ItemSpawer : Triggerable {
 			return;
 		}
 
-		uniqueMaterial.EmissionEnabled = true;
 		if (item != null) {
-			uniqueMaterial.Emission = item.SpawnerParticleColor;
+			uniqueMaterial.AlbedoColor = item.SpawnerParticleColor;
 		}
 
 		uniqueDrawPass.SurfaceSetMaterial(0, uniqueMaterial);
@@ -91,7 +90,7 @@ public partial class ItemSpawer : Triggerable {
 
 			if (item != null && item.SpawnerTexture != null) {
 				var quadMesh = new QuadMesh();
-				quadMesh.Size = new Vector2(1.2f, 1.2f);
+				quadMesh.Size = new Vector2(2f, 2f);
 
 				var material = new StandardMaterial3D();
 				material.AlbedoTexture = item.SpawnerTexture;
