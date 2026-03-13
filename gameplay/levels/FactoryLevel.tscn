@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://00ip0t0c74ti" path="res://gameplay/base_level.tscn" id="1_3fwcc"]
 [ext_resource type="MeshLibrary" uid="uid://f04go3smmvws" path="res://gameplay/props/FactoryMeshLib.tres" id="2_ej6vo"]
 [ext_resource type="CameraAttributesPractical" uid="uid://cgc2whm11qogj" path="res://gameplay/levels/beach2camera.tres" id="2_u6kvj"]
+[ext_resource type="AudioStream" uid="uid://dw3xe42cmgftd" path="res://commons/music/level 2 - manufaktur.mp3" id="2_xuelx"]
 [ext_resource type="Compositor" uid="uid://bew1u116w528g" path="res://gameplay/levels/beach2comp.tres" id="3_6fchf"]
 [ext_resource type="PackedScene" uid="uid://6cjmlbnprx2b" path="res://gameplay/props/factoryMeshLib.tscn" id="3_xk0si"]
 [ext_resource type="PackedScene" uid="uid://lngr0ceaxmqc" path="res://gameplay/props/AssetGym_Felix.tscn" id="4_6tlr6"]
@@ -15,6 +16,10 @@
 [ext_resource type="PackedScene" uid="uid://cjmbp0dsb4b4f" path="res://gameplay/interactables/sandwich_stomper.tscn" id="11_s1rtu"]
 [ext_resource type="PackedScene" uid="uid://bhkfl7uyd7mwr" path="res://gameplay/props/manufaktur_factory_manu_tube_v_01.tscn" id="12_6cl6j"]
 [ext_resource type="PackedScene" uid="uid://di7d1utnoba6s" path="res://gameplay/interactables/spike_trap.tscn" id="12_sqgoa"]
+[ext_resource type="PackedScene" uid="uid://cpw0fkglnysia" path="res://gameplay/interactables/jump_pad/jump_pad.tscn" id="14_qfsg8"]
+[ext_resource type="PackedScene" uid="uid://tiaon3cqeljn" path="res://gameplay/props/factory_halterung.tscn" id="16_kddsf"]
+[ext_resource type="PackedScene" uid="uid://di3rrw1px67qn" path="res://gameplay/interactables/item_spawner/ItemSpawer.tscn" id="19_f4c8i"]
+[ext_resource type="Script" uid="uid://dl8bucyrvu5o" path="res://gameplay/items/dash/DashItem.cs" id="20_mauw1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_urk6c"]
 
@@ -223,7 +228,7 @@ shadow_mesh = SubResource("ArrayMesh_j55fw")
 sky_material = SubResource("ProceduralSkyMaterial_mk68e")
 
 [sub_resource type="Environment" id="Environment_ki26l"]
-background_mode = 1
+background_mode = 2
 sky = SubResource("Sky_xfbjl")
 ambient_light_source = 3
 ambient_light_color = Color(0.921569, 0.921569, 0, 1)
@@ -233,6 +238,10 @@ ssao_radius = 0.01
 glow_enabled = true
 glow_normalized = true
 glow_intensity = 0.25
+fog_enabled = true
+fog_mode = 1
+fog_density = 1.0
+fog_depth_end = 975.9
 volumetric_fog_density = 0.01
 volumetric_fog_albedo = Color(0.9647059, 0.5411765, 0.53333336, 1)
 
@@ -561,6 +570,9 @@ points = PackedVector3Array(1.0222527e-07, -0.25, -3.9999986, 1.0222527e-07, -0.
 _startDelay = 0
 _ghostScene = null
 
+[node name="SceneMusic" parent="." index="1" unique_id=1650332442]
+Music = ExtResource("2_xuelx")
+
 [node name="AssetGymFelix" parent="." index="3" unique_id=388648016 instance=ExtResource("4_6tlr6")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 81.16168, -0.34459496, -50.482643)
 
@@ -575,7 +587,7 @@ transform = Transform3D(-1.0000001, 0, 2.9802322e-08, 0, 1, 0, -2.9802322e-08, 0
 BulletTemplate = ExtResource("4_k85cq")
 
 [node name="SandwichStomper" parent="." index="5" unique_id=164298217 instance=ExtResource("11_s1rtu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.545004, 9.208595, 105.88014)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.51918, 9.208595, 105.88014)
 
 [node name="SandwichStomper2" type="Node3D" parent="." index="6" unique_id=1187295080]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.94705, 9.208595, 146.86139)
@@ -685,7 +697,7 @@ camera_attributes = ExtResource("2_u6kvj")
 compositor = ExtResource("3_6fchf")
 
 [node name="SpawnPoint" parent="." index="9" unique_id=407262584]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0518856, 6.863373, 0.7444391)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2.8625655, 2.2656746, -3.5498953)
 
 [node name="Finish" parent="." index="10" unique_id=1714722049]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.206135, 0, 444.02585)
@@ -703,7 +715,7 @@ cell_center_x = false
 cell_center_y = false
 cell_center_z = false
 data = {
-"cells": PackedInt32Array(8, 65529, 655372, 3, 65529, 655372, 65534, 65529, 655372, 65529, 65529, 655372, 65529, 65534, 655372, 65534, 65534, 655372, 3, 65534, 655372, 8, 65534, 655372, 8, 3, 1441806, 3, 3, 655372, 65534, 3, 655372, 65529, 3, 655372, 8, 8, 14, 3, 8, 12, 3, 13, 12, 8, 13, 12, 13, 8, 1048590, 13, 13, 655372, 18, 13, 655372, 18, 8, 655372, 65522, 50, 655360, 65522, 56, 655360, 65522, 62, 655360, 65522, 68, 655360, 65522, 74, 655360, 65522, 80, 655360, 65522, 86, 655360, 65522, 92, 655360, 65522, 98, 655360, 65522, 104, 655360, 65522, 110, 655360, 65522, 116, 655360, 65522, 122, 655360, 65522, 128, 655360, 65522, 134, 655360, 65522, 140, 655360, 65522, 146, 655360, 65522, 152, 655360, 65522, 158, 655360, 65522, 164, 655360, 65522, 170, 655360, 65522, 176, 655360, 65522, 182, 655360, 65522, 188, 655360, 65522, 194, 655360, 65522, 200, 655360, 65522, 206, 655360, 65522, 212, 655360, 65522, 218, 655360, 65522, 224, 655360, 65522, 230, 655360, 65522, 236, 655360, 65522, 242, 655360, 65522, 248, 655360, 65522, 254, 655360, 65522, 260, 655360, 65529, 271, 655372, 65524, 271, 655372, 65524, 276, 655372, 65529, 276, 655372, 65529, 281, 655372, 65534, 276, 655372, 65534, 281, 655372, 3, 281, 655372, 3, 286, 655372, 65534, 286, 655372, 65529, 286, 655372, 65534, 291, 655372, 65529, 291, 655372, 65524, 291, 655372, 65524, 296, 655372, 65529, 296, 655372, -65521, 24, 1048577, -65526, 24, 1048577, -65531, 24, 1048577, -65536, 24, 1048577, -5, 24, 1048577, -10, 24, 1048577, -65516, 24, 1048577, -65511, 24, 1048577, 16, 24, 1048577, 21, 24, 1048577, 65528, 24, 1048577, 65523, 8, 2, 65523, 3, 2, 65523, 65534, 2, 65524, 65528, 1441794, 65529, 65528, 1441794, 65534, 65528, 1441794, 3, 65528, 1441794, 9, 65529, 655362, 9, 65534, 655362, 13, 7, 1441794, 19, 8, 655362, 19, 13, 655362, 65522, 23, 1048583, 65522, 20, 1048583, 65522, 15, 1048584, 65523, 16, 7, 65526, 16, 7, 65514, 34, 1441799, 65529, 16, 655368, 65530, 15, 1114121, 65523, 65528, 1441806, 9, 65528, 655374, 19, 7, 655374, 65534, 18, 12, 65535, 13, 12, 3, 18, 12, 8, 65530, 1048579, 8, 65535, 1048579, 8, 4, 1048579, 9, 8, 655363, 14, 8, 655363, 18, 9, 1048579, 18, 14, 1048579, 18, 19, 1048579, 19, 18, 655362, 16, 50, 0, 16, 56, 0, 22, 36, 1048581, 16, 36, 1048581, 10, 36, 1048581, 4, 36, 1048581, 65534, 36, 1048581, 65528, 36, 1048581, 65517, 50, 0, 43, 67, 1310720, 43, 96, 1310720, 49, 67, 1310720, 49, 72, 524288, 49, 78, 524288, 49, 84, 524288, 49, 90, 524288, 49, 96, 1310720, 13, 23, 12, 18, 24, 1048578, 19, 24, 1048590, 65498, 171, 655360, 65498, 177, 655360, 65498, 183, 655360, 65498, 189, 655360, 65498, 195, 655360, 65498, 201, 655360, 65498, 207, 655360, 65498, 213, 655360, 65498, 219, 655360, 65498, 225, 655360, 65498, 231, 655360, 65498, 237, 655360, 65498, 243, 655360, 65498, 249, 655360, 65498, 255, 655360, 65498, 261, 655360, 33, 171, 655360, 33, 177, 655360, 33, 183, 655360, 33, 189, 655360, 33, 195, 655360, 33, 201, 655360, 33, 207, 655360, 33, 213, 655360, 33, 219, 655360, 33, 225, 655360, 33, 231, 655360, 33, 237, 655360, 33, 243, 655360, 33, 249, 655360, 33, 255, 655360, 33, 261, 655360, 65466, 65450, 1441792, 65533, 24, 1048586, 11, 24, 1048586, 65547, 24, 1048577, 65552, 24, 1048577, 65557, 24, 1048577, 131069, 24, 1048577, 131064, 24, 1048577, -15, 24, 1048577, -20, 24, 1048577, 65516, 24, 1048577, 131052, 24, 1048577, -24, 24, 1, -24, 19, 1, -24, 14, 1, -24, 9, 1, 65512, 24, 1, 65512, 19, 1, 65512, 14, 1, 65512, 9, 1, 131048, 24, 1, 131048, 19, 1, 131048, 14, 1, 131048, 9, 1, 131046, 65495, 327695, 131003, 65489, 327695, 130954, 65532, 589839)
+"cells": PackedInt32Array(8, 65529, 655372, 3, 65529, 655372, 65534, 65529, 655372, 65529, 65529, 655372, 65529, 65534, 655372, 65534, 65534, 655372, 3, 65534, 655372, 8, 65534, 655372, 8, 3, 1441806, 3, 3, 655372, 65534, 3, 655372, 65529, 3, 655372, 8, 8, 14, 3, 8, 12, 3, 13, 12, 8, 13, 12, 13, 8, 1048590, 13, 13, 655372, 18, 13, 655372, 18, 8, 655372, 65522, 50, 655360, 65522, 56, 655360, 65522, 62, 655360, 65522, 68, 655360, 65522, 74, 655360, 65522, 80, 655360, 65522, 86, 655360, 65522, 92, 655360, 65522, 98, 655360, 65522, 104, 655360, 65522, 110, 655360, 65522, 116, 655360, 65522, 122, 655360, 65522, 128, 655360, 65522, 134, 655360, 65522, 140, 655360, 65522, 146, 655360, 65522, 152, 655360, 65522, 158, 655360, 65522, 164, 655360, 65522, 170, 655360, 65522, 176, 655360, 65522, 182, 655360, 65522, 188, 655360, 65522, 194, 655360, 65522, 200, 655360, 65522, 206, 655360, 65522, 212, 655360, 65522, 218, 655360, 65522, 224, 655360, 65522, 230, 655360, 65522, 236, 655360, 65522, 242, 655360, 65522, 248, 655360, 65522, 254, 655360, 65522, 260, 655360, 65529, 271, 655372, 65524, 271, 655372, 65524, 276, 655372, 65529, 276, 655372, 65529, 281, 655372, 65534, 276, 655372, 65534, 281, 655372, 3, 281, 655372, 3, 286, 655372, 65534, 286, 655372, 65529, 286, 655372, 65534, 291, 655372, 65529, 291, 655372, 65524, 291, 655372, 65524, 296, 655372, 65529, 296, 655372, -65521, 24, 1048577, -65526, 24, 1048577, -65531, 24, 1048577, -65536, 24, 1048577, -5, 24, 1048577, -10, 24, 1048577, -65516, 24, 1048577, -65511, 24, 1048577, 16, 24, 1048577, 21, 24, 1048577, 65528, 24, 1048577, 65523, 8, 2, 65523, 3, 2, 65523, 65534, 2, 65524, 65528, 1441794, 65529, 65528, 1441794, 65534, 65528, 1441794, 3, 65528, 1441794, 9, 65529, 655362, 9, 65534, 655362, 13, 7, 1441794, 19, 8, 655362, 19, 13, 655362, 65522, 23, 1048583, 65522, 20, 1048583, 65522, 15, 1048584, 65523, 16, 7, 65526, 16, 7, 65514, 34, 1441799, 65529, 16, 655368, 65530, 15, 1114121, 65523, 65528, 1441806, 9, 65528, 655374, 19, 7, 655374, 65534, 18, 12, 65535, 13, 12, 3, 18, 12, 8, 65530, 1048579, 8, 65535, 1048579, 8, 4, 1048579, 9, 8, 655363, 14, 8, 655363, 18, 9, 1048579, 18, 14, 1048579, 18, 19, 1048579, 19, 18, 655362, 16, 50, 0, 16, 56, 0, 22, 36, 1048581, 16, 36, 1048581, 10, 36, 1048581, 4, 36, 1048581, 65534, 36, 1048581, 65528, 36, 1048581, 65517, 50, 0, 13, 23, 12, 18, 24, 1048578, 19, 24, 1048590, 65498, 171, 655360, 65498, 177, 655360, 65498, 183, 655360, 65498, 189, 655360, 65498, 195, 655360, 65498, 201, 655360, 65498, 207, 655360, 65498, 213, 655360, 65498, 219, 655360, 65498, 225, 655360, 65498, 231, 655360, 65498, 237, 655360, 65498, 243, 655360, 65498, 249, 655360, 65498, 255, 655360, 65498, 261, 655360, 33, 171, 655360, 33, 177, 655360, 33, 183, 655360, 33, 189, 655360, 33, 195, 655360, 33, 201, 655360, 33, 207, 655360, 33, 213, 655360, 33, 219, 655360, 33, 225, 655360, 33, 231, 655360, 33, 237, 655360, 33, 243, 655360, 33, 249, 655360, 33, 255, 655360, 33, 261, 655360, 65466, 65450, 1441792, 65533, 24, 1048586, 11, 24, 1048586, 65547, 24, 1048577, 65552, 24, 1048577, 65557, 24, 1048577, 131069, 24, 1048577, 131064, 24, 1048577, -15, 24, 1048577, -20, 24, 1048577, 65516, 24, 1048577, 131052, 24, 1048577, -24, 24, 1, -24, 19, 1, -24, 14, 1, -24, 9, 1, 65512, 24, 1, 65512, 19, 1, 65512, 14, 1, 65512, 9, 1, 131048, 24, 1, 131048, 19, 1, 131048, 14, 1, 131048, 9, 1, 131046, 65495, 327695, 131003, 65489, 327695, 130954, 65532, 589839, 11, 8, 1048590, 8, 6, 14, 65551, 70, 0, 65551, 76, 0, 65551, 82, 0, 15, 124, 0, 15, 130, 0, 22, 41, 1048588, 17, 41, 1048588, 12, 41, 1048588, 15, 136, 0, 15, 142, 0, 24, 187, 655367, 21, 187, 655367, 16, 187, 655368, 17, 191, 1048583, 18, 192, 8, 13, 193, 9, 10, 194, 9, 8, 194, 655368, 9, 198, 1048583, 9, 201, 1048583, 8, 202, 655368, 5, 202, 7, 2, 202, 7, 65535, 202, 7, 65532, 202, 7, 65529, 202, 7, 65527, 202, 393224, 26, 187, 786440, 28, 168, 12, 33, 168, 12, 38, 168, 12, 34, 173, 12, 34, 178, 12, 39, 173, 12, 39, 178, 12, 45, 173, 655362, 45, 168, 655362, 45, 163, 655362, 48, 163, 655372, 65522, 36, 1048581, 65511, 29, 1, 65511, 34, 1, 65511, 39, 1, 131047, 29, 1, 131047, 34, 1, 131047, 39, 1, 131047, 44, 1, 131047, 49, 1, 65511, 44, 1, 65511, 49, 1, 2, 41, 12, 65533, 41, 12, 65528, 41, 12, 65533, 45, 12, 42, 68, 655372, 47, 68, 655372, 52, 68, 655372, 52, 73, 655372, 52, 78, 655372, 52, 83, 655372, 52, 88, 655372, 52, 93, 655372, 52, 98, 655372, 47, 93, 1048588, 47, 88, 1048588, 47, 83, 1048588, 47, 78, 1048588, 47, 98, 1048588, 47, 103, 1048588, 42, 103, 1048588, 42, 98, 1048588, 53, 68, 655362, 53, 73, 655362, 53, 78, 655362, 53, 83, 655362, 53, 88, 655362, 53, 93, 655362, 53, 98, 655362, 65581, 111, 655360, 65581, 117, 655360, 65581, 123, 655360, 65581, 129, 655360)
 }
 metadata/_editor_floor_ = Vector3(0, 1, 0)
 
@@ -714,6 +726,15 @@ transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08
 
 [node name="Manufaktur_Factory_ManuTube_v02" parent="ENV/SchmanuTubes" index="1" unique_id=1573191816 instance=ExtResource("12_6cl6j")]
 transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08, 7.5958385, -0.12454605, 2.1066341)
+
+[node name="Manufaktur_Factory_ManuTube_v03" parent="ENV/SchmanuTubes" index="2" unique_id=1071083643 instance=ExtResource("12_6cl6j")]
+transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08, 22.660751, -0.12454605, 24.271399)
+
+[node name="Manufaktur_Factory_ManuTube_v04" parent="ENV/SchmanuTubes" index="3" unique_id=106184629 instance=ExtResource("12_6cl6j")]
+transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08, 22.660751, -0.12454605, 32.100975)
+
+[node name="Manufaktur_Factory_ManuTube_v05" parent="ENV/SchmanuTubes" index="4" unique_id=677989419 instance=ExtResource("12_6cl6j")]
+transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08, 24.261454, -0.12454605, 16.618792)
 
 [node name="FactoryMeshLib_FactoryAssets2#ScaleGrid1x1_003" type="MeshInstance3D" parent="ENV" index="2" unique_id=1144227059]
 transform = Transform3D(2.4438103e-07, -1.3113416e-07, 1.5, -1.5, -6.556708e-08, 2.4438103e-07, 6.556706e-08, -1.5, -1.3113417e-07, -45.02864, -0.1551398, 51.6138)
@@ -808,51 +829,148 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ENV/FactoryMeshLib_FactoryAssets2#BaseFloorSmall3/StaticBody3D" index="0" unique_id=1449091907]
 shape = SubResource("ConvexPolygonShape3D_8n1qu")
 
-[node name="FactoryMeshLib" parent="." index="13" unique_id=1668107915 instance=ExtResource("3_xk0si")]
+[node name="Interactables" type="Node3D" parent="ENV" index="11" unique_id=1241268986]
+
+[node name="JumpPad" parent="ENV/Interactables" index="0" unique_id=1812779473 instance=ExtResource("14_qfsg8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.124033, 7.451309, 118.84814)
+
+[node name="MovingPlatform" parent="ENV/Interactables" index="1" unique_id=1860802399 node_paths=PackedStringArray("EndCoordinate") instance=ExtResource("11_6fchf")]
+transform = Transform3D(-6.433363, 0, 4.7683716e-07, 0, 1, 0, -5.9604645e-07, 0, -7.4761553, 51.90229, 1.0120182, 229.55637)
+EndCoordinate = NodePath("../MP01_Coords")
+TravelTimeSeconds = 3.0
+Looping = true
+StartEnabled = true
+
+[node name="Mesh" parent="ENV/Interactables/MovingPlatform/Body" parent_id_path=PackedInt32Array(1860802399, 758428579) index="1" unique_id=374044707]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, 9.760664, 0, 0)
+
+[node name="MP01_Coords" type="Node3D" parent="ENV/Interactables" index="2" unique_id=1705788566]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.91746, 5.0230293, 229.55637)
+
+[node name="FactoryMeshLib" parent="ENV" index="12" unique_id=1668107915 instance=ExtResource("3_xk0si")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.06661, 0.60214627, -43.116604)
 
-[node name="FactoryBigWallPiece" parent="FactoryMeshLib" index="0" unique_id=56895810]
+[node name="FactoryBigWallPiece" parent="ENV/FactoryMeshLib" index="0" unique_id=56895810]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.409523, 0, -80.43388)
 
-[node name="FactoryBigWallPiece2" parent="FactoryMeshLib" index="2" unique_id=583073747 instance=ExtResource("6_3wbkv")]
+[node name="FactoryBigWallPiece2" parent="ENV/FactoryMeshLib" index="2" unique_id=583073747 instance=ExtResource("6_3wbkv")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -187.73485, -45.408592, 84.78999)
 
-[node name="FactoryBigWallPiece3" parent="FactoryMeshLib" index="3" unique_id=2009931270 instance=ExtResource("6_3wbkv")]
+[node name="FactoryBigWallPiece3" parent="ENV/FactoryMeshLib" index="3" unique_id=2009931270 instance=ExtResource("6_3wbkv")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -187.73485, -45.408592, 184.6609)
 
-[node name="FactoryBigWallPiece4" parent="FactoryMeshLib" index="4" unique_id=963200937 instance=ExtResource("6_3wbkv")]
+[node name="FactoryBigWallPiece4" parent="ENV/FactoryMeshLib" index="4" unique_id=963200937 instance=ExtResource("6_3wbkv")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -187.73485, -45.408592, 283.18365)
 
-[node name="FactoryBigWallPiece5" parent="FactoryMeshLib" index="5" unique_id=2044744767 instance=ExtResource("6_3wbkv")]
+[node name="FactoryBigWallPiece5" parent="ENV/FactoryMeshLib" index="5" unique_id=2044744767 instance=ExtResource("6_3wbkv")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -187.73485, -45.408592, 379.1473)
 
-[node name="FactoryBigWallPiece6" parent="FactoryMeshLib" index="6" unique_id=1737558092 instance=ExtResource("6_3wbkv")]
+[node name="FactoryBigWallPiece6" parent="ENV/FactoryMeshLib" index="6" unique_id=1737558092 instance=ExtResource("6_3wbkv")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -187.73485, -45.408592, 479.01822)
 
-[node name="FactoryBigWallPiece7" parent="FactoryMeshLib" index="7" unique_id=655077331 instance=ExtResource("6_3wbkv")]
+[node name="FactoryBigWallPiece7" parent="ENV/FactoryMeshLib" index="7" unique_id=655077331 instance=ExtResource("6_3wbkv")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -187.73485, -45.408592, 577.5409)
 
-[node name="FactoryBigWallPiece8" parent="FactoryMeshLib" index="8" unique_id=534335342 instance=ExtResource("6_3wbkv")]
+[node name="FactoryBigWallPiece8" parent="ENV/FactoryMeshLib" index="8" unique_id=534335342 instance=ExtResource("6_3wbkv")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -187.73485, -181.94913, 84.78999)
 
-[node name="FactoryBigWallPiece9" parent="FactoryMeshLib" index="9" unique_id=1499438838 instance=ExtResource("6_3wbkv")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -187.73485, -181.94913, 184.6609)
+[node name="FactoryBigWallPiece9" parent="ENV/FactoryMeshLib" index="9" unique_id=1499438838 instance=ExtResource("6_3wbkv")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -187.81686, -181.94913, 184.42772)
 
-[node name="FactoryBigWallPiece10" parent="FactoryMeshLib" index="10" unique_id=469229300 instance=ExtResource("6_3wbkv")]
+[node name="FactoryBigWallPiece10" parent="ENV/FactoryMeshLib" index="10" unique_id=469229300 instance=ExtResource("6_3wbkv")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -187.73485, -181.94913, 283.18365)
 
-[node name="FactoryBigWallPiece11" parent="FactoryMeshLib" index="11" unique_id=870651998 instance=ExtResource("6_3wbkv")]
+[node name="FactoryBigWallPiece11" parent="ENV/FactoryMeshLib" index="11" unique_id=870651998 instance=ExtResource("6_3wbkv")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -187.73485, -181.94913, 379.1473)
 
-[node name="FactoryBigWallPiece12" parent="FactoryMeshLib" index="12" unique_id=2014155497 instance=ExtResource("6_3wbkv")]
+[node name="FactoryBigWallPiece12" parent="ENV/FactoryMeshLib" index="12" unique_id=2014155497 instance=ExtResource("6_3wbkv")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -187.73485, -181.94913, 479.01822)
 
-[node name="FactoryBigWallPiece13" parent="FactoryMeshLib" index="13" unique_id=700852279 instance=ExtResource("6_3wbkv")]
+[node name="FactoryBigWallPiece13" parent="ENV/FactoryMeshLib" index="13" unique_id=700852279 instance=ExtResource("6_3wbkv")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -187.73485, -181.94913, 577.5409)
+
+[node name="FactoryBigWallPiece14" parent="ENV/FactoryMeshLib" index="14" unique_id=1475233132 instance=ExtResource("6_3wbkv")]
+transform = Transform3D(-3, 0, -2.6226832e-07, 0, 3, 0, 2.6226832e-07, 0, -3, 159.33345, -45.40859, 644.89185)
+
+[node name="FactoryBigWallPiece15" parent="ENV/FactoryMeshLib" index="15" unique_id=2098637150 instance=ExtResource("6_3wbkv")]
+transform = Transform3D(-3, 0, -2.6226832e-07, 0, 3, 0, 2.6226832e-07, 0, -3, 159.33342, -45.40859, 545.02094)
+
+[node name="FactoryBigWallPiece16" parent="ENV/FactoryMeshLib" index="16" unique_id=742767449 instance=ExtResource("6_3wbkv")]
+transform = Transform3D(-3, 0, -2.6226832e-07, 0, 3, 0, 2.6226832e-07, 0, -3, 159.33342, -45.40859, 446.4982)
+
+[node name="FactoryBigWallPiece17" parent="ENV/FactoryMeshLib" index="17" unique_id=399975960 instance=ExtResource("6_3wbkv")]
+transform = Transform3D(-3, 0, -2.6226832e-07, 0, 3, 0, 2.6226832e-07, 0, -3, 159.33342, -45.40859, 350.53455)
+
+[node name="FactoryBigWallPiece18" parent="ENV/FactoryMeshLib" index="18" unique_id=1598339535 instance=ExtResource("6_3wbkv")]
+transform = Transform3D(-3, 0, -2.6226832e-07, 0, 3, 0, 2.6226832e-07, 0, -3, 159.33342, -45.40859, 250.66364)
+
+[node name="FactoryBigWallPiece19" parent="ENV/FactoryMeshLib" index="19" unique_id=1198132024 instance=ExtResource("6_3wbkv")]
+transform = Transform3D(-3, 0, -2.6226832e-07, 0, 3, 0, 2.6226832e-07, 0, -3, 159.33339, -45.40859, 152.14093)
+
+[node name="FactoryBigWallPiece26" parent="ENV/FactoryMeshLib" index="20" unique_id=1031266537 instance=ExtResource("6_3wbkv")]
+transform = Transform3D(-1.0612569, 0, -2.8060174, 0, 3, 0, 2.8060174, 0, -1.0612569, 39.103535, -45.40858, 170.33138)
+
+[node name="FactoryBigWallPiece20" parent="ENV/FactoryMeshLib" index="21" unique_id=81969544 instance=ExtResource("6_3wbkv")]
+transform = Transform3D(-3, 0, -2.6226832e-07, 0, 3, 0, 2.6226832e-07, 0, -3, 159.33345, -181.94913, 644.89185)
+
+[node name="FactoryBigWallPiece21" parent="ENV/FactoryMeshLib" index="22" unique_id=1287392050 instance=ExtResource("6_3wbkv")]
+transform = Transform3D(-3, 0, -2.6226832e-07, 0, 3, 0, 2.6226832e-07, 0, -3, 159.41542, -181.94913, 545.25415)
+
+[node name="FactoryBigWallPiece22" parent="ENV/FactoryMeshLib" index="23" unique_id=1465225163 instance=ExtResource("6_3wbkv")]
+transform = Transform3D(-3, 0, -2.6226832e-07, 0, 3, 0, 2.6226832e-07, 0, -3, 159.33342, -181.94913, 446.4982)
+
+[node name="FactoryBigWallPiece23" parent="ENV/FactoryMeshLib" index="24" unique_id=457610237 instance=ExtResource("6_3wbkv")]
+transform = Transform3D(-3, 0, -2.6226832e-07, 0, 3, 0, 2.6226832e-07, 0, -3, 159.33342, -181.94913, 350.53455)
+
+[node name="FactoryBigWallPiece24" parent="ENV/FactoryMeshLib" index="25" unique_id=2044586218 instance=ExtResource("6_3wbkv")]
+transform = Transform3D(-3, 0, -2.6226832e-07, 0, 3, 0, 2.6226832e-07, 0, -3, 159.33342, -181.94913, 250.66364)
+
+[node name="FactoryBigWallPiece25" parent="ENV/FactoryMeshLib" index="26" unique_id=648952705 instance=ExtResource("6_3wbkv")]
+transform = Transform3D(-3, 0, -2.6226832e-07, 0, 3, 0, 2.6226832e-07, 0, -3, 159.33339, -181.94913, 152.14093)
+
+[node name="FactoryHalterung" type="Node3D" parent="ENV" index="13" unique_id=826863476]
+
+[node name="factoryHalterung2" parent="ENV/FactoryHalterung" index="0" unique_id=615718350 instance=ExtResource("16_kddsf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.958511, -0.34196568, 70.39326)
+
+[node name="factoryHalterung3" parent="ENV/FactoryHalterung" index="1" unique_id=1487297233 instance=ExtResource("16_kddsf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.876495, -0.34196568, 87.43011)
+
+[node name="factoryHalterung10" parent="ENV/FactoryHalterung" index="2" unique_id=589094968 instance=ExtResource("16_kddsf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.197584, 6.7750225, 100.24827)
+
+[node name="factoryHalterung12" parent="ENV/FactoryHalterung" index="3" unique_id=1098841493 instance=ExtResource("16_kddsf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.197584, -0.41253376, 75.00043)
+
+[node name="factoryHalterung11" parent="ENV/FactoryHalterung" index="4" unique_id=430854812 instance=ExtResource("16_kddsf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.2796, 6.7750225, 117.28512)
+
+[node name="factoryHalterung4" parent="ENV/FactoryHalterung" index="5" unique_id=2058952330 instance=ExtResource("16_kddsf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.876495, -0.34196568, 106.0614)
+
+[node name="factoryHalterung5" parent="ENV/FactoryHalterung" index="6" unique_id=264779388 instance=ExtResource("16_kddsf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.876495, -0.34196568, 122.86507)
+
+[node name="factoryHalterung6" parent="ENV/FactoryHalterung" index="7" unique_id=1670503541 instance=ExtResource("16_kddsf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.876495, -0.34196568, 142.38185)
+
+[node name="factoryHalterung7" parent="ENV/FactoryHalterung" index="8" unique_id=2129506543 instance=ExtResource("16_kddsf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.876495, -0.34196568, 159.18552)
+
+[node name="factoryHalterung8" parent="ENV/FactoryHalterung" index="9" unique_id=985011591 instance=ExtResource("16_kddsf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.876495, -0.34196568, 180.00783)
+
+[node name="factoryHalterung9" parent="ENV/FactoryHalterung" index="10" unique_id=1016639070 instance=ExtResource("16_kddsf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.876495, -0.34196568, 196.8115)
+
+[node name="ItemSpawer" parent="ENV" index="14" unique_id=1895522051 instance=ExtResource("19_f4c8i")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 63.79766, 8.03678, 198.6408)
+item = ExtResource("20_mauw1")
 
 [editable path="AssetGymFelix"]
 [editable path="SandwichStomper2/MovingPlatform"]
 [editable path="SandwichStomper3/MovingPlatform"]
-[editable path="FactoryMeshLib"]
-[editable path="FactoryMeshLib/FactoryAssets3"]
-[editable path="FactoryMeshLib/factoryHalterung2"]
+[editable path="ENV/Interactables/MovingPlatform"]
+[editable path="ENV/FactoryMeshLib"]
+[editable path="ENV/FactoryMeshLib/FactoryAssets3"]
+[editable path="ENV/FactoryMeshLib/factoryHalterung2"]

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://tiaon3cqeljn"]
+
+[ext_resource type="PackedScene" uid="uid://cm7q1rhpxiwvl" path="res://gameplay/props/factoryHalterung.glb" id="1_vxehv"]
+
+[node name="factoryHalterung" unique_id=615718350 instance=ExtResource("1_vxehv")]
+
+[node name="FloorQuad_001" parent="." index="0" unique_id=1248838310]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.465598, -0.15513763, 2.4199028)
