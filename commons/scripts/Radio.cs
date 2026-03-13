@@ -130,7 +130,7 @@ public partial class Radio : Node
 		PlaySfx(stream, volume, bus);
 	}
 	
-	public void PlayRandomSound(AudioStream stream, string bus, int volume = 100) {
+	public void PlayUiSound(AudioStream stream, string bus, int volume = 100) {
 		if (stream == null) return;
 		PlaySfx(stream, volume, bus);
 	}
