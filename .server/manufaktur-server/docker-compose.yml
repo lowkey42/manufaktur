@@ -5,3 +5,4 @@ services:
       - 8080:5189
     volumes:
       - ~/.manufaktur:~/.manufaktur
+      - ..:/manufaktur-server
