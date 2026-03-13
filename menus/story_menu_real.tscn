@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://b27ysl5meq4ud" path="res://menus/TextureSequencer.cs" id="1_apav8"]
 [ext_resource type="Script" uid="uid://diyu2jfomurj5" path="res://menus/TextureStep.cs" id="2_n34jt"]
-[ext_resource type="Texture2D" uid="uid://bb1q5syu8gswj" path="res://commons/storie/story_frame_1.png" id="2_yhjr0"]
-[ext_resource type="Texture2D" uid="uid://c5qiidlu8i83y" path="res://commons/storie/story_frame_2.png" id="4_k8afv"]
-[ext_resource type="Texture2D" uid="uid://cwcnsprk88hoq" path="res://commons/storie/story_frame_3.png" id="5_0ut0m"]
-[ext_resource type="Texture2D" uid="uid://dm6giufs6vxru" path="res://commons/storie/story_frame_4.png" id="6_0rd6t"]
+[ext_resource type="Texture2D" uid="uid://c64xujx8ke5cd" path="res://commons/storie/story_frame_1.png" id="2_yhjr0"]
+[ext_resource type="Texture2D" uid="uid://dhaws7vvk31vr" path="res://commons/storie/story_frame_2.png" id="4_k8afv"]
+[ext_resource type="Texture2D" uid="uid://b3bdduryj8jak" path="res://commons/storie/story_frame_3.png" id="5_0ut0m"]
+[ext_resource type="Texture2D" uid="uid://bdn768ml5686a" path="res://commons/storie/story_frame_4.png" id="6_0rd6t"]
 [ext_resource type="Texture2D" uid="uid://cewvbbrfxcvm7" path="res://commons/storie/story_frame_5.png" id="7_727p4"]
 [ext_resource type="Texture2D" uid="uid://cmdj3f35w4yya" path="res://commons/storie/story_frame_6.png" id="8_7klk8"]
 [ext_resource type="Texture2D" uid="uid://bs02y07gd1n01" path="res://commons/storie/story_frame_7.png" id="9_lit01"]
@@ -71,6 +71,27 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1950835405]
+z_index = 3
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -500.0
+offset_top = -47.0
+offset_right = 500.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 50
+text = "Press any Key to skip"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=783970370]
 layout_mode = 1
