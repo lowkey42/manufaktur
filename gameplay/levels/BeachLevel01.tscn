@@ -35,6 +35,9 @@
 [ext_resource type="PackedScene" uid="uid://cg3eu6cqm7wsw" path="res://gameplay/props/Palme_Asset.glb" id="33_why16"]
 [ext_resource type="Texture2D" uid="uid://benxx34jepqth" path="res://3D Files WIP/TextureSet_Billboard_v01.png" id="34_bxkxm"]
 [ext_resource type="PackedScene" uid="uid://cho4vnpb72s0" path="res://gameplay/props/props Import/Manufaktur_Factory_EiffeltowerALaManu_v01.glb" id="35_d4u8d"]
+[ext_resource type="PackedScene" uid="uid://byewe7imuwvaf" path="res://gameplay/props/props Import/Schmanufaktur.tscn" id="36_ae7xu"]
+[ext_resource type="PackedScene" uid="uid://b7jpq5hq0qahj" path="res://gameplay/props/props Import/Manufaktur_Factory_EvilSchmanuToast_v01.glb" id="37_j5d4m"]
+[ext_resource type="PackedScene" uid="uid://drudybk2kfppd" path="res://gameplay/props/props Import/Manufaktur_Factory_SchmanuStatue_v01.glb" id="37_ytofh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mk68e"]
 
@@ -894,4 +897,17 @@ transform = Transform3D(-1.5529145, 0, -5.795555, 0, 6, 0, 5.795555, 0, -1.55291
 [node name="Manufaktur_Factory_EiffeltowerALaManu_v02" parent="." index="19" unique_id=2025231721 instance=ExtResource("35_d4u8d")]
 transform = Transform3D(-1.5529145, 0, -5.795555, 0, 6, 0, 5.795555, 0, -1.5529145, -217, 42, 163)
 
+[node name="Schmanufaktur" parent="." index="20" unique_id=201360080 instance=ExtResource("36_ae7xu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 224, 105, -79)
+
+[node name="Manufaktur_Factory_EvilSchmanuToast_v02" parent="Schmanufaktur" index="2" unique_id=1904737400 instance=ExtResource("37_j5d4m")]
+transform = Transform3D(-2.0412967, 1.3400694, 7.618223, 0.34683555, 7.886965, -1.294408, -7.727407, 0, -2.0705523, -679.58704, -91, 551.5335)
+
+[node name="Manufaktur_Factory_SchmanuStatue_v01" parent="Schmanufaktur" index="3" unique_id=228084470]
+transform = Transform3D(-8.48528, 0, -8.485281, 0, 12, 0, 8.485281, 0, -8.48528, -67.517456, -88, 700.7447)
+
+[node name="Manufaktur_Factory_SchmanuStatue_v02" parent="Schmanufaktur" index="4" unique_id=990521506 instance=ExtResource("37_ytofh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
 [editable path="AssetGymFelix"]
+[editable path="Schmanufaktur"]

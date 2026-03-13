@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://byewe7imuwvaf"]
+
+[ext_resource type="PackedScene" uid="uid://cho4vnpb72s0" path="res://gameplay/props/props Import/Manufaktur_Factory_EiffeltowerALaManu_v01.glb" id="1_xscmg"]
+[ext_resource type="PackedScene" uid="uid://b7jpq5hq0qahj" path="res://gameplay/props/props Import/Manufaktur_Factory_EvilSchmanuToast_v01.glb" id="2_i3cqe"]
+[ext_resource type="PackedScene" uid="uid://drudybk2kfppd" path="res://gameplay/props/props Import/Manufaktur_Factory_SchmanuStatue_v01.glb" id="3_suq4v"]
+[ext_resource type="PackedScene" uid="uid://bhkfl7uyd7mwr" path="res://gameplay/props/manufaktur_factory_manu_tube_v_01.tscn" id="4_1sogw"]
+[ext_resource type="PackedScene" uid="uid://baodf1o1wsvsi" path="res://gameplay/props/manufaktur_factory_manu_turret_v_01.tscn" id="5_mbi5h"]
+
+[node name="Schmanufaktur" type="Node3D" unique_id=201360080]
+
+[node name="Manufaktur_Factory_EiffeltowerALaManu_v01" parent="." unique_id=448991849 instance=ExtResource("1_xscmg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9438457, 0, 0.14502406)
+
+[node name="Manufaktur_Factory_EvilSchmanuToast_v01" parent="." unique_id=1904737400 instance=ExtResource("2_i3cqe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6196083, -9.536743e-07, 0.15347266)
+
+[node name="Manufaktur_Factory_SchmanuStatue_v01" parent="." unique_id=228084470 instance=ExtResource("3_suq4v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.482556, 0, 0.7446735)
+
+[node name="Manufaktur_Factory_ManuTube_v02" parent="." unique_id=1639206179 instance=ExtResource("4_1sogw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.177209, 0, 1.3796396)
+
+[node name="Manufaktur_Factory_ManuTurret_v02" parent="." unique_id=1251174730 instance=ExtResource("5_mbi5h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.84477806, 0, 0.8102398)

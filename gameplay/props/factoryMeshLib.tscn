@@ -16,7 +16,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.409523, 0, 0)
 [node name="FactoryAssets3" parent="." unique_id=1334335574 instance=ExtResource("1_2s4lp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7234564, 0, 2.1295357)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="FactoryAssets3/FloorQuad" parent_id_path=PackedInt32Array(1334335574, 17513447) index="0" unique_id=1271872418]
+[node name="StaticBody3D" type="StaticBody3D" parent="FactoryAssets3/FloorQuad" parent_id_path=PackedInt32Array(1334335574, 589327578) index="0" unique_id=1271872418]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FactoryAssets3/FloorQuad/StaticBody3D" unique_id=1356102898]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5025806, -0.13055849, -2.5026703)
@@ -25,11 +25,11 @@ shape = SubResource("BoxShape3D_wb63x")
 [node name="factoryHalterung2" parent="." unique_id=1911968129 instance=ExtResource("5_qqspt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.885399, 0, 43.814552)
 
-[node name="FloorQuad_001" parent="factoryHalterung2" index="0" unique_id=1272586940]
+[node name="FloorQuad_001" parent="factoryHalterung2" index="0" unique_id=1248838310]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Manufaktur_Factory_EiffeltowerALaManu_v01" parent="." unique_id=1752234671 instance=ExtResource("4_imx8j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.033002, -1.1920929e-07, 42.039257)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.115404, 0.4791397, 42.52868)
 
 [editable path="FactoryAssets3"]
 [editable path="factoryHalterung2"]

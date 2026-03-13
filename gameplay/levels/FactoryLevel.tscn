@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://tiaon3cqeljn" path="res://gameplay/props/factory_halterung.tscn" id="16_kddsf"]
 [ext_resource type="PackedScene" uid="uid://di3rrw1px67qn" path="res://gameplay/interactables/item_spawner/ItemSpawer.tscn" id="19_f4c8i"]
 [ext_resource type="Script" uid="uid://dl8bucyrvu5o" path="res://gameplay/items/dash/DashItem.cs" id="20_mauw1"]
-[ext_resource type="PackedScene" uid="uid://cho4vnpb72s0" path="res://gameplay/props/props Import/Manufaktur_Factory_EiffeltowerALaManu_v01.glb" id="21_rtqhc"]
+[ext_resource type="PackedScene" uid="uid://byewe7imuwvaf" path="res://gameplay/props/props Import/Schmanufaktur.tscn" id="21_rtqhc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_urk6c"]
 
@@ -968,8 +968,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.876495, -0.34196568, 196.
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 63.79766, 8.03678, 198.6408)
 item = ExtResource("20_mauw1")
 
-[node name="Manufaktur_Factory_EiffeltowerALaManu_v01" parent="ENV" index="15" unique_id=448991849 instance=ExtResource("21_rtqhc")]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -4.975388, -22.411766, 450.89047)
+[node name="Schmanufaktur" parent="." index="13" unique_id=201360080 instance=ExtResource("21_rtqhc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 146.44412, -1.2952042, -47.887928)
 
 [editable path="AssetGymFelix"]
 [editable path="SandwichStomper2/MovingPlatform"]
@@ -978,3 +978,4 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -4.975388, -22.411766, 450.89
 [editable path="ENV/FactoryMeshLib"]
 [editable path="ENV/FactoryMeshLib/FactoryAssets3"]
 [editable path="ENV/FactoryMeshLib/factoryHalterung2"]
+[editable path="Schmanufaktur"]
