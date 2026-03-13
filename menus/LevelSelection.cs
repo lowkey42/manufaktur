@@ -62,6 +62,7 @@ public partial class LevelSelection : Control
 
 
 		    btn.Text = "Level " + i;
+		    GD.Print("Level"+ i);
 		    i++;
 
 		    btn.Pressed += () => SelectLevel(level.LevelName, level.ScenePath, level.HighscoreKey, level.PreviewImage);
