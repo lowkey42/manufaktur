@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://ff04yh0rdln3" path="res://icon.svg" id="2"]
 [ext_resource type="Theme" uid="uid://cdh01f3cdy86t" path="res://commons/main_theme.tres" id="2_k83c2"]
 [ext_resource type="Shortcut" uid="uid://7cs6fghgm3fk" path="res://menus/escape_shortcut.tres" id="2_klmml"]
+[ext_resource type="Script" uid="uid://csyrf4gbhsvin" path="res://menus/AnimatedButton.cs" id="4_lqgjm"]
+[ext_resource type="Resource" uid="uid://dl7uhmd64xfe6" path="res://commons/sounds/main_menu_ui_hover_sounds.tres" id="5_02nam"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sxc4f"]
 bg_color = Color(0.3647059, 0.5529412, 0.7411765, 1)
@@ -63,6 +65,8 @@ size_flags_horizontal = 4
 theme_override_styles/normal = SubResource("StyleBoxFlat_lqgjm")
 shortcut = ExtResource("2_klmml")
 text = "X"
+script = ExtResource("4_lqgjm")
+HoverSounds = ExtResource("5_02nam")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1006]
 layout_mode = 2
@@ -198,3 +202,5 @@ layout_mode = 2
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ScoreListContainer/Score_5" unique_id=970862217]
 clip_contents = true
 layout_mode = 2
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]
