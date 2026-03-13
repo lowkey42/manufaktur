@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://drlqtbtd481rq"]
 
 [ext_resource type="Script" uid="uid://bginvke8h6m0w" path="res://gameplay/interactables/moving_platform/MovingPlatform.cs" id="1_b5ekv"]
+[ext_resource type="Texture2D" uid="uid://gskkmdby62te" path="res://commons/textures/placeholder.png" id="2_kte7w"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g5nlb"]
 size = Vector3(2, 0.2, 2)
@@ -10,6 +11,10 @@ size = Vector3(2, 0.2, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e1mb0"]
 albedo_color = Color(0.3254902, 0.6, 1, 1)
+albedo_texture = ExtResource("2_kte7w")
+uv1_scale = Vector3(0.45, 0.45, 0.45)
+uv1_offset = Vector3(-0.48, -0.29, 0.485)
+uv1_triplanar = true
 
 [node name="MovingPlatform" type="Node3D" unique_id=1860802399]
 script = ExtResource("1_b5ekv")
