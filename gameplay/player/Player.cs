@@ -108,7 +108,7 @@ public partial class Player : CharacterBody3D {
 		_gravity      = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle() * _gravityFactor;
 		_jumpVelocity = Mathf.Sqrt(2 * _gravity * _jumpHeight);
 		_camera.Fov   = _targetFov.Sample(0);
-		//Input.SetMouseMode(Input.MouseModeEnum.Captured);
+		Input.SetMouseMode(Input.MouseModeEnum.Captured);
 	}
 
 	public override void _Input(InputEvent e) {
