@@ -1,0 +1,7 @@
+services:
+  manufaktur-server:
+    build: .
+    ports:
+      - 8080:5189
+    volumes:
+      - ~/.manufaktur:~/.manufaktur
