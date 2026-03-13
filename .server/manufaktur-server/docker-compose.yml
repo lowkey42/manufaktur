@@ -1,8 +1,9 @@
+# /home/amy/gdw2026/manufaktur/.server/manufaktur-server/docker-compose.yml
 services:
   manufaktur-server:
     build: .
     ports:
-      - 8080:5189
+      - "8080:8080"
     volumes:
-      - ~/.manufaktur:~/.manufaktur
-      - ..:/manufaktur-server
+      - /home/gdw/.manufaktur:/home/app/.manufaktur
+      - .:/src
