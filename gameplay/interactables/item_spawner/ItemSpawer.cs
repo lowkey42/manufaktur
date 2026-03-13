@@ -149,6 +149,10 @@ public partial class ItemSpawer : Triggerable {
 				player.Inventory.CollectItem(item);
 				DespawnItem();
 			}
+
+			if (body is Ghost) {
+				DespawnItem();
+			}
 		}
 	}
 
