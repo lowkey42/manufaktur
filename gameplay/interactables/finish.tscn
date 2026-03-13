@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cqqrwyoy1jto7" path="res://gameplay/interactables/Finish.cs" id="1_16a74"]
 [ext_resource type="PackedScene" uid="uid://ctyxpkkm5xws4" path="res://gameplay/props/Schmanu_Texturen/Schmanu_Painted.gltf" id="2_ijb8j"]
 [ext_resource type="Texture2D" uid="uid://bxmqwpm32lxi7" path="res://gameplay/props/Schmanu_Texturen/Manu_Midpoly_DefaultMaterial_BaseColor.png" id="3_8i4p3"]
+[ext_resource type="Texture2D" uid="uid://bl4ofacdt5p30" path="res://gameplay/player/ghost_particle.png" id="4_0g1sc"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_x5fet"]
 height = 3.0
@@ -20,6 +21,65 @@ albedo_texture = ExtResource("3_8i4p3")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ycnbq"]
 albedo_texture = ExtResource("3_8i4p3")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8i4p3"]
+transparency = 1
+blend_mode = 4
+depth_draw_mode = 2
+shading_mode = 0
+disable_ambient_light = true
+disable_fog = true
+disable_specular_occlusion = true
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("4_0g1sc")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_gln7x"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.35925335, 0), -0.37367013, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_hh03y"]
+curve = SubResource("Curve_gln7x")
+
+[sub_resource type="Gradient" id="Gradient_0g1sc"]
+offsets = PackedFloat32Array(0.026221432, 0.10545418, 0.4917648, 0.63069904, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.08, 0, 0.06266666, 0.5058824, 1, 0.772, 0.24000001, 0, 1, 0.772, 0.24000001, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gln7x"]
+gradient = SubResource("Gradient_0g1sc")
+
+[sub_resource type="Curve" id="Curve_0g1sc"]
+_data = [Vector2(0, 0.26883006), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_gln7x"]
+curve = SubResource("Curve_0g1sc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0g1sc"]
+emission_shape = 1
+emission_sphere_radius = 1.5
+angle_min = -720.0
+angle_max = 720.0
+direction = Vector3(0, 1, 0)
+spread = 4.0
+flatness = 0.8
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, 0, 0)
+damping_min = 0.010000001
+damping_max = 0.010000001
+scale_min = 8.0
+scale_max = 10.0
+scale_curve = SubResource("CurveTexture_gln7x")
+color = Color(0.6, 0.6, 0.6, 0.52156866)
+color_ramp = SubResource("GradientTexture1D_gln7x")
+alpha_curve = SubResource("CurveTexture_hh03y")
+
+[sub_resource type="QuadMesh" id="QuadMesh_gln7x"]
+
 [node name="Finish" type="Node3D" unique_id=1714722049 groups=["finish"]]
 script = ExtResource("1_16a74")
 
@@ -35,17 +95,26 @@ shape = SubResource("CylinderShape3D_x5fet")
 [node name="Schmanu_Painted" parent="." unique_id=1379553802 instance=ExtResource("2_ijb8j")]
 transform = Transform3D(0.37, 0, 0, 0, 0.37, 0, 0, 0, 0.37, 0, 0, 0)
 
-[node name="Manu_Body" parent="Schmanu_Painted/ROOT" parent_id_path=PackedInt32Array(1379553802, 702653078) index="0" unique_id=1122054819]
+[node name="Manu_Body" parent="Schmanu_Painted/ROOT" parent_id_path=PackedInt32Array(1379553802, 783727585) index="0" unique_id=1702795712]
 material_override = SubResource("StandardMaterial3D_0g1sc")
 
-[node name="Manu_Schnurrbart" parent="Schmanu_Painted/ROOT" parent_id_path=PackedInt32Array(1379553802, 702653078) index="1" unique_id=165323428]
+[node name="Manu_Schnurrbart" parent="Schmanu_Painted/ROOT" parent_id_path=PackedInt32Array(1379553802, 783727585) index="1" unique_id=491163614]
 material_override = SubResource("StandardMaterial3D_gln7x")
 
-[node name="Manu_Cap" parent="Schmanu_Painted/ROOT" parent_id_path=PackedInt32Array(1379553802, 702653078) index="2" unique_id=277849109]
+[node name="Manu_Cap" parent="Schmanu_Painted/ROOT" parent_id_path=PackedInt32Array(1379553802, 783727585) index="2" unique_id=1616533227]
 material_override = SubResource("StandardMaterial3D_hh03y")
 
-[node name="Manu_Body_001" parent="Schmanu_Painted/ROOT" parent_id_path=PackedInt32Array(1379553802, 702653078) index="3" unique_id=641887771]
+[node name="Manu_Body_001" parent="Schmanu_Painted/ROOT" parent_id_path=PackedInt32Array(1379553802, 783727585) index="3" unique_id=51954867]
 material_override = SubResource("StandardMaterial3D_ycnbq")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=2007409111]
+material_override = SubResource("StandardMaterial3D_8i4p3")
+amount = 2048
+lifetime = 60.0
+preprocess = 60.0
+visibility_aabb = AABB(-3.4758768, -2.2995179, -8.401995, 6.847574, 104.98673, 17.0389)
+process_material = SubResource("ParticleProcessMaterial_0g1sc")
+draw_pass_1 = SubResource("QuadMesh_gln7x")
 
 [connection signal="body_entered" from="Area3D" to="." method="OnEnter"]
 

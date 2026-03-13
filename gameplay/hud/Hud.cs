@@ -1,9 +1,11 @@
 using Godot;
 using System;
-using System.ComponentModel;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Text.RegularExpressions;
 using Manufaktur.gameplay;
+using System.Threading.Tasks;
+using System.Linq;
 
 public partial class Hud : CanvasLayer {
 	private static string _previousName = "Manu";
@@ -32,13 +34,12 @@ public partial class Hud : CanvasLayer {
 	private int _lastCountdownValue = -1;
 	private string _nextLevelScene;
 
-	public void ShowHighscore(HighscoreList highscores, HighscoreList.Entry newEntry, string nextLevelScene) {
+	public async void ShowHighscore(HighscoreList highscores, HighscoreList.Entry newEntry, string nextLevelScene) {
 		_highscores     = highscores;
 		_newEntry       = newEntry;
 		_nextLevelScene = nextLevelScene;
 
 		ShowHighscoreItems(highscores.EntriesLocal, _highscorePanel.GetNode<Control>("%LocalHighscoreHeader"), newEntry);
-		ShowHighscoreItems(highscores.EntriesGlobal, _highscorePanel.GetNode<Control>("%GlobalHighscoreHeader"), newEntry);
 
 		if (newEntry != null) {
 			_newEntryName.Text         =  _previousName;
@@ -59,6 +60,10 @@ public partial class Hud : CanvasLayer {
 		} else {
 			_nextButton.GrabFocus();
 		}
+
+		var globalScores = await _highscores.GetGlobalScores(newEntry);
+		if (IsQueuedForDeletion()) return;
+		ShowHighscoreItems(globalScores, _highscorePanel.GetNode<Control>("%GlobalHighscoreHeader"), newEntry);
 	}
 
 	private void ShowHighscoreItems(HighscoreList.Entry[] entries, Control previousSibling, HighscoreList.Entry newEntry) {
@@ -69,7 +74,7 @@ public partial class Hud : CanvasLayer {
 			row.GetNode<Label>("Number").Text = position + ".";
 			position++;
 			row.GetNode<Label>("Time").Text = FormatTime(entry.Time);
-			row.GetNode<Label>("Name").Text = entry.Name;
+			row.GetNode<Label>("Name").Text = entry == newEntry ? "****" : entry.Name;
 
 			if (newEntry == entry) {
 				var blinkTween = row.CreateTween();

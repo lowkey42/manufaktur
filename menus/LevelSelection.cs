@@ -45,14 +45,16 @@ public partial class LevelSelection : Control
         var btn3 = GetNode<Button>("%Level3Button");
         var btn4 = GetNode<Button>("%Level4Button");
 
-        Texture2D defaultImg = GD.Load<Texture2D>("res://commons/textures/placeholder.png");
-        Texture2D beachlevelimg = GD.Load<Texture2D>("res://commons/textures/beachlevel01_preview.png");
-        
+        Texture2D defaultImg       = GD.Load<Texture2D>("res://commons/textures/placeholder.png");
+        Texture2D beachlevelimg    = GD.Load<Texture2D>("res://commons/textures/beachlevel01_preview.png");
+        Texture2D beachlevel_2_img = GD.Load<Texture2D>("res://commons/textures/beachlevel02_preview.png");
+        Texture2D factorylevel_1_img = GD.Load<Texture2D>("res://commons/textures/factorylevel01_preview.png");
+        Texture2D factorylevel_2_img = GD.Load<Texture2D>("res://commons/textures/factorylevel02_preview.png");
 
-        btn1.Pressed += () => SelectLevel("baselevel", "res://menus/story_menu_real.tscn", "baselevel", beachlevelimg);
-        btn2.Pressed += () => SelectLevel("Level 2", "res://gameplay/levels/level02.tscn", "Level2", defaultImg);
-        btn3.Pressed += () => SelectLevel("Level 3", "res://gameplay/levels/level03.tscn", "Level3", defaultImg);
-        btn4.Pressed += () => SelectLevel("Level 4", "res://gameplay/levels/level04.tscn", "Level4", defaultImg);
+        btn1.Pressed += () => SelectLevel("Beach Level 1", "res://menus/story_menu_real.tscn", "baselevel", beachlevelimg);
+        btn2.Pressed += () => SelectLevel("Beach Level 2", "res://gameplay/levels/BeachLevel02.tscn", "BeachLevel02", beachlevel_2_img);
+        btn3.Pressed += () => SelectLevel("Factory Level 1", "res://gameplay/levels/FactoryLevel.tscn", "FactoryLevel", factorylevel_1_img);
+        btn4.Pressed += () => SelectLevel("Factory Level 2", "res://gameplay/levels/FactoryLevel02.tscn", "FactoryLevel2", factorylevel_2_img);
 
 
         CallDeferred(MethodName.SelectLevel, "baselevel", "res://menus/story_menu_real.tscn", "baselevel", beachlevelimg);
