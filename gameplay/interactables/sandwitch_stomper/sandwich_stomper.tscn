@@ -36,6 +36,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ps8i5")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_0hdt7"]
+size = Vector3(3.8092804, 0.65631104, 4.854538)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_wdndh"]
+height = 10.62915
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1iic4"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_b0qd0"]
@@ -203,38 +209,57 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_j55fw")
 
-[node name="SandwichStomper" type="Node3D" unique_id=164298217 node_paths=PackedStringArray("_stomper")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_wdndh"]
+size = Vector3(3.7622986, 0.33050537, 4.791153)
+
+[node name="SandwichStomper" type="Node3D" unique_id=164298217]
 script = ExtResource("1_wdndh")
-_stomper = NodePath("stomper")
 
 [node name="Cylinder_022" type="MeshInstance3D" parent="." unique_id=1682571092]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1112161, 0)
 mesh = SubResource("ArrayMesh_0qocr")
 skeleton = NodePath("")
 
-[node name="stomper" type="Node3D" parent="." unique_id=1647493915]
+[node name="Stomper" type="AnimatableBody3D" parent="." unique_id=2128861379]
 
-[node name="Cylinder_019" type="MeshInstance3D" parent="stomper" unique_id=99901048]
+[node name="Collision" type="CollisionShape3D" parent="Stomper" unique_id=624059252]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.096458435, 0.36709595, 0.5411453)
+shape = SubResource("BoxShape3D_0hdt7")
+
+[node name="Collision2" type="CollisionShape3D" parent="Stomper" unique_id=636061331]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08774078, 5.7868896, 0)
+shape = SubResource("CylinderShape3D_wdndh")
+
+[node name="Cylinder_019" type="MeshInstance3D" parent="Stomper" unique_id=99901048]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09262657, 1.7298489, -0.014404297)
 mesh = SubResource("ArrayMesh_chfm5")
 skeleton = NodePath("")
 
-[node name="Cylinder_020" type="MeshInstance3D" parent="stomper" unique_id=576175569]
+[node name="Cylinder_020" type="MeshInstance3D" parent="Stomper" unique_id=576175569]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09262657, 1.5586128, -0.014404297)
 mesh = SubResource("ArrayMesh_6c70f")
 skeleton = NodePath("")
 
-[node name="Cylinder_021" type="MeshInstance3D" parent="stomper" unique_id=1213952582]
+[node name="Cylinder_021" type="MeshInstance3D" parent="Stomper" unique_id=1213952582]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09262657, 1.218792, -0.014404297)
 mesh = SubResource("ArrayMesh_mcbdq")
 skeleton = NodePath("")
 
-[node name="Solid 237_003" type="MeshInstance3D" parent="stomper" unique_id=1246697907]
+[node name="Solid 237_003" type="MeshInstance3D" parent="Stomper" unique_id=1246697907]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09262657, 0.021068573, 0.16384888)
 mesh = SubResource("ArrayMesh_m1eqv")
 skeleton = NodePath("")
 
-[node name="Cylinder" type="MeshInstance3D" parent="stomper" unique_id=727571635]
+[node name="Cylinder" type="MeshInstance3D" parent="Stomper" unique_id=727571635]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09262657, 1.2795124, -0.014404297)
 mesh = SubResource("ArrayMesh_4nble")
 skeleton = NodePath("")
+
+[node name="StomperContactArea" type="Area3D" parent="Stomper" unique_id=180968598]
+collision_layer = 32
+collision_mask = 2
+metadata/collision_preset_name = "__custom__"
+
+[node name="Collider" type="CollisionShape3D" parent="Stomper/StomperContactArea" unique_id=1700815025]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0907135, 0.17201233, 0.5232315)
+shape = SubResource("BoxShape3D_wdndh")

@@ -21,7 +21,8 @@ script = ExtResource("1_b5ekv")
 
 [node name="Body" type="AnimatableBody3D" parent="." unique_id=758428579]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
-sync_to_physics = false
+collision_mask = 0
+metadata/collision_preset_name = "__custom__"
 
 [node name="Collision" type="CollisionShape3D" parent="Body" unique_id=628204728]
 shape = SubResource("BoxShape3D_g5nlb")
