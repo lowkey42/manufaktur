@@ -34,6 +34,8 @@ public partial class SettingsMenu : Control
 
 
        _masterSlider.Value          = SettingsManager.Instance.MasterVolume;
+       _musicSlider.Value             = SettingsManager.Instance.MusicVolume;
+       _uiSlider.Value             = SettingsManager.Instance.UiVolume;
        _sfxSlider.Value             = SettingsManager.Instance.SfxVolume;
        _fullscreenBox.ButtonPressed = SettingsManager.Instance.Fullscreen;
        _ssaoButton.ButtonPressed    = SettingsManager.Instance.Ssao;
