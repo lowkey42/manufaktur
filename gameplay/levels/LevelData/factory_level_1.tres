@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://ccijxdvsbou26"]
+
+[ext_resource type="Script" uid="uid://cronyum28888l" path="res://gameplay/levels/LevelData.cs" id="1_034fn"]
+[ext_resource type="Texture2D" uid="uid://c745qpfi8otqy" path="res://commons/textures/beachlevel02_preview.png" id="1_upcb7"]
+
+[resource]
+script = ExtResource("1_034fn")
+LevelName = "Factory Level 1"
+ScenePath = "uid://3wguoucudfmv"
+HighscoreKey = "FactoryLevel"
+PreviewImage = ExtResource("1_upcb7")
+metadata/_custom_type_script = "uid://cronyum28888l"

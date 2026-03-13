@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://clguu00qcldhg"]
+
+[ext_resource type="Script" uid="uid://csyrf4gbhsvin" path="res://menus/AnimatedButton.cs" id="1_s52qx"]
+[ext_resource type="Resource" uid="uid://dl7uhmd64xfe6" path="res://commons/sounds/main_menu_ui_hover_sounds.tres" id="2_ynand"]
+
+[node name="Level1Button" type="Button" unique_id=1435039711]
+custom_minimum_size = Vector2(400, 100)
+theme_type_variation = &"FlatButton"
+text = "Level 1"
+script = ExtResource("1_s52qx")
+HoverSounds = ExtResource("2_ynand")

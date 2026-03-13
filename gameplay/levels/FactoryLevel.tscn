@@ -1,18 +1,18 @@
-[gd_scene format=4 uid="uid://c777i63fqp4ko"]
+[gd_scene format=4 uid="uid://3wguoucudfmv"]
 
 [ext_resource type="PackedScene" uid="uid://00ip0t0c74ti" path="res://gameplay/base_level.tscn" id="1_3fwcc"]
-[ext_resource type="MeshLibrary" uid="uid://f04go3smmvws" path="res://gameplay/props/FactoryMeshLib.tres" id="2_ej6vo"]
+[ext_resource type="MeshLibrary" path="res://gameplay/props/FactoryMeshLib.tres" id="2_ej6vo"]
 [ext_resource type="CameraAttributesPractical" uid="uid://cgc2whm11qogj" path="res://gameplay/levels/beach2camera.tres" id="2_u6kvj"]
 [ext_resource type="Compositor" uid="uid://bew1u116w528g" path="res://gameplay/levels/beach2comp.tres" id="3_6fchf"]
 [ext_resource type="PackedScene" uid="uid://6cjmlbnprx2b" path="res://gameplay/props/factoryMeshLib.tscn" id="3_xk0si"]
 [ext_resource type="PackedScene" uid="uid://lngr0ceaxmqc" path="res://gameplay/props/AssetGym_Felix.tscn" id="4_6tlr6"]
 [ext_resource type="Material" uid="uid://dam321ld4wisp" path="res://commons/Materials/BaseColorGradient.tres" id="4_kdqht"]
-[ext_resource type="Material" uid="uid://bod5dn2ugg4bl" path="res://commons/Materials/TrimFactory_material.tres" id="5_kdqht"]
+[ext_resource type="Material" path="res://commons/Materials/TrimFactory_material.tres" id="5_kdqht"]
 [ext_resource type="PackedScene" uid="uid://ct3ocsa4g3low" path="res://gameplay/props/FactoryBigWallPiece.glb" id="6_3wbkv"]
 [ext_resource type="PackedScene" uid="uid://b8524aomrv8qu" path="res://gameplay/interactables/turret/turret.tscn" id="7_uacab"]
 [ext_resource type="PackedScene" uid="uid://drlqtbtd481rq" path="res://gameplay/interactables/moving_platform/moving_platform.tscn" id="11_6fchf"]
-[ext_resource type="PackedScene" uid="uid://xys1pyxjba42" path="res://gameplay/interactables/sandwich_stomper.tscn" id="11_s1rtu"]
-[ext_resource type="PackedScene" uid="uid://di7d1utnoba6s" path="res://gameplay/interactables/spike_trap.tscn" id="12_sqgoa"]
+[ext_resource type="PackedScene" uid="uid://xys1pyxjba42" path="res://gameplay/interactables/sandwitch_stomper/sandwich_stomper.tscn" id="11_s1rtu"]
+[ext_resource type="PackedScene" path="res://gameplay/interactables/spike_trap.tscn" id="12_sqgoa"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mk68e"]
 
