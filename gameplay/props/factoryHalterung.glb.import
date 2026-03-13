@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cgnnprhkk76hg"
-path="res://.godot/imported/Manufaktur_Factory_ManuTube_v01.glb-d041c5575d33642b3ce84664f03bbb1d.scn"
+uid="uid://cm7q1rhpxiwvl"
+path="res://.godot/imported/factoryHalterung.glb-7522dd6c9a9835956f2a3d36c55e61a8.scn"
 
 [deps]
 
-source_file="res://gameplay/props/props Import/Manufaktur_Factory_ManuTube_v01.glb"
-dest_files=["res://.godot/imported/Manufaktur_Factory_ManuTube_v01.glb-d041c5575d33642b3ce84664f03bbb1d.scn"]
+source_file="res://gameplay/props/factoryHalterung.glb"
+dest_files=["res://.godot/imported/factoryHalterung.glb-7522dd6c9a9835956f2a3d36c55e61a8.scn"]
 
 [params]
 
@@ -39,17 +39,21 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "materials": {
-"@MATERIAL:0": {
+"GDW2026_Trim.001": {
 "use_external/enabled": true,
-"use_external/path": "uid://dam321ld4wisp"
+"use_external/fallback_path": "res://commons/Materials/TrimFactory_material.tres",
+"use_external/path": "uid://bod5dn2ugg4bl"
 },
-"@MATERIAL:1": {
+"factoryBaseMat": {
 "use_external/enabled": true,
+"use_external/fallback_path": "res://commons/Materials/BaseColorGradient.tres",
 "use_external/path": "uid://dam321ld4wisp"
+}
 },
-"@MATERIAL:2": {
-"use_external/enabled": true,
-"use_external/path": "uid://dam321ld4wisp"
+"nodes": {
+"PATH:FloorQuad_001": {
+"generate/physics": true,
+"physics/shape_type": 1
 }
 }
 }

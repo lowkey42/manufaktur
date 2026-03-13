@@ -36,8 +36,8 @@ public partial class Turret : Node3D {
 		_shotsLeftInBurst--;
 
 		float nextDelay = (_shotsLeftInBurst > 0)
-			                  ? Mathf.Max(0.01f, TimeBetweenBurstBullets)
-			                  : Mathf.Max(0.01f, TimeBetweenBursts);
+							  ? Mathf.Max(0.01f, TimeBetweenBurstBullets)
+							  : Mathf.Max(0.01f, TimeBetweenBursts);
 
 		_fireTimer.Start(nextDelay);
 	}
