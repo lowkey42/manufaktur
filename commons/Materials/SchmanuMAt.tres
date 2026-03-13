@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bfleh3um1y1lw"]
+
+[ext_resource type="Texture2D" uid="uid://bxmqwpm32lxi7" path="res://gameplay/props/Schmanu_Texturen/Manu_Midpoly_DefaultMaterial_BaseColor.png" id="1_rdot5"]
+[ext_resource type="Texture2D" uid="uid://c5ofaox4oatft" path="res://gameplay/props/Schmanu_Texturen/Manu_Midpoly_DefaultMaterial_Height.png" id="2_8wx8q"]
+[ext_resource type="Texture2D" uid="uid://b27tp0foeojin" path="res://gameplay/props/Schmanu_Texturen/Manu_Midpoly_DefaultMaterial_Metallic.png" id="3_st4fu"]
+[ext_resource type="Texture2D" uid="uid://b1tb08cmuk3km" path="res://gameplay/props/Schmanu_Texturen/Manu_Midpoly_DefaultMaterial_Normal.png" id="4_7qcgu"]
+[ext_resource type="Texture2D" uid="uid://dwup5al14x85m" path="res://gameplay/props/Schmanu_Texturen/Manu_Midpoly_DefaultMaterial_Roughness.png" id="5_xc7mx"]
+
+[resource]
+albedo_texture = ExtResource("1_rdot5")
+metallic = 1.0
+metallic_texture = ExtResource("3_st4fu")
+roughness_texture = ExtResource("5_xc7mx")
+normal_enabled = true
+normal_texture = ExtResource("4_7qcgu")
+heightmap_enabled = true
+heightmap_texture = ExtResource("2_8wx8q")
