@@ -22,7 +22,7 @@ _explosionSoundPlayer = NodePath("AudioStreamPlayer3D")
 ShockwaveRadius = 12.0
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1775338860]
-collision_layer = 5
+collision_layer = 32
 metadata/collision_preset_name = "__custom__"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1538083348]
