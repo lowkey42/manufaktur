@@ -30,7 +30,6 @@ buses/default_bus_layout="uid://cx31efi6nj0v3"
 
 [autoload]
 
-PromptManager="*uid://qdj52llei2ml"
 CollisionPresetRuntime="*uid://u810pt6u5apa"
 EventBus="*uid://c6eo2p7cfvmf6"
 SettingsManager="*uid://bcitpw3xhbhpy"
@@ -51,6 +50,13 @@ window/vsync/vsync_mode=3
 [dotnet]
 
 project/assembly_name="Manufaktur"
+
+[editor]
+
+movie_writer/video_quality=1.0
+movie_writer/ogv/audio_quality=1.0
+movie_writer/ogv/encoding_speed=3
+movie_writer/movie_file="/tmp/video.ogv"
 
 [editor_plugins]
 
@@ -181,10 +187,13 @@ textures/canvas_textures/default_texture_repeat=1
 rendering_device/driver.windows="d3d12"
 textures/vram_compression/import_s3tc_bptc=true
 textures/vram_compression/import_etc2_astc=true
+lights_and_shadows/directional_shadow/soft_shadow_filter_quality=3
+lights_and_shadows/positional_shadow/soft_shadow_filter_quality=3
 textures/default_filters/anisotropic_filtering_level=3
 camera/depth_of_field/depth_of_field_bokeh_quality=2
 camera/depth_of_field/depth_of_field_use_jitter=true
 environment/subsurface_scattering/subsurface_scattering_quality=2
+anti_aliasing/quality/screen_space_aa=2
 occlusion_culling/use_occlusion_culling=true
 
 [richer_text_label]

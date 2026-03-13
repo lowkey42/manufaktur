@@ -55,7 +55,7 @@ public partial class TextureSequencer : TextureRect
 	{
 		if (@event is InputEventKey eventKey)
 		{
-			if (eventKey.Pressed && eventKey.Keycode == Key.Escape)
+			if (eventKey.Pressed && (eventKey.Keycode == Key.Escape  || eventKey.Keycode == Key.Enter || eventKey.Keycode == Key.Space))
 			{
 				ChangeScene();
 			}

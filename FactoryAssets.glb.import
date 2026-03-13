@@ -1,0 +1,105 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://u4ehmri5mcgp"
+path="res://.godot/imported/FactoryAssets.glb-158b7a6719b4f3edf8c6f07c7734a8c7.scn"
+
+[deps]
+
+source_file="res://FactoryAssets.glb"
+dest_files=["res://.godot/imported/FactoryAssets.glb-158b7a6719b4f3edf8c6f07c7734a8c7.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"GDW2026_Trim.001": {
+"use_external/enabled": true,
+"use_external/fallback_path": "",
+"use_external/path": ""
+},
+"factoryBaseMat": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://commons/Materials/BaseColorGradient.tres",
+"use_external/path": "uid://dam321ld4wisp"
+}
+},
+"nodes": {
+"PATH:5x5Wall": {
+"generate/physics": true,
+"physics/shape_type": 1
+},
+"PATH:5x5WallOpenTile": {
+"generate/physics": true,
+"physics/shape_type": 2
+},
+"PATH:5x5WallWindow": {
+"generate/physics": true,
+"physics/shape_type": 2
+},
+"PATH:5x5Wall_001": {
+"generate/physics": true,
+"physics/shape_type": 1
+},
+"PATH:BaseFloor": {
+"generate/physics": true,
+"physics/shape_type": 1
+},
+"PATH:BaseFloorSmall": {
+"generate/physics": true,
+"physics/shape_type": 1
+},
+"PATH:ConveyorBelt_Base": {
+"generate/physics": true,
+"physics/shape_type": 1
+},
+"PATH:FactoryStairs": {
+"generate/physics": true,
+"physics/shape_type": 1
+},
+"PATH:PipeCurved": {
+"generate/physics": true,
+"physics/shape_type": 1
+},
+"PATH:PipeQuadConnector": {
+"generate/physics": true,
+"physics/shape_type": 1
+},
+"PATH:PipeStraight": {
+"generate/physics": true,
+"physics/shape_type": 1
+},
+"PATH:ScaleGrid1x1_002": {
+"generate/physics": true,
+"physics/shape_type": 1
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=1
