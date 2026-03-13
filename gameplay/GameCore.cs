@@ -5,7 +5,7 @@ using Manufaktur.gameplay;
 public partial class GameCore : Node {
 	[Export] private int _startDelay = 3;
 
-	[Export] private int _ghostHeadStart = 2;
+	[Export] private float _ghostHeadStart = 1f;
 
 	[Export] private PackedScene _ghostScene;
 
@@ -68,7 +68,13 @@ public partial class GameCore : Node {
 			break;
 		}
 
+		SpawnGhost();
 		StartCountdown();
+	}
+
+	private async void SpawnGhost() {
+		await ToSignal(GetTree().CreateTimer(_startDelay-_ghostHeadStart, false), "timeout");
+		_ghost?.Start();
 	}
 
 	private async void StartCountdown() {
@@ -78,10 +84,6 @@ public partial class GameCore : Node {
 
 		for (var i = 0; i < _startDelay; i++) {
 			var timeLeft = _startDelay - i;
-			if (timeLeft <= _ghostHeadStart) {
-				_ghost?.Start();
-			}
-
 			_hud.SetCountdown(timeLeft);
 			await ToSignal(GetTree().CreateTimer(1.0, false), "timeout");
 		}
