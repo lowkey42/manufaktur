@@ -18,18 +18,18 @@ public partial class AnimatedButton : Button {
 	
 	private void    SetPivot()
 	{
-		PivotOffset = Size * new Vector2(0.5f, 1.0f);
+		PivotOffset = Size * new Vector2(0.5f, 0.5f);
 	}
 
 	private void _onMouse_entered() {
-		PivotOffset = Size * new Vector2(0.0f, 0.5f);
+		PivotOffset = Size * new Vector2(0.5f, 0.5f);
 		if (tween != null) {
 			tween.Kill();
 		}
 		tween = GetTree().CreateTween();
 		tween.SetEase(Tween.EaseType.Out);
 		tween.SetTrans(Tween.TransitionType.Linear);
-		tween.TweenProperty(this, "scale", new Vector2(1.1f, 1.1f), 0.25f);
+		tween.TweenProperty(this, "scale", new Vector2(1.05f, 1.05f), 0.25f);
 		
 		
 

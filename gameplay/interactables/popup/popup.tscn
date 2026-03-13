@@ -2,15 +2,18 @@
 
 [ext_resource type="Script" uid="uid://bqwtnv4xum8ha" path="res://gameplay/interactables/popup/Popup.cs" id="1_0gril"]
 [ext_resource type="Texture2D" uid="uid://bb4ae6bn8kpt2" path="res://gameplay/interactables/popup/popup_placeholder.png" id="1_d7ppj"]
+[ext_resource type="AudioStream" uid="uid://bh71ryjtb3ls" path="res://gameplay/interactables/popup/Bonk1.wav" id="3_knc2t"]
 [ext_resource type="AudioStream" uid="uid://2fx41i8vqo2c" path="res://gameplay/interactables/popup/PopUp1.1.wav" id="3_nxm8u"]
 [ext_resource type="AudioStream" uid="uid://dnw0nyxma7ag6" path="res://gameplay/interactables/popup/PopUp1.2.wav" id="4_3c46p"]
+[ext_resource type="AudioStream" uid="uid://bnef5hl15nbac" path="res://gameplay/interactables/popup/Bonk2.wav" id="4_tnl2s"]
 [ext_resource type="AudioStream" uid="uid://ilhlp6g3vus8" path="res://gameplay/interactables/popup/PopUp1.3.wav" id="5_5b6lh"]
+[ext_resource type="AudioStream" uid="uid://bfps51r7xmxcl" path="res://gameplay/interactables/popup/Bonk3.wav" id="5_xlj8v"]
 [ext_resource type="AudioStream" uid="uid://c4jbhcssr7xqh" path="res://gameplay/interactables/popup/PopUp1.4.wav" id="6_byr28"]
+[ext_resource type="AudioStream" uid="uid://cnw7gu6yhdb7a" path="res://gameplay/interactables/popup/Bonk4.wav" id="6_nxm8u"]
+[ext_resource type="AudioStream" uid="uid://c8t12m670moip" path="res://gameplay/interactables/popup/Bonk5.wav" id="7_3c46p"]
 [ext_resource type="AudioStream" uid="uid://fjf7a26iefu2" path="res://gameplay/interactables/popup/PopUp1.5.wav" id="7_cgkhp"]
+[ext_resource type="AudioStream" uid="uid://c700f6dgcoyas" path="res://gameplay/interactables/popup/Bonk6.wav" id="8_5b6lh"]
 [ext_resource type="AudioStream" uid="uid://4tbmpxpw12yr" path="res://gameplay/interactables/popup/PopUp1.6.wav" id="8_qnxf1"]
-[ext_resource type="AudioStream" uid="uid://1u3vujxcc8ex" path="res://gameplay/interactables/popup/PopUp3.1.wav" id="9_7hraa"]
-[ext_resource type="AudioStream" uid="uid://bahxu4mv0pbam" path="res://gameplay/interactables/popup/PopUp3.2.wav" id="10_e58r1"]
-[ext_resource type="AudioStream" uid="uid://ntl70ydbv0vk" path="res://gameplay/interactables/popup/PopUp3.3.wav" id="11_pg10u"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_358bx"]
 size = Vector2(1, 1.9)
@@ -22,24 +25,36 @@ albedo_texture = ExtResource("1_d7ppj")
 [sub_resource type="BoxShape3D" id="BoxShape3D_358bx"]
 size = Vector3(1, 1.9, 0.1)
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xre5c"]
-streams_count = 9
+[sub_resource type="BoxShape3D" id="BoxShape3D_nxm8u"]
+size = Vector3(1, 1.9, 0.5)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_byr28"]
+streams_count = 6
 stream_0/stream = ExtResource("3_nxm8u")
 stream_1/stream = ExtResource("4_3c46p")
 stream_2/stream = ExtResource("5_5b6lh")
 stream_3/stream = ExtResource("6_byr28")
 stream_4/stream = ExtResource("7_cgkhp")
 stream_5/stream = ExtResource("8_qnxf1")
-stream_6/stream = ExtResource("9_7hraa")
-stream_7/stream = ExtResource("10_e58r1")
-stream_8/stream = ExtResource("11_pg10u")
 
-[node name="Popup" type="Node3D" unique_id=1517823302 node_paths=PackedStringArray("_soundPlayer")]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xre5c"]
+streams_count = 6
+stream_0/stream = ExtResource("3_knc2t")
+stream_1/stream = ExtResource("4_tnl2s")
+stream_2/stream = ExtResource("5_xlj8v")
+stream_3/stream = ExtResource("6_nxm8u")
+stream_4/stream = ExtResource("7_3c46p")
+stream_5/stream = ExtResource("8_5b6lh")
+
+[node name="Popup" type="Node3D" unique_id=1517823302 node_paths=PackedStringArray("_rotationOrigin", "_popupSoundPlayer", "_pushbackSoundPlayer", "_pushbackTriggerArea")]
 script = ExtResource("1_0gril")
-TriggerRadius = 24.0
-_soundPlayer = NodePath("AudioStreamPlayer3D")
+_rotationOrigin = NodePath("Origin")
+_popupSoundPlayer = NodePath("PopupSoundPlayer")
+_pushbackSoundPlayer = NodePath("PushbackSoundPlayer")
+_pushbackTriggerArea = NodePath("Origin/Area3D")
 
 [node name="Origin" type="Node3D" parent="." unique_id=2029802706]
+transform = Transform3D(1, 0, 0, 0, 0.17364822, -0.9848077, 0, 0.9848077, 0.17364822, 0, 0, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Origin" unique_id=1484528743]
 
@@ -52,6 +67,19 @@ surface_material_override/0 = SubResource("StandardMaterial3D_0gril")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 0)
 shape = SubResource("BoxShape3D_358bx")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=378988312]
+[node name="Area3D" type="Area3D" parent="Origin" unique_id=216862001]
+collision_layer = 32
+collision_mask = 2
+metadata/collision_preset_name = "__custom__"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Origin/Area3D" unique_id=922914505]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9624634, 0)
+shape = SubResource("BoxShape3D_nxm8u")
+
+[node name="PopupSoundPlayer" type="AudioStreamPlayer3D" parent="." unique_id=378988312]
+stream = SubResource("AudioStreamRandomizer_byr28")
+bus = &"Sound Effects"
+
+[node name="PushbackSoundPlayer" type="AudioStreamPlayer3D" parent="." unique_id=1147517776]
 stream = SubResource("AudioStreamRandomizer_xre5c")
 bus = &"Sound Effects"
