@@ -10,7 +10,7 @@ using Manufaktur.gameplay.player;
 namespace Manufaktur.gameplay;
 
 public class HighscoreList {
-	private const string ScoreServerUrl = null; // "http://localhost:5189/";
+	private const string ScoreServerUrl = "http://85.214.215.73:8080/";
 
 	public class Entry {
 		private readonly HighscoreList _list;
