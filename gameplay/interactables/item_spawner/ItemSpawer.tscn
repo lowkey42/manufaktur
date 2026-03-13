@@ -10,28 +10,65 @@ radius = 0.25
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_8qreh"]
 margin = 1.0
+radius = 1.5
+
+[sub_resource type="Curve" id="Curve_fk1dw"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_nugkn"]
+width = 32
+curve = SubResource("Curve_fk1dw")
+
+[sub_resource type="Gradient" id="Gradient_nllsl"]
+offsets = PackedFloat32Array(0.027985075, 0.44216418, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.8, 0.8, 0.8, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xod27"]
+gradient = SubResource("Gradient_nllsl")
+
+[sub_resource type="Curve" id="Curve_nugkn"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 0.003663063), 0.0, 0.0, 0, 0, Vector2(0.12802769, 0.031372547), 0.0, 0.0, 0, 0, Vector2(0.2525952, 1), 0.0, 0.0, 0, 0, Vector2(0.6262976, -1), 0.0, 0.0, 0, 0, Vector2(0.8581315, 0.0058823824), 0.0, 0.0, 0, 0, Vector2(1, -0.019607902), 0.0, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="CurveTexture" id="CurveTexture_nllsl"]
+curve = SubResource("Curve_nugkn")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p2ixt"]
+emission_shape = 1
+emission_sphere_radius = 0.4
 direction = Vector3(0, 1, 0)
-spread = 30.0
-initial_velocity_min = 0.099999994
-initial_velocity_max = 1.0
+spread = 0.0
+flatness = 1.0
+initial_velocity_min = 1.5
+initial_velocity_max = 2.0
 angular_velocity_min = -1.6093254e-05
 angular_velocity_max = -1.6093254e-05
-orbit_velocity_min = 9.49949e-08
-orbit_velocity_max = 9.49949e-08
-radial_velocity_min = -2.2351742e-05
-radial_velocity_max = -2.2351742e-05
+radial_velocity_min = 1.9999776
+radial_velocity_max = 1.9999776
+radial_velocity_curve = SubResource("CurveTexture_nllsl")
 gravity = Vector3(0, 0, 0)
+damping_min = 0.5
+damping_max = 0.8
+scale_min = 8.0
+scale_max = 10.0
+color_ramp = SubResource("GradientTexture1D_xod27")
+alpha_curve = SubResource("CurveTexture_nugkn")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0rcvm"]
 transparency = 1
-cull_mode = 2
+blend_mode = 4
+depth_draw_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0, 0, 1)
 albedo_texture = ExtResource("2_8qreh")
-emission_enabled = true
-emission = Color(0.297, 0.5181001, 0.9, 1)
-emission_energy_multiplier = 30.0
-billboard_mode = 1
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_fk1dw"]
 material = SubResource("StandardMaterial3D_0rcvm")
@@ -64,15 +101,15 @@ shape = SubResource("SphereShape3D_8qreh")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1581963870]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.023951769, 0)
-amount = 200
-lifetime = 0.8
+amount = 256
+lifetime = 2.0
 process_material = SubResource("ParticleProcessMaterial_p2ixt")
 draw_pass_1 = SubResource("QuadMesh_fk1dw")
 
 [node name="Item_Holder" parent="." unique_id=928203116 instance=ExtResource("2_0rcvm")]
 transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
 
-[node name="Circle" parent="Item_Holder" index="0" unique_id=2101946678]
+[node name="Circle" parent="Item_Holder" index="0" unique_id=538597503]
 surface_material_override/0 = SubResource("StandardMaterial3D_nugkn")
 
 [editable path="Item_Holder"]
