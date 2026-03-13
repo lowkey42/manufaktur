@@ -3,6 +3,7 @@
 [ext_resource type="Material" uid="uid://dam321ld4wisp" path="res://commons/Materials/BaseColorGradient.tres" id="1_68ppe"]
 [ext_resource type="Material" uid="uid://bod5dn2ugg4bl" path="res://commons/Materials/TrimFactory_material.tres" id="2_wb63x"]
 [ext_resource type="PackedScene" uid="uid://ct3ocsa4g3low" path="res://gameplay/props/FactoryBigWallPiece.glb" id="3_wb63x"]
+[ext_resource type="PackedScene" uid="uid://d7drwooflcw5" path="res://gameplay/props/props Import/Manufaktur_Factory_ManuTurret_v01.glb" id="4_imx8j"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_b1hxa"]
 _surfaces = [{
@@ -983,3 +984,6 @@ shape = SubResource("ConvexPolygonShape3D_i1b8o")
 
 [node name="FactoryBigWallPiece" parent="." unique_id=56895810 instance=ExtResource("3_wb63x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.409523, 0, 0)
+
+[node name="Manufaktur_Factory_ManuTurret_v01" parent="." unique_id=164447718 instance=ExtResource("4_imx8j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.898085, 1.1201901, 27.640688)
