@@ -9,8 +9,12 @@ public partial class SettingsManager : Node
 	private const string _savePath = "user://settings.cfg";
 	
 	public bool Fullscreen { get; set; } = false;
-	public float MasterVolume { get; set; } = 0.5f;
-	public float SfxVolume { get; set; } = 0.5f;
+	public float MasterVolume { get; set; } = 50f;
+	
+	public float MusicVolume { get; set; } = 50f;
+	public float SfxVolume { get; set; } = 50f;
+	
+	public float UiVolume { get; set; } = 50f;
 	
 	public int ResolutionHeight { get; set; } = 1920;
 	public int ResolutionWidth { get; set; } = 1080;
@@ -32,18 +36,16 @@ public partial class SettingsManager : Node
 	{
 		var err = _config.Load(_savePath);
 
-		if (err != Error.Ok) {
-			GD.Print("Keine Konfigurationsdatei gefunden. Verwende Standardwerte.");
-			return;
-		}
 		Fullscreen       = (bool)_config.GetValue("video", "fullscreen", false);
 		MasterVolume     = (float)_config.GetValue("audio", "master_vol", 50.0f);
-		SfxVolume     = (float)_config.GetValue("audio", "sfx_vol", 50.0f);
+		MusicVolume     = (float)_config.GetValue("audio", "music_vol", 50.0f);
+		SfxVolume        = (float)_config.GetValue("audio", "sfx_vol", 50.0f);
+		UiVolume         = (float)_config.GetValue("audio", "ui_vol", 50.0f);
 		Ssr              = (bool)_config.GetValue("video", "ssr", false);
 		Ssao             = (bool)_config.GetValue("video", "ssao", false);
 		Ssil             = (bool)_config.GetValue("video", "ssil", false);
 		ResolutionHeight = (int)_config.GetValue("video", "ResolutionHeight", 1920);
-		ResolutionWidth = (int)_config.GetValue("video", "ResolutionWidth", 1080);
+		ResolutionWidth  = (int)_config.GetValue("video", "ResolutionWidth", 1080);
 		SaveSettings();
 		ApplySettings();
 	}
@@ -52,7 +54,9 @@ public partial class SettingsManager : Node
 	{
 		_config.SetValue("video", "fullscreen", Fullscreen);
 		_config.SetValue("audio", "master_vol", MasterVolume);
+		_config.SetValue("audio", "music_vol", MusicVolume);
 		_config.SetValue("audio", "sfx_vol", SfxVolume);
+		_config.SetValue("audio", "ui_vol", UiVolume);
 		_config.SetValue("video", "ssr", Ssr);
 		_config.SetValue("video", "ssao", Ssao);
 		_config.SetValue("video", "ssil", Ssil);
@@ -66,10 +70,17 @@ public partial class SettingsManager : Node
 		DisplayServer.WindowSetMode(Fullscreen
 			                            ? DisplayServer.WindowMode.Fullscreen
 			                            : DisplayServer.WindowMode.Windowed);
-
 		
-		int busIndex = AudioServer.GetBusIndex("Master");
-		AudioServer.SetBusVolumeDb(busIndex, (MasterVolume));
+		float masterDb = Mathf.LinearToDb(MasterVolume / 100f);
+		float musicDb = Mathf.LinearToDb(MusicVolume / 100f);
+		float uiDb = Mathf.LinearToDb(UiVolume / 100f) - 15f;
+		float sfxDb = Mathf.LinearToDb(SfxVolume / 100f);
+		
+
+		AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Master"), (masterDb));
+		AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Music"), (musicDb));
+		AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("UI"), (uiDb));
+		AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Sound Effects"), (sfxDb));
 		
 		UpdateWorldEnvironment();
 	}

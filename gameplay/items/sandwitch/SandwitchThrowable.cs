@@ -67,8 +67,8 @@ public partial class SandwitchThrowable : Node3D {
 
 	public void Launch(Vector3 forwardDirection, Vector3 inheritedVelocity) {
 		var dir = forwardDirection.Normalized();
-
-		_body.LinearVelocity = dir * ThrowSpeed + Vector3.Up * ThrowArcUpwardSpeed + inheritedVelocity;
+		
+		_body.LinearVelocity = dir * ThrowSpeed + Vector3.Up * ThrowArcUpwardSpeed + (inheritedVelocity * 0.5f);
 		_body.AngularVelocity = new Vector3(
 		                                    GdExtensions.RandfRange(-8f, 8f),
 		                                    GdExtensions.RandfRange(-8f, 8f),

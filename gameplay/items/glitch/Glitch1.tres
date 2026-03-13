@@ -15,3 +15,4 @@ Duration = 8.0
 HandTexture = ExtResource("1_xu1qi")
 SpawnerTexture = ExtResource("2_g375g")
 UseSounds = SubResource("AudioStreamRandomizer_s8of2")
+SpawnerParticleColor = Color(0.49326667, 0.252, 0.56, 1)

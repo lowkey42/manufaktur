@@ -5,6 +5,8 @@ public partial class SettingsMenu : Control
 
     private HSlider _masterSlider;
     private HSlider _sfxSlider;
+    private HSlider _musicSlider;
+    private HSlider _uiSlider;
     private CheckBox _fullscreenBox;
     private OptionButton _resDropdown;
     private CheckBox _ssaoButton;
@@ -21,6 +23,8 @@ public partial class SettingsMenu : Control
 
        _masterSlider  = GetNode<HSlider>("%Master_Slider");
        _sfxSlider     = GetNode<HSlider>("%SFX_Slider");
+       _musicSlider     = GetNode<HSlider>("%Music_Slider");
+       _uiSlider      = GetNode<HSlider>("%UI_Slider");
        _fullscreenBox = GetNode<CheckBox>("%Fullscreen_CheckBox");
        _resDropdown   = GetNode<OptionButton>("%Resolution_Dropdown");
        _ssaoButton    = GetNode<CheckBox>("%SSAO_CheckBox");
@@ -30,6 +34,8 @@ public partial class SettingsMenu : Control
 
 
        _masterSlider.Value          = SettingsManager.Instance.MasterVolume;
+       _musicSlider.Value             = SettingsManager.Instance.MusicVolume;
+       _uiSlider.Value             = SettingsManager.Instance.UiVolume;
        _sfxSlider.Value             = SettingsManager.Instance.SfxVolume;
        _fullscreenBox.ButtonPressed = SettingsManager.Instance.Fullscreen;
        _ssaoButton.ButtonPressed    = SettingsManager.Instance.Ssao;
@@ -75,9 +81,19 @@ public partial class SettingsMenu : Control
        SettingsManager.Instance.ApplySettings();
     }
     
+    private void _on_music_slider_value_changed(float value) {
+	    SettingsManager.Instance.MusicVolume = value;
+	    SettingsManager.Instance.ApplySettings();
+    }
+    
     private void _on_sfx_slider_value_changed(float value) {
        SettingsManager.Instance.SfxVolume = value;
        SettingsManager.Instance.ApplySettings();
+    }
+    
+    private void _on_ui_slider_value_changed(float value) {
+	    SettingsManager.Instance.UiVolume = value;
+	    SettingsManager.Instance.ApplySettings();
     }
 
     private void _on_resolution_dropdown_item_selected(int index) {

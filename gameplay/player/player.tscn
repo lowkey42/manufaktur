@@ -3,6 +3,23 @@
 [ext_resource type="Script" uid="uid://b7gj6riclvku0" path="res://gameplay/player/Player.cs" id="1_01s76"]
 [ext_resource type="Material" uid="uid://c21s2t813typy" path="res://commons/textures/placeholder_material.tres" id="2_xq3ts"]
 [ext_resource type="PackedScene" uid="uid://diw8s3mb2f8pa" path="res://gameplay/player/Inventory.tscn" id="3_wvk08"]
+[ext_resource type="Script" uid="uid://jy4sym0dop3s" path="res://addons/godot_material_footsteps/core/material_footstep_player_3d.gd" id="4_011tu"]
+[ext_resource type="Script" uid="uid://cfs28riswyejx" path="res://addons/godot_material_footsteps/resources/material_footstep.gd" id="5_2uk1t"]
+[ext_resource type="AudioStream" uid="uid://boq6ai5kq4vnw" path="res://gameplay/player/vfx/player_step_wood.tres" id="6_ahkyy"]
+[ext_resource type="AudioStream" uid="uid://byr6nf61gf00u" path="res://gameplay/player/vfx/player_landing_sand.tres" id="8_d14h3"]
+[ext_resource type="AudioStream" uid="uid://cc850abug5ger" path="res://gameplay/player/vfx/player_step_sand.tres" id="9_lh4hn"]
+[ext_resource type="AudioStream" uid="uid://bxwu67usj4rg6" path="res://gameplay/player/vfx/player_landing_metal.tres" id="10_fty7g"]
+[ext_resource type="AudioStream" uid="uid://b06pi1t67v2lh" path="res://gameplay/player/vfx/player_landing_wood.tres" id="11_2iayx"]
+[ext_resource type="AudioStream" uid="uid://bbmjvpsnbq5ps" path="res://gameplay/player/vfx/player_step_metal.tres" id="11_chlpi"]
+[ext_resource type="AudioStream" uid="uid://7vmww4oh4erl" path="res://gameplay/player/vfx/jump/Jump1.wav" id="12_u5hhf"]
+[ext_resource type="AudioStream" uid="uid://jnfvcs5lrmjb" path="res://gameplay/player/vfx/jump/Jump2.wav" id="13_11ekh"]
+[ext_resource type="AudioStream" uid="uid://bec1vibxw5nt7" path="res://gameplay/player/vfx/jump/Jump3.wav" id="14_sotlt"]
+[ext_resource type="AudioStream" uid="uid://bd7joxarylbu1" path="res://gameplay/player/vfx/jump/Jump4.wav" id="15_3o4xm"]
+[ext_resource type="AudioStream" uid="uid://b4p24o1rkg2bb" path="res://gameplay/player/vfx/jump/Jump5.wav" id="16_87gpu"]
+[ext_resource type="AudioStream" uid="uid://dpwas6bqhskp7" path="res://gameplay/player/vfx/jump/Jump6.wav" id="17_5j16v"]
+[ext_resource type="AudioStream" uid="uid://dbsvuh7mc1b33" path="res://gameplay/player/vfx/jump/Jump7.wav" id="18_co852"]
+[ext_resource type="AudioStream" uid="uid://cmn5g0cysmv2i" path="res://gameplay/player/vfx/jump/Jump8.wav" id="19_iinxr"]
+[ext_resource type="AudioStream" uid="uid://11m8glnnhyri" path="res://gameplay/player/vfx/jump/Jump9.wav" id="20_cm2gl"]
 
 [sub_resource type="Curve" id="Curve_01s76"]
 _limits = [0.0, 50.0, 0.0, 120.0]
@@ -18,7 +35,41 @@ point_count = 4
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_omfh6"]
 
-[node name="Player" type="CharacterBody3D" unique_id=813857107 node_paths=PackedStringArray("_camera", "Inventory", "ItemUseSoundPlayer")]
+[sub_resource type="Resource" id="Resource_k8msr"]
+script = ExtResource("5_2uk1t")
+material_name = "sand"
+movement_sound = ExtResource("9_lh4hn")
+landing_sound = ExtResource("8_d14h3")
+metadata/_custom_type_script = "uid://cfs28riswyejx"
+
+[sub_resource type="Resource" id="Resource_mo1cy"]
+script = ExtResource("5_2uk1t")
+material_name = "wood"
+movement_sound = ExtResource("6_ahkyy")
+landing_sound = ExtResource("11_2iayx")
+metadata/_custom_type_script = "uid://cfs28riswyejx"
+
+[sub_resource type="Resource" id="Resource_2iayx"]
+script = ExtResource("5_2uk1t")
+material_name = "metal"
+movement_sound = ExtResource("11_chlpi")
+landing_sound = ExtResource("10_fty7g")
+metadata/_custom_type_script = "uid://cfs28riswyejx"
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_f4wa7"]
+random_pitch = 1.0293022
+streams_count = 9
+stream_0/stream = ExtResource("12_u5hhf")
+stream_1/stream = ExtResource("13_11ekh")
+stream_2/stream = ExtResource("14_sotlt")
+stream_3/stream = ExtResource("15_3o4xm")
+stream_4/stream = ExtResource("16_87gpu")
+stream_5/stream = ExtResource("17_5j16v")
+stream_6/stream = ExtResource("18_co852")
+stream_7/stream = ExtResource("19_iinxr")
+stream_8/stream = ExtResource("20_cm2gl")
+
+[node name="Player" type="CharacterBody3D" unique_id=813857107 node_paths=PackedStringArray("_jumpPlayer", "_camera", "Inventory")]
 collision_layer = 2
 collision_mask = 29
 axis_lock_angular_z = true
@@ -29,9 +80,9 @@ script = ExtResource("1_01s76")
 _acceleration = SubResource("Curve_01s76")
 _targetFov = SubResource("Curve_xq3ts")
 _mouseSensitivity = 0.003
+_jumpPlayer = NodePath("JumpPlayer")
 _camera = NodePath("Camera3D")
 Inventory = NodePath("Inventory")
-ItemUseSoundPlayer = NodePath("")
 metadata/collision_preset_name = "__custom__"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1666303049]
@@ -54,3 +105,25 @@ gi_mode = 2
 mesh = SubResource("CapsuleMesh_omfh6")
 
 [node name="Inventory" parent="." unique_id=79173081 instance=ExtResource("3_wvk08")]
+
+[node name="MaterialFootstepPlayer3D" type="RayCast3D" parent="." unique_id=1704676522 node_paths=PackedStringArray("character", "audio_player")]
+script = ExtResource("4_011tu")
+character = NodePath("..")
+material_footstep_sound_map = Array[ExtResource("5_2uk1t")]([SubResource("Resource_k8msr"), SubResource("Resource_mo1cy"), SubResource("Resource_2iayx")])
+audio_player = NodePath("../FootStepPlayer")
+surface_material_detection = false
+accepted_meta_data_names = PackedStringArray("surface_type")
+default_material_footstep_movement_sound = ExtResource("9_lh4hn")
+default_material_footstep_landing_sound = ExtResource("8_d14h3")
+character_max_speed = 4.0
+debug = false
+metadata/_custom_type_script = "uid://jy4sym0dop3s"
+
+[node name="FootStepPlayer" type="AudioStreamPlayer3D" parent="." unique_id=996791187]
+volume_db = -25.0
+bus = &"Sound Effects"
+
+[node name="JumpPlayer" type="AudioStreamPlayer3D" parent="." unique_id=1466973253]
+stream = SubResource("AudioStreamRandomizer_f4wa7")
+volume_db = -20.0
+bus = &"Sound Effects"

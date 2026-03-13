@@ -396,13 +396,13 @@ EnableAutoRespawn = true
 SpawnOnTrigger = false
 
 [node name="Dash" parent="Interactables/Items" index="1" unique_id=55552116 instance=ExtResource("19_viicr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -162.048, 4.4825616, 38.794792)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -162.048, 4.509546, 38.794792)
 item = ExtResource("21_xmvng")
 EnableAutoRespawn = true
 SpawnOnTrigger = false
 
 [node name="Dash3" parent="Interactables/Items" index="2" unique_id=350048728 instance=ExtResource("19_viicr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.07827, 8.929577, 138.67685)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100.07827, 9.019848, 138.67685)
 item = ExtResource("21_xmvng")
 EnableAutoRespawn = true
 SpawnOnTrigger = false
@@ -414,25 +414,25 @@ EnableAutoRespawn = true
 SpawnOnTrigger = false
 
 [node name="Dash4" parent="Interactables/Items" index="4" unique_id=2126798201 instance=ExtResource("19_viicr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -143.6965, 4.4366717, 261.91623)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -143.6965, 4.5398602, 261.67877)
 item = ExtResource("21_xmvng")
 EnableAutoRespawn = true
 SpawnOnTrigger = false
 
 [node name="Sandwitch" parent="Interactables/Items" index="5" unique_id=534794103 instance=ExtResource("19_viicr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.894002, 17.99935, 253.37079)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.894002, 18.033857, 253.37079)
 item = ExtResource("21_7yxld")
 EnableAutoRespawn = true
 SpawnOnTrigger = false
 
 [node name="Glitch" parent="Interactables/Items" index="6" unique_id=1368290396 instance=ExtResource("19_viicr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.326397, 9.017648, 102.59136)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.326397, 9.047922, 102.59136)
 item = ExtResource("23_fqmxt")
 EnableAutoRespawn = true
 SpawnOnTrigger = false
 
 [node name="Dash2" parent="Interactables/Items" index="7" unique_id=1267801636 instance=ExtResource("19_viicr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.34217, 8.968887, 446.80948)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.34217, 9.026465, 446.80948)
 item = ExtResource("21_xmvng")
 EnableAutoRespawn = true
 SpawnOnTrigger = false

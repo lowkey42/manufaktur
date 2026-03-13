@@ -1,0 +1,17 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://cc850abug5ger"]
+
+[ext_resource type="AudioStream" uid="uid://cumqfgt65uobq" path="res://gameplay/player/vfx/steps/PlayerSand1.wav" id="1_wwusk"]
+[ext_resource type="AudioStream" uid="uid://cj8j65cla4bac" path="res://gameplay/player/vfx/steps/PlayerSand2.wav" id="2_pixh8"]
+[ext_resource type="AudioStream" uid="uid://bonuqqfihenpx" path="res://gameplay/player/vfx/steps/PlayerSand3.wav" id="3_fqc0v"]
+[ext_resource type="AudioStream" uid="uid://bvp5k25ckkya7" path="res://gameplay/player/vfx/steps/PlayerSand4.wav" id="4_qq7p7"]
+[ext_resource type="AudioStream" uid="uid://c5kogvfysmwfv" path="res://gameplay/player/vfx/steps/PlayerSand5.wav" id="5_43pmr"]
+[ext_resource type="AudioStream" uid="uid://g82b2x4mh7rg" path="res://gameplay/player/vfx/steps/PlayerSand6.wav" id="6_nf1q8"]
+
+[resource]
+streams_count = 6
+stream_0/stream = ExtResource("1_wwusk")
+stream_1/stream = ExtResource("2_pixh8")
+stream_2/stream = ExtResource("3_fqc0v")
+stream_3/stream = ExtResource("4_qq7p7")
+stream_4/stream = ExtResource("5_43pmr")
+stream_5/stream = ExtResource("6_nf1q8")
