@@ -45,12 +45,12 @@ public partial class LevelSelection : Control
         var btn3 = GetNode<Button>("%Level3Button");
         var btn4 = GetNode<Button>("%Level4Button");
 
-        Texture2D defaultImg = GD.Load<Texture2D>("res://commons/textures/placeholder.png");
+        Texture2D defaultImg    = GD.Load<Texture2D>("res://commons/textures/placeholder.png");
         Texture2D beachlevelimg = GD.Load<Texture2D>("res://commons/textures/beachlevel01_preview.png");
-        
+        Texture2D beachlevel_2_img = GD.Load<Texture2D>("res://commons/textures/beachlevel02_preview.png");
 
-        btn1.Pressed += () => SelectLevel("baselevel", "res://menus/story_menu_real.tscn", "baselevel", beachlevelimg);
-        btn2.Pressed += () => SelectLevel("Level 2", "res://gameplay/levels/level02.tscn", "Level2", defaultImg);
+        btn1.Pressed += () => SelectLevel("Beach Level 1", "res://menus/story_menu_real.tscn", "baselevel", beachlevelimg);
+        btn2.Pressed += () => SelectLevel("Beach Level 2", "res://gameplay/levels/BeachLevel02_v2.tscn", "BeachLevel02_v2", beachlevel_2_img);
         btn3.Pressed += () => SelectLevel("Level 3", "res://gameplay/levels/level03.tscn", "Level3", defaultImg);
         btn4.Pressed += () => SelectLevel("Level 4", "res://gameplay/levels/level04.tscn", "Level4", defaultImg);
 
