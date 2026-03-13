@@ -22,6 +22,9 @@ albedo_texture = ExtResource("1_d7ppj")
 [sub_resource type="BoxShape3D" id="BoxShape3D_358bx"]
 size = Vector3(1, 1.9, 0.1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_nxm8u"]
+size = Vector3(1, 1.9, 0.5)
+
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xre5c"]
 streams_count = 9
 stream_0/stream = ExtResource("3_nxm8u")
@@ -34,12 +37,14 @@ stream_6/stream = ExtResource("9_7hraa")
 stream_7/stream = ExtResource("10_e58r1")
 stream_8/stream = ExtResource("11_pg10u")
 
-[node name="Popup" type="Node3D" unique_id=1517823302 node_paths=PackedStringArray("_soundPlayer")]
+[node name="Popup" type="Node3D" unique_id=1517823302 node_paths=PackedStringArray("_rotationOrigin", "_soundPlayer", "_pushbackTriggerArea")]
 script = ExtResource("1_0gril")
-TriggerRadius = 24.0
+_rotationOrigin = NodePath("Origin")
 _soundPlayer = NodePath("AudioStreamPlayer3D")
+_pushbackTriggerArea = NodePath("Origin/Area3D")
 
 [node name="Origin" type="Node3D" parent="." unique_id=2029802706]
+transform = Transform3D(1, 0, 0, 0, 0.17364822, -0.9848077, 0, 0.9848077, 0.17364822, 0, 0, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Origin" unique_id=1484528743]
 
@@ -51,6 +56,15 @@ surface_material_override/0 = SubResource("StandardMaterial3D_0gril")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Origin/StaticBody3D" unique_id=1224128999]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95, 0)
 shape = SubResource("BoxShape3D_358bx")
+
+[node name="Area3D" type="Area3D" parent="Origin" unique_id=216862001]
+collision_layer = 32
+collision_mask = 2
+metadata/collision_preset_name = "__custom__"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Origin/Area3D" unique_id=922914505]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9624634, 0)
+shape = SubResource("BoxShape3D_nxm8u")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=378988312]
 stream = SubResource("AudioStreamRandomizer_xre5c")
