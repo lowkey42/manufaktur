@@ -38,16 +38,64 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
+"materials": {
+"GDW2026_Trim.001": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://commons/Materials/TrimFactory_material.tres",
+"use_external/path": "uid://bod5dn2ugg4bl"
+},
+"factoryBaseMat": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://commons/Materials/BaseColorGradient.tres",
+"use_external/path": "uid://dam321ld4wisp"
+}
+},
 "nodes": {
 "PATH:5x5Wall": {
 "generate/physics": true
 },
+"PATH:5x5WallOpenTile": {
+"generate/physics": true,
+"physics/shape_type": 2
+},
+"PATH:5x5WallWindow": {
+"generate/physics": true,
+"physics/shape_type": 2
+},
 "PATH:5x5Wall_001": {
-"generate/physics": true
+"generate/physics": true,
+"physics/shape_type": 1
+},
+"PATH:BaseFloor": {
+"generate/physics": true,
+"physics/shape_type": 1
+},
+"PATH:BaseFloorSmall": {
+"generate/physics": true,
+"physics/shape_type": 1
 },
 "PATH:ConveyorBelt_Base": {
 "generate/physics": true,
 "physics/shape_type": 2
+},
+"PATH:FactoryStairs": {
+"generate/physics": true,
+"physics/shape_type": 1
+},
+"PATH:PipeCurved": {
+"generate/physics": true,
+"physics/shape_type": 1
+},
+"PATH:PipeQuadConnector": {
+"generate/physics": true,
+"physics/shape_type": 1
+},
+"PATH:PipeStraight": {
+"generate/physics": true,
+"physics/shape_type": 1
+},
+"PATH:ScaleGrid1x1_002": {
+"generate/physics": true
 }
 }
 }

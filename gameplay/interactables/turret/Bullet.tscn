@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://u1m12x5kgkkn"]
 
 [ext_resource type="Script" uid="uid://dw1j7gpq8lrvb" path="res://gameplay/interactables/turret/Bullet.cs" id="1_yg8k5"]
+[ext_resource type="Texture2D" uid="uid://gskkmdby62te" path="res://commons/textures/placeholder.png" id="2_k4pri"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_pvxan"]
 radius = 0.15
@@ -10,7 +11,11 @@ radius = 0.15
 height = 0.3
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pvxan"]
-albedo_color = Color(5.912981, 0, 0, 1)
+albedo_color = Color(1, 0, 0, 1)
+emission_enabled = true
+emission_texture = ExtResource("2_k4pri")
+uv1_scale = Vector3(1.54, 1.54, 1.54)
+uv1_offset = Vector3(0, -0.22, 0)
 
 [node name="Bullet" type="Node3D" unique_id=1945383036]
 script = ExtResource("1_yg8k5")

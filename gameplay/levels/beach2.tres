@@ -1,0 +1,16 @@
+[gd_resource type="Environment" format=3 uid="uid://b470m6hpxx8u0"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_n06be"]
+
+[sub_resource type="Sky" id="Sky_xfbjl"]
+sky_material = SubResource("ProceduralSkyMaterial_n06be")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_xfbjl")
+ambient_light_source = 3
+ambient_light_color = Color(0.921569, 0.921569, 0, 1)
+ssr_enabled = true
+ssao_enabled = true
+ssao_radius = 0.01
+volumetric_fog_density = 0.01

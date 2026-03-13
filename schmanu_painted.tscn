@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bepa2cdvausnq"]
+
+[ext_resource type="PackedScene" uid="uid://ctyxpkkm5xws4" path="res://gameplay/props/Schmanu_Texturen/Schmanu_Painted.gltf" id="1_8udvb"]
+[ext_resource type="Texture2D" uid="uid://bxmqwpm32lxi7" path="res://gameplay/props/Schmanu_Texturen/Manu_Midpoly_DefaultMaterial_BaseColor.png" id="2_iopuv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ds37l"]
+albedo_texture = ExtResource("2_iopuv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3u5mf"]
+albedo_texture = ExtResource("2_iopuv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1vmt7"]
+albedo_texture = ExtResource("2_iopuv")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_se74q"]
+albedo_texture = ExtResource("2_iopuv")
+
+[node name="Schmanu_Painted" unique_id=1379553802 instance=ExtResource("1_8udvb")]
+
+[node name="Manu_Body" parent="ROOT" parent_id_path=PackedInt32Array(702653078) index="0" unique_id=1122054819]
+material_override = SubResource("StandardMaterial3D_ds37l")
+
+[node name="Manu_Schnurrbart" parent="ROOT" parent_id_path=PackedInt32Array(702653078) index="1" unique_id=165323428]
+material_override = SubResource("StandardMaterial3D_3u5mf")
+
+[node name="Manu_Cap" parent="ROOT" parent_id_path=PackedInt32Array(702653078) index="2" unique_id=277849109]
+material_override = SubResource("StandardMaterial3D_1vmt7")
+
+[node name="Manu_Body_001" parent="ROOT" parent_id_path=PackedInt32Array(702653078) index="3" unique_id=641887771]
+material_override = SubResource("StandardMaterial3D_se74q")
