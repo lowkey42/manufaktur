@@ -21,6 +21,10 @@
 [ext_resource type="PackedScene" uid="uid://di3rrw1px67qn" path="res://gameplay/interactables/item_spawner/ItemSpawer.tscn" id="19_f4c8i"]
 [ext_resource type="Script" uid="uid://dl8bucyrvu5o" path="res://gameplay/items/dash/DashItem.cs" id="20_mauw1"]
 [ext_resource type="PackedScene" uid="uid://byewe7imuwvaf" path="res://gameplay/props/props Import/Schmanufaktur.tscn" id="21_rtqhc"]
+[ext_resource type="Resource" uid="uid://cuvg1hq2yhlom" path="res://gameplay/items/dash/Dash1.tres" id="22_x4oup"]
+[ext_resource type="PackedScene" uid="uid://c6reo3gbho0jg" path="res://gameplay/interactables/turret/turret02.tscn" id="23_p6dyi"]
+[ext_resource type="PackedScene" uid="uid://d3d6m6usc1ono" path="res://gameplay/interactables/turret/turret03.tscn" id="24_6prc3"]
+[ext_resource type="PackedScene" uid="uid://cutbhey4jp1dk" path="res://gameplay/levels/test_interactables.tscn" id="25_6prc3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_urk6c"]
 
@@ -243,6 +247,7 @@ fog_enabled = true
 fog_mode = 1
 fog_density = 1.0
 fog_depth_end = 975.9
+volumetric_fog_enabled = true
 volumetric_fog_density = 0.01
 volumetric_fog_albedo = Color(0.9647059, 0.5411765, 0.53333336, 1)
 
@@ -971,6 +976,27 @@ item = ExtResource("20_mauw1")
 [node name="Schmanufaktur" parent="." index="13" unique_id=201360080 instance=ExtResource("21_rtqhc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 146.44412, -1.2952042, -47.887928)
 
+[node name="Interactables" type="Node3D" parent="." index="14" unique_id=1179726110]
+
+[node name="ItemSpawer" parent="Interactables" index="0" unique_id=2134878629 instance=ExtResource("19_f4c8i")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -0.61059904, 0.030043922, 63.347565)
+item = ExtResource("22_x4oup")
+EnableAutoRespawn = true
+SpawnOnTrigger = false
+
+[node name="Turret" parent="Interactables" index="1" unique_id=1680761740 instance=ExtResource("7_uacab")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8998203, -0.018957138, 59.038605)
+BulletTemplate = ExtResource("4_k85cq")
+
+[node name="Turret2" parent="Interactables" index="2" unique_id=387475205 instance=ExtResource("23_p6dyi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.25703, -1.2078357, 55.683697)
+
+[node name="Turret3" parent="Interactables" index="3" unique_id=1601474429 instance=ExtResource("24_6prc3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5641847, 0.8042644, 52.343246)
+
+[node name="BaseLevel" parent="Interactables" index="4" unique_id=1886675909 instance=ExtResource("25_6prc3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.71311, 102.573006, 34.367638)
+
 [editable path="AssetGymFelix"]
 [editable path="SandwichStomper2/MovingPlatform"]
 [editable path="SandwichStomper3/MovingPlatform"]
@@ -979,3 +1005,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 146.44412, -1.2952042, -47.88
 [editable path="ENV/FactoryMeshLib/FactoryAssets3"]
 [editable path="ENV/FactoryMeshLib/factoryHalterung2"]
 [editable path="Schmanufaktur"]
+[editable path="Interactables/BaseLevel"]

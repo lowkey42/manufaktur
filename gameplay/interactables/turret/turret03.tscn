@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://d3d6m6usc1ono"]
+
+[ext_resource type="Script" uid="uid://nanlu5trd087" path="res://gameplay/interactables/turret/Turret.cs" id="1_jg1r0"]
+[ext_resource type="AudioStream" uid="uid://vd5vtf8qa8h0" path="res://gameplay/interactables/turret/Pew1.wav" id="3_i7cyn"]
+[ext_resource type="AudioStream" uid="uid://cma0c63hjtkaw" path="res://gameplay/interactables/turret/Pew2.wav" id="4_82vla"]
+[ext_resource type="AudioStream" uid="uid://b846xpqov8kci" path="res://gameplay/interactables/turret/Pew3.wav" id="5_wa8bo"]
+[ext_resource type="AudioStream" uid="uid://be0yl0ny8n5am" path="res://gameplay/interactables/turret/Pew4.wav" id="6_vicpq"]
+[ext_resource type="AudioStream" uid="uid://1t55ndwm3ov0" path="res://gameplay/interactables/turret/Pew5.wav" id="7_lw38r"]
+[ext_resource type="AudioStream" uid="uid://y0sqjmju0jdn" path="res://gameplay/interactables/turret/Pew6.wav" id="8_dj5by"]
+[ext_resource type="PackedScene" uid="uid://baodf1o1wsvsi" path="res://gameplay/props/manufaktur_factory_manu_turret_v_01.tscn" id="8_jg1r0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xxm84"]
+radius = 1.0805664
+height = 3.8220215
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_h7tv7"]
+streams_count = 6
+stream_0/stream = ExtResource("3_i7cyn")
+stream_1/stream = ExtResource("4_82vla")
+stream_2/stream = ExtResource("5_wa8bo")
+stream_3/stream = ExtResource("6_vicpq")
+stream_4/stream = ExtResource("7_lw38r")
+stream_5/stream = ExtResource("8_dj5by")
+
+[node name="Turret" type="Node3D" unique_id=1180370954 node_paths=PackedStringArray("_fireSoundPlayer")]
+script = ExtResource("1_jg1r0")
+_fireSoundPlayer = NodePath("AudioStreamPlayer3D")
+
+[node name="FireTimer" type="Timer" parent="." unique_id=119769133]
+autostart = true
+
+[node name="Origin" type="Node3D" parent="." unique_id=1919462712]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Body" type="StaticBody3D" parent="Origin" unique_id=10349814]
+collision_layer = 8
+metadata/collision_preset_name = "__custom__"
+
+[node name="Collision" type="CollisionShape3D" parent="Origin/Body" unique_id=1525545935]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8216553, 0)
+shape = SubResource("CapsuleShape3D_xxm84")
+
+[node name="BulletOrigin" type="Node3D" parent="Origin" unique_id=594718308]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4813957, 0)
+
+[node name="BulletDirection" type="RayCast3D" parent="Origin/BulletOrigin" unique_id=1871838329]
+target_position = Vector3(10, 0, 0)
+debug_shape_custom_color = Color(0.61960787, 0.45882353, 1, 1)
+debug_shape_thickness = 5
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=928089880]
+stream = SubResource("AudioStreamRandomizer_h7tv7")
+bus = &"Sound Effects"
+
+[node name="Manufaktur_Factory_ManuTurret_v02" parent="." unique_id=1251174730 instance=ExtResource("8_jg1r0")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.29207516, 0.22105074, -0.463776)

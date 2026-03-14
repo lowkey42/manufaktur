@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://c6reo3gbho0jg"]
+
+[ext_resource type="Script" uid="uid://nanlu5trd087" path="res://gameplay/interactables/turret/Turret.cs" id="1_hjt26"]
+[ext_resource type="PackedScene" uid="uid://b7jpq5hq0qahj" path="res://gameplay/props/props Import/Manufaktur_Factory_EvilSchmanuToast_v01.glb" id="2_hjt26"]
+[ext_resource type="AudioStream" uid="uid://vd5vtf8qa8h0" path="res://gameplay/interactables/turret/Pew1.wav" id="3_mkhn5"]
+[ext_resource type="AudioStream" uid="uid://cma0c63hjtkaw" path="res://gameplay/interactables/turret/Pew2.wav" id="4_58i0w"]
+[ext_resource type="AudioStream" uid="uid://b846xpqov8kci" path="res://gameplay/interactables/turret/Pew3.wav" id="5_wjha3"]
+[ext_resource type="AudioStream" uid="uid://be0yl0ny8n5am" path="res://gameplay/interactables/turret/Pew4.wav" id="6_v6d0g"]
+[ext_resource type="AudioStream" uid="uid://1t55ndwm3ov0" path="res://gameplay/interactables/turret/Pew5.wav" id="7_pebjg"]
+[ext_resource type="AudioStream" uid="uid://y0sqjmju0jdn" path="res://gameplay/interactables/turret/Pew6.wav" id="8_3s5nk"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xxm84"]
+radius = 1.0805664
+height = 3.8220215
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_h7tv7"]
+streams_count = 6
+stream_0/stream = ExtResource("3_mkhn5")
+stream_1/stream = ExtResource("4_58i0w")
+stream_2/stream = ExtResource("5_wjha3")
+stream_3/stream = ExtResource("6_v6d0g")
+stream_4/stream = ExtResource("7_pebjg")
+stream_5/stream = ExtResource("8_3s5nk")
+
+[node name="Turret" type="Node3D" unique_id=1180370954 node_paths=PackedStringArray("_fireSoundPlayer")]
+script = ExtResource("1_hjt26")
+_fireSoundPlayer = NodePath("AudioStreamPlayer3D")
+
+[node name="FireTimer" type="Timer" parent="." unique_id=119769133]
+autostart = true
+
+[node name="Origin" type="Node3D" parent="." unique_id=1919462712]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Body" type="StaticBody3D" parent="Origin" unique_id=10349814]
+collision_layer = 8
+metadata/collision_preset_name = "__custom__"
+
+[node name="Collision" type="CollisionShape3D" parent="Origin/Body" unique_id=1525545935]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8216553, 0)
+shape = SubResource("CapsuleShape3D_xxm84")
+
+[node name="Manufaktur_Factory_EvilSchmanuToast_v01" parent="Origin/Body" unique_id=1904737400 instance=ExtResource("2_hjt26")]
+transform = Transform3D(-3.7154685e-08, 0, 0.85000014, 0, 0.85000014, 0, -0.85000014, 0, -3.7154685e-08, -0.4665742, 0.7448323, -0.7296878)
+
+[node name="BulletOrigin" type="Node3D" parent="Origin" unique_id=594718308]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4813957, 0)
+
+[node name="BulletDirection" type="RayCast3D" parent="Origin/BulletOrigin" unique_id=1871838329]
+target_position = Vector3(10, 0, 0)
+debug_shape_custom_color = Color(0.61960787, 0.45882353, 1, 1)
+debug_shape_thickness = 5
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=928089880]
+stream = SubResource("AudioStreamRandomizer_h7tv7")
+bus = &"Sound Effects"
