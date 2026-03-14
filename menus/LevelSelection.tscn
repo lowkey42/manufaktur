@@ -26,7 +26,7 @@ bg_color = Color(0.19215687, 0.21568628, 0.3019608, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uerr4"]
 bg_color = Color(0.19215687, 0.21568628, 0.3019608, 1)
 
-[node name="LevelSelection" type="Control" unique_id=1153605463]
+[node name="LevelSelection" type="Control" unique_id=1153605463 node_paths=PackedStringArray("iHateNodePathsBecuaseTheyAreWonkyAsHell", "iHateNodePathsBecuaseTheyAreWonkyAsHell2ElectricBenedict")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,6 +35,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_ma3l3")
 script = ExtResource("2_p6kpr")
+iHateNodePathsBecuaseTheyAreWonkyAsHell = NodePath("LayoutContainer/MainSplit/CurrentSelectedLevelContainer/MarginContainer/RightPanelContent/HBoxContainer2/HighScoreButton")
+iHateNodePathsBecuaseTheyAreWonkyAsHell2ElectricBenedict = NodePath("LayoutContainer/MainSplit/CurrentSelectedLevelContainer/MarginContainer/RightPanelContent/CurrentScoreLabel")
 
 [node name="LayoutContainer" type="CenterContainer" parent="." unique_id=1907891098]
 layout_mode = 1
