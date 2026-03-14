@@ -1,3 +1,4 @@
+using System.Reflection.Emit;
 using Godot;
 using Manufaktur.gameplay;
 using Manufaktur.gameplay.levels;
@@ -71,7 +72,8 @@ public partial class LevelSelection : Control
 				i++;
 			}
 
-			btn.Pressed += () => SelectLevel(level.LevelName, level.ScenePath, level.HighscoreKey, level.PreviewImage, level.HighscoreKey.Length > 0);
+			var fn = () => SelectLevel(level.LevelName, level.ScenePath, level.HighscoreKey, level.PreviewImage, level.HighscoreKey.Length > 0);
+			btn.Pressed += fn;
 
 			buttonContainer.AddChild(btn);
 		}
@@ -79,7 +81,7 @@ public partial class LevelSelection : Control
 		if (AvailableLevels.Count > 0)
 		{
 			var firstLevel = AvailableLevels[0];
-			CallDeferred(MethodName.SelectLevel, firstLevel.LevelName, firstLevel.ScenePath, firstLevel.HighscoreKey, firstLevel.PreviewImage);
+			CallDeferred(MethodName.SelectLevel, firstLevel.LevelName, firstLevel.ScenePath, firstLevel.HighscoreKey, firstLevel.PreviewImage, firstLevel.HighscoreKey.Length > 0);
 		}
 	}
 
