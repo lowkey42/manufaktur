@@ -1309,6 +1309,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
 [node name="Manufaktur_Factory_SchmanuStatue_v03" parent="Schmanufaktur" index="5" unique_id=1126938198 instance=ExtResource("37_ytofh")]
 transform = Transform3D(3.0490794, 0, -7.396156, 0, 8, 0, 7.396156, 0, 3.0490794, -151.41605, -82.510185, 51.59543)
 
+[node name="BeachBall4" parent="." index="20" unique_id=1842963850 instance=ExtResource("29_whado")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -272.0004, 9.847432, 276.33765)
+
+[node name="BeachBall5" parent="." index="21" unique_id=277188603 instance=ExtResource("29_whado")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -315.21613, 16.168354, 698.38385)
+
 [editable path="DecoStuff/AssetGymFelix2"]
 [editable path="DecoStuff/AssetGymFelix"]
 [editable path="Schmanufaktur"]
