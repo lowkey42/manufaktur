@@ -57,6 +57,7 @@ grow_vertical = 2
 visible = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=931841921]
+process_mode = 3
 stream = ExtResource("9_mty66")
 volume_db = -10.0
 bus = &"Sound Effects"
