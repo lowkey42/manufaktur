@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://00ip0t0c74ti" path="res://gameplay/base_level.tscn" id="1_275aj"]
 [ext_resource type="Environment" uid="uid://b470m6hpxx8u0" path="res://gameplay/levels/beach2.tres" id="2_cuprs"]
+[ext_resource type="AudioStream" uid="uid://dl3eiddfx8wck" path="res://commons/music/level 1 - messestrand.mp3" id="2_dykt1"]
 [ext_resource type="CameraAttributesPractical" uid="uid://cgc2whm11qogj" path="res://gameplay/levels/beach2camera.tres" id="3_ir5ad"]
 [ext_resource type="Compositor" uid="uid://bew1u116w528g" path="res://gameplay/levels/beach2comp.tres" id="4_8mc46"]
 [ext_resource type="Material" uid="uid://c21s2t813typy" path="res://commons/textures/placeholder_material.tres" id="6_f67bj"]
@@ -841,6 +842,7 @@ points = PackedVector3Array(0.2866976, 0.060571406, -0.41914222, 0.07687726, 4.2
 points = PackedVector3Array(-1.216543, 5.9468684, 3.3371089, 1.6849091, 5.080823, 1.3023252, 1.6849091, 4.9942894, 1.3023252, -0.99987835, 5.297334, 0.08930302, -1.7360574, 4.4745555, 2.0376847, 0.9916508, 4.4745555, 3.4669003, 0.92593163, 5.9093037, 1.4629638, 0.8177465, 5.7117176, 3.06412, 1.6413014, 4.6910667, 1.1291442, -1.216543, 5.3838677, 3.8570294, -0.62940955, 6.0874763, 0.7889792, -0.6707813, 6.21208, 3.1539319, -1.7068678, 5.133432, 1.9919312, -0.43709967, 5.860157, 0.3492633, -0.8700856, 5.1242676, 0.0029011965, 1.0759399, 5.0907526, 3.4081528, -0.8268213, 5.8167124, 3.7702503, 1.5689023, 5.2575603, 1.1211296, -1.0000973, 5.7543187, 0.6264734, -1.0431426, 6.163202, 2.9473572, 1.2697592, 5.7112556, 1.7032733, 0.30769148, 4.5077257, 2.0289562, -1.3466791, 5.6869125, 3.7268605, 1.2083155, 4.7345114, 3.3801212, -0.6970286, 5.5134897, 0.046290755, 1.5980371, 4.9077563, 0.99897546)
 
 [node name="BeachLevel02" unique_id=433332774 instance=ExtResource("1_275aj")]
+TimeMinimum = 300.0
 TimeSilver = 320.0
 TimeGold = 180.0
 TimePlatinum = 50.0
@@ -853,6 +855,9 @@ _gravityFactor = 2.0
 _maxSpeed = 250.0
 _maxAirJumps = 2
 _fovSpringStiffness = 0.0
+
+[node name="SceneMusic" parent="." index="1" unique_id=1650332442]
+Music = ExtResource("2_dykt1")
 
 [node name="DirectionalLight3D" parent="." index="2" unique_id=1057689463]
 visible = false

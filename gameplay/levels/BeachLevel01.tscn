@@ -1025,6 +1025,18 @@ shape = SubResource("ConcavePolygonShape3D_ytofh")
 [node name="AssetGymFelix2" parent="DecoStuff" index="5" unique_id=2061871552 instance=ExtResource("29_ouo46")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 168.80305, 53.241753, -122.46767)
 
+[node name="Billboard_ManuBeach" parent="DecoStuff/AssetGymFelix2" index="0" unique_id=838196966]
+visible = false
+
+[node name="Billboard_Energy" parent="DecoStuff/AssetGymFelix2" index="1" unique_id=868203046]
+visible = false
+
+[node name="Billboard_Alkpecin" parent="DecoStuff/AssetGymFelix2" index="2" unique_id=193307604]
+visible = false
+
+[node name="Billboard_McDonalds" parent="DecoStuff/AssetGymFelix2" index="3" unique_id=1154401045]
+visible = false
+
 [node name="BeachChair" parent="DecoStuff/AssetGymFelix2" index="4" unique_id=616359475]
 transform = Transform3D(1.0403996, 0.013458113, -0.63947797, -1.2110878, 0.027057609, -2.3921478e-08, 1.2045066, 0.015580926, 0.55235255, -41.702164, -30.478216, 110.978355)
 
@@ -1133,6 +1145,12 @@ transform = Transform3D(0.8660254, 0, 0.5, 0, 1, 0, -0.5, 0, 0.8660254, -65.7290
 [node name="Popsicle_2" parent="DecoStuff/AssetGymFelix2" index="15" unique_id=1824759659]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -354.0564, -29.272478, 187.60446)
 
+[node name="BeachBall" parent="DecoStuff/AssetGymFelix2" index="16" unique_id=298233808]
+visible = false
+
+[node name="BeachFlag" parent="DecoStuff/AssetGymFelix2" index="17" unique_id=16217985]
+visible = false
+
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="DecoStuff/AssetGymFelix2/BeachFlag/StaticBody3D" parent_id_path=PackedInt32Array(2061871552, 1393859747) index="1" unique_id=868913502]
 shape = SubResource("ConcavePolygonShape3D_j5d4m")
 
@@ -1149,6 +1167,30 @@ shape = SubResource("ConcavePolygonShape3D_j5d4m")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="DecoStuff/AssetGymFelix2/BeachFlag2/StaticBody3D" index="1" unique_id=415450126]
 shape = SubResource("ConcavePolygonShape3D_j5d4m")
+
+[node name="Towel_2" parent="DecoStuff/AssetGymFelix2" index="19" unique_id=2145437466]
+visible = false
+
+[node name="Towel_1" parent="DecoStuff/AssetGymFelix2" index="20" unique_id=448481141]
+visible = false
+
+[node name="Sandwich" parent="DecoStuff/AssetGymFelix2" index="21" unique_id=16740152]
+visible = false
+
+[node name="5x10Plane" parent="DecoStuff/AssetGymFelix2" index="22" unique_id=1919014087]
+visible = false
+surface_material_override/0 = null
+
+[node name="5x10Bridge_002" parent="DecoStuff/AssetGymFelix2" index="23" unique_id=235009623]
+visible = false
+surface_material_override/0 = null
+
+[node name="5x5Planks" parent="DecoStuff/AssetGymFelix2" index="24" unique_id=272569805]
+visible = false
+surface_material_override/0 = null
+
+[node name="Palme_Asset" parent="DecoStuff/AssetGymFelix2" index="25" unique_id=430785534]
+visible = false
 
 [node name="AssetGymFelix" parent="DecoStuff" index="6" unique_id=388648016 instance=ExtResource("29_ouo46")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 3.3124008, 5.535693, -11.919483)
@@ -1297,7 +1339,13 @@ transform = Transform3D(-1.5529145, 0, -5.795555, 0, 6, 0, 5.795555, 0, -1.55291
 [node name="Schmanufaktur" parent="." index="19" unique_id=201360080 instance=ExtResource("36_ae7xu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 224, 105, -79)
 
-[node name="Manufaktur_Factory_EvilSchmanuToast_v02" parent="Schmanufaktur" index="2" unique_id=1904737400 instance=ExtResource("37_j5d4m")]
+[node name="Manufaktur_Factory_EiffeltowerALaManu_v01" parent="Schmanufaktur" index="0" unique_id=448991849]
+visible = false
+
+[node name="Manufaktur_Factory_EvilSchmanuToast_v01" parent="Schmanufaktur" index="1" unique_id=1904737400]
+visible = false
+
+[node name="Manufaktur_Factory_EvilSchmanuToast_v02" parent="Schmanufaktur" index="2" unique_id=183291278 instance=ExtResource("37_j5d4m")]
 transform = Transform3D(-2.0412967, 1.3400694, 7.618223, 0.34683555, 7.886965, -1.294408, -7.727407, 0, -2.0705523, -679.58704, -91, 551.5335)
 
 [node name="Manufaktur_Factory_SchmanuStatue_v01" parent="Schmanufaktur" index="3" unique_id=228084470]
@@ -1305,9 +1353,16 @@ transform = Transform3D(-8.48528, 0, -8.485281, 0, 12, 0, 8.485281, 0, -8.48528,
 
 [node name="Manufaktur_Factory_SchmanuStatue_v02" parent="Schmanufaktur" index="4" unique_id=990521506 instance=ExtResource("37_ytofh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+visible = false
 
 [node name="Manufaktur_Factory_SchmanuStatue_v03" parent="Schmanufaktur" index="5" unique_id=1126938198 instance=ExtResource("37_ytofh")]
 transform = Transform3D(3.0490794, 0, -7.396156, 0, 8, 0, 7.396156, 0, 3.0490794, -151.41605, -82.510185, 51.59543)
+
+[node name="Manufaktur_Factory_ManuTube_v02" parent="Schmanufaktur" index="6" unique_id=1639206179]
+visible = false
+
+[node name="Manufaktur_Factory_ManuTurret_v02" parent="Schmanufaktur" index="7" unique_id=1251174730]
+visible = false
 
 [node name="BeachBall4" parent="." index="20" unique_id=1842963850 instance=ExtResource("29_whado")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -272.0004, 9.847432, 276.33765)
