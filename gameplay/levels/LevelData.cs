@@ -16,4 +16,7 @@ public partial class LevelData : Resource
     
 	[Export] 
 	public Texture2D PreviewImage { get; set; }
+
+	[Export]
+	public string UniqueListName { get; set; } = "";
 }

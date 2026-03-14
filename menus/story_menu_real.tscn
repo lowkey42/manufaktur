@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dhaws7vvk31vr" path="res://commons/storie/story_frame_2.png" id="4_k8afv"]
 [ext_resource type="Texture2D" uid="uid://b3bdduryj8jak" path="res://commons/storie/story_frame_3.png" id="5_0ut0m"]
 [ext_resource type="Texture2D" uid="uid://bdn768ml5686a" path="res://commons/storie/story_frame_4.png" id="6_0rd6t"]
-[ext_resource type="Texture2D" uid="uid://cewvbbrfxcvm7" path="res://commons/storie/story_frame_5.png" id="7_727p4"]
+[ext_resource type="Texture2D" uid="uid://bqo2kgy31a00j" path="res://commons/storie/story_frame_5.png" id="7_727p4"]
 [ext_resource type="Texture2D" uid="uid://cmdj3f35w4yya" path="res://commons/storie/story_frame_6.png" id="8_7klk8"]
 [ext_resource type="Texture2D" uid="uid://bs02y07gd1n01" path="res://commons/storie/story_frame_7.png" id="9_lit01"]
 [ext_resource type="Texture2D" uid="uid://ca3gptrjxjapw" path="res://commons/storie/story_frame_8.png" id="10_kcftc"]
@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://c8ubcuhlabvot" path="res://commons/storie/story_frame_10.png" id="12_kgtaa"]
 [ext_resource type="Texture2D" uid="uid://c8n56h7dj1fff" path="res://commons/storie/story_frame_11.png" id="13_hi2r4"]
 [ext_resource type="Texture2D" uid="uid://xdm11joq7jeu" path="res://commons/storie/story_frame_12.png" id="14_d8q87"]
-[ext_resource type="PackedScene" uid="uid://cjkqp2iw5cift" path="res://gameplay/levels/BeachLevel01.tscn" id="15_k8afv"]
+[ext_resource type="PackedScene" uid="uid://c0u0t8bci7xwj" path="res://menus/main_menu.tscn" id="15_k8afv"]
 
 [sub_resource type="Resource" id="Resource_rcbpk"]
 script = ExtResource("2_n34jt")
