@@ -7,6 +7,13 @@ HashSet<string> levelNames = [
 	"baselevel",
 	"level01",
 	"test",
+	"beachlevel01",
+	"beachlevel02",
+	"beachlevel03",
+	"factorylevel",
+	"factorylevel01",
+	"factorylevel02",
+	"factorylevel03",
 ];
 
 Dictionary<string, Scores> allScores = [];
