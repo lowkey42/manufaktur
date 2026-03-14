@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://5gwsoe0vpiel"]
+
+[ext_resource type="PackedScene" uid="uid://cqt01ujng44vt" path="res://gameplay/props/props Import/Manufaktur_3xUmbrella_v01.glb" id="1_inwbc"]
+[ext_resource type="Material" uid="uid://dam321ld4wisp" path="res://commons/Materials/BaseColorGradient.tres" id="2_kv5yw"]
+
+[node name="Manufaktur_3xUmbrella_v01" unique_id=950798284 instance=ExtResource("1_inwbc")]
+
+[node name="Umbrella_Schmanu" parent="." index="0" unique_id=55190126]
+material_override = ExtResource("2_kv5yw")
+
+[node name="Umbrella_Manuverse" parent="." index="1" unique_id=1732279709]
+material_override = ExtResource("2_kv5yw")
+
+[node name="Umbrella_Feet" parent="." index="2" unique_id=1255051834]
+material_override = ExtResource("2_kv5yw")
